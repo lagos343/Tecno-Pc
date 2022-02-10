@@ -13,8 +13,7 @@ namespace Repuestos_Arias.Clases
         private static int id_Categoria;
         private static string nombre_Categoria;
         private static string descripcion_Categoria;      
-        private static string descripcion_Categoria2;   
-
+        
         #region Encapsulamiento
         public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
         public string Nombre_Categoria { get => nombre_Categoria; set => nombre_Categoria = value; }
