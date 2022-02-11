@@ -88,8 +88,7 @@ namespace Repuestos_Arias.Formularios
         {
             txt_descripcion.Clear();
             txt_id.Clear();
-            txt_nombre.Clear();
-            txt_nombre.Focus();
+            
         }
 
         private void operacionesDatagrid()
@@ -141,7 +140,7 @@ namespace Repuestos_Arias.Formularios
         #region Categorias Botones
         private void btn_guardarCategorias (object sender, EventArgs e)
         {
-            if (txt_descripcion.Text == "" || txt_nombre.Text == "")
+            if (txt_descripcion.Text == "" )
             {                
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de guardar", 3);
                 noti.ShowDialog();
@@ -149,8 +148,7 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                cate = new Clases.Cl_Categorias();
-                cate.Nombre_Categoria = txt_nombre.Text;
+                cate = new Clases.Cl_Categorias();                
                 cate.Descripcion_Categoria = txt_descripcion.Text;
 
                 if (editar == true)
@@ -185,8 +183,7 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
-                txt_nombre.Text = dgv_datos.CurrentRow.Cells[1].Value.ToString();
+                txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();                
                 txt_descripcion.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
                 editar = true;
                 btn_guardar.Text = "Actualizar";
@@ -221,7 +218,7 @@ namespace Repuestos_Arias.Formularios
         #region Marcas Botones
         private void btn_guardarMarcas(object sender, EventArgs e)
         {
-            if (txt_descripcion.Text == "" || txt_nombre.Text == "")
+            if (txt_descripcion.Text == "" )
             {
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de guardar", 3);
                 noti.ShowDialog();
@@ -230,7 +227,6 @@ namespace Repuestos_Arias.Formularios
             else
             {
                 marca = new Clases.Cl_Marcas();
-                marca.Nombre_Marca = txt_nombre.Text;
                 marca.Descripcion_Marca = txt_descripcion.Text;
 
                 if (editar == true)
@@ -266,7 +262,6 @@ namespace Repuestos_Arias.Formularios
             else
             {
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
-                txt_nombre.Text = dgv_datos.CurrentRow.Cells[1].Value.ToString();
                 txt_descripcion.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
                 editar = true;
                 btn_guardar.Text = "Actualizar";

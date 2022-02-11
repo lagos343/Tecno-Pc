@@ -42,17 +42,13 @@ namespace Repuestos_Arias.Formularios
             this.txt_id = new System.Windows.Forms.TextBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.txt_nombre = new System.Windows.Forms.TextBox();
             this.txt_descripcion = new System.Windows.Forms.TextBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.directoryEntry1 = new System.DirectoryServices.DirectoryEntry();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_excel = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_eliminar = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_editar = new Guna.UI.WinForms.GunaGradientButton();
@@ -65,7 +61,6 @@ namespace Repuestos_Arias.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -173,7 +168,7 @@ namespace Repuestos_Arias.Formularios
             this.dgv_datos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_datos.RowHeadersVisible = false;
             this.dgv_datos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgv_datos.Size = new System.Drawing.Size(743, 320);
+            this.dgv_datos.Size = new System.Drawing.Size(743, 299);
             this.dgv_datos.TabIndex = 18;
             // 
             // txt_id
@@ -209,36 +204,15 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel3.TabIndex = 28;
             this.gunaLabel3.Text = "NOMBRE";
             // 
-            // gunaLabel4
-            // 
-            this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.gunaLabel4.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel4.Location = new System.Drawing.Point(794, 267);
-            this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(96, 19);
-            this.gunaLabel4.TabIndex = 30;
-            this.gunaLabel4.Text = "DESCRIPCION";
-            // 
-            // txt_nombre
-            // 
-            this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_nombre.CausesValidation = false;
-            this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_nombre.Location = new System.Drawing.Point(805, 224);
-            this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(271, 18);
-            this.txt_nombre.TabIndex = 31;
-            // 
             // txt_descripcion
             // 
             this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_descripcion.CausesValidation = false;
             this.txt_descripcion.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_descripcion.Location = new System.Drawing.Point(807, 299);
+            this.txt_descripcion.Location = new System.Drawing.Point(807, 223);
             this.txt_descripcion.Multiline = true;
             this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(271, 121);
+            this.txt_descripcion.Size = new System.Drawing.Size(271, 98);
             this.txt_descripcion.TabIndex = 32;
             // 
             // gunaElipse1
@@ -252,22 +226,12 @@ namespace Repuestos_Arias.Formularios
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.CajaDescripcion;
-            this.pictureBox3.Location = new System.Drawing.Point(798, 289);
+            this.pictureBox3.Location = new System.Drawing.Point(798, 214);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(289, 141);
+            this.pictureBox3.Size = new System.Drawing.Size(289, 118);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 29;
             this.pictureBox3.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox2.Location = new System.Drawing.Point(798, 214);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(289, 39);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 27;
-            this.pictureBox2.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -308,37 +272,6 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // btn_excel
-            // 
-            this.btn_excel.AnimationHoverSpeed = 0.07F;
-            this.btn_excel.AnimationSpeed = 0.03F;
-            this.btn_excel.BackColor = System.Drawing.Color.Transparent;
-            this.btn_excel.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_excel.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_excel.BorderColor = System.Drawing.Color.Black;
-            this.btn_excel.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_excel.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_excel.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_excel.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btn_excel.ForeColor = System.Drawing.Color.White;
-            this.btn_excel.Image = global::Repuestos_Arias.Properties.Resources.Excel;
-            this.btn_excel.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_excel.Location = new System.Drawing.Point(947, 137);
-            this.btn_excel.Name = "btn_excel";
-            this.btn_excel.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_excel.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_excel.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_excel.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_excel.OnHoverImage = null;
-            this.btn_excel.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_excel.Radius = 3;
-            this.btn_excel.Size = new System.Drawing.Size(140, 32);
-            this.btn_excel.TabIndex = 23;
-            this.btn_excel.Text = "EXCEL";
-            this.btn_excel.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_excel.Visible = false;
-            this.btn_excel.Click += new System.EventHandler(this.btn_excel_Click);
-            // 
             // btn_imprimir
             // 
             this.btn_imprimir.AnimationHoverSpeed = 0.07F;
@@ -354,7 +287,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
             this.btn_imprimir.Image = global::Repuestos_Arias.Properties.Resources.Imprimir;
             this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(798, 49);
+            this.btn_imprimir.Location = new System.Drawing.Point(798, 59);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -486,16 +419,12 @@ namespace Repuestos_Arias.Formularios
             this.ClientSize = new System.Drawing.Size(1120, 495);
             this.ControlBox = false;
             this.Controls.Add(this.txt_descripcion);
-            this.Controls.Add(this.txt_nombre);
-            this.Controls.Add(this.gunaLabel4);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.gunaLabel3);
-            this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.btn_excel);
             this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.btn_eliminar);
             this.Controls.Add(this.btn_editar);
@@ -519,7 +448,6 @@ namespace Repuestos_Arias.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
@@ -542,16 +470,12 @@ namespace Repuestos_Arias.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_editar;
         private Guna.UI.WinForms.GunaGradientButton btn_eliminar;
         private Guna.UI.WinForms.GunaGradientButton btn_imprimir;
-        private Guna.UI.WinForms.GunaGradientButton btn_excel;
         private Guna.UI.WinForms.GunaGradientButton btn_guardar;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_id;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
-        private System.Windows.Forms.PictureBox pictureBox2;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
-        private Guna.UI.WinForms.GunaLabel gunaLabel4;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.TextBox txt_nombre;
         private System.Windows.Forms.TextBox txt_descripcion;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;

@@ -120,7 +120,7 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel11.Name = "gunaLabel11";
             this.gunaLabel11.Size = new System.Drawing.Size(560, 81);
             this.gunaLabel11.TabIndex = 68;
-            this.gunaLabel11.Text = "Detalles de Compra";
+            this.gunaLabel11.Text = "Factura";
             this.gunaLabel11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // gunaLinePanel1
@@ -157,7 +157,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_añadir.OnHoverImage = null;
             this.btn_añadir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_añadir.Radius = 5;
-            this.btn_añadir.Size = new System.Drawing.Size(268, 39);
+            this.btn_añadir.Size = new System.Drawing.Size(125, 39);
             this.btn_añadir.TabIndex = 56;
             this.btn_añadir.Text = "Añadir";
             this.btn_añadir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -168,7 +168,7 @@ namespace Repuestos_Arias.Formularios
             this.txt_cant.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_cant.CausesValidation = false;
             this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_cant.Location = new System.Drawing.Point(329, 730);
+            this.txt_cant.Location = new System.Drawing.Point(188, 730);
             this.txt_cant.Name = "txt_cant";
             this.txt_cant.Size = new System.Drawing.Size(109, 18);
             this.txt_cant.TabIndex = 55;
@@ -177,7 +177,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox9.Location = new System.Drawing.Point(323, 719);
+            this.pictureBox9.Location = new System.Drawing.Point(182, 719);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(122, 39);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -190,7 +190,7 @@ namespace Repuestos_Arias.Formularios
             this.lbl_cantCompra.BackColor = System.Drawing.Color.White;
             this.lbl_cantCompra.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_cantCompra.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_cantCompra.Location = new System.Drawing.Point(319, 697);
+            this.lbl_cantCompra.Location = new System.Drawing.Point(178, 697);
             this.lbl_cantCompra.Name = "lbl_cantCompra";
             this.lbl_cantCompra.Size = new System.Drawing.Size(101, 19);
             this.lbl_cantCompra.TabIndex = 53;
@@ -403,7 +403,7 @@ namespace Repuestos_Arias.Formularios
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_buscar.Location = new System.Drawing.Point(76, 89);
+            this.txt_buscar.Location = new System.Drawing.Point(76, 47);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(509, 18);
             this.txt_buscar.TabIndex = 14;
@@ -413,7 +413,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
-            this.pictureBox6.Location = new System.Drawing.Point(40, 82);
+            this.pictureBox6.Location = new System.Drawing.Point(40, 40);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -423,7 +423,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(36, 78);
+            this.pictureBox5.Location = new System.Drawing.Point(36, 36);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(557, 39);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -493,7 +493,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevaCompra.ForeColor = System.Drawing.Color.White;
             this.btn_nuevaCompra.Image = global::Repuestos_Arias.Properties.Resources.Nuevo1;
             this.btn_nuevaCompra.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nuevaCompra.Location = new System.Drawing.Point(214, 36);
+            this.btn_nuevaCompra.Location = new System.Drawing.Point(214, 85);
             this.btn_nuevaCompra.Name = "btn_nuevaCompra";
             this.btn_nuevaCompra.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevaCompra.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -523,7 +523,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Repuestos_Arias.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(413, 36);
+            this.btn_guardar.Location = new System.Drawing.Point(413, 85);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.Magenta;

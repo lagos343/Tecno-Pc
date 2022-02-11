@@ -37,6 +37,8 @@ namespace Repuestos_Arias
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            txt_userName.Text = "Lagos343";
+            txt_pasword.Text = "Manino10";
             txt_pasword.UseSystemPasswordChar = true;
             Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
         }
