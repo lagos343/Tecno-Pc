@@ -50,8 +50,7 @@ namespace Repuestos_Arias.Formularios
 
         private void LimpiarProductoSeleccionado()
         {
-            txt_cant.Clear();
-            txt_rebaja.Text = "";
+            txt_cant.Clear();            
             lbl_Id.Text = "";
             lbl_precio.Text = "";
             lbl_producto.Text = "";
@@ -108,8 +107,7 @@ namespace Repuestos_Arias.Formularios
         {
             if (dgv_Productos.Rows[e.RowIndex].Cells["Añadir"].Selected)
             {
-                txt_cant.Clear();
-                txt_rebaja.Text = "";
+                txt_cant.Clear();                
                 lbl_Id.Text = dgv_Productos.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[3].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -155,15 +153,8 @@ namespace Repuestos_Arias.Formularios
             else
             {
                 int rebaja, subtotal, total;
-
-                if (txt_rebaja.Text == string.Empty)
-                {
-                    rebaja = 0;
-                }
-                else
-                {
-                    rebaja = int.Parse(txt_rebaja.Text);
-                }
+                             
+                
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
@@ -171,12 +162,8 @@ namespace Repuestos_Arias.Formularios
                     {
                         dgv_Factura.Rows.Remove(fila);
                     }
-                }
-
-                subtotal = int.Parse(lbl_precio.Text) - rebaja;
-                total = subtotal * cant;
-                dgv_Factura.Rows.Add(Image.FromFile("EliminarProducto.png"), lbl_Id.Text, lbl_producto.Text, 
-                    cant.ToString(), total.ToString());
+                }                                             
+                
                 lbl_TotalVenta.Text = calcularTotaleventa().ToString();
                 Operacionesdatagrid2();
                 LimpiarProductoSeleccionado();
@@ -203,12 +190,12 @@ namespace Repuestos_Arias.Formularios
             ActualizarCatosFactura();           
             dgv_Factura.Rows.Clear();            
             lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-            txt_nomCliente.Clear();
+           
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (txt_nomCliente.Text == string.Empty || dgv_Factura.Rows.Count == 0)
+            if (dgv_Factura.Rows.Count == 0)
             {
                 frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Factura y especificar nombre de Cliente antes de guardar", 3);
                 noti.ShowDialog();
@@ -217,7 +204,7 @@ namespace Repuestos_Arias.Formularios
             else
             {
                 sql.modi_guar_elim("insert into Factura values(" + int.Parse(lbl_noFactura.Text) + ", '" + lbl_fechaCompra.Text +
-                "', '" + txt_nomCliente.Text + "', " + usu.Id_usuario + ")");
+                "'," + usu.Id_usuario + ")");
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
