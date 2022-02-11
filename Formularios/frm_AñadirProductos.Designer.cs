@@ -50,7 +50,6 @@ namespace Repuestos_Arias.Formularios
             this.txt_nombre = new System.Windows.Forms.TextBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.txt_stock = new System.Windows.Forms.TextBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.txt_pVenta = new System.Windows.Forms.TextBox();
@@ -62,6 +61,10 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.cbo_marcas = new Guna.UI.WinForms.GunaComboBox();
             this.cbo_categorias = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaGoogleSwitch1 = new Guna.UI.WinForms.GunaGoogleSwitch();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -222,9 +225,9 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel1.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel1.Location = new System.Drawing.Point(306, 67);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(64, 19);
+            this.gunaLabel1.Size = new System.Drawing.Size(66, 19);
             this.gunaLabel1.TabIndex = 36;
-            this.gunaLabel1.Text = "CODIGO";
+            this.gunaLabel1.Text = "NOMBRE";
             // 
             // pictureBox1
             // 
@@ -254,9 +257,9 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel2.Location = new System.Drawing.Point(306, 141);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(118, 19);
+            this.gunaLabel2.Size = new System.Drawing.Size(122, 19);
             this.gunaLabel2.TabIndex = 42;
-            this.gunaLabel2.Text = "PRECIO COMPRA";
+            this.gunaLabel2.Text = "PRECIO UNITARIO";
             // 
             // pictureBox3
             // 
@@ -286,9 +289,9 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel4.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel4.Location = new System.Drawing.Point(8, 141);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(66, 19);
+            this.gunaLabel4.Size = new System.Drawing.Size(68, 19);
             this.gunaLabel4.TabIndex = 39;
-            this.gunaLabel4.Text = "NOMBRE";
+            this.gunaLabel4.Text = "MODELO";
             // 
             // pictureBox4
             // 
@@ -300,23 +303,12 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox4.TabIndex = 38;
             this.pictureBox4.TabStop = false;
             // 
-            // txt_stock
-            // 
-            this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_stock.CausesValidation = false;
-            this.txt_stock.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_stock.Location = new System.Drawing.Point(317, 247);
-            this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(227, 18);
-            this.txt_stock.TabIndex = 49;
-            this.txt_stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_KeyPress);
-            // 
             // gunaLabel5
             // 
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel5.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel5.Location = new System.Drawing.Point(306, 215);
+            this.gunaLabel5.Location = new System.Drawing.Point(137, 215);
             this.gunaLabel5.Name = "gunaLabel5";
             this.gunaLabel5.Size = new System.Drawing.Size(50, 19);
             this.gunaLabel5.TabIndex = 48;
@@ -337,9 +329,9 @@ namespace Repuestos_Arias.Formularios
             this.txt_pVenta.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_pVenta.CausesValidation = false;
             this.txt_pVenta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_pVenta.Location = new System.Drawing.Point(19, 247);
+            this.txt_pVenta.Location = new System.Drawing.Point(150, 247);
             this.txt_pVenta.Name = "txt_pVenta";
-            this.txt_pVenta.Size = new System.Drawing.Size(227, 18);
+            this.txt_pVenta.Size = new System.Drawing.Size(100, 18);
             this.txt_pVenta.TabIndex = 46;
             this.txt_pVenta.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pVenta_KeyPress);
             // 
@@ -350,9 +342,9 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel6.Location = new System.Drawing.Point(8, 215);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(101, 19);
+            this.gunaLabel6.Size = new System.Drawing.Size(59, 19);
             this.gunaLabel6.TabIndex = 45;
-            this.gunaLabel6.Text = "PRECIO VENTA";
+            this.gunaLabel6.Text = "ESTADO";
             // 
             // pictureBox6
             // 
@@ -444,19 +436,73 @@ namespace Repuestos_Arias.Formularios
             this.cbo_categorias.Size = new System.Drawing.Size(227, 26);
             this.cbo_categorias.TabIndex = 56;
             // 
+            // gunaLinePanel1
+            // 
+            this.gunaLinePanel1.LineColor = System.Drawing.Color.Black;
+            this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
+            this.gunaLinePanel1.Location = new System.Drawing.Point(119, 213);
+            this.gunaLinePanel1.Name = "gunaLinePanel1";
+            this.gunaLinePanel1.Size = new System.Drawing.Size(23, 85);
+            this.gunaLinePanel1.TabIndex = 57;
+            // 
+            // gunaComboBox1
+            // 
+            this.gunaComboBox1.BackColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaComboBox1.BorderColor = System.Drawing.Color.Transparent;
+            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.gunaComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
+            this.gunaComboBox1.FormattingEnabled = true;
+            this.gunaComboBox1.Location = new System.Drawing.Point(317, 244);
+            this.gunaComboBox1.Name = "gunaComboBox1";
+            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.Blue;
+            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.gunaComboBox1.Size = new System.Drawing.Size(227, 26);
+            this.gunaComboBox1.TabIndex = 58;
+            // 
+            // gunaLabel9
+            // 
+            this.gunaLabel9.AutoSize = true;
+            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel9.Location = new System.Drawing.Point(306, 215);
+            this.gunaLabel9.Name = "gunaLabel9";
+            this.gunaLabel9.Size = new System.Drawing.Size(88, 19);
+            this.gunaLabel9.TabIndex = 59;
+            this.gunaLabel9.Text = "PROVEEDOR";
+            // 
+            // gunaGoogleSwitch1
+            // 
+            this.gunaGoogleSwitch1.BackColor = System.Drawing.Color.White;
+            this.gunaGoogleSwitch1.BaseColor = System.Drawing.Color.Transparent;
+            this.gunaGoogleSwitch1.CheckedOffColor = System.Drawing.Color.DarkGray;
+            this.gunaGoogleSwitch1.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.gunaGoogleSwitch1.FillColor = System.Drawing.Color.White;
+            this.gunaGoogleSwitch1.Location = new System.Drawing.Point(46, 246);
+            this.gunaGoogleSwitch1.Name = "gunaGoogleSwitch1";
+            this.gunaGoogleSwitch1.Size = new System.Drawing.Size(38, 20);
+            this.gunaGoogleSwitch1.TabIndex = 60;
+            // 
             // frm_AñadirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(567, 450);
+            this.Controls.Add(this.gunaGoogleSwitch1);
+            this.Controls.Add(this.gunaLabel9);
+            this.Controls.Add(this.gunaComboBox1);
+            this.Controls.Add(this.gunaLinePanel1);
             this.Controls.Add(this.cbo_categorias);
             this.Controls.Add(this.cbo_marcas);
             this.Controls.Add(this.gunaLabel7);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.pictureBox8);
-            this.Controls.Add(this.txt_stock);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.txt_pVenta);
@@ -516,7 +562,6 @@ namespace Repuestos_Arias.Formularios
         private System.Windows.Forms.PictureBox pictureBox7;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
         private System.Windows.Forms.PictureBox pictureBox8;
-        private System.Windows.Forms.TextBox txt_stock;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.TextBox txt_pVenta;
@@ -533,5 +578,9 @@ namespace Repuestos_Arias.Formularios
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI.WinForms.GunaComboBox cbo_categorias;
         private Guna.UI.WinForms.GunaComboBox cbo_marcas;
+        private Guna.UI.WinForms.GunaLabel gunaLabel9;
+        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
+        private Guna.UI.WinForms.GunaGoogleSwitch gunaGoogleSwitch1;
     }
 }
