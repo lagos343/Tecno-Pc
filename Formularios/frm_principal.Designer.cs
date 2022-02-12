@@ -92,7 +92,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.pic_flecha.BaseColor = System.Drawing.Color.White;
             this.pic_flecha.Image = global::Repuestos_Arias.Properties.Resources.Flecha;
-            this.pic_flecha.Location = new System.Drawing.Point(163, 259);
+            this.pic_flecha.Location = new System.Drawing.Point(163, 232);
             this.pic_flecha.Name = "pic_flecha";
             this.pic_flecha.Size = new System.Drawing.Size(24, 42);
             this.pic_flecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -113,7 +113,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_proveedores.ForeColor = System.Drawing.Color.White;
             this.btn_proveedores.Image = global::Repuestos_Arias.Properties.Resources.Clientes_Gris1;
             this.btn_proveedores.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_proveedores.Location = new System.Drawing.Point(2, 547);
+            this.btn_proveedores.Location = new System.Drawing.Point(2, 520);
             this.btn_proveedores.Name = "btn_proveedores";
             this.btn_proveedores.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_proveedores.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -139,7 +139,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_empleados.ForeColor = System.Drawing.Color.White;
             this.btn_empleados.Image = global::Repuestos_Arias.Properties.Resources.Clientes_Gris1;
             this.btn_empleados.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_empleados.Location = new System.Drawing.Point(2, 499);
+            this.btn_empleados.Location = new System.Drawing.Point(2, 472);
             this.btn_empleados.Name = "btn_empleados";
             this.btn_empleados.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_empleados.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -165,7 +165,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_Usuarios.ForeColor = System.Drawing.Color.White;
             this.btn_Usuarios.Image = global::Repuestos_Arias.Properties.Resources.Clientes_Gris1;
             this.btn_Usuarios.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Usuarios.Location = new System.Drawing.Point(2, 451);
+            this.btn_Usuarios.Location = new System.Drawing.Point(2, 424);
             this.btn_Usuarios.Name = "btn_Usuarios";
             this.btn_Usuarios.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_Usuarios.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -191,7 +191,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_compras.ForeColor = System.Drawing.Color.White;
             this.btn_compras.Image = global::Repuestos_Arias.Properties.Resources.Compras_Gris;
             this.btn_compras.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_compras.Location = new System.Drawing.Point(2, 403);
+            this.btn_compras.Location = new System.Drawing.Point(2, 376);
             this.btn_compras.Name = "btn_compras";
             this.btn_compras.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_compras.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -217,7 +217,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_Productos.ForeColor = System.Drawing.Color.White;
             this.btn_Productos.Image = global::Repuestos_Arias.Properties.Resources.Productos_Gris;
             this.btn_Productos.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Productos.Location = new System.Drawing.Point(2, 355);
+            this.btn_Productos.Location = new System.Drawing.Point(2, 328);
             this.btn_Productos.Name = "btn_Productos";
             this.btn_Productos.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_Productos.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -243,7 +243,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_Facturas.ForeColor = System.Drawing.Color.White;
             this.btn_Facturas.Image = global::Repuestos_Arias.Properties.Resources.Clientes_Gris1;
             this.btn_Facturas.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Facturas.Location = new System.Drawing.Point(2, 307);
+            this.btn_Facturas.Location = new System.Drawing.Point(2, 280);
             this.btn_Facturas.Name = "btn_Facturas";
             this.btn_Facturas.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_Facturas.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -269,7 +269,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_ventas.ForeColor = System.Drawing.Color.White;
             this.btn_ventas.Image = global::Repuestos_Arias.Properties.Resources.Ventas_Gris;
             this.btn_ventas.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_ventas.Location = new System.Drawing.Point(2, 259);
+            this.btn_ventas.Location = new System.Drawing.Point(2, 232);
             this.btn_ventas.Name = "btn_ventas";
             this.btn_ventas.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
             this.btn_ventas.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
@@ -286,7 +286,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_nombreUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_nombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbl_nombreUsuario.Location = new System.Drawing.Point(22, 174);
+            this.lbl_nombreUsuario.Location = new System.Drawing.Point(22, 155);
             this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
             this.lbl_nombreUsuario.Size = new System.Drawing.Size(141, 57);
             this.lbl_nombreUsuario.TabIndex = 3;
@@ -298,7 +298,7 @@ namespace Repuestos_Arias.Formularios
             this.gunaLinePanel2.BackColor = System.Drawing.Color.White;
             this.gunaLinePanel2.LineColor = System.Drawing.Color.Black;
             this.gunaLinePanel2.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel2.Location = new System.Drawing.Point(11, 236);
+            this.gunaLinePanel2.Location = new System.Drawing.Point(11, 220);
             this.gunaLinePanel2.Name = "gunaLinePanel2";
             this.gunaLinePanel2.Size = new System.Drawing.Size(165, 1);
             this.gunaLinePanel2.TabIndex = 1;
@@ -307,9 +307,9 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::Repuestos_Arias.Properties.Resources.perfil_avatar_hombre_icono_redondo;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(33, 51);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(38, 51);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(120, 120);
+            this.gunaPictureBox2.Size = new System.Drawing.Size(106, 98);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox2.TabIndex = 2;
             this.gunaPictureBox2.TabStop = false;
