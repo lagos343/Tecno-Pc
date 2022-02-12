@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Repuestos_Arias</RootNamespace>
     <AssemblyName>Repuestos Arias</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -53,9 +53,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="CircularProgressBar">
-      <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\CircularProgressBar.dll</HintPath>
-    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
