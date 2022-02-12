@@ -42,5 +42,11 @@ namespace Repuestos_Arias.Formularios
             frm_AñadirUsuarios a_usu = new frm_AñadirUsuarios();
             a_usu.ShowDialog();
         }
+
+        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        {
+            frm_clientes cli = new frm_clientes();
+            cli.ShowDialog();
+        }
     }
 }
