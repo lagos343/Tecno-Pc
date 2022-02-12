@@ -12,7 +12,7 @@ namespace Repuestos_Arias.Formularios
 {
     public partial class frm_Facturas : Form
     {
-        Clases.Cl_Facturas fac = new Clases.Cl_Facturas();
+        
 
         public frm_Facturas()
         {
@@ -58,11 +58,11 @@ namespace Repuestos_Arias.Formularios
             {
                 if (cbo_filtro.Text == "Usuario_Vendedor")
                 {
-                    fac.buscarDatos(dgv_Facturas, "us.Nombres_Propietario", txt_buscar);
+                    
                 }
                 else
                 {
-                    fac.buscarDatos(dgv_Facturas, cbo_filtro.Text, txt_buscar);
+                    
                 }
                 
             }

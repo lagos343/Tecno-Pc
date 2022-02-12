@@ -11,8 +11,7 @@ using System.Windows.Forms;
 namespace Repuestos_Arias.Formularios
 {
     public partial class frm_compras : Form
-    {
-        Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
+    {      
 
         public frm_compras()
         {
@@ -20,11 +19,8 @@ namespace Repuestos_Arias.Formularios
         }
 
         private void frm_compras_Load(object sender, EventArgs e)
-        {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock from Productos");
-            Operacionesdatagrid1();
-            Operacionesdatagrid2();
-            LimpiarProductoSeleccionado();
+        {            
+            
         }
 
         private void Operacionesdatagrid1()
@@ -69,9 +65,7 @@ namespace Repuestos_Arias.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Nombre_Producto LIKE '%" + txt_buscar.Text + "%'");
-            Operacionesdatagrid1();
+            
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -142,11 +136,7 @@ namespace Repuestos_Arias.Formularios
 
         private void btn_nuevaCompra_Click(object sender, EventArgs e)
         {
-            txt_buscar.Clear();
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock from Productos");
-            Operacionesdatagrid1();
-            LimpiarProductoSeleccionado();            
-            dgv_Factura.Rows.Clear();            
+            txt_buscar.Clear();                
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -161,8 +151,7 @@ namespace Repuestos_Arias.Formularios
             {               
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {                    
-                    sql.modi_guar_elim("Update Productos set Unidades_Stock = Unidades_Stock + " + int.Parse(fila.Cells[3].Value.ToString()) + " " +
-                        "where Id_Producto = " + int.Parse(fila.Cells[1].Value.ToString()));
+                   
                 }
 
                 frm_notificacion noti = new frm_notificacion("Compra registrada con Exito", 1);
