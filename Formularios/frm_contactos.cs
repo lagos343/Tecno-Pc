@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Repuestos_Arias.Formularios
 {
-    public partial class frm_clientes : Form
+    public partial class frm_contactos : Form
     {
-        public frm_clientes()
+        public frm_contactos()
         {
             InitializeComponent();
         }

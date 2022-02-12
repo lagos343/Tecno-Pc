@@ -10,21 +10,21 @@ using System.Windows.Forms;
 
 namespace Repuestos_Arias.Formularios
 {
-    public partial class frm_clientes : Form
+    public partial class frm_AñadirProveedores : Form
     {
-        public frm_clientes()
+        public frm_AñadirProveedores()
         {
             InitializeComponent();
-        }
-
-        private void btn_minimizar_Click(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Minimized;
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btn_minimizar_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

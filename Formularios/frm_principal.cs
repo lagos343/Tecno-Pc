@@ -90,6 +90,13 @@ namespace Repuestos_Arias.Formularios
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
+        private void btn_proveedores_Click(object sender, EventArgs e)
+        {
+            SeleccionBoton(btn_proveedores);
+            AbrirFormulario(new frm_proveedores());
+            Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
+        }
+
         private void SeleccionBoton(Guna.UI.WinForms.GunaGradientButton boton)
         {
             btn_ventas.ForeColor = Color.White; 
@@ -98,6 +105,7 @@ namespace Repuestos_Arias.Formularios
             btn_compras.ForeColor = Color.White;
             btn_Usuarios.ForeColor = Color.White;
             btn_empleados.ForeColor = Color.White;
+            btn_proveedores.ForeColor = Color.White;
             boton.ForeColor = Color.FromArgb(98, 195, 140);
         }
 
@@ -123,6 +131,7 @@ namespace Repuestos_Arias.Formularios
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }        
+        }
+        
     }
 }
