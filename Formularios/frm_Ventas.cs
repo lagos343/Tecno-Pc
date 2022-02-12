@@ -88,11 +88,11 @@ namespace Repuestos_Arias.Formularios
 
             if(UltimaFactura.Rows.Count == 0)
             {
-                lbl_noFactura.Text = "1";
+               
             }
             else
             {
-                lbl_noFactura.Text = (int.Parse(UltimaFactura.Rows[0][0].ToString()) + 1).ToString();
+               
             }
         }
 
@@ -203,14 +203,10 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                sql.modi_guar_elim("insert into Factura values(" + int.Parse(lbl_noFactura.Text) + ", '" + lbl_fechaCompra.Text +
-                "'," + usu.Id_usuario + ")");
+                
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
-                    sql.modi_guar_elim("insert into DetallesFactura values(" + int.Parse(fila.Cells[1].Value.ToString()) + ", '" + lbl_fechaCompra.Text + "'" +
-                        ", " + int.Parse(lbl_noFactura.Text) + ", " + int.Parse(fila.Cells[3].Value.ToString()) + ", " + int.Parse(fila.Cells[4].Value.ToString()) + ")");
-
                     sql.modi_guar_elim("Update Productos set Unidades_Stock = Unidades_Stock - " + int.Parse(fila.Cells[3].Value.ToString()) + " " +
                         "where Id_Producto = " + int.Parse(fila.Cells[1].Value.ToString()));
                 }
