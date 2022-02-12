@@ -66,16 +66,7 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                prod.Codigo_Producto = txt_codigo.Text;
-                prod.Nombre_Producto = txt_nombre.Text;
-                prod.Precio_Compra = Double.Parse(txt_pCompra.Text);
-                prod.Precio_Venta = Double.Parse(txt_pVenta.Text);
-                prod.Unidades_Stock = Double.Parse(txt_stock.Text);
-                prod.Id_Marca = int.Parse(cbo_marcas.SelectedValue.ToString());
-                prod.Id_Categoria = int.Parse(cbo_categorias.SelectedValue.ToString());
-
-                prod.guardar();
-                Limnpiado();
+                
             }            
         }
 
@@ -88,17 +79,7 @@ namespace Repuestos_Arias.Formularios
                 noti.Close();
             }
             else
-            {
-                prod.Codigo_Producto = txt_codigo.Text;
-                prod.Nombre_Producto = txt_nombre.Text;
-                prod.Precio_Compra = Double.Parse(txt_pCompra.Text);
-                prod.Precio_Venta = Double.Parse(txt_pVenta.Text);
-                prod.Unidades_Stock = Double.Parse(txt_stock.Text);
-                prod.Id_Marca = int.Parse(cbo_marcas.SelectedValue.ToString());
-                prod.Id_Categoria = int.Parse(cbo_categorias.SelectedValue.ToString());
-                prod.Id_Producto = int.Parse(txt_id.Text);
-
-                prod.actualizarDatos();
+            {              
                 this.Close();
             }
         }
