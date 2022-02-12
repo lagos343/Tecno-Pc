@@ -125,6 +125,12 @@
     <Compile Include="Formularios\frm_compras.Designer.cs">
       <DependentUpon>frm_compras.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_empleados.Designer.cs">
+      <DependentUpon>frm_empleados.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_Facturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -189,6 +195,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_compras.resx">
       <DependentUpon>frm_compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_empleados.resx">
+      <DependentUpon>frm_empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Facturas.resx">
       <DependentUpon>frm_Facturas.cs</DependentUpon>

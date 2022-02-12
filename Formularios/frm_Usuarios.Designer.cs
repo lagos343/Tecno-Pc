@@ -52,9 +52,15 @@ namespace Repuestos_Arias.Formularios
             this.label3 = new System.Windows.Forms.Label();
             this.lbl_email = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.txt_buscar = new System.Windows.Forms.TextBox();
+            this.pictureBox6 = new System.Windows.Forms.PictureBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.btn_Imprimir = new Guna.UI.WinForms.GunaGradientButton();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaPictureBox2
@@ -81,6 +87,10 @@ namespace Repuestos_Arias.Formularios
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImage = global::Repuestos_Arias.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.btn_Imprimir);
+            this.panel5.Controls.Add(this.txt_buscar);
+            this.panel5.Controls.Add(this.pictureBox6);
+            this.panel5.Controls.Add(this.pictureBox5);
             this.panel5.Controls.Add(this.btn_nuevoUsuario);
             this.panel5.Controls.Add(this.dgv_Productos);
             this.panel5.Controls.Add(this.lbl_propietario);
@@ -117,7 +127,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevoUsuario.ForeColor = System.Drawing.Color.White;
             this.btn_nuevoUsuario.Image = null;
             this.btn_nuevoUsuario.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nuevoUsuario.Location = new System.Drawing.Point(123, 339);
+            this.btn_nuevoUsuario.Location = new System.Drawing.Point(502, 332);
             this.btn_nuevoUsuario.Name = "btn_nuevoUsuario";
             this.btn_nuevoUsuario.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevoUsuario.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -265,9 +275,9 @@ namespace Repuestos_Arias.Formularios
             this.label9.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label9.Location = new System.Drawing.Point(446, 90);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 19);
+            this.label9.Size = new System.Drawing.Size(25, 19);
             this.label9.TabIndex = 0;
-            this.label9.Text = "Id";
+            this.label9.Text = "ID";
             // 
             // lbl_tipo
             // 
@@ -285,9 +295,9 @@ namespace Repuestos_Arias.Formularios
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label5.Location = new System.Drawing.Point(775, 161);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(40, 19);
+            this.label5.Size = new System.Drawing.Size(32, 19);
             this.label5.TabIndex = 0;
-            this.label5.Text = "Tipo";
+            this.label5.Text = "Rol";
             // 
             // lbl_tel
             // 
@@ -329,6 +339,66 @@ namespace Repuestos_Arias.Formularios
             this.label1.TabIndex = 0;
             this.label1.Text = "Email";
             // 
+            // txt_buscar
+            // 
+            this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_buscar.CausesValidation = false;
+            this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.txt_buscar.Location = new System.Drawing.Point(161, 340);
+            this.txt_buscar.Name = "txt_buscar";
+            this.txt_buscar.Size = new System.Drawing.Size(310, 18);
+            this.txt_buscar.TabIndex = 17;
+            // 
+            // pictureBox6
+            // 
+            this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
+            this.pictureBox6.Location = new System.Drawing.Point(127, 334);
+            this.pictureBox6.Name = "pictureBox6";
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox6.TabIndex = 16;
+            this.pictureBox6.TabStop = false;
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox5.Location = new System.Drawing.Point(123, 330);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(354, 39);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 15;
+            this.pictureBox5.TabStop = false;
+            // 
+            // btn_Imprimir
+            // 
+            this.btn_Imprimir.AnimationHoverSpeed = 0.07F;
+            this.btn_Imprimir.AnimationSpeed = 0.03F;
+            this.btn_Imprimir.BackColor = System.Drawing.Color.Transparent;
+            this.btn_Imprimir.BaseColor1 = System.Drawing.Color.Purple;
+            this.btn_Imprimir.BaseColor2 = System.Drawing.Color.Purple;
+            this.btn_Imprimir.BorderColor = System.Drawing.Color.Black;
+            this.btn_Imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_Imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_Imprimir.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_Imprimir.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_Imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_Imprimir.Image = null;
+            this.btn_Imprimir.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_Imprimir.Location = new System.Drawing.Point(1002, 332);
+            this.btn_Imprimir.Name = "btn_Imprimir";
+            this.btn_Imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
+            this.btn_Imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
+            this.btn_Imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_Imprimir.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_Imprimir.OnHoverImage = null;
+            this.btn_Imprimir.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_Imprimir.Radius = 5;
+            this.btn_Imprimir.Size = new System.Drawing.Size(121, 32);
+            this.btn_Imprimir.TabIndex = 18;
+            this.btn_Imprimir.Text = "Roles";
+            this.btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // frm_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -346,6 +416,8 @@ namespace Repuestos_Arias.Formularios
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -373,5 +445,9 @@ namespace Repuestos_Arias.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_nuevoUsuario;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.TextBox txt_buscar;
+        private System.Windows.Forms.PictureBox pictureBox6;
+        private System.Windows.Forms.PictureBox pictureBox5;
+        private Guna.UI.WinForms.GunaGradientButton btn_Imprimir;
     }
 }

@@ -49,6 +49,7 @@ namespace Repuestos_Arias.Formularios
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_cerrar = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
+            this.btn_empleados = new Guna.UI.WinForms.GunaGradientButton();
             this.Panel_Slider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
@@ -67,6 +68,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.Panel_Slider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
             this.Panel_Slider.Controls.Add(this.pic_flecha);
+            this.Panel_Slider.Controls.Add(this.btn_empleados);
             this.Panel_Slider.Controls.Add(this.btn_Usuarios);
             this.Panel_Slider.Controls.Add(this.btn_compras);
             this.Panel_Slider.Controls.Add(this.btn_Productos);
@@ -337,6 +339,32 @@ namespace Repuestos_Arias.Formularios
             this.panel_container.Size = new System.Drawing.Size(1245, 807);
             this.panel_container.TabIndex = 3;
             // 
+            // btn_empleados
+            // 
+            this.btn_empleados.AnimationHoverSpeed = 0.07F;
+            this.btn_empleados.AnimationSpeed = 0.03F;
+            this.btn_empleados.BaseColor1 = System.Drawing.Color.Transparent;
+            this.btn_empleados.BaseColor2 = System.Drawing.Color.Transparent;
+            this.btn_empleados.BorderColor = System.Drawing.Color.Black;
+            this.btn_empleados.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_empleados.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_empleados.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.btn_empleados.ForeColor = System.Drawing.Color.White;
+            this.btn_empleados.Image = global::Repuestos_Arias.Properties.Resources.Clientes_Gris1;
+            this.btn_empleados.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_empleados.Location = new System.Drawing.Point(6, 499);
+            this.btn_empleados.Name = "btn_empleados";
+            this.btn_empleados.OnHoverBaseColor1 = System.Drawing.Color.Transparent;
+            this.btn_empleados.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
+            this.btn_empleados.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_empleados.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(195)))), ((int)(((byte)(140)))));
+            this.btn_empleados.OnHoverImage = global::Repuestos_Arias.Properties.Resources.Clientes_Verde;
+            this.btn_empleados.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_empleados.Size = new System.Drawing.Size(218, 42);
+            this.btn_empleados.TabIndex = 8;
+            this.btn_empleados.Text = "      EMPLEADOS";
+            this.btn_empleados.Click += new System.EventHandler(this.btn_empleados_Click);
+            // 
             // frm_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,5 +409,6 @@ namespace Repuestos_Arias.Formularios
         private Guna.UI.WinForms.GunaPictureBox pic_flecha;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox3;
         private Guna.UI.WinForms.GunaGradientButton btn_Usuarios;
+        private Guna.UI.WinForms.GunaGradientButton btn_empleados;
     }
 }
