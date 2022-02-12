@@ -16,5 +16,11 @@ namespace Repuestos_Arias.Formularios
         {
             InitializeComponent();
         }
+
+        private void btn_nuevoUsuario_Click(object sender, EventArgs e)
+        {
+            frm_AñadirEmpleado añaem = new frm_AñadirEmpleado();
+            añaem.Show();
+        }
     }
 }

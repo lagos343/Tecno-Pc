@@ -22,5 +22,11 @@ namespace Repuestos_Arias.Formularios
             frm_AñadirProveedores añapro = new frm_AñadirProveedores();
             añapro.Show();
         }
+
+        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        {
+            frm_contactos contac = new frm_contactos();
+            contac.Show();
+        }
     }
 }

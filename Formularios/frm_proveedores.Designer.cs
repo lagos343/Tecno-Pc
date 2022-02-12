@@ -97,6 +97,7 @@ namespace Repuestos_Arias.Formularios
             this.gunaGradientButton1.TabIndex = 41;
             this.gunaGradientButton1.Text = "Contactos";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
             // 
             // txt_buscar
             // 
