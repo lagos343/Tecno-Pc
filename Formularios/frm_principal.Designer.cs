@@ -286,7 +286,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_nombreUsuario.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.lbl_nombreUsuario.ForeColor = System.Drawing.Color.White;
-            this.lbl_nombreUsuario.Location = new System.Drawing.Point(17, 174);
+            this.lbl_nombreUsuario.Location = new System.Drawing.Point(22, 174);
             this.lbl_nombreUsuario.Name = "lbl_nombreUsuario";
             this.lbl_nombreUsuario.Size = new System.Drawing.Size(141, 57);
             this.lbl_nombreUsuario.TabIndex = 3;
@@ -307,7 +307,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::Repuestos_Arias.Properties.Resources.perfil_avatar_hombre_icono_redondo;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(29, 51);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(33, 51);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
             this.gunaPictureBox2.Size = new System.Drawing.Size(120, 120);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -328,7 +328,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.gunaLabel1.ForeColor = System.Drawing.Color.White;
-            this.gunaLabel1.Location = new System.Drawing.Point(53, 1);
+            this.gunaLabel1.Location = new System.Drawing.Point(49, 1);
             this.gunaLabel1.Name = "gunaLabel1";
             this.gunaLabel1.Size = new System.Drawing.Size(105, 31);
             this.gunaLabel1.TabIndex = 0;
