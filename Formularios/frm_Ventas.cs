@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace Repuestos_Arias.Formularios
 {
     public partial class frm_Ventas : Form
-    {
-        Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
-        Clases.Cl_UsuarioLogueado usu = new Clases.Cl_UsuarioLogueado();
+    {     
 
         public frm_Ventas()
         {
@@ -22,12 +20,7 @@ namespace Repuestos_Arias.Formularios
 
         private void frm_Ventas_Load(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0");
-            Operacionesdatagrid1();
-            Operacionesdatagrid2();
-            LimpiarProductoSeleccionado();
-            ActualizarCatosFactura();
+           
         }
 
         private void Operacionesdatagrid1()
@@ -84,7 +77,7 @@ namespace Repuestos_Arias.Formularios
         {
             lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
             DataTable UltimaFactura = new DataTable();
-            UltimaFactura = sql.Consulta("Select Top 1 No_Factura from Factura where Fecha_Compra = '" + DateTime.Now.ToShortDateString() + "' order by No_Factura desc");
+            
 
             if(UltimaFactura.Rows.Count == 0)
             {
@@ -98,9 +91,7 @@ namespace Repuestos_Arias.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0 and Nombre_Producto LIKE '%" + txt_buscar.Text + "%'");
-            Operacionesdatagrid1();
+            
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -183,13 +174,7 @@ namespace Repuestos_Arias.Formularios
         private void btn_nuevaVenta_Click(object sender, EventArgs e)
         {
             txt_buscar.Clear();
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0");
-            Operacionesdatagrid1();
-            LimpiarProductoSeleccionado();
-            ActualizarCatosFactura();           
-            dgv_Factura.Rows.Clear();            
-            lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+            
            
         }
 
@@ -207,8 +192,7 @@ namespace Repuestos_Arias.Formularios
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
-                    sql.modi_guar_elim("Update Productos set Unidades_Stock = Unidades_Stock - " + int.Parse(fila.Cells[3].Value.ToString()) + " " +
-                        "where Id_Producto = " + int.Parse(fila.Cells[1].Value.ToString()));
+                    
                 }
 
                 frm_notificacion noti = new frm_notificacion("Venta realizada con Exito", 1);

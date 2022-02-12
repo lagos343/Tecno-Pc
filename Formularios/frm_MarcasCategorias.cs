@@ -20,9 +20,7 @@ namespace Repuestos_Arias.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-                
-        Clases.Cl_Categorias cate;
-        Clases.Cl_Marcas marca;
+                        
         bool editar = false;
         int reporte;
 
@@ -36,9 +34,7 @@ namespace Repuestos_Arias.Formularios
                 btn_guardar.Click += btn_guardarCategorias;
                 txt_buscar.TextChanged += txt_buscarCategorias_TextChanged;
                 btn_editar.Click += btn_editarCategorias_Click;
-                btn_eliminar.Click += btn_eliminarCategorias_Click;
-                cate = new Clases.Cl_Categorias();
-                cate.consultarDatos(dgv_datos);
+                btn_eliminar.Click += btn_eliminarCategorias_Click;               
                 this.Text = "Categorias";
                 reporte = 1;
             }
@@ -48,9 +44,7 @@ namespace Repuestos_Arias.Formularios
                 btn_guardar.Click += btn_guardarMarcas;
                 txt_buscar.TextChanged += txt_buscarMarcas_TextChanged;
                 btn_editar.Click += btn_editarMarcas_Click;
-                btn_eliminar.Click += btn_eliminarMarcas_Click;
-                marca = new Clases.Cl_Marcas();
-                marca.consultarDatos(dgv_datos);
+                btn_eliminar.Click += btn_eliminarMarcas_Click;                
                 this.Text = "Marcas";
                 reporte = 2;
             }
@@ -58,7 +52,7 @@ namespace Repuestos_Arias.Formularios
 
         private void frm_MarcasCategorias_Load(object sender, EventArgs e)
         {
-            operacionesDatagrid();            
+                  
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -148,29 +142,14 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                cate = new Clases.Cl_Categorias();                
-                cate.Descripcion_Categoria = txt_descripcion.Text;
-
-                if (editar == true)
-                {
-                    cate.Id_Categoria = int.Parse(txt_id.Text);
-                    cate.actualizarDatos();
-                    editar = false;
-                }
-                else
-                {                    
-                    cate.guardar();
-                }
-                cate.consultarDatos(dgv_datos);
+               
                 btn_guardar.Text="Guardar";
             }           
         }
 
         private void txt_buscarCategorias_TextChanged(object sender, EventArgs e)
         {
-            cate = new Clases.Cl_Categorias();
-            cate.Nombre_Categoria = txt_buscar.Text;
-            cate.buscarDatos(dgv_datos);
+           
         }
 
         private void btn_editarCategorias_Click(object sender, EventArgs e)
@@ -205,10 +184,7 @@ namespace Repuestos_Arias.Formularios
 
                 if (noti.Dialogresul == DialogResult.OK)
                 {
-                    cate = new Clases.Cl_Categorias();
-                    cate.Id_Categoria = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-                    cate.eliminarDatos();
-                    cate.consultarDatos(dgv_datos);
+                    
                 }
                 noti.Close();
             }                        
@@ -226,29 +202,14 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                marca = new Clases.Cl_Marcas();
-                marca.Descripcion_Marca = txt_descripcion.Text;
-
-                if (editar == true)
-                {
-                    marca.Id_Marca = int.Parse(txt_id.Text);
-                    marca.actualizarDatos();
-                    editar = false;
-                }
-                else
-                {
-                    marca.guardar();
-                }
-                marca.consultarDatos(dgv_datos);
+                
                 btn_guardar.Text = "Guardar";
             }
         }
 
         private void txt_buscarMarcas_TextChanged(object sender, EventArgs e)
         {
-            marca = new Clases.Cl_Marcas();
-            marca.Nombre_Marca = txt_buscar.Text;
-            marca.buscarDatos(dgv_datos);
+            
         }
 
         private void btn_editarMarcas_Click(object sender, EventArgs e)
@@ -283,10 +244,7 @@ namespace Repuestos_Arias.Formularios
 
                 if (noti.Dialogresul == DialogResult.OK)
                 {
-                    marca = new Clases.Cl_Marcas();
-                    marca.Id_Marca = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-                    marca.eliminarDatos();
-                    marca.consultarDatos(dgv_datos);
+                   
                 }
 
                 noti.Close();

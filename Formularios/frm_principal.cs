@@ -17,14 +17,12 @@ namespace Repuestos_Arias.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
+                
         private Form formActivado = null;
 
         public frm_principal()
         {
-            InitializeComponent();
-            lbl_nombreUsuario.Text = user.Nombres_propietario + " " + user.Apellidos_propietarios;
+            InitializeComponent();            
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
