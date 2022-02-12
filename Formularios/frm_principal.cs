@@ -130,6 +130,10 @@ namespace Repuestos_Arias.Formularios
         {
             this.WindowState = FormWindowState.Minimized;
         }
-        
+
+        private void pic_flecha_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

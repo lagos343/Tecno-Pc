@@ -60,13 +60,13 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_nuevoProducto = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_Imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_Marcas = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_categorias = new Guna.UI.WinForms.GunaGradientButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -441,6 +441,18 @@ namespace Repuestos_Arias.Formularios
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "Editar";
+            this.Editar.Image = global::Repuestos_Arias.Properties.Resources.EditarProducto;
+            this.Editar.Name = "Editar";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "Eliminar";
+            this.Eliminar.Image = global::Repuestos_Arias.Properties.Resources.EliminarProducto;
+            this.Eliminar.Name = "Eliminar";
+            // 
             // btn_nuevoProducto
             // 
             this.btn_nuevoProducto.AnimationHoverSpeed = 0.07F;
@@ -560,18 +572,6 @@ namespace Repuestos_Arias.Formularios
             this.btn_categorias.Text = "Categorias";
             this.btn_categorias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_categorias.Click += new System.EventHandler(this.btn_categorias_Click);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = global::Repuestos_Arias.Properties.Resources.EliminarProducto;
-            this.Eliminar.Name = "Eliminar";
-            // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::Repuestos_Arias.Properties.Resources.EditarProducto;
-            this.Editar.Name = "Editar";
             // 
             // frm_productos
             // 
