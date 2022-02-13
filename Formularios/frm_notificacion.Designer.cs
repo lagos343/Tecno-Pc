@@ -29,6 +29,7 @@ namespace Repuestos_Arias.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_notificacion));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pic_exclamation = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@ namespace Repuestos_Arias.Formularios
             this.lbl_Mensaje = new Guna.UI.WinForms.GunaLabel();
             this.btn_confirmar = new Guna.UI.WinForms.GunaButton();
             this.btn_cancelar = new Guna.UI.WinForms.GunaButton();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exclamation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_confirmation)).BeginInit();
@@ -144,6 +146,10 @@ namespace Repuestos_Arias.Formularios
             this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.TargetControl = this;
+            // 
             // frm_notificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -173,5 +179,6 @@ namespace Repuestos_Arias.Formularios
         private Guna.UI.WinForms.GunaButton btn_cancelar;
         private Guna.UI.WinForms.GunaButton btn_confirmar;
         private System.Windows.Forms.PictureBox pic_exclamation;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
     }
 }

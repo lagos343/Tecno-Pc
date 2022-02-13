@@ -29,8 +29,8 @@ namespace Repuestos_Arias.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaGradientButton1 = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_nuevoUsuario = new Guna.UI.WinForms.GunaGradientButton();
@@ -142,27 +142,27 @@ namespace Repuestos_Arias.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle6;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Productos.Location = new System.Drawing.Point(123, 342);
             this.dgv_Productos.Name = "dgv_Productos";
@@ -189,11 +189,10 @@ namespace Repuestos_Arias.Formularios
             // 
             // lbl_contra
             // 
-            this.lbl_contra.AutoSize = true;
             this.lbl_contra.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_contra.Location = new System.Drawing.Point(549, 183);
+            this.lbl_contra.Location = new System.Drawing.Point(478, 183);
             this.lbl_contra.Name = "lbl_contra";
-            this.lbl_contra.Size = new System.Drawing.Size(43, 17);
+            this.lbl_contra.Size = new System.Drawing.Size(196, 53);
             this.lbl_contra.TabIndex = 31;
             this.lbl_contra.Text = "label2";
             // 
@@ -201,7 +200,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label13.Location = new System.Drawing.Point(436, 183);
+            this.label13.Location = new System.Drawing.Point(387, 183);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(67, 17);
             this.label13.TabIndex = 26;
@@ -211,7 +210,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_user.Location = new System.Drawing.Point(549, 143);
+            this.lbl_user.Location = new System.Drawing.Point(478, 143);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(43, 17);
             this.lbl_user.TabIndex = 30;
@@ -221,7 +220,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label11.Location = new System.Drawing.Point(436, 143);
+            this.label11.Location = new System.Drawing.Point(387, 143);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(60, 17);
             this.label11.TabIndex = 24;
@@ -231,7 +230,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_id.AutoSize = true;
             this.lbl_id.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_id.Location = new System.Drawing.Point(549, 100);
+            this.lbl_id.Location = new System.Drawing.Point(478, 100);
             this.lbl_id.Name = "lbl_id";
             this.lbl_id.Size = new System.Drawing.Size(43, 17);
             this.lbl_id.TabIndex = 29;
@@ -241,7 +240,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label9.Location = new System.Drawing.Point(436, 100);
+            this.label9.Location = new System.Drawing.Point(387, 100);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(23, 17);
             this.label9.TabIndex = 23;
@@ -251,7 +250,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_tipo.AutoSize = true;
             this.lbl_tipo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tipo.Location = new System.Drawing.Point(805, 183);
+            this.lbl_tipo.Location = new System.Drawing.Point(802, 183);
             this.lbl_tipo.Name = "lbl_tipo";
             this.lbl_tipo.Size = new System.Drawing.Size(43, 17);
             this.lbl_tipo.TabIndex = 28;
@@ -271,7 +270,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_tel.AutoSize = true;
             this.lbl_tel.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tel.Location = new System.Drawing.Point(805, 143);
+            this.lbl_tel.Location = new System.Drawing.Point(802, 143);
             this.lbl_tel.Name = "lbl_tel";
             this.lbl_tel.Size = new System.Drawing.Size(43, 17);
             this.lbl_tel.TabIndex = 27;
@@ -291,7 +290,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_email.AutoSize = true;
             this.lbl_email.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_email.Location = new System.Drawing.Point(805, 100);
+            this.lbl_email.Location = new System.Drawing.Point(802, 100);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(43, 17);
             this.lbl_email.TabIndex = 33;

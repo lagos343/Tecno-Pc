@@ -34,9 +34,9 @@ namespace Repuestos_Arias.Formularios
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
-            this.gunaComboBox2 = new Guna.UI.WinForms.GunaComboBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -102,9 +102,9 @@ namespace Repuestos_Arias.Formularios
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImage = global::Repuestos_Arias.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.gunaComboBox1);
+            this.panel5.Controls.Add(this.comboBox2);
+            this.panel5.Controls.Add(this.comboBox1);
             this.panel5.Controls.Add(this.pictureBox11);
-            this.panel5.Controls.Add(this.gunaComboBox2);
             this.panel5.Controls.Add(this.pictureBox8);
             this.panel5.Controls.Add(this.txt_buscar);
             this.panel5.Controls.Add(this.pictureBox6);
@@ -143,24 +143,31 @@ namespace Repuestos_Arias.Formularios
             this.panel5.Size = new System.Drawing.Size(1114, 705);
             this.panel5.TabIndex = 5;
             // 
-            // gunaComboBox1
+            // comboBox2
             // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Location = new System.Drawing.Point(839, 192);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.Blue;
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(230, 24);
-            this.gunaComboBox1.TabIndex = 80;
+            this.comboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Location = new System.Drawing.Point(582, 250);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(233, 23);
+            this.comboBox2.TabIndex = 82;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "Hola",
+            "bb",
+            "como ",
+            "estas"});
+            this.comboBox1.Location = new System.Drawing.Point(838, 193);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(233, 23);
+            this.comboBox1.TabIndex = 81;
+            this.comboBox1.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // pictureBox11
             // 
@@ -171,25 +178,6 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox11.TabIndex = 79;
             this.pictureBox11.TabStop = false;
-            // 
-            // gunaComboBox2
-            // 
-            this.gunaComboBox2.BackColor = System.Drawing.Color.White;
-            this.gunaComboBox2.BaseColor = System.Drawing.Color.White;
-            this.gunaComboBox2.BorderColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox2.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.gunaComboBox2.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaComboBox2.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox2.FormattingEnabled = true;
-            this.gunaComboBox2.Location = new System.Drawing.Point(583, 249);
-            this.gunaComboBox2.Name = "gunaComboBox2";
-            this.gunaComboBox2.OnHoverItemBaseColor = System.Drawing.Color.Blue;
-            this.gunaComboBox2.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox2.Size = new System.Drawing.Size(230, 24);
-            this.gunaComboBox2.TabIndex = 78;
             // 
             // pictureBox8
             // 
@@ -356,10 +344,10 @@ namespace Repuestos_Arias.Formularios
             // 
             this.txt_cant.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_cant.CausesValidation = false;
-            this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txt_cant.Location = new System.Drawing.Point(197, 623);
             this.txt_cant.Name = "txt_cant";
-            this.txt_cant.Size = new System.Drawing.Size(117, 16);
+            this.txt_cant.Size = new System.Drawing.Size(117, 17);
             this.txt_cant.TabIndex = 55;
             this.txt_cant.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cant_KeyPress);
             // 
@@ -388,7 +376,7 @@ namespace Repuestos_Arias.Formularios
             // lbl_stock
             // 
             this.lbl_stock.BackColor = System.Drawing.Color.White;
-            this.lbl_stock.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_stock.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_stock.ForeColor = System.Drawing.Color.Gray;
             this.lbl_stock.Location = new System.Drawing.Point(363, 557);
             this.lbl_stock.Name = "lbl_stock";
@@ -421,7 +409,7 @@ namespace Repuestos_Arias.Formularios
             // lbl_precio
             // 
             this.lbl_precio.BackColor = System.Drawing.Color.White;
-            this.lbl_precio.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_precio.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_precio.ForeColor = System.Drawing.Color.Gray;
             this.lbl_precio.Location = new System.Drawing.Point(37, 557);
             this.lbl_precio.Name = "lbl_precio";
@@ -454,7 +442,7 @@ namespace Repuestos_Arias.Formularios
             // lbl_Id
             // 
             this.lbl_Id.BackColor = System.Drawing.Color.White;
-            this.lbl_Id.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_Id.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_Id.ForeColor = System.Drawing.Color.Gray;
             this.lbl_Id.Location = new System.Drawing.Point(363, 492);
             this.lbl_Id.Name = "lbl_Id";
@@ -465,7 +453,7 @@ namespace Repuestos_Arias.Formularios
             // lbl_producto
             // 
             this.lbl_producto.BackColor = System.Drawing.Color.White;
-            this.lbl_producto.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_producto.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_producto.ForeColor = System.Drawing.Color.Gray;
             this.lbl_producto.Location = new System.Drawing.Point(37, 492);
             this.lbl_producto.Name = "lbl_producto";
@@ -590,7 +578,7 @@ namespace Repuestos_Arias.Formularios
             this.dgv_Factura.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle5.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.Purple;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -605,7 +593,7 @@ namespace Repuestos_Arias.Formularios
             this.Total});
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle6.Padding = new System.Windows.Forms.Padding(4);
             dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.White;
@@ -667,7 +655,7 @@ namespace Repuestos_Arias.Formularios
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle7.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle7.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.Purple;
             dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -678,7 +666,7 @@ namespace Repuestos_Arias.Formularios
             this.Añadir});
             dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             dataGridViewCellStyle8.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle8.Padding = new System.Windows.Forms.Padding(4);
             dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.White;
@@ -837,9 +825,9 @@ namespace Repuestos_Arias.Formularios
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
         private System.Windows.Forms.PictureBox pictureBox11;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox2;
         private System.Windows.Forms.PictureBox pictureBox8;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }

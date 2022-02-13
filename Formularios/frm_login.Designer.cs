@@ -209,7 +209,7 @@ namespace Repuestos_Arias
             this.btn_ingresar.ForeColor = System.Drawing.Color.White;
             this.btn_ingresar.Image = null;
             this.btn_ingresar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_ingresar.Location = new System.Drawing.Point(182, 447);
+            this.btn_ingresar.Location = new System.Drawing.Point(182, 440);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_ingresar.OnHoverBorderColor = System.Drawing.Color.Black;
@@ -273,7 +273,7 @@ namespace Repuestos_Arias
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(324, 499);
+            this.ClientSize = new System.Drawing.Size(324, 487);
             this.ControlBox = false;
             this.Controls.Add(this.lnk_Re_usu_contra);
             this.Controls.Add(this.btn_ingresar);
