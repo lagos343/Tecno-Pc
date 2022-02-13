@@ -29,6 +29,7 @@ namespace Repuestos_Arias.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
             this.cbo_categorias = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
@@ -62,6 +63,7 @@ namespace Repuestos_Arias.Formularios
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
@@ -86,14 +88,14 @@ namespace Repuestos_Arias.Formularios
             this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.gunaComboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
             this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Location = new System.Drawing.Point(317, 244);
+            this.gunaComboBox1.Location = new System.Drawing.Point(320, 213);
             this.gunaComboBox1.Name = "gunaComboBox1";
             this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.Blue;
             this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(227, 26);
+            this.gunaComboBox1.Size = new System.Drawing.Size(227, 24);
             this.gunaComboBox1.TabIndex = 101;
             // 
             // cbo_categorias
@@ -105,33 +107,33 @@ namespace Repuestos_Arias.Formularios
             this.cbo_categorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_categorias.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_categorias.FocusedColor = System.Drawing.Color.Empty;
-            this.cbo_categorias.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.cbo_categorias.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbo_categorias.ForeColor = System.Drawing.Color.Black;
             this.cbo_categorias.FormattingEnabled = true;
-            this.cbo_categorias.Location = new System.Drawing.Point(19, 244);
+            this.cbo_categorias.Location = new System.Drawing.Point(20, 212);
             this.cbo_categorias.Name = "cbo_categorias";
             this.cbo_categorias.OnHoverItemBaseColor = System.Drawing.Color.Blue;
             this.cbo_categorias.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbo_categorias.Size = new System.Drawing.Size(227, 26);
+            this.cbo_categorias.Size = new System.Drawing.Size(227, 24);
             this.cbo_categorias.TabIndex = 100;
             // 
             // gunaLabel7
             // 
             this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel7.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel7.Location = new System.Drawing.Point(8, 215);
+            this.gunaLabel7.Location = new System.Drawing.Point(8, 187);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(58, 19);
+            this.gunaLabel7.Size = new System.Drawing.Size(48, 15);
             this.gunaLabel7.TabIndex = 99;
             this.gunaLabel7.Text = "PUESTO";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox6.Location = new System.Drawing.Point(12, 237);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 209);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox6.Size = new System.Drawing.Size(245, 31);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 98;
             this.pictureBox6.TabStop = false;
@@ -139,20 +141,20 @@ namespace Repuestos_Arias.Formularios
             // gunaLabel2
             // 
             this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(306, 215);
+            this.gunaLabel2.Location = new System.Drawing.Point(306, 187);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(111, 19);
+            this.gunaLabel2.Size = new System.Drawing.Size(94, 15);
             this.gunaLabel2.TabIndex = 97;
             this.gunaLabel2.Text = "DEPARTAMENTO";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox3.Location = new System.Drawing.Point(310, 237);
+            this.pictureBox3.Location = new System.Drawing.Point(310, 209);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox3.Size = new System.Drawing.Size(245, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 96;
             this.pictureBox3.TabStop = false;
@@ -161,29 +163,29 @@ namespace Repuestos_Arias.Formularios
             // 
             this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_nombre.CausesValidation = false;
-            this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_nombre.Location = new System.Drawing.Point(19, 173);
+            this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_nombre.Location = new System.Drawing.Point(19, 156);
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(227, 18);
+            this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 95;
             // 
             // gunaLabel4
             // 
             this.gunaLabel4.AutoSize = true;
-            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel4.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel4.Location = new System.Drawing.Point(8, 141);
+            this.gunaLabel4.Location = new System.Drawing.Point(8, 127);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(66, 19);
+            this.gunaLabel4.Size = new System.Drawing.Size(56, 15);
             this.gunaLabel4.TabIndex = 94;
             this.gunaLabel4.Text = "NOMBRE";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox4.Location = new System.Drawing.Point(12, 163);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 149);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox4.Size = new System.Drawing.Size(245, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 93;
             this.pictureBox4.TabStop = false;
@@ -192,20 +194,20 @@ namespace Repuestos_Arias.Formularios
             // 
             this.txt_codigo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_codigo.CausesValidation = false;
-            this.txt_codigo.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_codigo.Location = new System.Drawing.Point(317, 99);
+            this.txt_codigo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_codigo.Location = new System.Drawing.Point(317, 96);
             this.txt_codigo.Name = "txt_codigo";
-            this.txt_codigo.Size = new System.Drawing.Size(227, 18);
+            this.txt_codigo.Size = new System.Drawing.Size(227, 16);
             this.txt_codigo.TabIndex = 92;
             // 
             // gunaLabel1
             // 
             this.gunaLabel1.AutoSize = true;
-            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel1.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel1.Location = new System.Drawing.Point(306, 67);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(80, 19);
+            this.gunaLabel1.Size = new System.Drawing.Size(66, 15);
             this.gunaLabel1.TabIndex = 91;
             this.gunaLabel1.Text = "IDENTIDAD";
             // 
@@ -214,7 +216,7 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
             this.pictureBox1.Location = new System.Drawing.Point(310, 89);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox1.Size = new System.Drawing.Size(245, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 90;
             this.pictureBox1.TabStop = false;
@@ -224,20 +226,20 @@ namespace Repuestos_Arias.Formularios
             this.txt_id.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_id.CausesValidation = false;
             this.txt_id.Enabled = false;
-            this.txt_id.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.txt_id.Location = new System.Drawing.Point(19, 99);
+            this.txt_id.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_id.Location = new System.Drawing.Point(20, 96);
             this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(227, 18);
+            this.txt_id.Size = new System.Drawing.Size(227, 16);
             this.txt_id.TabIndex = 89;
             // 
             // gunaLabel3
             // 
             this.gunaLabel3.AutoSize = true;
-            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel3.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel3.Location = new System.Drawing.Point(8, 67);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(23, 19);
+            this.gunaLabel3.Size = new System.Drawing.Size(18, 15);
             this.gunaLabel3.TabIndex = 88;
             this.gunaLabel3.Text = "ID";
             // 
@@ -256,7 +258,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Repuestos_Arias.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(310, 389);
+            this.btn_guardar.Location = new System.Drawing.Point(310, 330);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -265,7 +267,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.OnHoverImage = null;
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(245, 41);
+            this.btn_guardar.Size = new System.Drawing.Size(245, 33);
             this.btn_guardar.TabIndex = 86;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -275,7 +277,7 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox2.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
             this.pictureBox2.Location = new System.Drawing.Point(12, 89);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox2.Size = new System.Drawing.Size(245, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 87;
             this.pictureBox2.TabStop = false;
@@ -309,11 +311,11 @@ namespace Repuestos_Arias.Formularios
             // lbl_titulo
             // 
             this.lbl_titulo.AutoSize = true;
-            this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbl_titulo.ForeColor = System.Drawing.Color.White;
-            this.lbl_titulo.Location = new System.Drawing.Point(37, 10);
+            this.lbl_titulo.Location = new System.Drawing.Point(37, 13);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(135, 19);
+            this.lbl_titulo.Size = new System.Drawing.Size(114, 15);
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "AÑADIR EMPLEADO";
             // 
@@ -346,29 +348,29 @@ namespace Repuestos_Arias.Formularios
             // 
             this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox1.CausesValidation = false;
-            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox1.Location = new System.Drawing.Point(317, 173);
+            this.textBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox1.Location = new System.Drawing.Point(317, 156);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(227, 18);
+            this.textBox1.Size = new System.Drawing.Size(227, 16);
             this.textBox1.TabIndex = 104;
             // 
             // gunaLabel5
             // 
             this.gunaLabel5.AutoSize = true;
-            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel5.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel5.Location = new System.Drawing.Point(306, 141);
+            this.gunaLabel5.Location = new System.Drawing.Point(306, 127);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(72, 19);
+            this.gunaLabel5.Size = new System.Drawing.Size(60, 15);
             this.gunaLabel5.TabIndex = 103;
             this.gunaLabel5.Text = "APELLIDO";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(310, 163);
+            this.pictureBox5.Location = new System.Drawing.Point(310, 149);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox5.Size = new System.Drawing.Size(245, 31);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 102;
             this.pictureBox5.TabStop = false;
@@ -377,29 +379,29 @@ namespace Repuestos_Arias.Formularios
             // 
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.CausesValidation = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox2.Location = new System.Drawing.Point(317, 323);
+            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox2.Location = new System.Drawing.Point(317, 278);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(227, 18);
+            this.textBox2.Size = new System.Drawing.Size(227, 16);
             this.textBox2.TabIndex = 110;
             // 
             // gunaLabel6
             // 
             this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel6.Location = new System.Drawing.Point(306, 291);
+            this.gunaLabel6.Location = new System.Drawing.Point(306, 248);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(63, 19);
+            this.gunaLabel6.Size = new System.Drawing.Size(53, 15);
             this.gunaLabel6.TabIndex = 109;
             this.gunaLabel6.Text = "CORREO";
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox7.Location = new System.Drawing.Point(310, 313);
+            this.pictureBox7.Location = new System.Drawing.Point(310, 270);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox7.Size = new System.Drawing.Size(245, 31);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 108;
             this.pictureBox7.TabStop = false;
@@ -408,29 +410,29 @@ namespace Repuestos_Arias.Formularios
             // 
             this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox3.CausesValidation = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox3.Location = new System.Drawing.Point(19, 323);
+            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox3.Location = new System.Drawing.Point(19, 277);
             this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(227, 18);
+            this.textBox3.Size = new System.Drawing.Size(227, 16);
             this.textBox3.TabIndex = 107;
             // 
             // gunaLabel8
             // 
             this.gunaLabel8.AutoSize = true;
-            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel8.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel8.Location = new System.Drawing.Point(8, 291);
+            this.gunaLabel8.Location = new System.Drawing.Point(8, 248);
             this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(76, 19);
+            this.gunaLabel8.Size = new System.Drawing.Size(64, 15);
             this.gunaLabel8.TabIndex = 106;
             this.gunaLabel8.Text = "TELEFONO";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox8.Location = new System.Drawing.Point(12, 313);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 270);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(245, 39);
+            this.pictureBox8.Size = new System.Drawing.Size(245, 31);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 105;
             this.pictureBox8.TabStop = false;
@@ -439,40 +441,44 @@ namespace Repuestos_Arias.Formularios
             // 
             this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox4.CausesValidation = false;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.textBox4.Location = new System.Drawing.Point(23, 394);
+            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.textBox4.Location = new System.Drawing.Point(21, 338);
             this.textBox4.Multiline = true;
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(227, 106);
+            this.textBox4.Size = new System.Drawing.Size(227, 70);
             this.textBox4.TabIndex = 113;
             // 
             // gunaLabel9
             // 
             this.gunaLabel9.AutoSize = true;
-            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel9.Location = new System.Drawing.Point(12, 367);
+            this.gunaLabel9.Location = new System.Drawing.Point(12, 308);
             this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(81, 19);
+            this.gunaLabel9.Size = new System.Drawing.Size(68, 15);
             this.gunaLabel9.TabIndex = 112;
             this.gunaLabel9.Text = "DIRECCION";
             // 
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Repuestos_Arias.Properties.Resources.CajaDescripcion;
-            this.pictureBox9.Location = new System.Drawing.Point(16, 389);
+            this.pictureBox9.Location = new System.Drawing.Point(12, 330);
             this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(241, 116);
+            this.pictureBox9.Size = new System.Drawing.Size(245, 84);
             this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox9.TabIndex = 111;
             this.pictureBox9.TabStop = false;
+            // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.TargetControl = this;
             // 
             // frm_AñadirEmpleado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(567, 533);
+            this.ClientSize = new System.Drawing.Size(567, 436);
             this.Controls.Add(this.textBox4);
             this.Controls.Add(this.gunaLabel9);
             this.Controls.Add(this.pictureBox9);
@@ -562,5 +568,6 @@ namespace Repuestos_Arias.Formularios
         private System.Windows.Forms.TextBox textBox4;
         private Guna.UI.WinForms.GunaLabel gunaLabel9;
         private System.Windows.Forms.PictureBox pictureBox9;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
     }
 }
