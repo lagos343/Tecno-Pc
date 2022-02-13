@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <RootNamespace>Repuestos_Arias</RootNamespace>
     <AssemblyName>Repuestos Arias</AssemblyName>
-    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
@@ -107,11 +107,23 @@
     <Compile Include="Clases\ElipseControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Formularios\frm_AñadirEmpleado.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_AñadirEmpleado.Designer.cs">
+      <DependentUpon>frm_AñadirEmpleado.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_AñadirProductos.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frm_AñadirProductos.Designer.cs">
       <DependentUpon>frm_AñadirProductos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_AñadirProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_AñadirProveedores.Designer.cs">
+      <DependentUpon>frm_AñadirProveedores.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_AñadirUsuarios.cs">
       <SubType>Form</SubType>
@@ -119,11 +131,29 @@
     <Compile Include="Formularios\frm_AñadirUsuarios.Designer.cs">
       <DependentUpon>frm_AñadirUsuarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_clientes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_clientes.Designer.cs">
+      <DependentUpon>frm_clientes.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_compras.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Formularios\frm_compras.Designer.cs">
       <DependentUpon>frm_compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_contactos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_contactos.Designer.cs">
+      <DependentUpon>frm_contactos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_empleados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_empleados.Designer.cs">
+      <DependentUpon>frm_empleados.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_Facturas.cs">
       <SubType>Form</SubType>
@@ -161,6 +191,12 @@
     <Compile Include="Formularios\frm_productos.Designer.cs">
       <DependentUpon>frm_productos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_proveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_proveedores.Designer.cs">
+      <DependentUpon>frm_proveedores.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_reportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -181,14 +217,29 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Formularios\frm_AñadirEmpleado.resx">
+      <DependentUpon>frm_AñadirEmpleado.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_AñadirProductos.resx">
       <DependentUpon>frm_AñadirProductos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_AñadirProveedores.resx">
+      <DependentUpon>frm_AñadirProveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_AñadirUsuarios.resx">
       <DependentUpon>frm_AñadirUsuarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_clientes.resx">
+      <DependentUpon>frm_clientes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_compras.resx">
       <DependentUpon>frm_compras.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_contactos.resx">
+      <DependentUpon>frm_contactos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_empleados.resx">
+      <DependentUpon>frm_empleados.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Facturas.resx">
       <DependentUpon>frm_Facturas.cs</DependentUpon>
@@ -207,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_productos.resx">
       <DependentUpon>frm_productos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_proveedores.resx">
+      <DependentUpon>frm_proveedores.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_reportes.resx">
       <DependentUpon>frm_reportes.cs</DependentUpon>
@@ -265,6 +319,7 @@
     <Content Include="Repuestos Arias_soloLogo.ico" />
     <Content Include="Repuestos-Arias_rojo.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\proveedor.png" />
     <None Include="Resources\Salir.png" />
     <None Include="Resources\minimizar Principal1.png" />
     <None Include="Resources\minimizar Principal.png" />

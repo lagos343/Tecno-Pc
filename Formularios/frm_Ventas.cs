@@ -11,9 +11,7 @@ using System.Windows.Forms;
 namespace Repuestos_Arias.Formularios
 {
     public partial class frm_Ventas : Form
-    {
-        Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
-        Clases.Cl_UsuarioLogueado usu = new Clases.Cl_UsuarioLogueado();
+    {     
 
         public frm_Ventas()
         {
@@ -22,12 +20,7 @@ namespace Repuestos_Arias.Formularios
 
         private void frm_Ventas_Load(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0");
-            Operacionesdatagrid1();
-            Operacionesdatagrid2();
-            LimpiarProductoSeleccionado();
-            ActualizarCatosFactura();
+           
         }
 
         private void Operacionesdatagrid1()
@@ -50,8 +43,7 @@ namespace Repuestos_Arias.Formularios
 
         private void LimpiarProductoSeleccionado()
         {
-            txt_cant.Clear();
-            txt_rebaja.Text = "";
+            txt_cant.Clear();            
             lbl_Id.Text = "";
             lbl_precio.Text = "";
             lbl_producto.Text = "";
@@ -83,22 +75,19 @@ namespace Repuestos_Arias.Formularios
 
         private void ActualizarCatosFactura()
         {
-            lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();            
+            
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0 and Nombre_Producto LIKE '%" + txt_buscar.Text + "%'");
-            Operacionesdatagrid1();
+            
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgv_Productos.Rows[e.RowIndex].Cells["Añadir"].Selected)
             {
-                txt_cant.Clear();
-                txt_rebaja.Text = "";
+                txt_cant.Clear();                
                 lbl_Id.Text = dgv_Productos.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[3].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[2].Value.ToString();
@@ -144,15 +133,8 @@ namespace Repuestos_Arias.Formularios
             else
             {
                 int rebaja, subtotal, total;
-
-                if (txt_rebaja.Text == string.Empty)
-                {
-                    rebaja = 0;
-                }
-                else
-                {
-                    rebaja = int.Parse(txt_rebaja.Text);
-                }
+                             
+                
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
@@ -160,12 +142,8 @@ namespace Repuestos_Arias.Formularios
                     {
                         dgv_Factura.Rows.Remove(fila);
                     }
-                }
-
-                subtotal = int.Parse(lbl_precio.Text) - rebaja;
-                total = subtotal * cant;
-                dgv_Factura.Rows.Add(Image.FromFile("EliminarProducto.png"), lbl_Id.Text, lbl_producto.Text, 
-                    cant.ToString(), total.ToString());
+                }                                             
+                
                 lbl_TotalVenta.Text = calcularTotaleventa().ToString();
                 Operacionesdatagrid2();
                 LimpiarProductoSeleccionado();
@@ -185,19 +163,13 @@ namespace Repuestos_Arias.Formularios
         private void btn_nuevaVenta_Click(object sender, EventArgs e)
         {
             txt_buscar.Clear();
-            dgv_Productos.DataSource = sql.Consulta("select Id_Producto, Nombre_Producto, Precio_Venta, Unidades_Stock " +
-                "from Productos where Unidades_Stock > 0");
-            Operacionesdatagrid1();
-            LimpiarProductoSeleccionado();
-            ActualizarCatosFactura();           
-            dgv_Factura.Rows.Clear();            
-            lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-            txt_nomCliente.Clear();
+            
+           
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (txt_nomCliente.Text == string.Empty || dgv_Factura.Rows.Count == 0)
+            if (dgv_Factura.Rows.Count == 0)
             {
                 frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Factura y especificar nombre de Cliente antes de guardar", 3);
                 noti.ShowDialog();
@@ -205,13 +177,13 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                sql.modi_guar_elim("insert into Factura values" + lbl_fechaCompra.Text +
+                sql.modi_guar_elim("insert into Factura values(" + int.Parse(lbl_noFactura.Text) + ", '" + lbl_fechaCompra.Text +
                 "', '" + txt_nomCliente.Text + "', " + usu.Id_usuario + ")");
 
                 foreach (DataGridViewRow fila in dgv_Factura.Rows)
                 {
                     sql.modi_guar_elim("insert into DetallesFactura values(" + int.Parse(fila.Cells[1].Value.ToString()) + ", '" + lbl_fechaCompra.Text + "'" +
-                        ", " + int.Parse(fila.Cells[3].Value.ToString()) + ", " + int.Parse(fila.Cells[4].Value.ToString()) + ")");
+                        ", " + int.Parse(lbl_noFactura.Text) + ", " + int.Parse(fila.Cells[3].Value.ToString()) + ", " + int.Parse(fila.Cells[4].Value.ToString()) + ")");
 
                     sql.modi_guar_elim("Update Productos set Unidades_Stock = Unidades_Stock - " + int.Parse(fila.Cells[3].Value.ToString()) + " " +
                         "where Id_Producto = " + int.Parse(fila.Cells[1].Value.ToString()));
@@ -250,6 +222,7 @@ namespace Repuestos_Arias.Formularios
             }
         }
 
-        #endregion       
+        #endregion
+        
     }
 }

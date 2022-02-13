@@ -17,9 +17,7 @@ namespace Repuestos_Arias.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
-        Clases.Cl_Productos prod = new Clases.Cl_Productos();
+        
 
         public frm_AñadirProductos(int estado, DataGridView dat)
         {
@@ -33,16 +31,7 @@ namespace Repuestos_Arias.Formularios
             else if (estado == 2)
             {
                 lbl_titulo.Text = "ACTUALIZAR PRODUCTO";
-                InicializarCombobox();
-                btn_guardar.Click += btn_guardarActualizado_Click;
-                txt_id.Text = dat.CurrentRow.Cells[2].Value.ToString();
-                txt_codigo.Text = dat.CurrentRow.Cells[3].Value.ToString();
-                txt_nombre.Text = dat.CurrentRow.Cells[4].Value.ToString();
-                txt_pCompra.Text = dat.CurrentRow.Cells[5].Value.ToString();
-                txt_pVenta.Text = dat.CurrentRow.Cells[6].Value.ToString();
-                txt_stock.Text = dat.CurrentRow.Cells[7].Value.ToString();
-                cbo_categorias.SelectedValue = int.Parse(dat.CurrentRow.Cells[8].Value.ToString());
-                cbo_marcas.SelectedValue = int.Parse(dat.CurrentRow.Cells[9].Value.ToString());                
+                InicializarCombobox();               
             }
         }
 
@@ -63,25 +52,13 @@ namespace Repuestos_Arias.Formularios
 
         public void InicializarCombobox()
         {
-            DataTable marcasTabla = new DataTable();
-            DataTable catesTabla = new DataTable();
-
-            catesTabla = sql.Consulta("select *from Categorias");
-            marcasTabla = sql.Consulta("select *from Marcas");
-
-            cbo_categorias.DataSource = catesTabla;
-            cbo_categorias.ValueMember = "Id_Categoria";
-            cbo_categorias.DisplayMember = "Nombre_Categoria";
-
-            cbo_marcas.DataSource = marcasTabla;
-            cbo_marcas.ValueMember = "Id_Marca";
-            cbo_marcas.DisplayMember = "Nombre_Marca";
+            
         }
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
             if (txt_codigo.Text == "" || txt_nombre.Text == "" || txt_pCompra.Text == "" || txt_pVenta.Text == "" || 
-                txt_stock.Text == "" || cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
+                 cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
             {
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
@@ -89,40 +66,20 @@ namespace Repuestos_Arias.Formularios
             }
             else
             {
-                prod.Codigo_Producto = txt_codigo.Text;
-                prod.Nombre_Producto = txt_nombre.Text;
-                prod.Precio_Compra = Double.Parse(txt_pCompra.Text);
-                prod.Precio_Venta = Double.Parse(txt_pVenta.Text);
-                prod.Unidades_Stock = Double.Parse(txt_stock.Text);
-                prod.Id_Marca = int.Parse(cbo_marcas.SelectedValue.ToString());
-                prod.Id_Categoria = int.Parse(cbo_categorias.SelectedValue.ToString());
-
-                prod.guardar();
-                Limnpiado();
+                
             }            
         }
 
         private void btn_guardarActualizado_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || txt_nombre.Text == "" || txt_pCompra.Text == "" || txt_pVenta.Text == "" ||
-                txt_stock.Text == "" || cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
+            if (txt_codigo.Text == "" || txt_nombre.Text == "" || txt_pCompra.Text == "" || txt_pVenta.Text == "" || cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
             {
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
                 noti.Close();
             }
             else
-            {
-                prod.Codigo_Producto = txt_codigo.Text;
-                prod.Nombre_Producto = txt_nombre.Text;
-                prod.Precio_Compra = Double.Parse(txt_pCompra.Text);
-                prod.Precio_Venta = Double.Parse(txt_pVenta.Text);
-                prod.Unidades_Stock = Double.Parse(txt_stock.Text);
-                prod.Id_Marca = int.Parse(cbo_marcas.SelectedValue.ToString());
-                prod.Id_Categoria = int.Parse(cbo_categorias.SelectedValue.ToString());
-                prod.Id_Producto = int.Parse(txt_id.Text);
-
-                prod.actualizarDatos();
+            {              
                 this.Close();
             }
         }
@@ -139,8 +96,7 @@ namespace Repuestos_Arias.Formularios
             txt_id.Clear();
             txt_nombre.Clear();
             txt_pCompra.Clear();
-            txt_pVenta.Clear();
-            txt_stock.Clear();
+            txt_pVenta.Clear();          
             cbo_categorias.SelectedIndex = -1;
             cbo_marcas.SelectedIndex = -1;
         }

@@ -10,28 +10,23 @@ using System.Windows.Forms;
 
 namespace Repuestos_Arias.Formularios
 {
-    public partial class frm_Usuarios : Form
+    public partial class frm_proveedores : Form
     {
-        public frm_Usuarios()
+        public frm_proveedores()
         {
-            InitializeComponent();            
-        }    
-
-        private void frm_Usuarios_Load(object sender, EventArgs e)
-        {
-            
+            InitializeComponent();
         }
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
         {
-            frm_AñadirUsuarios a_usu = new frm_AñadirUsuarios();
-            a_usu.ShowDialog();
+            frm_AñadirProveedores añapro = new frm_AñadirProveedores();
+            añapro.Show();
         }
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
-            frm_clientes cli = new frm_clientes();
-            cli.ShowDialog();
+            frm_contactos contac = new frm_contactos();
+            contac.Show();
         }
     }
 }
