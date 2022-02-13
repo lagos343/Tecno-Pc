@@ -41,7 +41,7 @@ namespace Repuestos_Arias.Clases
         {
             string cadena;
             cadena = "Update Categorias set Nombre_Categoria = '" + nombre_Categoria + "', Descripcion_Categoria = '" + descripcion_Categoria + "' where Id_Categoria = " + id_Categoria + "";
-            sql.modi_guar_elim(cadena, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            sql.modi_guar_elim(cadena, "Categoria actulizada con exito", "Llenar todos los datos antes de añadir");
         }
 
         public void eliminarDatos()
