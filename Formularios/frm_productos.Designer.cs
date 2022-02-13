@@ -61,10 +61,10 @@ namespace Repuestos_Arias.Formularios
             this.btn_categorias = new Guna.UI.WinForms.GunaGradientButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.gunaLinePanel3 = new Guna.UI.WinForms.GunaLinePanel();
-            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.lbl_totalMarcas = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
+            this.gunaLinePanel3 = new Guna.UI.WinForms.GunaLinePanel();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -157,7 +157,7 @@ namespace Repuestos_Arias.Formularios
             this.panel2.Controls.Add(this.gunaLabel3);
             this.panel2.Controls.Add(this.gunaLinePanel1);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(277, 6);
+            this.panel2.Location = new System.Drawing.Point(284, 6);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(265, 78);
             this.panel2.TabIndex = 5;
@@ -210,9 +210,9 @@ namespace Repuestos_Arias.Formularios
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.panel4);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(824, 3);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(839, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(290, 81);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(275, 81);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // panel4
@@ -295,7 +295,7 @@ namespace Repuestos_Arias.Formularios
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_buscar.Location = new System.Drawing.Point(69, 84);
+            this.txt_buscar.Location = new System.Drawing.Point(69, 78);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 14;
@@ -305,7 +305,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
-            this.pictureBox6.Location = new System.Drawing.Point(34, 77);
+            this.pictureBox6.Location = new System.Drawing.Point(34, 71);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -315,7 +315,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(31, 75);
+            this.pictureBox5.Location = new System.Drawing.Point(31, 69);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(354, 34);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -336,7 +336,7 @@ namespace Repuestos_Arias.Formularios
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
@@ -348,7 +348,7 @@ namespace Repuestos_Arias.Formularios
             this.Eliminar});
             dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 10F);
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
             dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
             dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
             dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
@@ -356,12 +356,12 @@ namespace Repuestos_Arias.Formularios
             dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_Productos.Location = new System.Drawing.Point(28, 133);
+            this.dgv_Productos.Location = new System.Drawing.Point(28, 120);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Productos.RowHeadersVisible = false;
             this.dgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_Productos.Size = new System.Drawing.Size(1062, 473);
+            this.dgv_Productos.Size = new System.Drawing.Size(1054, 475);
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
@@ -392,7 +392,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevoProducto.ForeColor = System.Drawing.Color.White;
             this.btn_nuevoProducto.Image = null;
             this.btn_nuevoProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nuevoProducto.Location = new System.Drawing.Point(402, 76);
+            this.btn_nuevoProducto.Location = new System.Drawing.Point(402, 70);
             this.btn_nuevoProducto.Name = "btn_nuevoProducto";
             this.btn_nuevoProducto.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevoProducto.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -422,7 +422,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_Imprimir.ForeColor = System.Drawing.Color.White;
             this.btn_Imprimir.Image = null;
             this.btn_Imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Imprimir.Location = new System.Drawing.Point(847, 79);
+            this.btn_Imprimir.Location = new System.Drawing.Point(839, 71);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
             this.btn_Imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
@@ -452,7 +452,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_Marcas.ForeColor = System.Drawing.Color.White;
             this.btn_Marcas.Image = null;
             this.btn_Marcas.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Marcas.Location = new System.Drawing.Point(847, 30);
+            this.btn_Marcas.Location = new System.Drawing.Point(839, 22);
             this.btn_Marcas.Name = "btn_Marcas";
             this.btn_Marcas.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_Marcas.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -482,7 +482,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_categorias.ForeColor = System.Drawing.Color.White;
             this.btn_categorias.Image = null;
             this.btn_categorias.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_categorias.Location = new System.Drawing.Point(984, 30);
+            this.btn_categorias.Location = new System.Drawing.Point(976, 22);
             this.btn_categorias.Name = "btn_categorias";
             this.btn_categorias.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_categorias.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -510,26 +510,17 @@ namespace Repuestos_Arias.Formularios
             this.panel3.Size = new System.Drawing.Size(265, 78);
             this.panel3.TabIndex = 5;
             // 
-            // pictureBox3
+            // lbl_totalMarcas
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.Marcas;
-            this.pictureBox3.Location = new System.Drawing.Point(6, 9);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(43, 37);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox3.TabIndex = 4;
-            this.pictureBox3.TabStop = false;
-            // 
-            // gunaLinePanel3
-            // 
-            this.gunaLinePanel3.BackColor = System.Drawing.Color.Silver;
-            this.gunaLinePanel3.LineColor = System.Drawing.Color.Transparent;
-            this.gunaLinePanel3.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel3.Location = new System.Drawing.Point(6, 51);
-            this.gunaLinePanel3.Name = "gunaLinePanel3";
-            this.gunaLinePanel3.Size = new System.Drawing.Size(250, 1);
-            this.gunaLinePanel3.TabIndex = 5;
+            this.lbl_totalMarcas.BackColor = System.Drawing.Color.Transparent;
+            this.lbl_totalMarcas.Font = new System.Drawing.Font("Ebrima", 16F);
+            this.lbl_totalMarcas.ForeColor = System.Drawing.Color.DarkGray;
+            this.lbl_totalMarcas.Location = new System.Drawing.Point(161, 6);
+            this.lbl_totalMarcas.Name = "lbl_totalMarcas";
+            this.lbl_totalMarcas.Size = new System.Drawing.Size(93, 42);
+            this.lbl_totalMarcas.TabIndex = 7;
+            this.lbl_totalMarcas.Text = "100";
+            this.lbl_totalMarcas.TextAlign = System.Drawing.ContentAlignment.TopRight;
             // 
             // gunaLabel5
             // 
@@ -543,22 +534,31 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel5.TabIndex = 6;
             this.gunaLabel5.Text = "MARCAS";
             // 
-            // lbl_totalMarcas
+            // gunaLinePanel3
             // 
-            this.lbl_totalMarcas.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_totalMarcas.Font = new System.Drawing.Font("Ebrima", 16F);
-            this.lbl_totalMarcas.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_totalMarcas.Location = new System.Drawing.Point(161, 6);
-            this.lbl_totalMarcas.Name = "lbl_totalMarcas";
-            this.lbl_totalMarcas.Size = new System.Drawing.Size(93, 42);
-            this.lbl_totalMarcas.TabIndex = 7;
-            this.lbl_totalMarcas.Text = "100";
-            this.lbl_totalMarcas.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.gunaLinePanel3.BackColor = System.Drawing.Color.Silver;
+            this.gunaLinePanel3.LineColor = System.Drawing.Color.Transparent;
+            this.gunaLinePanel3.LineStyle = System.Windows.Forms.BorderStyle.None;
+            this.gunaLinePanel3.Location = new System.Drawing.Point(6, 51);
+            this.gunaLinePanel3.Name = "gunaLinePanel3";
+            this.gunaLinePanel3.Size = new System.Drawing.Size(250, 1);
+            this.gunaLinePanel3.TabIndex = 5;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
+            this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.Marcas;
+            this.pictureBox3.Location = new System.Drawing.Point(6, 9);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(43, 37);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox3.TabIndex = 4;
+            this.pictureBox3.TabStop = false;
             // 
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.panel3);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(548, 3);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(559, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
             this.flowLayoutPanel3.Size = new System.Drawing.Size(270, 81);
             this.flowLayoutPanel3.TabIndex = 2;

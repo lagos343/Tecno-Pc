@@ -349,7 +349,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // panel_Header
             // 
-            this.panel_Header.BackColor = System.Drawing.Color.Gold;
+            this.panel_Header.BackColor = System.Drawing.SystemColors.Control;
             this.panel_Header.Controls.Add(this.gunaPictureBox3);
             this.panel_Header.Controls.Add(this.btn_cerrar);
             this.panel_Header.Dock = System.Windows.Forms.DockStyle.Top;
