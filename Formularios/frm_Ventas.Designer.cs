@@ -227,38 +227,10 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel9.Size = new System.Drawing.Size(55, 19);
             this.gunaLabel9.TabIndex = 65;
             this.gunaLabel9.Text = "Nom. Cliente";
-            // 
-            // lbl_noFactura
-            // 
-            this.lbl_noFactura.BackColor = System.Drawing.Color.White;
-            this.lbl_noFactura.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.lbl_noFactura.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_noFactura.Location = new System.Drawing.Point(840, 195);
-            this.lbl_noFactura.Name = "lbl_noFactura";
-            this.lbl_noFactura.Size = new System.Drawing.Size(118, 19);
-            this.lbl_noFactura.TabIndex = 64;
-            // 
-            // pictureBox11
-            // 
-            this.pictureBox11.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
-            this.pictureBox11.Location = new System.Drawing.Point(835, 187);
-            this.pictureBox11.Name = "pictureBox11";
-            this.pictureBox11.Size = new System.Drawing.Size(128, 35);
-            this.pictureBox11.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox11.TabIndex = 63;
-            this.pictureBox11.TabStop = false;
-            // 
-            // gunaLabel10
-            // 
-            this.gunaLabel10.AutoSize = true;
-            this.gunaLabel10.BackColor = System.Drawing.Color.White;
-            this.gunaLabel10.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel10.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel10.Location = new System.Drawing.Point(831, 167);
-            this.gunaLabel10.Name = "gunaLabel10";
-            this.gunaLabel10.Size = new System.Drawing.Size(83, 19);
-            this.gunaLabel10.TabIndex = 62;
-            this.gunaLabel10.Text = "no. Factura";
+
+            
+            
+
             // 
             // lbl_fechaCompra
             // 
