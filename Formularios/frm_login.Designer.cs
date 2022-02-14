@@ -209,14 +209,14 @@ namespace Repuestos_Arias
             this.btn_ingresar.ForeColor = System.Drawing.Color.White;
             this.btn_ingresar.Image = null;
             this.btn_ingresar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_ingresar.Location = new System.Drawing.Point(182, 440);
+            this.btn_ingresar.Location = new System.Drawing.Point(201, 445);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_ingresar.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_ingresar.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_ingresar.OnHoverImage = null;
             this.btn_ingresar.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_ingresar.Size = new System.Drawing.Size(111, 36);
+            this.btn_ingresar.Size = new System.Drawing.Size(111, 30);
             this.btn_ingresar.TabIndex = 12;
             this.btn_ingresar.Text = "INGRESAR";
             this.btn_ingresar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;

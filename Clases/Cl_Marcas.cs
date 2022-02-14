@@ -9,7 +9,7 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_Marcas
     {
-        Cl_SqlManaggement sql = new Cl_SqlManaggement();
+        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         private static int id_Marca;
         private static string nombre_Marca;
         private static string descripcion_Marca;
@@ -24,7 +24,7 @@ namespace Repuestos_Arias.Clases
         {
             string cadena;
             cadena = "Insert into Marcas (Nombre_Marca, Descripcion_Marca) values('" + nombre_Marca + "', '" + descripcion_Marca + "')";
-            sql.modi_guar_elim(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -41,14 +41,14 @@ namespace Repuestos_Arias.Clases
         {
             string cadena;
             cadena = "Update Marcas set Nombre_Marca = '" + nombre_Marca + "', Descripcion_Marca = '" + descripcion_Marca + "' where Id_Marca = " + id_Marca + "";
-            sql.modi_guar_elim(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void eliminarDatos()
         {
             string cadena;
             cadena = "Delete from Marcas where Id_Marca = " + id_Marca + "";
-            sql.modi_guar_elim(cadena, "Marca eliminada con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Marca eliminada con exito", "Debe llenar todos los datos antes de añadir");
         }
     }
 }

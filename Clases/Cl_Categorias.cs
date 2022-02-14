@@ -9,7 +9,7 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_Categorias
     {
-        Cl_SqlManaggement sql = new Cl_SqlManaggement();
+        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         private static int id_Categoria;
         private static string nombre_Categoria;
         private static string descripcion_Categoria;      
@@ -24,7 +24,7 @@ namespace Repuestos_Arias.Clases
         {
             string cadena;
             cadena = "Insert into Categorias (Nombre_Categoria, Descripcion_Categoria) values('" + nombre_Categoria + "', '" + descripcion_Categoria + "')";
-            sql.modi_guar_elim(cadena, "Categoria añadida con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Categoria añadida con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -41,14 +41,14 @@ namespace Repuestos_Arias.Clases
         {
             string cadena;
             cadena = "Update Categorias set Nombre_Categoria = '" + nombre_Categoria + "', Descripcion_Categoria = '" + descripcion_Categoria + "' where Id_Categoria = " + id_Categoria + "";
-            sql.modi_guar_elim(cadena, "Categoria actulizada con exito", "Llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void eliminarDatos()
         {
             string cadena;
             cadena = "Delete from Categorias where Id_Categoria = " + id_Categoria + "";
-            sql.modi_guar_elim(cadena, "Categoria eliminada con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Categoria eliminada con exito", "Debe llenar todos los datos antes de añadir");
         }
     }
 }

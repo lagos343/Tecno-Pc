@@ -36,7 +36,7 @@ namespace Repuestos_Arias
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         }
 
         #region Eventos Enter y Leave de los textbox               

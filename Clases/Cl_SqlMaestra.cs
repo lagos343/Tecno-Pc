@@ -4,27 +4,31 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.OleDb;
+using System.Data.Sql;
+using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
 namespace Repuestos_Arias.Clases
 {
-    class Cl_SqlManaggement
+    class Cl_SqlMaestra
     {
-        private string cadena_coneccion;
-        OleDbDataReader read;
-        OleDbConnection connection = new OleDbConnection();
-        OleDbDataAdapter adapter = new OleDbDataAdapter();
-        OleDbCommand cmd = new OleDbCommand();
-        DataTable Tabla_Resultados;
+        private string Servidor = "DESKTOP-RVES46I";
+        private string DataBase = "TECNOPC";
+        private string cadena_coneccion;        
+        SqlConnection connection = new SqlConnection();
+        SqlDataAdapter adapter = new SqlDataAdapter();
+        SqlCommand cmd = new SqlCommand();
+        DataTable Tabla_Resultados;       
 
-        public Cl_SqlManaggement()
+
+        public Cl_SqlMaestra()
         {
-            cadena_coneccion = "Provider=Microsoft.Jet.OLEDB.4.0; Data Source = Repuestos_Arias_Database.mdb";
+            cadena_coneccion = "Data Source=" +Servidor+"; Initial Catalog="+DataBase+"; Integrated Security=True";
             connection.ConnectionString = cadena_coneccion;            
         }
 
+       
         public void Abrir()
         {
             connection.Open();
@@ -38,7 +42,7 @@ namespace Repuestos_Arias.Clases
         public DataTable Consulta(String cadena)
         {
             Abrir();
-            adapter = new OleDbDataAdapter(cadena, cadena_coneccion);
+            adapter = new SqlDataAdapter(cadena, cadena_coneccion);
             Tabla_Resultados = new DataTable();
             adapter.Fill(Tabla_Resultados);
             Cerrar();
@@ -46,10 +50,24 @@ namespace Repuestos_Arias.Clases
             return Tabla_Resultados;
         }
 
-        public void modi_guar_elim(string cadena, string mensajeBueno, string mensajeMalo)
+        public String Consulta2(String cadena)
+        {
+            string Resultado = "";
+
+            Abrir();
+            adapter = new SqlDataAdapter(cadena, cadena_coneccion);
+            Tabla_Resultados = new DataTable();
+            adapter.Fill(Tabla_Resultados);
+            Resultado = Tabla_Resultados.Rows[0][0].ToString();
+            Cerrar();
+
+            return Resultado;
+        }
+
+        public void Sql_Querys(string cadena, string mensajeBueno, string mensajeMalo)
         {
             Abrir();
-            cmd = new OleDbCommand();
+            cmd = new SqlCommand();
             cmd.Connection = connection;
             cmd.CommandText = cadena;
 
@@ -69,18 +87,15 @@ namespace Repuestos_Arias.Clases
             Cerrar();
         }
 
-        public void modi_guar_elim(string cadena)
+        public void Sql_Querys(string cadena)
         {
             Abrir();
-            cmd = new OleDbCommand();
+
+            cmd = new SqlCommand();
             cmd.Connection = connection;
             cmd.CommandText = cadena;
+            cmd.ExecuteNonQuery();
 
-            try
-            {
-                cmd.ExecuteNonQuery();                
-            }
-            catch (Exception ex){}
             Cerrar();
         }
     }
