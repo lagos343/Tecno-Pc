@@ -26,10 +26,10 @@ namespace Repuestos_Arias.Clases
 
         public void EnviarCorreo()
         {              
-            mmsg.To.Add(user.Correo_usuario);
+            mmsg.To.Add(user.Correo_);
             mmsg.Subject = "Recuperacion de Datos";
             mmsg.SubjectEncoding = Encoding.UTF8;
-            mmsg.Body = "Señor " + user.Nombres_propietario + " " + user.Apellidos_propietarios + ", su contraseña es: " + user.Contraseña_usuario;
+            mmsg.Body = "Señor " +user.Propietario_ + ", su contraseña es: " + user.Contraseña_;
             mmsg.BodyEncoding = Encoding.UTF8;
             mmsg.IsBodyHtml = true;
             mmsg.From = new MailAddress(Correo_recuperacion);
