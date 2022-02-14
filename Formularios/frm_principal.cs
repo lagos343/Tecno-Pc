@@ -17,7 +17,8 @@ namespace Repuestos_Arias.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-                
+
+        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         private Form formActivado = null;
 
         public frm_principal()
@@ -109,7 +110,7 @@ namespace Repuestos_Arias.Formularios
 
         private void Flecha(Guna.UI.WinForms.GunaGradientButton boton)
         {
-            pic_flecha.Top = boton.Top;
+            pic_flecha.Top = boton.Top + 242;
         }
 
         private void AbrirFormulario(Form formHijo)
@@ -134,6 +135,11 @@ namespace Repuestos_Arias.Formularios
         private void pic_flecha_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frm_principal_Load(object sender, EventArgs e)
+        {
+            lbl_nombreUsuario.Text = user.Propietario_;            
         }
     }
 }

@@ -296,7 +296,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_propietario.AutoSize = true;
             this.lbl_propietario.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_propietario.Location = new System.Drawing.Point(508, 199);
+            this.lbl_propietario.Location = new System.Drawing.Point(499, 199);
             this.lbl_propietario.Name = "lbl_propietario";
             this.lbl_propietario.Size = new System.Drawing.Size(43, 17);
             this.lbl_propietario.TabIndex = 1;
@@ -316,7 +316,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_contra.AutoSize = true;
             this.lbl_contra.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_contra.Location = new System.Drawing.Point(508, 163);
+            this.lbl_contra.Location = new System.Drawing.Point(499, 163);
             this.lbl_contra.Name = "lbl_contra";
             this.lbl_contra.Size = new System.Drawing.Size(43, 17);
             this.lbl_contra.TabIndex = 1;
@@ -336,7 +336,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_user.Location = new System.Drawing.Point(508, 129);
+            this.lbl_user.Location = new System.Drawing.Point(499, 129);
             this.lbl_user.Name = "lbl_user";
             this.lbl_user.Size = new System.Drawing.Size(43, 17);
             this.lbl_user.TabIndex = 1;
@@ -356,7 +356,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_id.AutoSize = true;
             this.lbl_id.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_id.Location = new System.Drawing.Point(508, 92);
+            this.lbl_id.Location = new System.Drawing.Point(499, 92);
             this.lbl_id.Name = "lbl_id";
             this.lbl_id.Size = new System.Drawing.Size(43, 17);
             this.lbl_id.TabIndex = 1;
@@ -376,7 +376,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_tipo.AutoSize = true;
             this.lbl_tipo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tipo.Location = new System.Drawing.Point(778, 163);
+            this.lbl_tipo.Location = new System.Drawing.Point(822, 163);
             this.lbl_tipo.Name = "lbl_tipo";
             this.lbl_tipo.Size = new System.Drawing.Size(43, 17);
             this.lbl_tipo.TabIndex = 1;
@@ -386,7 +386,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label5.Location = new System.Drawing.Point(695, 163);
+            this.label5.Location = new System.Drawing.Point(739, 163);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 17);
             this.label5.TabIndex = 0;
@@ -396,7 +396,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_tel.AutoSize = true;
             this.lbl_tel.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tel.Location = new System.Drawing.Point(778, 129);
+            this.lbl_tel.Location = new System.Drawing.Point(822, 129);
             this.lbl_tel.Name = "lbl_tel";
             this.lbl_tel.Size = new System.Drawing.Size(43, 17);
             this.lbl_tel.TabIndex = 1;
@@ -406,7 +406,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label3.Location = new System.Drawing.Point(695, 129);
+            this.label3.Location = new System.Drawing.Point(739, 129);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 17);
             this.label3.TabIndex = 0;
@@ -416,7 +416,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.lbl_email.AutoSize = true;
             this.lbl_email.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_email.Location = new System.Drawing.Point(778, 92);
+            this.lbl_email.Location = new System.Drawing.Point(822, 92);
             this.lbl_email.Name = "lbl_email";
             this.lbl_email.Size = new System.Drawing.Size(43, 17);
             this.lbl_email.TabIndex = 1;
@@ -426,7 +426,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label1.Location = new System.Drawing.Point(695, 92);
+            this.label1.Location = new System.Drawing.Point(739, 92);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(42, 17);
             this.label1.TabIndex = 0;
