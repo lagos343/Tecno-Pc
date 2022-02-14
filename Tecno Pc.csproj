@@ -99,7 +99,7 @@
     <Compile Include="Clases\Cl_Marcas.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />
     <Compile Include="Clases\Cl_RecuperarContraseña.cs" />
-    <Compile Include="Clases\Cl_SqlManaggement.cs" />
+    <Compile Include="Clases\Cl_SqlMaestra.cs" />
     <Compile Include="Clases\Cl_UsuarioLogueado.cs" />
     <Compile Include="Clases\ElipseComponent.cs">
       <SubType>Component</SubType>

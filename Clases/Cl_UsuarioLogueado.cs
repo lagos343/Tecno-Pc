@@ -11,7 +11,7 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_UsuarioLogueado
     {
-        Cl_SqlManaggement sql = new Cl_SqlManaggement();
+        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         DataTable datos;
         private ErrorProvider erp_usu;
         private ErrorProvider erp_contra;
