@@ -66,7 +66,7 @@ namespace Repuestos_Arias
             this.panel1.Controls.Add(this.label1);
             this.panel1.Location = new System.Drawing.Point(-8, -5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(375, 265);
+            this.panel1.Size = new System.Drawing.Size(375, 227);
             this.panel1.TabIndex = 0;
             // 
             // guna2PictureBox1
@@ -86,7 +86,7 @@ namespace Repuestos_Arias
             // 
             this.btn_CerrarLogin.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_CerrarLogin.Image = global::Repuestos_Arias.Properties.Resources.cerrar;
-            this.btn_CerrarLogin.Location = new System.Drawing.Point(319, 17);
+            this.btn_CerrarLogin.Location = new System.Drawing.Point(284, 17);
             this.btn_CerrarLogin.Name = "btn_CerrarLogin";
             this.btn_CerrarLogin.Size = new System.Drawing.Size(37, 36);
             this.btn_CerrarLogin.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -108,9 +108,9 @@ namespace Repuestos_Arias
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.perfil_avatar_hombre_icono_redondo;
-            this.pictureBox1.Location = new System.Drawing.Point(66, 17);
+            this.pictureBox1.Location = new System.Drawing.Point(91, 17);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(237, 183);
+            this.pictureBox1.Size = new System.Drawing.Size(157, 159);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
@@ -118,11 +118,11 @@ namespace Repuestos_Arias
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Trebuchet MS", 11F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(135, 218);
+            this.label1.Location = new System.Drawing.Point(128, 196);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 23);
+            this.label1.Size = new System.Drawing.Size(88, 20);
             this.label1.TabIndex = 0;
             this.label1.Text = "Bienvenido";
             // 
@@ -130,11 +130,11 @@ namespace Repuestos_Arias
             // 
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Font = new System.Drawing.Font("Trebuchet MS", 10F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(108, 300);
+            this.label2.Location = new System.Drawing.Point(109, 249);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(136, 23);
+            this.label2.Size = new System.Drawing.Size(111, 18);
             this.label2.TabIndex = 4;
             this.label2.Text = "DATOS USUARIO";
             // 
@@ -146,7 +146,7 @@ namespace Repuestos_Arias
             this.chk_paswordChar.FillColor = System.Drawing.Color.Transparent;
             this.chk_paswordChar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chk_paswordChar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.chk_paswordChar.Location = new System.Drawing.Point(74, 436);
+            this.chk_paswordChar.Location = new System.Drawing.Point(74, 383);
             this.chk_paswordChar.Name = "chk_paswordChar";
             this.chk_paswordChar.Radius = 3;
             this.chk_paswordChar.Size = new System.Drawing.Size(119, 20);
@@ -159,11 +159,11 @@ namespace Repuestos_Arias
             this.txt_userName.BackColor = System.Drawing.Color.White;
             this.txt_userName.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_userName.FocusedLineColor = System.Drawing.Color.Teal;
-            this.txt_userName.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_userName.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txt_userName.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_userName.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_userName.LineSize = 2;
-            this.txt_userName.Location = new System.Drawing.Point(74, 346);
+            this.txt_userName.Location = new System.Drawing.Point(60, 293);
             this.txt_userName.Name = "txt_userName";
             this.txt_userName.PasswordChar = '\0';
             this.txt_userName.SelectedText = "";
@@ -181,11 +181,11 @@ namespace Repuestos_Arias
             this.txt_pasword.BackColor = System.Drawing.Color.White;
             this.txt_pasword.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.txt_pasword.FocusedLineColor = System.Drawing.Color.Teal;
-            this.txt_pasword.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txt_pasword.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.txt_pasword.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_pasword.LineColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.txt_pasword.LineSize = 2;
-            this.txt_pasword.Location = new System.Drawing.Point(74, 387);
+            this.txt_pasword.Location = new System.Drawing.Point(60, 334);
             this.txt_pasword.Name = "txt_pasword";
             this.txt_pasword.PasswordChar = '\0';
             this.txt_pasword.SelectedText = "";
@@ -205,18 +205,18 @@ namespace Repuestos_Arias
             this.btn_ingresar.BorderColor = System.Drawing.Color.Teal;
             this.btn_ingresar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_ingresar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_ingresar.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btn_ingresar.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.btn_ingresar.ForeColor = System.Drawing.Color.White;
             this.btn_ingresar.Image = null;
             this.btn_ingresar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_ingresar.Location = new System.Drawing.Point(215, 500);
+            this.btn_ingresar.Location = new System.Drawing.Point(201, 445);
             this.btn_ingresar.Name = "btn_ingresar";
             this.btn_ingresar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
             this.btn_ingresar.OnHoverBorderColor = System.Drawing.Color.Black;
             this.btn_ingresar.OnHoverForeColor = System.Drawing.Color.White;
             this.btn_ingresar.OnHoverImage = null;
             this.btn_ingresar.OnPressedColor = System.Drawing.Color.Black;
-            this.btn_ingresar.Size = new System.Drawing.Size(130, 36);
+            this.btn_ingresar.Size = new System.Drawing.Size(111, 30);
             this.btn_ingresar.TabIndex = 12;
             this.btn_ingresar.Text = "INGRESAR";
             this.btn_ingresar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -229,7 +229,7 @@ namespace Repuestos_Arias
             this.lnk_Re_usu_contra.BackColor = System.Drawing.Color.Transparent;
             this.lnk_Re_usu_contra.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.lnk_Re_usu_contra.LinkColor = System.Drawing.Color.Teal;
-            this.lnk_Re_usu_contra.Location = new System.Drawing.Point(70, 459);
+            this.lnk_Re_usu_contra.Location = new System.Drawing.Point(70, 406);
             this.lnk_Re_usu_contra.Name = "lnk_Re_usu_contra";
             this.lnk_Re_usu_contra.Size = new System.Drawing.Size(170, 19);
             this.lnk_Re_usu_contra.TabIndex = 13;
@@ -252,7 +252,7 @@ namespace Repuestos_Arias
             this.elipseControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.elipseControl3.CornerRadius = 10;
             this.elipseControl3.ForeColor = System.Drawing.Color.Teal;
-            this.elipseControl3.Location = new System.Drawing.Point(58, 292);
+            this.elipseControl3.Location = new System.Drawing.Point(44, 239);
             this.elipseControl3.Name = "elipseControl3";
             this.elipseControl3.Size = new System.Drawing.Size(237, 39);
             this.elipseControl3.TabIndex = 4;
@@ -273,7 +273,7 @@ namespace Repuestos_Arias
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(357, 548);
+            this.ClientSize = new System.Drawing.Size(324, 487);
             this.ControlBox = false;
             this.Controls.Add(this.lnk_Re_usu_contra);
             this.Controls.Add(this.btn_ingresar);
