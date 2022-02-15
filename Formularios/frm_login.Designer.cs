@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias
+namespace Tecno_Pc
 {
     partial class Form1
     {
@@ -34,7 +34,7 @@ namespace Repuestos_Arias
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_CerrarLogin = new System.Windows.Forms.PictureBox();
-            this.elipseControl1 = new Repuestos_Arias.Clases.ElipseControl();
+            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,8 +45,8 @@ namespace Repuestos_Arias
             this.lnk_Re_usu_contra = new Guna.UI.WinForms.GunaLinkLabel();
             this.error_usuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_contraseña = new System.Windows.Forms.ErrorProvider(this.components);
-            this.elipseControl3 = new Repuestos_Arias.Clases.ElipseControl();
-            this.elipseComponent1 = new Repuestos_Arias.Clases.ElipseComponent();
+            this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
+            this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -72,8 +72,8 @@ namespace Repuestos_Arias
             // guna2PictureBox1
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Teal;
-            this.guna2PictureBox1.BackgroundImage = global::Repuestos_Arias.Properties.Resources.Repuestos_Arias;
-            this.guna2PictureBox1.Image = global::Repuestos_Arias.Properties.Resources.Repuestos_Arias_soloLogo;
+            this.guna2PictureBox1.BackgroundImage = global::Tecno_Pc.Properties.Resources.Repuestos_Arias;
+            this.guna2PictureBox1.Image = global::Tecno_Pc.Properties.Resources.Repuestos_Arias_soloLogo;
             this.guna2PictureBox1.Location = new System.Drawing.Point(3, 38);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;
@@ -85,7 +85,7 @@ namespace Repuestos_Arias
             // btn_CerrarLogin
             // 
             this.btn_CerrarLogin.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_CerrarLogin.Image = global::Repuestos_Arias.Properties.Resources.cerrar;
+            this.btn_CerrarLogin.Image = global::Tecno_Pc.Properties.Resources.cerrar;
             this.btn_CerrarLogin.Location = new System.Drawing.Point(284, 17);
             this.btn_CerrarLogin.Name = "btn_CerrarLogin";
             this.btn_CerrarLogin.Size = new System.Drawing.Size(37, 36);
@@ -107,7 +107,7 @@ namespace Repuestos_Arias
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.perfil_avatar_hombre_icono_redondo;
+            this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.perfil_avatar_hombre_icono_redondo;
             this.pictureBox1.Location = new System.Drawing.Point(91, 17);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(157, 159);

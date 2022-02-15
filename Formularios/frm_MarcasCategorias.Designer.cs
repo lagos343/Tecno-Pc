@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     partial class frm_MarcasCategorias
     {
@@ -84,7 +84,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.btn_minimizar.BaseColor = System.Drawing.Color.White;
             this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Repuestos_Arias.Properties.Resources.minimizar;
+            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
             this.btn_minimizar.Location = new System.Drawing.Point(825, 2);
             this.btn_minimizar.Name = "btn_minimizar";
             this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
@@ -108,7 +108,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.btn_salir.BaseColor = System.Drawing.Color.White;
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Repuestos_Arias.Properties.Resources.CerrarForm;
+            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
             this.btn_salir.Location = new System.Drawing.Point(858, 3);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(31, 36);
@@ -121,7 +121,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaPictureBox1.Image = global::Repuestos_Arias.Properties.Resources.Repuestos_Arias_soloLogo;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.Repuestos_Arias_soloLogo;
             this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
@@ -225,7 +225,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.CajaDescripcion;
+            this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaDescripcion;
             this.pictureBox3.Location = new System.Drawing.Point(573, 205);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(289, 118);
@@ -235,7 +235,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox1.Location = new System.Drawing.Point(573, 132);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(140, 31);
@@ -256,7 +256,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Repuestos_Arias.Properties.Resources.Guardar;
+            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_guardar.Location = new System.Drawing.Point(573, 442);
             this.btn_guardar.Name = "btn_guardar";
@@ -285,7 +285,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
             this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Repuestos_Arias.Properties.Resources.Imprimir;
+            this.btn_imprimir.Image = global::Tecno_Pc.Properties.Resources.Imprimir;
             this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_imprimir.Location = new System.Drawing.Point(572, 61);
             this.btn_imprimir.Name = "btn_imprimir";
@@ -315,7 +315,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_eliminar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_eliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Image = global::Repuestos_Arias.Properties.Resources.Eliminar;
+            this.btn_eliminar.Image = global::Tecno_Pc.Properties.Resources.Eliminar;
             this.btn_eliminar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_eliminar.Location = new System.Drawing.Point(380, 442);
             this.btn_eliminar.Name = "btn_eliminar";
@@ -344,7 +344,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_editar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_editar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_editar.ForeColor = System.Drawing.Color.White;
-            this.btn_editar.Image = global::Repuestos_Arias.Properties.Resources.Editar;
+            this.btn_editar.Image = global::Tecno_Pc.Properties.Resources.Editar;
             this.btn_editar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_editar.Location = new System.Drawing.Point(202, 442);
             this.btn_editar.Name = "btn_editar";
@@ -373,7 +373,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevo.FocusedColor = System.Drawing.Color.Empty;
             this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Image = global::Repuestos_Arias.Properties.Resources.Nuevo;
+            this.btn_nuevo.Image = global::Tecno_Pc.Properties.Resources.Nuevo;
             this.btn_nuevo.ImageSize = new System.Drawing.Size(25, 25);
             this.btn_nuevo.Location = new System.Drawing.Point(25, 442);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -393,7 +393,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
+            this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
             this.pictureBox6.Location = new System.Drawing.Point(27, 62);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
@@ -403,7 +403,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox5.Location = new System.Drawing.Point(25, 61);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(494, 32);

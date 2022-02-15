@@ -12,7 +12,7 @@ using Microsoft.Office.Interop.Excel;
 using objExcel = Microsoft.Office.Interop.Excel;
 
 
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     public partial class frm_MarcasCategorias : Form
     {

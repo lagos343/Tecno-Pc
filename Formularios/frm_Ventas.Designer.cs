@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     partial class frm_Ventas
     {
@@ -100,7 +100,7 @@ namespace Repuestos_Arias.Formularios
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.White;
-            this.panel5.BackgroundImage = global::Repuestos_Arias.Properties.Resources.SombraPanelProductos;
+            this.panel5.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel5.Controls.Add(this.comboBox2);
             this.panel5.Controls.Add(this.comboBox1);
@@ -171,7 +171,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox11
             // 
-            this.pictureBox11.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox11.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox11.Location = new System.Drawing.Point(832, 188);
             this.pictureBox11.Name = "pictureBox11";
             this.pictureBox11.Size = new System.Drawing.Size(244, 32);
@@ -181,7 +181,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox8.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox8.Location = new System.Drawing.Point(576, 245);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(244, 32);
@@ -202,7 +202,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
+            this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
             this.pictureBox6.Location = new System.Drawing.Point(30, 25);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
@@ -212,7 +212,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox5.Location = new System.Drawing.Point(27, 23);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(354, 34);
@@ -233,7 +233,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_añadir.FocusedColor = System.Drawing.Color.Empty;
             this.btn_añadir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_añadir.ForeColor = System.Drawing.Color.White;
-            this.btn_añadir.Image = global::Repuestos_Arias.Properties.Resources.Nuevo1;
+            this.btn_añadir.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
             this.btn_añadir.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_añadir.Location = new System.Drawing.Point(32, 616);
             this.btn_añadir.Name = "btn_añadir";
@@ -298,7 +298,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox10.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox10.Location = new System.Drawing.Point(576, 188);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(244, 32);
@@ -353,7 +353,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox9.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox9.Location = new System.Drawing.Point(189, 616);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(132, 29);
@@ -398,7 +398,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox7.Location = new System.Drawing.Point(358, 553);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(160, 28);
@@ -431,7 +431,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox3.Location = new System.Drawing.Point(32, 553);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(289, 28);
@@ -475,7 +475,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox1.Location = new System.Drawing.Point(358, 488);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(160, 28);
@@ -497,7 +497,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox2.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox2.Location = new System.Drawing.Point(32, 488);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(289, 28);
@@ -508,7 +508,7 @@ namespace Repuestos_Arias.Formularios
             // panel4
             // 
             this.panel4.BackColor = System.Drawing.Color.White;
-            this.panel4.BackgroundImage = global::Repuestos_Arias.Properties.Resources.CajaDescripcion;
+            this.panel4.BackgroundImage = global::Tecno_Pc.Properties.Resources.CajaDescripcion;
             this.panel4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel4.Controls.Add(this.lbl_TotalVenta);
             this.panel4.Controls.Add(this.gunaLabel7);
@@ -556,7 +556,7 @@ namespace Repuestos_Arias.Formularios
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.Image = global::Repuestos_Arias.Properties.Resources.Ventas_Gris1;
+            this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.Ventas_Gris1;
             this.pictureBox4.Location = new System.Drawing.Point(6, 11);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(32, 29);
@@ -613,7 +613,7 @@ namespace Repuestos_Arias.Formularios
             // Eliminar
             // 
             this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::Repuestos_Arias.Properties.Resources.EliminarProducto;
+            this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
             this.Eliminar.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
             this.Eliminar.Name = "Eliminar";
             // 
@@ -686,7 +686,7 @@ namespace Repuestos_Arias.Formularios
             // Añadir
             // 
             this.Añadir.HeaderText = "";
-            this.Añadir.Image = global::Repuestos_Arias.Properties.Resources.EditarProducto;
+            this.Añadir.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
             this.Añadir.Name = "Añadir";
             // 
             // btn_nuevaVenta
@@ -702,7 +702,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevaVenta.FocusedColor = System.Drawing.Color.Empty;
             this.btn_nuevaVenta.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_nuevaVenta.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevaVenta.Image = global::Repuestos_Arias.Properties.Resources.Nuevo1;
+            this.btn_nuevaVenta.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
             this.btn_nuevaVenta.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_nuevaVenta.Location = new System.Drawing.Point(560, 23);
             this.btn_nuevaVenta.Name = "btn_nuevaVenta";
@@ -732,7 +732,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Repuestos_Arias.Properties.Resources.Guardar;
+            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_guardar.Location = new System.Drawing.Point(403, 23);
             this.btn_guardar.Name = "btn_guardar";
