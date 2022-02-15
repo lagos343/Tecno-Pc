@@ -53,9 +53,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="CircularProgressBar">
-      <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\CircularProgressBar.dll</HintPath>
-    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
@@ -99,7 +96,7 @@
     <Compile Include="Clases\Cl_Marcas.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />
     <Compile Include="Clases\Cl_RecuperarContraseña.cs" />
-    <Compile Include="Clases\Cl_SqlManaggement.cs" />
+    <Compile Include="Clases\Cl_SqlMaestra.cs" />
     <Compile Include="Clases\Cl_UsuarioLogueado.cs" />
     <Compile Include="Clases\ElipseComponent.cs">
       <SubType>Component</SubType>

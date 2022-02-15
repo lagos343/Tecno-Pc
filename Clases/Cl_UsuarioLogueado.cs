@@ -11,34 +11,37 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_UsuarioLogueado
     {
-        Cl_SqlManaggement sql = new Cl_SqlManaggement();
+        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         DataTable datos;
         private ErrorProvider erp_usu;
         private ErrorProvider erp_contra;
         Guna.UI.WinForms.GunaLineTextBox txt_usu;
         Guna.UI.WinForms.GunaLineTextBox txt_contra;
-        private static int id_usuario;
-        private static string nombre_usuario;
-        private static string contraseña_usuario;
-        private static string nombres_propietario;
-        private static string apellidos_propietarios;
-        private static string correo_usuario;
-        private static string telefono;
-        private static string tipo_usuario;
+        private static int idUsuario_;
+        private static int idRol_;
+        private static int idEmpleado_;
+        private static string usuario_;
+        private static string contraseña_;
+        private static string propietario_;        
+        private static string correo_;
+        private static string telefono_;
+        private static string rol_;
 
         #region Encapsulado de Variables
-        public int Id_usuario { get => id_usuario; set => id_usuario = value; }
-        public string Nombre_usuario { get => nombre_usuario; set => nombre_usuario = value; }
-        public string Contraseña_usuario { get => contraseña_usuario; set => contraseña_usuario = value; }
-        public string Nombres_propietario { get => nombres_propietario; set => nombres_propietario = value; }
-        public string Apellidos_propietarios { get => apellidos_propietarios; set => apellidos_propietarios = value; }
-        public string Correo_usuario { get => correo_usuario; set => correo_usuario = value; }
-        public string Telefono { get => telefono; set => telefono = value; }
-        public string Tipo_usuario { get => tipo_usuario; set => tipo_usuario = value; }
+
         public ErrorProvider Erp_usu { get => erp_usu; set => erp_usu = value; }
         public ErrorProvider Erp_contra { get => erp_contra; set => erp_contra = value; }
         public GunaLineTextBox Txt_usu { get => txt_usu; set => txt_usu = value; }
         public GunaLineTextBox Txt_contra { get => txt_contra; set => txt_contra = value; }
+        public int IdUsuario_ { get => idUsuario_; set => idUsuario_ = value; }
+        public int IdRol_ { get => idRol_; set => idRol_ = value; }
+        public int IdEmpleado_ { get => idEmpleado_; set => idEmpleado_ = value; }
+        public string Usuario_ { get => usuario_; set => usuario_ = value; }
+        public string Contraseña_ { get => contraseña_; set => contraseña_ = value; }
+        public string Propietario_ { get => propietario_; set => propietario_ = value; }
+        public string Correo_ { get => correo_; set => correo_ = value; }
+        public string Telefono_ { get => telefono_; set => telefono_ = value; }
+        public string Rol_ { get => rol_; set => rol_ = value; }
 
         #endregion
 
@@ -47,25 +50,25 @@ namespace Repuestos_Arias.Clases
             bool ingresar = false;
             datos = new DataTable();
             string cadena;
-            cadena = "Select us.Id_Usuario, us.Nombre_Usuario, us.Contraseña_Usuario, us.Nombres_Propietario, us.Apellidos_Propietario, us.Correo_Usuario, " +
-                "us.Telefono, tu.Descripcion_TipoUsuario from Usuarios us inner join TipoUsuario tu on tu.Id_TipoUsuario = us.Id_TipoUsuario " +
-                "Where us.Nombre_Usuario = '" + nombre_usuario + "'";
+            cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], u.Clave, (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
+                "r.[Nombre Rol] from Usuarios u inner join Roles r on u.[ID Rol] = r.IDRol inner join Empleados e on u.[ID Empleado] = e.[ID Empleado] where [Nombre Usuario] = '"+usuario_+"'";
             datos = sql.Consulta(cadena);
 
             try
             {
-                id_usuario = int.Parse(datos.Rows[0][0].ToString());
-                nombre_usuario = datos.Rows[0][1].ToString();
-                contraseña_usuario = datos.Rows[0][2].ToString();
-                nombres_propietario = datos.Rows[0][3].ToString();
-                apellidos_propietarios = datos.Rows[0][4].ToString();
-                correo_usuario = datos.Rows[0][5].ToString();
-                telefono = datos.Rows[0][6].ToString();
-                tipo_usuario = datos.Rows[0][7].ToString();
+                idUsuario_ = int.Parse(datos.Rows[0][0].ToString());
+                idRol_ = int.Parse(datos.Rows[0][1].ToString());
+                idEmpleado_ = int.Parse(datos.Rows[0][2].ToString());
+                usuario_ = datos.Rows[0][3].ToString();
+                contraseña_ = datos.Rows[0][4].ToString();
+                propietario_ = datos.Rows[0][5].ToString();
+                correo_ = datos.Rows[0][6].ToString();
+                telefono_ = datos.Rows[0][7].ToString();
+                rol_ = datos.Rows[0][8].ToString();
 
-                if (Txt_contra.Text == Contraseña_usuario)
+                if (Txt_contra.Text == contraseña_)
                 {
-                    ingresar = true;                    
+                    ingresar = true;
                 }
                 else
                 {

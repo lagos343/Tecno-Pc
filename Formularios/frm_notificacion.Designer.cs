@@ -29,6 +29,7 @@ namespace Repuestos_Arias.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_notificacion));
             this.panel1 = new System.Windows.Forms.Panel();
             this.pic_exclamation = new System.Windows.Forms.PictureBox();
@@ -36,6 +37,7 @@ namespace Repuestos_Arias.Formularios
             this.lbl_Mensaje = new Guna.UI.WinForms.GunaLabel();
             this.btn_confirmar = new Guna.UI.WinForms.GunaButton();
             this.btn_cancelar = new Guna.UI.WinForms.GunaButton();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exclamation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_confirmation)).BeginInit();
@@ -48,7 +50,7 @@ namespace Repuestos_Arias.Formularios
             this.panel1.Controls.Add(this.pic_confirmation);
             this.panel1.Location = new System.Drawing.Point(-2, -7);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(241, 148);
+            this.panel1.Size = new System.Drawing.Size(196, 128);
             this.panel1.TabIndex = 0;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -57,7 +59,7 @@ namespace Repuestos_Arias.Formularios
             this.pic_exclamation.Image = global::Repuestos_Arias.Properties.Resources.Informarcion;
             this.pic_exclamation.Location = new System.Drawing.Point(14, 19);
             this.pic_exclamation.Name = "pic_exclamation";
-            this.pic_exclamation.Size = new System.Drawing.Size(189, 115);
+            this.pic_exclamation.Size = new System.Drawing.Size(161, 95);
             this.pic_exclamation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_exclamation.TabIndex = 1;
             this.pic_exclamation.TabStop = false;
@@ -69,7 +71,7 @@ namespace Repuestos_Arias.Formularios
             this.pic_confirmation.Image = global::Repuestos_Arias.Properties.Resources.Check;
             this.pic_confirmation.Location = new System.Drawing.Point(14, 19);
             this.pic_confirmation.Name = "pic_confirmation";
-            this.pic_confirmation.Size = new System.Drawing.Size(189, 115);
+            this.pic_confirmation.Size = new System.Drawing.Size(161, 95);
             this.pic_confirmation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_confirmation.TabIndex = 0;
             this.pic_confirmation.TabStop = false;
@@ -79,11 +81,11 @@ namespace Repuestos_Arias.Formularios
             // lbl_Mensaje
             // 
             this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Mensaje.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.lbl_Mensaje.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbl_Mensaje.ForeColor = System.Drawing.Color.Gray;
-            this.lbl_Mensaje.Location = new System.Drawing.Point(12, 144);
+            this.lbl_Mensaje.Location = new System.Drawing.Point(12, 133);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
-            this.lbl_Mensaje.Size = new System.Drawing.Size(189, 102);
+            this.lbl_Mensaje.Size = new System.Drawing.Size(161, 83);
             this.lbl_Mensaje.TabIndex = 2;
             this.lbl_Mensaje.Text = "lbl_Mensaje";
             this.lbl_Mensaje.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -101,7 +103,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_confirmar.ForeColor = System.Drawing.Color.White;
             this.btn_confirmar.Image = null;
             this.btn_confirmar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_confirmar.Location = new System.Drawing.Point(12, 249);
+            this.btn_confirmar.Location = new System.Drawing.Point(12, 229);
             this.btn_confirmar.Name = "btn_confirmar";
             this.btn_confirmar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btn_confirmar.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -109,7 +111,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_confirmar.OnHoverImage = null;
             this.btn_confirmar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_confirmar.Radius = 3;
-            this.btn_confirmar.Size = new System.Drawing.Size(71, 32);
+            this.btn_confirmar.Size = new System.Drawing.Size(63, 27);
             this.btn_confirmar.TabIndex = 3;
             this.btn_confirmar.Text = "Aceptar";
             this.btn_confirmar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -129,7 +131,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_cancelar.Image = null;
             this.btn_cancelar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_cancelar.Location = new System.Drawing.Point(89, 249);
+            this.btn_cancelar.Location = new System.Drawing.Point(85, 229);
             this.btn_cancelar.Name = "btn_cancelar";
             this.btn_cancelar.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btn_cancelar.OnHoverBorderColor = System.Drawing.Color.Transparent;
@@ -137,19 +139,23 @@ namespace Repuestos_Arias.Formularios
             this.btn_cancelar.OnHoverImage = null;
             this.btn_cancelar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_cancelar.Radius = 3;
-            this.btn_cancelar.Size = new System.Drawing.Size(71, 32);
+            this.btn_cancelar.Size = new System.Drawing.Size(63, 27);
             this.btn_cancelar.TabIndex = 4;
             this.btn_cancelar.Text = "Cancelar";
             this.btn_cancelar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_cancelar.Visible = false;
             this.btn_cancelar.Click += new System.EventHandler(this.btn_cancelar_Click);
             // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.TargetControl = this;
+            // 
             // frm_notificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(213, 288);
+            this.ClientSize = new System.Drawing.Size(185, 265);
             this.ControlBox = false;
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_confirmar);
@@ -173,5 +179,6 @@ namespace Repuestos_Arias.Formularios
         private Guna.UI.WinForms.GunaButton btn_cancelar;
         private Guna.UI.WinForms.GunaButton btn_confirmar;
         private System.Windows.Forms.PictureBox pic_exclamation;
+        private Guna.UI.WinForms.GunaElipse gunaElipse1;
     }
 }

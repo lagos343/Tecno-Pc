@@ -9,7 +9,7 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_Productos
     {
-        Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         private static int id_Producto;
         private static string codigo_Producto;
         private static string nombre_Producto;
@@ -37,7 +37,7 @@ namespace Repuestos_Arias.Clases
             cadena = "Insert into Productos (Codigo_Producto, Nombre_Producto, Precio_Compra, Precio_Venta, Unidades_Stock, Id_Categoria, Id_Marca) " +
                 "values('" + codigo_Producto + "', '" + nombre_Producto + "', " + precio_Compra + ", " + precio_Venta + ", " + unidades_Stock + ", " +
                 "" + id_Categoria + ", " + id_Marca + ")";
-            sql.modi_guar_elim(cadena, "Producto añadido con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Producto añadido con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -56,14 +56,14 @@ namespace Repuestos_Arias.Clases
             cadena = "Update Productos set Codigo_Producto = '"+codigo_Producto+"', Nombre_Producto = '"+nombre_Producto+"', Precio_Compra = "+precio_Compra+", " +
                 "Precio_Venta = "+precio_Venta+", Unidades_Stock = "+unidades_Stock+", Id_Categoria = "+id_Categoria+", Id_Marca = "+id_Marca+
                 " where Id_Producto = " + id_Producto;
-            sql.modi_guar_elim(cadena, "Producto actulizado con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Producto actulizado con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void eliminarDatos()
         {
             string cadena;
             cadena = "Delete from Productos where Id_Producto = " + id_Producto + "";
-            sql.modi_guar_elim(cadena, "Producto eliminado con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys(cadena, "Producto eliminado con exito", "Debe llenar todos los datos antes de añadir");
         }
     }
 }

@@ -228,7 +228,12 @@ namespace Repuestos_Arias.Formularios
             }
         }
 
+
         #endregion
-        
+
+        private void comboBox1_TextChanged(object sender, EventArgs e)
+        {
+            comboBox1.DroppedDown = true;            
+        }
     }
 }

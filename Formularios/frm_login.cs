@@ -11,10 +11,12 @@ using System.Windows.Forms;
 namespace Repuestos_Arias
 {
     public partial class Form1 : Form
-    {        
+    {
+        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
+
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void btn_CerrarLogin_Click(object sender, EventArgs e)
@@ -36,7 +38,7 @@ namespace Repuestos_Arias
 
         private void Form1_Load(object sender, EventArgs e)
         {
-           
+            txt_pasword.UseSystemPasswordChar = true;
         }
 
         #region Eventos Enter y Leave de los textbox               
@@ -81,9 +83,18 @@ namespace Repuestos_Arias
 
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Formularios.frm_principal prin = new Formularios.frm_principal();
-            prin.Show();
+            user.Erp_contra = error_contraseña;
+            user.Erp_usu = error_usuario;
+            user.Txt_contra = txt_pasword;
+            user.Txt_usu = txt_userName;
+            user.Usuario_ = txt_userName.Text;
+
+            if(user.ObtenerDatos(lnk_Re_usu_contra) == true)
+            {
+                this.Hide();
+                Formularios.frm_principal prin = new Formularios.frm_principal();
+                prin.Show();
+            }
         }
 
         private void txt_userName_TextChanged(object sender, EventArgs e)
