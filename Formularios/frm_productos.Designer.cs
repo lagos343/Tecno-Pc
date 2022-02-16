@@ -53,8 +53,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_nuevoProducto = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_Imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_Marcas = new Guna.UI.WinForms.GunaGradientButton();
@@ -66,6 +64,8 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel3 = new Guna.UI.WinForms.GunaLinePanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -365,18 +365,6 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
-            // Editar
-            // 
-            this.Editar.HeaderText = "Editar";
-            this.Editar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
-            this.Editar.Name = "Editar";
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.HeaderText = "Eliminar";
-            this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
-            this.Eliminar.Name = "Eliminar";
-            // 
             // btn_nuevoProducto
             // 
             this.btn_nuevoProducto.AnimationHoverSpeed = 0.07F;
@@ -563,6 +551,18 @@ namespace Tecno_Pc.Formularios
             this.flowLayoutPanel3.Size = new System.Drawing.Size(270, 81);
             this.flowLayoutPanel3.TabIndex = 2;
             // 
+            // Editar
+            // 
+            this.Editar.HeaderText = "";
+            this.Editar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
+            this.Editar.Name = "Editar";
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
+            this.Eliminar.Name = "Eliminar";
+            // 
             // frm_productos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -631,13 +631,13 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
-        private System.Windows.Forms.DataGridViewImageColumn Editar;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.Panel panel3;
         private Guna.UI.WinForms.GunaLabel lbl_totalMarcas;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel3;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
     }
 }

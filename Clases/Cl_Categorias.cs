@@ -10,45 +10,39 @@ namespace Tecno_Pc.Clases
     class Cl_Categorias
     {
         Cl_SqlMaestra sql = new Cl_SqlMaestra();
-        private static int id_Categoria;
-        private static string nombre_Categoria;
-        private static string descripcion_Categoria;      
-        
+        private static int iDCategoria;
+        private static string nombreCategoria;
+
+
         #region Encapsulamiento
-        public int Id_Categoria { get => id_Categoria; set => id_Categoria = value; }
-        public string Nombre_Categoria { get => nombre_Categoria; set => nombre_Categoria = value; }
-        public string Descripcion_Categoria { get => descripcion_Categoria; set => descripcion_Categoria = value; }
+
+        public int IDCategoria { get => iDCategoria; set => iDCategoria = value; }
+        public string NombreCategoria { get => nombreCategoria; set => nombreCategoria = value; }
+
         #endregion
 
         public void guardar()
         {
             string cadena;
-            cadena = "Insert into Categorias (Nombre_Categoria, Descripcion_Categoria) values('" + nombre_Categoria + "', '" + descripcion_Categoria + "')";
+            cadena = "Insert into Categorias values('" + nombreCategoria + "')";
             sql.Sql_Querys(cadena, "Categoria añadida con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Categorias order by Nombre_Categoria asc");
+            dgv.DataSource = sql.Consulta("select *from Categorias order by [Nombre Categoria] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {           
-            dgv.DataSource = sql.Consulta("select *from Categorias where Nombre_Categoria Like '%" + nombre_Categoria + "%' order by Nombre_Categoria asc");
+            dgv.DataSource = sql.Consulta("select *from Categorias where [Nombre Categoria] Like '%"+nombreCategoria+"%' order by [Nombre Categoria] asc");
         }
 
         public void actualizarDatos()
         {
             string cadena;
-            cadena = "Update Categorias set Nombre_Categoria = '" + nombre_Categoria + "', Descripcion_Categoria = '" + descripcion_Categoria + "' where Id_Categoria = " + id_Categoria + "";
+            cadena = "Update Categorias set [Nombre Categoria] = '"+nombreCategoria+"' where [ID Categoria] = "+iDCategoria+"";
             sql.Sql_Querys(cadena, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
-        }
-
-        public void eliminarDatos()
-        {
-            string cadena;
-            cadena = "Delete from Categorias where Id_Categoria = " + id_Categoria + "";
-            sql.Sql_Querys(cadena, "Categoria eliminada con exito", "Debe llenar todos los datos antes de añadir");
-        }
+        }        
     }
 }

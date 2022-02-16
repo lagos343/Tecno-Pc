@@ -73,7 +73,7 @@ namespace Tecno_Pc
             // 
             this.guna2PictureBox1.BackColor = System.Drawing.Color.Teal;
             this.guna2PictureBox1.BackgroundImage = global::Tecno_Pc.Properties.Resources.Repuestos_Arias;
-            this.guna2PictureBox1.Image = global::Tecno_Pc.Properties.Resources.Repuestos_Arias_soloLogo;
+            this.guna2PictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
             this.guna2PictureBox1.Location = new System.Drawing.Point(3, 38);
             this.guna2PictureBox1.Name = "guna2PictureBox1";
             this.guna2PictureBox1.ShadowDecoration.Parent = this.guna2PictureBox1;

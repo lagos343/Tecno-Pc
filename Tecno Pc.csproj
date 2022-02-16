@@ -49,9 +49,12 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Repuestos-Arias_rojo2.ico</ApplicationIcon>
+    <ApplicationIcon>LogoTecnoPc.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup>
+    <NoWin32Manifest>true</NoWin32Manifest>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI.dll</HintPath>
@@ -95,6 +98,7 @@
     <Compile Include="Clases\Cl_Facturas.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />
+    <Compile Include="Clases\Cl_Proveedores.cs" />
     <Compile Include="Clases\Cl_RecuperarContraseña.cs" />
     <Compile Include="Clases\Cl_SqlMaestra.cs" />
     <Compile Include="Clases\Cl_UsuarioLogueado.cs" />
@@ -313,9 +317,9 @@
     <None Include="Resources\Repuestos Arias_soloLogo.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Repuestos Arias_soloLogo.ico" />
-    <Content Include="Repuestos-Arias_rojo.ico" />
+    <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\LogoTecnoPc.png" />
     <None Include="Resources\proveedor.png" />
     <None Include="Resources\Salir.png" />
     <None Include="Resources\minimizar Principal1.png" />
