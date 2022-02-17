@@ -13,7 +13,7 @@ namespace Repuestos_Arias.Clases
 {
     class Cl_SqlMaestra
     {
-        private string Servidor = "DESKTOP-RVES46I";
+        private string Servidor = "DESKTOP-8Q1Q950";
         private string DataBase = "TECNOPC";
         private string cadena_coneccion;        
         SqlConnection connection = new SqlConnection();
