@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Repuestos_Arias.Properties {
+namespace Tecno_Pc.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace Repuestos_Arias.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Repuestos_Arias.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Tecno_Pc.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -316,6 +316,16 @@ namespace Repuestos_Arias.Properties {
         internal static System.Drawing.Bitmap Informarcion {
             get {
                 object obj = ResourceManager.GetObject("Informarcion", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LogoTecnoPc {
+            get {
+                object obj = ResourceManager.GetObject("LogoTecnoPc", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

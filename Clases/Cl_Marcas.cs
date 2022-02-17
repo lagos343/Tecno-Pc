@@ -5,50 +5,44 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class Cl_Marcas
     {
         Cl_SqlMaestra sql = new Cl_SqlMaestra();
-        private static int id_Marca;
-        private static string nombre_Marca;
-        private static string descripcion_Marca;
+        private static int iDMarca;
+        private static string nombreMarca;
 
         #region Encapsulamiento
-        public int Id_Marca { get => id_Marca; set => id_Marca = value; }
-        public string Nombre_Marca { get => nombre_Marca; set => nombre_Marca = value; }
-        public string Descripcion_Marca { get => descripcion_Marca; set => descripcion_Marca = value; }
+
+        public int IDMarca { get => iDMarca; set => iDMarca = value; }
+        public string NombreMarca { get => nombreMarca; set => nombreMarca = value; }
+
+
         #endregion
 
         public void guardar()
         {
             string cadena;
-            cadena = "Insert into Marcas (Nombre_Marca, Descripcion_Marca) values('" + nombre_Marca + "', '" + descripcion_Marca + "')";
+            cadena = "Insert into Marcas values('" + nombreMarca + "')";
             sql.Sql_Querys(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Marcas order by Nombre_Marca asc");
+            dgv.DataSource = sql.Consulta("select *from Marcas order by [Nombre Marca] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Marcas where Nombre_Marca Like '%" + nombre_Marca + "%' order by Nombre_Marca asc");
+            dgv.DataSource = sql.Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
         }
 
         public void actualizarDatos()
         {
             string cadena;
-            cadena = "Update Marcas set Nombre_Marca = '" + nombre_Marca + "', Descripcion_Marca = '" + descripcion_Marca + "' where Id_Marca = " + id_Marca + "";
+            cadena = "Update Marcas set [Nombre Marca] = '"+nombreMarca+"' where [ID Marca] = "+iDMarca+"";
             sql.Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
-        }
-
-        public void eliminarDatos()
-        {
-            string cadena;
-            cadena = "Delete from Marcas where Id_Marca = " + id_Marca + "";
-            sql.Sql_Querys(cadena, "Marca eliminada con exito", "Debe llenar todos los datos antes de añadir");
-        }
+        }       
     }
 }

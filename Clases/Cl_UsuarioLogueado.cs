@@ -7,7 +7,7 @@ using System.Data;
 using System.Windows.Forms;
 using Guna.UI.WinForms;
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class Cl_UsuarioLogueado
     {

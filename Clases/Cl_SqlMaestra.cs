@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra
     {

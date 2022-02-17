@@ -10,42 +10,43 @@ using System.Windows.Forms;
 using Microsoft.Office.Interop.Excel;
 using objExcel = Microsoft.Office.Interop.Excel;
 
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     public partial class frm_productos : Form
-    {        
+    {
+        Clases.Cl_Productos prod = new Clases.Cl_Productos();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+
         public frm_productos()
         {
             InitializeComponent();
         }
 
         private void frm_productos_Load(object sender, EventArgs e)
-        {            
-            
+        {
+            prod.consultarDatos(dgv_Productos);
+            Dashboard();
+            operacionesDataGrid();
         }
 
         public void Dashboard()
-        {            
-           
+        {
+            lbl_totalProductos.Text = sql.Consulta("select *from Productos").Rows.Count.ToString();
+            lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
+            lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
+            lbl_ProductosTotales.Text = sql.Consulta2("select sum(Stock) as Stock from Inventarios");
         }
 
         public void operacionesDataGrid()        
         {            
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
-            dgv_Productos.Columns[8].Visible = false;
+            dgv_Productos.Columns[4].Visible = false;
+            dgv_Productos.Columns[5].Visible = false;
             dgv_Productos.Columns[9].Visible = false;
 
-            dgv_Productos.Columns[0].Width = 73;
-            dgv_Productos.Columns[1].Width = 73;
-
-            dgv_Productos.Columns[4].HeaderText = "Producto";
-            dgv_Productos.Columns[5].Width = 80;
-            dgv_Productos.Columns[5].HeaderText = "Precio Compra";
-            dgv_Productos.Columns[6].Width = 80;
-            dgv_Productos.Columns[6].HeaderText = "Precio Venta";
-            dgv_Productos.Columns[7].Width = 80;
-            dgv_Productos.Columns[7].HeaderText = "Stock";
+            dgv_Productos.Columns[0].Width = 50;
+            dgv_Productos.Columns[1].Width = 50;            
         }
 
         private void btn_categorias_Click(object sender, EventArgs e)
@@ -78,7 +79,9 @@ namespace Repuestos_Arias.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            
+            prod.NombreProducto = txt_buscar.Text;
+            prod.buscarDatos(dgv_Productos);
+            operacionesDataGrid();
         }
 
         private void btn_nuevoProducto_Click(object sender, EventArgs e)
@@ -103,7 +106,8 @@ namespace Repuestos_Arias.Formularios
 
                 if (noti.Dialogresul == DialogResult.OK)
                 {
-                    
+                    prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                    prod.eliminarDatos();
                 }
 
                 noti.Close();

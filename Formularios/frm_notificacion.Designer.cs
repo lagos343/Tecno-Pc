@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     partial class frm_notificacion
     {
@@ -56,7 +56,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pic_exclamation
             // 
-            this.pic_exclamation.Image = global::Repuestos_Arias.Properties.Resources.Informarcion;
+            this.pic_exclamation.Image = global::Tecno_Pc.Properties.Resources.Informarcion;
             this.pic_exclamation.Location = new System.Drawing.Point(14, 19);
             this.pic_exclamation.Name = "pic_exclamation";
             this.pic_exclamation.Size = new System.Drawing.Size(161, 95);
@@ -68,7 +68,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pic_confirmation
             // 
-            this.pic_confirmation.Image = global::Repuestos_Arias.Properties.Resources.Check;
+            this.pic_confirmation.Image = global::Tecno_Pc.Properties.Resources.Check;
             this.pic_confirmation.Location = new System.Drawing.Point(14, 19);
             this.pic_confirmation.Name = "pic_confirmation";
             this.pic_confirmation.Size = new System.Drawing.Size(161, 95);
