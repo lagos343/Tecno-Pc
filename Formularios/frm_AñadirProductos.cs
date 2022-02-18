@@ -171,8 +171,6 @@ namespace Tecno_Pc.Formularios
                 e.Handled = true;
             }
         }
-
-        #endregion
-
+        #endregion    
     }
 }
