@@ -72,7 +72,8 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            limpiarDatos();            
+            limpiarDatos();
+            btn_guardar.Text = "GUARDAR";
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)

@@ -156,10 +156,6 @@ namespace Tecno_Pc.Formularios
 
         #region KeyPress
 
-
-
-        #endregion
-
         private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
@@ -175,5 +171,8 @@ namespace Tecno_Pc.Formularios
                 e.Handled = true;
             }
         }
+
+        #endregion
+
     }
 }
