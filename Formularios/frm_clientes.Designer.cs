@@ -205,6 +205,7 @@ namespace Tecno_Pc.Formularios
             this.btn_eliminar.TabIndex = 41;
             this.btn_eliminar.Text = "ELIMINAR";
             this.btn_eliminar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_editar
             // 
@@ -234,6 +235,7 @@ namespace Tecno_Pc.Formularios
             this.btn_editar.TabIndex = 40;
             this.btn_editar.Text = "EDITAR";
             this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_nuevo
             // 
@@ -263,6 +265,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevo.TabIndex = 39;
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // dgv_datos
             // 
@@ -313,6 +316,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(403, 16);
             this.txt_buscar.TabIndex = 37;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
             // 
@@ -473,7 +477,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.txt_Ident.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Ident.CausesValidation = false;
-            this.txt_Ident.Enabled = false;
             this.txt_Ident.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Ident.Location = new System.Drawing.Point(758, 152);
             this.txt_Ident.Name = "txt_Ident";
@@ -505,7 +508,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.txt_Nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Nombre.CausesValidation = false;
-            this.txt_Nombre.Enabled = false;
             this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Nombre.Location = new System.Drawing.Point(907, 152);
             this.txt_Nombre.Name = "txt_Nombre";
@@ -537,7 +539,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.txt_Tel.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Tel.CausesValidation = false;
-            this.txt_Tel.Enabled = false;
             this.txt_Tel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Tel.Location = new System.Drawing.Point(907, 216);
             this.txt_Tel.Name = "txt_Tel";
@@ -569,7 +570,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.txt_Apell.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Apell.CausesValidation = false;
-            this.txt_Apell.Enabled = false;
             this.txt_Apell.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Apell.Location = new System.Drawing.Point(758, 216);
             this.txt_Apell.Name = "txt_Apell";
@@ -601,7 +601,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.txt_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Email.CausesValidation = false;
-            this.txt_Email.Enabled = false;
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Email.Location = new System.Drawing.Point(758, 281);
             this.txt_Email.Name = "txt_Email";

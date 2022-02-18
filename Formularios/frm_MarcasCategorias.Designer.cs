@@ -330,6 +330,7 @@ namespace Tecno_Pc.Formularios
             this.btn_editar.TabIndex = 20;
             this.btn_editar.Text = "EDITAR";
             this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_nuevo
             // 

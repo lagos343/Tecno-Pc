@@ -240,5 +240,10 @@ namespace Tecno_Pc.Formularios
         {
 
         }
+
+        private void btn_editar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

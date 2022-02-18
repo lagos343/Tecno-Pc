@@ -22,10 +22,22 @@ namespace Tecno_Pc.Clases
         private static bool estado;
 
 
+        #region Encapsulamiento
+
+        public int IDCliente { get => iDCliente; set => iDCliente = value; }
+        public int IDDepto { get => iDDepto; set => iDDepto = value; }
+        public String identidad { get => Identidad; set => Identidad = value; }
+        public string Nombree { get => Nombre; set => Nombre = value; }
+        public string Apellidoo { get => Apellido; set => Apellido = value; }
+        public string Telefonoo { get => Telefono; set => Telefono = value; }
+        public string CorreoElectronicoo { get => CorreoElectronico; set => CorreoElectronico = value; }
+        public string Direccionn { get => Direccion; set => Direccion = value; }
+       // public bool Estado { get => estado; set => estado = value; }
+        #endregion
         public void guardar()
         {
             string cadena;
-            cadena = "insert into Clientes values (" + iDCliente + ", " + iDDepto + ", " + Identidad + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '"+CorreoElectronico+"','"+Direccion+"'" + Convert.ToInt32(estado) + ")";
+            cadena = "insert into Clientes values (" + iDDepto + ", " + Identidad + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '"+CorreoElectronico+"','"+Direccion+"', "+ 1 +"  )";
             sql.Sql_Querys(cadena, "Cliente añadido con Exito", "Debe llenar todos los datos antes de añadir");
         }
 
@@ -51,3 +63,4 @@ namespace Tecno_Pc.Clases
 
     }
 }
+
