@@ -16,12 +16,10 @@ namespace Tecno_Pc.Formularios
     {
 
         bool actualizar=false;
-        
-
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);        
 
         Clases.Cl_Clientes cli = new Clases.Cl_Clientes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
@@ -183,6 +181,12 @@ namespace Tecno_Pc.Formularios
             cli.Nombree = txt_buscar.Text;
             cli.buscarDatos(dgv_datos);
             operacionesDataGrid();
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }

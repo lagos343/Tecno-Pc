@@ -351,6 +351,7 @@ namespace Tecno_Pc.Formularios
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1053, 40);
             this.panel1.TabIndex = 33;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btn_minimizar
             // 
@@ -689,6 +690,7 @@ namespace Tecno_Pc.Formularios
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_clientes";
             this.Load += new System.EventHandler(this.frm_clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
