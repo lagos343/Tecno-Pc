@@ -82,7 +82,7 @@ namespace Tecno_Pc.Formularios
             }
             else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["Identidad"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["Apellido"].Selected)
             {
-                lbl_id .Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
+                lbl_id .Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
                 lbl_depto .Text = dgv_Productos.CurrentRow.Cells[13].Value.ToString();
                 lbl_direccion  .Text = dgv_Productos.CurrentRow.Cells[10].Value.ToString();
                 lbl_puesto  .Text = dgv_Productos.CurrentRow.Cells[12].Value.ToString();
