@@ -32,26 +32,30 @@ namespace Tecno_Pc.Clases
 
         public void guardar()
         {
-            string cadena;
-            cadena = "";
-            sql.Sql_Querys(cadena, "Categoria añadida con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys("insert into Proveedores values ("+iDDepto+", '"+nombre+"', '"+telefono+"', '"+direccion+"', '"+correoElectronico+"', " + Convert.ToInt32(estado) + ")", 
+                "Proveedor añadid con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Proveedores where Estado = 1 and Nombre Like '%"+nombre+"%' order by Nombre asc");
+            dgv.DataSource = sql.Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores where Estado = 1 order by Nombre asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Proveedores where Estado = 1 order by Nombre asc");
+            dgv.DataSource = sql.Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores where Estado = 1 and Nombre Like '%"+nombre+"%' order by Nombre asc");
         }
 
         public void actualizarDatos()
         {
-            string cadena;
-            cadena = "";
-            sql.Sql_Querys(cadena, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            sql.Sql_Querys("update Proveedores set [ID Depto] ="+iDDepto +", Nombre = '"+nombre+"', Telefono = '"+telefono+"', Direccion = '"+direccion+"', [Correo Electronico] = '"+correoElectronico+"' where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
+        }
+
+        public void eliminar()
+        {
+
+            sql.Sql_Querys("update Proveedores set Estado = 0 where [ID Proveedor] =" + iDProveedor,"Se ha elminado al proveedor", "Error al eliminar");
+
         }
     }
 }
