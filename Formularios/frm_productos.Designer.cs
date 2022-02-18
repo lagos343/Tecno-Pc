@@ -593,8 +593,7 @@ namespace Tecno_Pc.Formularios
             this.gunaGradientButton1.TabIndex = 78;
             this.gunaGradientButton1.Text = "Excel";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaGradientButton1.Visible = false;
-            this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
+            this.gunaGradientButton1.Visible = false;       
             // 
             // frm_productos
             // 
