@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cl_Categorias.cs" />
+    <Compile Include="Clases\Cl_Clientes.cs" />
     <Compile Include="Clases\Cl_Facturas.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />

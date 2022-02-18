@@ -233,7 +233,12 @@ namespace Tecno_Pc.Formularios
                 btn_guardar.Text = "Actualizar";
             }
         }
-        
-        #endregion        
+
+        #endregion
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
