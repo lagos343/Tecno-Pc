@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class Cl_Facturas
     {

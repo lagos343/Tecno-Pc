@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     public partial class frm_reportes : Form
     {

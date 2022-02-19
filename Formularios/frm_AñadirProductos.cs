@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     public partial class frm_AñadirProductos : Form
     {
@@ -17,7 +17,10 @@ namespace Repuestos_Arias.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        
+
+        Clases.Cl_Productos prod = new Clases.Cl_Productos(); 
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();             
+
 
         public frm_AñadirProductos(int estado, DataGridView dat)
         {
@@ -27,12 +30,25 @@ namespace Repuestos_Arias.Formularios
                 lbl_titulo.Text = "NUEVO PRODUCTO";
                 btn_guardar.Click += btn_guardarGuardado_Click;
                 InicializarCombobox();
+
             }
             else if (estado == 2)
             {
+                InicializarCombobox();
                 lbl_titulo.Text = "ACTUALIZAR PRODUCTO";
-                InicializarCombobox();               
+                btn_guardar.Text = "ACTUALIZAR";
+                btn_guardar.Click += btn_guardarActualizado_Click;
+                txt_id.Text = dat.CurrentRow.Cells[0+2].Value.ToString();
+                cbo_marca.SelectedValue = dat.CurrentRow.Cells[2 + 2].Value.ToString();
+                cbo_categoria.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
+                cbo_proveedor.SelectedValue = dat.CurrentRow.Cells[3 + 2].Value.ToString();
+                txt_nombre.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
+                txt_modelo.Text = dat.CurrentRow.Cells[5 + 2].Value.ToString();
+                txt_precio.Text = dat.CurrentRow.Cells[6 + 2].Value.ToString();
+                swt_estado.Checked = Convert.ToBoolean(dat.CurrentRow.Cells[7 + 2].Value.ToString());
+                txt_stock.Text = sql.Consulta2("Select Stock from Inventarios where [ID Producto] = "+txt_id.Text);
             }
+            
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -52,34 +68,69 @@ namespace Repuestos_Arias.Formularios
 
         public void InicializarCombobox()
         {
+            cbo_marca.DataSource = sql.Consulta("select *from Marcas order by [Nombre Marca] asc");
+            cbo_marca.DisplayMember = "Nombre Marca";
+            cbo_marca.ValueMember = "ID Marca";          
+
+            cbo_categoria.DataSource = sql.Consulta("select *from Categorias order by [Nombre Categoria] asc");
+            cbo_categoria.DisplayMember = "Nombre Categoria";
+            cbo_categoria.ValueMember = "ID Categoria";
+
+            cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where Estado = 1 order by Nombre asc");
+            cbo_proveedor.DisplayMember = "Nombre";
+            cbo_proveedor.ValueMember = "ID Proveedor";
+        }
+
+        private void cbo_marca_TextChanged(object sender, EventArgs e)
+        {        
             
         }
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || txt_nombre.Text == "" || txt_pCompra.Text == "" || txt_pVenta.Text == "" || 
-                 cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
+            if (txt_nombre.Text == "" || txt_modelo.Text == "" || txt_precio.Text == "" || txt_stock.Text == "" || 
+                 cbo_categoria.SelectedIndex == -1 || cbo_marca.SelectedIndex == -1 || cbo_proveedor.SelectedIndex == -1)
             {
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
                 noti.Close();
             }
             else
-            {
-                
+            {               
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = Convert.ToBoolean(swt_estado.Checked);
+                prod.guardar();
+                sql.Sql_Querys("insert into Inventarios values((select top 1 [ID Producto] from Productos order by[ID Producto] desc), "+txt_stock.Text+")");
+                Limnpiado();
             }            
         }
 
         private void btn_guardarActualizado_Click(object sender, EventArgs e)
         {
-            if (txt_codigo.Text == "" || txt_nombre.Text == "" || txt_pCompra.Text == "" || txt_pVenta.Text == "" || cbo_categorias.SelectedIndex == -1 || cbo_marcas.SelectedIndex == -1)
+            if (txt_nombre.Text == "" || txt_modelo.Text == "" || txt_precio.Text == "" || txt_stock.Text == "" ||
+                 cbo_categoria.SelectedIndex == -1 || cbo_marca.SelectedIndex == -1 || cbo_proveedor.SelectedIndex == -1)
             {
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
                 noti.Close();
             }
             else
-            {              
+            {
+                prod.IDProducto = int.Parse(txt_id.Text);
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = swt_estado.Checked;
+                prod.actualizarDatos();
+                sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
                 this.Close();
             }
         }
@@ -92,41 +143,24 @@ namespace Repuestos_Arias.Formularios
 
         private void Limnpiado()
         {
-            txt_codigo.Clear();
-            txt_id.Clear();
             txt_nombre.Clear();
-            txt_pCompra.Clear();
-            txt_pVenta.Clear();          
-            cbo_categorias.SelectedIndex = -1;
-            cbo_marcas.SelectedIndex = -1;
+            txt_id.Clear();
+            txt_modelo.Clear();
+            txt_precio.Clear();
+            txt_stock.Clear();          
+            cbo_categoria.SelectedIndex = -1;
+            cbo_marca.SelectedIndex = -1;
+            cbo_proveedor.SelectedIndex = -1;
         }
+
 
         #region KeyPress
-        private void txt_codigo_KeyPress(object sender, KeyPressEventArgs e)
-        {
-                if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-                {                
-                    e.Handled = true;                
-                }
-        }
 
-        private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
-        }
 
-        private void txt_pCompra_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
-            {
-                e.Handled = true;
-            }
-        }
 
-        private void txt_pVenta_KeyPress(object sender, KeyPressEventArgs e)
+        #endregion
+
+        private void txt_precio_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
@@ -142,7 +176,9 @@ namespace Repuestos_Arias.Formularios
             }
         }
 
-        #endregion
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
 
+        }
     }
 }

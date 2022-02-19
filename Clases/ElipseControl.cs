@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Drawing;
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class ElipseControl : Control
     {

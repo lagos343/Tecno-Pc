@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias
+namespace Tecno_Pc
 {
     static class Program
     {

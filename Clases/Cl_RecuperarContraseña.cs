@@ -11,13 +11,13 @@ using System.Net.Mail;
 using System.Net;
 
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     public class Cl_RecuperarContraseña
     {
         Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
-        private string correo_recuperacion = "repuestosarias343@gmail.com";
-        private string contraseña_correo_recuperacion = "Arias4820_Licona";
+        private string correo_recuperacion = "pctecno536@gmail.com";
+        private string contraseña_correo_recuperacion = "admonuser1";
         private MailMessage mmsg = new MailMessage();
         SmtpClient cliente = new SmtpClient();
 

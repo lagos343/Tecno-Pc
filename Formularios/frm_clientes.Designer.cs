@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     partial class frm_clientes
     {
@@ -32,6 +32,7 @@ namespace Repuestos_Arias.Formularios
             this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_clientes));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
@@ -51,25 +52,25 @@ namespace Repuestos_Arias.Formularios
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.txt_descripcion = new System.Windows.Forms.TextBox();
+            this.txt_Direccion = new System.Windows.Forms.TextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.gunaComboBox1 = new Guna.UI.WinForms.GunaComboBox();
+            this.cmb_Depto = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.txt_Ident = new System.Windows.Forms.TextBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.gunaLabel4 = new Guna.UI.WinForms.GunaLabel();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.txt_Nombre = new System.Windows.Forms.TextBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txt_Tel = new System.Windows.Forms.TextBox();
             this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txt_Apell = new System.Windows.Forms.TextBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.txt_Email = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -95,7 +96,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox3
             // 
-            this.pictureBox3.Image = global::Repuestos_Arias.Properties.Resources.CajaDescripcion;
+            this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaDescripcion;
             this.pictureBox3.Location = new System.Drawing.Point(751, 337);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(289, 98);
@@ -138,7 +139,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox1.Location = new System.Drawing.Point(751, 81);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(140, 31);
@@ -159,7 +160,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Repuestos_Arias.Properties.Resources.Guardar;
+            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_guardar.Location = new System.Drawing.Point(525, 407);
             this.btn_guardar.Name = "btn_guardar";
@@ -174,6 +175,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_guardar.TabIndex = 43;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // btn_eliminar
             // 
@@ -188,7 +190,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_eliminar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_eliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Image = global::Repuestos_Arias.Properties.Resources.Eliminar;
+            this.btn_eliminar.Image = global::Tecno_Pc.Properties.Resources.Eliminar;
             this.btn_eliminar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_eliminar.Location = new System.Drawing.Point(332, 407);
             this.btn_eliminar.Name = "btn_eliminar";
@@ -203,6 +205,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_eliminar.TabIndex = 41;
             this.btn_eliminar.Text = "ELIMINAR";
             this.btn_eliminar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
             // 
             // btn_editar
             // 
@@ -217,7 +220,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_editar.FocusedColor = System.Drawing.Color.Empty;
             this.btn_editar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_editar.ForeColor = System.Drawing.Color.White;
-            this.btn_editar.Image = global::Repuestos_Arias.Properties.Resources.Editar;
+            this.btn_editar.Image = global::Tecno_Pc.Properties.Resources.Editar;
             this.btn_editar.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_editar.Location = new System.Drawing.Point(179, 407);
             this.btn_editar.Name = "btn_editar";
@@ -232,6 +235,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_editar.TabIndex = 40;
             this.btn_editar.Text = "EDITAR";
             this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
             // 
             // btn_nuevo
             // 
@@ -246,7 +250,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevo.FocusedColor = System.Drawing.Color.Empty;
             this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Image = global::Repuestos_Arias.Properties.Resources.Nuevo;
+            this.btn_nuevo.Image = global::Tecno_Pc.Properties.Resources.Nuevo;
             this.btn_nuevo.ImageSize = new System.Drawing.Size(25, 25);
             this.btn_nuevo.Location = new System.Drawing.Point(25, 407);
             this.btn_nuevo.Name = "btn_nuevo";
@@ -261,6 +265,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_nuevo.TabIndex = 39;
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
             // 
             // dgv_datos
             // 
@@ -311,11 +316,12 @@ namespace Repuestos_Arias.Formularios
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(403, 16);
             this.txt_buscar.TabIndex = 37;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox6.Image = global::Repuestos_Arias.Properties.Resources.Buscar;
+            this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
             this.pictureBox6.Location = new System.Drawing.Point(27, 60);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(30, 30);
@@ -325,7 +331,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox5
             // 
-            this.pictureBox5.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox5.Location = new System.Drawing.Point(25, 59);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(447, 31);
@@ -345,12 +351,13 @@ namespace Repuestos_Arias.Formularios
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1053, 40);
             this.panel1.TabIndex = 33;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btn_minimizar
             // 
             this.btn_minimizar.BaseColor = System.Drawing.Color.White;
             this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Repuestos_Arias.Properties.Resources.minimizar;
+            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
             this.btn_minimizar.Location = new System.Drawing.Point(984, 1);
             this.btn_minimizar.Name = "btn_minimizar";
             this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
@@ -374,7 +381,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.btn_salir.BaseColor = System.Drawing.Color.White;
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Repuestos_Arias.Properties.Resources.CerrarForm;
+            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
             this.btn_salir.Location = new System.Drawing.Point(1017, 2);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(31, 36);
@@ -387,7 +394,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaPictureBox1.Image = global::Repuestos_Arias.Properties.Resources.Repuestos_Arias_soloLogo;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
             this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
@@ -395,16 +402,16 @@ namespace Repuestos_Arias.Formularios
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // txt_descripcion
+            // txt_Direccion
             // 
-            this.txt_descripcion.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_descripcion.CausesValidation = false;
-            this.txt_descripcion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_descripcion.Location = new System.Drawing.Point(760, 346);
-            this.txt_descripcion.Multiline = true;
-            this.txt_descripcion.Name = "txt_descripcion";
-            this.txt_descripcion.Size = new System.Drawing.Size(271, 78);
-            this.txt_descripcion.TabIndex = 48;
+            this.txt_Direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Direccion.CausesValidation = false;
+            this.txt_Direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Direccion.Location = new System.Drawing.Point(760, 346);
+            this.txt_Direccion.Multiline = true;
+            this.txt_Direccion.Name = "txt_Direccion";
+            this.txt_Direccion.Size = new System.Drawing.Size(271, 78);
+            this.txt_Direccion.TabIndex = 48;
             // 
             // gunaLabel1
             // 
@@ -430,7 +437,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // pictureBox2
             // 
-            this.pictureBox2.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox2.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox2.Location = new System.Drawing.Point(900, 81);
             this.pictureBox2.Name = "pictureBox2";
             this.pictureBox2.Size = new System.Drawing.Size(140, 31);
@@ -438,23 +445,23 @@ namespace Repuestos_Arias.Formularios
             this.pictureBox2.TabIndex = 50;
             this.pictureBox2.TabStop = false;
             // 
-            // gunaComboBox1
+            // cmb_Depto
             // 
-            this.gunaComboBox1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BaseColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.BorderColor = System.Drawing.Color.Transparent;
-            this.gunaComboBox1.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.gunaComboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.gunaComboBox1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaComboBox1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaComboBox1.ForeColor = System.Drawing.Color.Black;
-            this.gunaComboBox1.FormattingEnabled = true;
-            this.gunaComboBox1.Location = new System.Drawing.Point(905, 84);
-            this.gunaComboBox1.Name = "gunaComboBox1";
-            this.gunaComboBox1.OnHoverItemBaseColor = System.Drawing.Color.White;
-            this.gunaComboBox1.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.gunaComboBox1.Size = new System.Drawing.Size(131, 24);
-            this.gunaComboBox1.TabIndex = 52;
+            this.cmb_Depto.BackColor = System.Drawing.Color.Transparent;
+            this.cmb_Depto.BaseColor = System.Drawing.Color.Transparent;
+            this.cmb_Depto.BorderColor = System.Drawing.Color.Transparent;
+            this.cmb_Depto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
+            this.cmb_Depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmb_Depto.FocusedColor = System.Drawing.Color.Empty;
+            this.cmb_Depto.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.cmb_Depto.ForeColor = System.Drawing.Color.Black;
+            this.cmb_Depto.FormattingEnabled = true;
+            this.cmb_Depto.Location = new System.Drawing.Point(905, 84);
+            this.cmb_Depto.Name = "cmb_Depto";
+            this.cmb_Depto.OnHoverItemBaseColor = System.Drawing.Color.White;
+            this.cmb_Depto.OnHoverItemForeColor = System.Drawing.Color.White;
+            this.cmb_Depto.Size = new System.Drawing.Size(131, 24);
+            this.cmb_Depto.TabIndex = 52;
             // 
             // gunaLabel5
             // 
@@ -467,20 +474,19 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel5.TabIndex = 53;
             this.gunaLabel5.Text = "NO IDENTIDAD";
             // 
-            // textBox2
+            // txt_Ident
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.CausesValidation = false;
-            this.textBox2.Enabled = false;
-            this.textBox2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox2.Location = new System.Drawing.Point(758, 152);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(126, 16);
-            this.textBox2.TabIndex = 55;
+            this.txt_Ident.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Ident.CausesValidation = false;
+            this.txt_Ident.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Ident.Location = new System.Drawing.Point(758, 152);
+            this.txt_Ident.Name = "txt_Ident";
+            this.txt_Ident.Size = new System.Drawing.Size(126, 16);
+            this.txt_Ident.TabIndex = 55;
             // 
             // pictureBox4
             // 
-            this.pictureBox4.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox4.Location = new System.Drawing.Point(751, 145);
             this.pictureBox4.Name = "pictureBox4";
             this.pictureBox4.Size = new System.Drawing.Size(140, 31);
@@ -499,20 +505,19 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel4.TabIndex = 56;
             this.gunaLabel4.Text = "NOMBRE";
             // 
-            // textBox3
+            // txt_Nombre
             // 
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.CausesValidation = false;
-            this.textBox3.Enabled = false;
-            this.textBox3.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox3.Location = new System.Drawing.Point(907, 152);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(126, 16);
-            this.textBox3.TabIndex = 58;
+            this.txt_Nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Nombre.CausesValidation = false;
+            this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Nombre.Location = new System.Drawing.Point(907, 152);
+            this.txt_Nombre.Name = "txt_Nombre";
+            this.txt_Nombre.Size = new System.Drawing.Size(126, 16);
+            this.txt_Nombre.TabIndex = 58;
             // 
             // pictureBox7
             // 
-            this.pictureBox7.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox7.Location = new System.Drawing.Point(900, 145);
             this.pictureBox7.Name = "pictureBox7";
             this.pictureBox7.Size = new System.Drawing.Size(140, 31);
@@ -531,20 +536,19 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel6.TabIndex = 62;
             this.gunaLabel6.Text = "TELEFONO";
             // 
-            // textBox4
+            // txt_Tel
             // 
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.CausesValidation = false;
-            this.textBox4.Enabled = false;
-            this.textBox4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox4.Location = new System.Drawing.Point(907, 216);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(126, 16);
-            this.textBox4.TabIndex = 64;
+            this.txt_Tel.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Tel.CausesValidation = false;
+            this.txt_Tel.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Tel.Location = new System.Drawing.Point(907, 216);
+            this.txt_Tel.Name = "txt_Tel";
+            this.txt_Tel.Size = new System.Drawing.Size(126, 16);
+            this.txt_Tel.TabIndex = 64;
             // 
             // pictureBox8
             // 
-            this.pictureBox8.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox8.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox8.Location = new System.Drawing.Point(900, 209);
             this.pictureBox8.Name = "pictureBox8";
             this.pictureBox8.Size = new System.Drawing.Size(140, 31);
@@ -563,20 +567,19 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel7.TabIndex = 59;
             this.gunaLabel7.Text = "APELLIDO";
             // 
-            // textBox5
+            // txt_Apell
             // 
-            this.textBox5.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox5.CausesValidation = false;
-            this.textBox5.Enabled = false;
-            this.textBox5.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox5.Location = new System.Drawing.Point(758, 216);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(126, 16);
-            this.textBox5.TabIndex = 61;
+            this.txt_Apell.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Apell.CausesValidation = false;
+            this.txt_Apell.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Apell.Location = new System.Drawing.Point(758, 216);
+            this.txt_Apell.Name = "txt_Apell";
+            this.txt_Apell.Size = new System.Drawing.Size(126, 16);
+            this.txt_Apell.TabIndex = 61;
             // 
             // pictureBox9
             // 
-            this.pictureBox9.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox9.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox9.Location = new System.Drawing.Point(751, 209);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(140, 31);
@@ -595,20 +598,19 @@ namespace Repuestos_Arias.Formularios
             this.gunaLabel8.TabIndex = 65;
             this.gunaLabel8.Text = "EMAIL";
             // 
-            // textBox6
+            // txt_Email
             // 
-            this.textBox6.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox6.CausesValidation = false;
-            this.textBox6.Enabled = false;
-            this.textBox6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.textBox6.Location = new System.Drawing.Point(758, 281);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(273, 16);
-            this.textBox6.TabIndex = 67;
+            this.txt_Email.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_Email.CausesValidation = false;
+            this.txt_Email.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_Email.Location = new System.Drawing.Point(758, 281);
+            this.txt_Email.Name = "txt_Email";
+            this.txt_Email.Size = new System.Drawing.Size(273, 16);
+            this.txt_Email.TabIndex = 67;
             // 
             // pictureBox10
             // 
-            this.pictureBox10.Image = global::Repuestos_Arias.Properties.Resources.CajaTexto;
+            this.pictureBox10.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox10.Location = new System.Drawing.Point(751, 273);
             this.pictureBox10.Name = "pictureBox10";
             this.pictureBox10.Size = new System.Drawing.Size(289, 31);
@@ -629,7 +631,7 @@ namespace Repuestos_Arias.Formularios
             this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
             this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Repuestos_Arias.Properties.Resources.Imprimir;
+            this.btn_imprimir.Image = global::Tecno_Pc.Properties.Resources.Imprimir;
             this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_imprimir.Location = new System.Drawing.Point(504, 59);
             this.btn_imprimir.Name = "btn_imprimir";
@@ -651,25 +653,25 @@ namespace Repuestos_Arias.Formularios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 450);
             this.Controls.Add(this.gunaLabel8);
-            this.Controls.Add(this.textBox6);
+            this.Controls.Add(this.txt_Email);
             this.Controls.Add(this.pictureBox10);
             this.Controls.Add(this.gunaLabel6);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.txt_Tel);
             this.Controls.Add(this.pictureBox8);
             this.Controls.Add(this.gunaLabel7);
-            this.Controls.Add(this.textBox5);
+            this.Controls.Add(this.txt_Apell);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.gunaLabel4);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.txt_Nombre);
             this.Controls.Add(this.pictureBox7);
             this.Controls.Add(this.gunaLabel5);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.txt_Ident);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.gunaComboBox1);
+            this.Controls.Add(this.cmb_Depto);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox2);
-            this.Controls.Add(this.txt_descripcion);
+            this.Controls.Add(this.txt_Direccion);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.gunaLabel3);
             this.Controls.Add(this.gunaLabel2);
@@ -686,8 +688,11 @@ namespace Repuestos_Arias.Formularios
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_clientes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_clientes";
+            this.Load += new System.EventHandler(this.frm_clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).EndInit();
@@ -713,25 +718,25 @@ namespace Repuestos_Arias.Formularios
 
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private Guna.UI.WinForms.GunaLabel gunaLabel8;
-        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox txt_Email;
         private System.Windows.Forms.PictureBox pictureBox10;
         private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txt_Tel;
         private System.Windows.Forms.PictureBox pictureBox8;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txt_Apell;
         private System.Windows.Forms.PictureBox pictureBox9;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox txt_Nombre;
         private System.Windows.Forms.PictureBox pictureBox7;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox txt_Ident;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private Guna.UI.WinForms.GunaComboBox gunaComboBox1;
+        private Guna.UI.WinForms.GunaComboBox cmb_Depto;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.TextBox txt_descripcion;
+        private System.Windows.Forms.TextBox txt_Direccion;
         private System.Windows.Forms.PictureBox pictureBox3;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;

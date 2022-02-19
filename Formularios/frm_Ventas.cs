@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     public partial class frm_Ventas : Form
     {     
@@ -75,18 +75,7 @@ namespace Repuestos_Arias.Formularios
 
         private void ActualizarCatosFactura()
         {
-            lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
-            DataTable UltimaFactura = new DataTable();
             
-
-            if(UltimaFactura.Rows.Count == 0)
-            {
-               
-            }
-            else
-            {
-               
-            }
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)

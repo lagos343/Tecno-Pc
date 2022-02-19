@@ -8,11 +8,12 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias
+namespace Tecno_Pc
 {
     public partial class Form1 : Form
     {
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_RecuperarContraseña recu = new Clases.Cl_RecuperarContraseña();
 
         public Form1()
         {
@@ -39,6 +40,8 @@ namespace Repuestos_Arias
         private void Form1_Load(object sender, EventArgs e)
         {
             txt_pasword.UseSystemPasswordChar = true;
+            txt_userName.Text = "admin";
+            txt_pasword.Text = "admonuser1";
         }
 
         #region Eventos Enter y Leave de los textbox               
@@ -78,7 +81,7 @@ namespace Repuestos_Arias
 
         private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-                       
+            recu.EnviarCorreo();
         }
 
         private void btn_ingresar_Click(object sender, EventArgs e)
