@@ -29,6 +29,7 @@ namespace Tecno_Pc.Formularios
             if (estado == 1)
             {
                 lbl_titulo.Text = "NUEVO EMPLEADO";
+                btn_guardar.Text = "GUARDAR";
                 btn_guardar.Click += guarda_click;
                 iniciarcombobox();
             }
@@ -36,6 +37,7 @@ namespace Tecno_Pc.Formularios
             {
                 iniciarcombobox();
                 lbl_titulo.Text = "ACTUALIZAR EMPLEADO";
+                btn_guardar.Text = "ACTUALIZAR";
                 btn_guardar.Click += actualiza_click;
                 txt_id.Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
                 cbo_depto.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();

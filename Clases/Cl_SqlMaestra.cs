@@ -13,7 +13,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra
     {
-        private string Servidor = "LocalHost";
+        private string Servidor = "DESKTOP-BFK4E06";
         private string DataBase = "TECNOPC";
         private string cadena_coneccion;        
         SqlConnection connection = new SqlConnection();
