@@ -95,6 +95,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cl_Categorias.cs" />
+    <Compile Include="Clases\Cl_Empleados.cs" />
     <Compile Include="Clases\Cl_Clientes.cs" />
     <Compile Include="Clases\Cl_Facturas.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
@@ -320,6 +321,7 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\Empleado.png" />
     <None Include="Resources\LogoTecnoPc.png" />
     <None Include="Resources\proveedor.png" />
     <None Include="Resources\Salir.png" />
