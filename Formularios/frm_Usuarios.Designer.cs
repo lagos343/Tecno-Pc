@@ -29,8 +29,8 @@ namespace Tecno_Pc.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -53,10 +53,6 @@ namespace Tecno_Pc.Formularios
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_tipo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.lbl_tel = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.lbl_email = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -106,10 +102,6 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.label9);
             this.panel5.Controls.Add(this.lbl_tipo);
             this.panel5.Controls.Add(this.label5);
-            this.panel5.Controls.Add(this.lbl_tel);
-            this.panel5.Controls.Add(this.label3);
-            this.panel5.Controls.Add(this.lbl_email);
-            this.panel5.Controls.Add(this.label1);
             this.panel5.Location = new System.Drawing.Point(0, -1);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1114, 705);
@@ -124,6 +116,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 74;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
             // 
@@ -247,27 +240,27 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle10;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Productos.Location = new System.Drawing.Point(111, 349);
             this.dgv_Productos.Name = "dgv_Productos";
@@ -277,6 +270,7 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.dgv_Productos.Size = new System.Drawing.Size(882, 323);
             this.dgv_Productos.TabIndex = 12;
+            this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
             // Editar
             // 
@@ -298,9 +292,8 @@ namespace Tecno_Pc.Formularios
             this.lbl_propietario.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_propietario.Location = new System.Drawing.Point(499, 199);
             this.lbl_propietario.Name = "lbl_propietario";
-            this.lbl_propietario.Size = new System.Drawing.Size(43, 17);
+            this.lbl_propietario.Size = new System.Drawing.Size(0, 17);
             this.lbl_propietario.TabIndex = 1;
-            this.lbl_propietario.Text = "label2";
             // 
             // label15
             // 
@@ -318,9 +311,8 @@ namespace Tecno_Pc.Formularios
             this.lbl_contra.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_contra.Location = new System.Drawing.Point(499, 163);
             this.lbl_contra.Name = "lbl_contra";
-            this.lbl_contra.Size = new System.Drawing.Size(43, 17);
+            this.lbl_contra.Size = new System.Drawing.Size(0, 17);
             this.lbl_contra.TabIndex = 1;
-            this.lbl_contra.Text = "label2";
             // 
             // label13
             // 
@@ -338,9 +330,8 @@ namespace Tecno_Pc.Formularios
             this.lbl_user.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_user.Location = new System.Drawing.Point(499, 129);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(43, 17);
+            this.lbl_user.Size = new System.Drawing.Size(0, 17);
             this.lbl_user.TabIndex = 1;
-            this.lbl_user.Text = "label2";
             // 
             // label11
             // 
@@ -358,9 +349,8 @@ namespace Tecno_Pc.Formularios
             this.lbl_id.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.lbl_id.Location = new System.Drawing.Point(499, 92);
             this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(43, 17);
+            this.lbl_id.Size = new System.Drawing.Size(0, 17);
             this.lbl_id.TabIndex = 1;
-            this.lbl_id.Text = "label2";
             // 
             // label9
             // 
@@ -376,61 +366,20 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_tipo.AutoSize = true;
             this.lbl_tipo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tipo.Location = new System.Drawing.Point(822, 163);
+            this.lbl_tipo.Location = new System.Drawing.Point(805, 92);
             this.lbl_tipo.Name = "lbl_tipo";
-            this.lbl_tipo.Size = new System.Drawing.Size(43, 17);
+            this.lbl_tipo.Size = new System.Drawing.Size(0, 17);
             this.lbl_tipo.TabIndex = 1;
-            this.lbl_tipo.Text = "label2";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label5.Location = new System.Drawing.Point(739, 163);
+            this.label5.Location = new System.Drawing.Point(736, 92);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(29, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "Rol";
-            // 
-            // lbl_tel
-            // 
-            this.lbl_tel.AutoSize = true;
-            this.lbl_tel.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tel.Location = new System.Drawing.Point(822, 129);
-            this.lbl_tel.Name = "lbl_tel";
-            this.lbl_tel.Size = new System.Drawing.Size(43, 17);
-            this.lbl_tel.TabIndex = 1;
-            this.lbl_tel.Text = "label2";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label3.Location = new System.Drawing.Point(739, 129);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(64, 17);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "Telefono";
-            // 
-            // lbl_email
-            // 
-            this.lbl_email.AutoSize = true;
-            this.lbl_email.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_email.Location = new System.Drawing.Point(822, 92);
-            this.lbl_email.Name = "lbl_email";
-            this.lbl_email.Size = new System.Drawing.Size(43, 17);
-            this.lbl_email.TabIndex = 1;
-            this.lbl_email.Text = "label2";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label1.Location = new System.Drawing.Point(739, 92);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(42, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Email";
             // 
             // frm_Usuarios
             // 
@@ -459,8 +408,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox2;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel5;
-        private System.Windows.Forms.Label lbl_email;
-        private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lbl_propietario;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label lbl_contra;
@@ -471,8 +418,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lbl_tipo;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label lbl_tel;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DataGridView dgv_Productos;
         private Guna.UI.WinForms.GunaGradientButton btn_nuevoUsuario;
         private System.Windows.Forms.DataGridViewImageColumn Editar;

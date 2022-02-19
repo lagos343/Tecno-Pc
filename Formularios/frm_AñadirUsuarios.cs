@@ -16,11 +16,89 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
+
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        public frm_AñadirUsuarios()
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
+        public frm_AñadirUsuarios(int estado, DataGridView dat)
         {
             InitializeComponent();
+            if (estado == 1)
+            {
+                lbl_titulo.Text = "NUEVO USUARIO";
+                btn_guardar.Text = "GUARDAR";
+                btn_guardar.Click += guarda_click;
+                iniciar1();
+            }else if (estado == 2)
+            {
+                iniciar1();
+                lbl_titulo.Text = "ACTUALIZAR USUARIO";
+                btn_guardar.Text = "ACTUALIZAR";
+                btn_guardar.Click += actualiza_click;
+                txt_id.Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
+                cboempleado.SelectedValue = dat.CurrentRow.Cells[2 + 2].Value.ToString();
+                cborol.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
+                txt_usuario.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
+                txt_pass.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
+            }
+        }
+        public void iniciar1()
+        {
+            cboempleado.DataSource = sql.Consulta("select * from Empleados where Estado = 1 order by Nombre asc");
+            cboempleado.DisplayMember = "Nombre";
+            cboempleado.ValueMember = "ID Empleado";
+
+            cborol.DataSource = sql.Consulta("select * from Roles order by [Nombre Rol] asc");
+            cborol.DisplayMember = "Nombre Rol";
+            cborol.ValueMember = "IDRol";
+        }
+
+        private void guarda_click(object sender, EventArgs e)
+        {
+            if(txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
+            {
+                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }
+            else
+            {
+                user.Nombre_usuario = txt_usuario.Text;
+                user.Clave = txt_pass.Text;
+                user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
+                user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
+                user.Estado = Convert.ToBoolean(true);
+                user.guardar();
+                limpiar();
+            }
+        }
+        private void actualiza_click(object sender, EventArgs e)
+        {
+            if (txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
+            {
+                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }
+            else
+            {
+                user.Id_usuarios = int.Parse(txt_id.Text);
+                user.Nombre_usuario = txt_usuario.Text;
+                user.Clave = txt_pass.Text;
+                user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
+                user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
+                user.Estado = Convert.ToBoolean(true);
+                user.actualizarDatos();
+                this.Close();
+            }
+        }
+        public void limpiar()
+        {
+            txt_usuario.Clear();
+            txt_pass.Clear();
+            cboempleado.SelectedIndex = -1;
+            cborol.SelectedIndex = -1;
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
