@@ -48,7 +48,7 @@ namespace Tecno_Pc.Clases
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+            dgv.DataSource = sql.Consulta("select * from Clientes where Estado=1 and Nombre LIKE '%"+Nombre+"%'");
         }
 
         public void actualizarDatos()
