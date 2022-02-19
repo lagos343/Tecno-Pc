@@ -9,7 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias.Formularios 
+namespace Tecno_Pc.Formularios 
 {
     public partial class frm_principal : Form
     {
@@ -23,8 +23,7 @@ namespace Repuestos_Arias.Formularios
 
         public frm_principal()
         {
-            InitializeComponent();
-            lbl_nombreUsuario.Text = user.Nombres_propietario + " " + user.Apellidos_propietarios;
+            InitializeComponent();            
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -83,6 +82,20 @@ namespace Repuestos_Arias.Formularios
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
+        private void btn_empleados_Click(object sender, EventArgs e)
+        {
+            SeleccionBoton(btn_empleados);
+            AbrirFormulario(new frm_empleados());
+            Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
+        }
+
+        private void btn_proveedores_Click(object sender, EventArgs e)
+        {
+            SeleccionBoton(btn_proveedores);
+            AbrirFormulario(new frm_proveedores());
+            Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
+        }
+
         private void SeleccionBoton(Guna.UI.WinForms.GunaGradientButton boton)
         {
             btn_ventas.ForeColor = Color.White; 
@@ -90,12 +103,14 @@ namespace Repuestos_Arias.Formularios
             btn_Facturas.ForeColor = Color.White;
             btn_compras.ForeColor = Color.White;
             btn_Usuarios.ForeColor = Color.White;
+            btn_empleados.ForeColor = Color.White;
+            btn_proveedores.ForeColor = Color.White;
             boton.ForeColor = Color.FromArgb(98, 195, 140);
         }
 
         private void Flecha(Guna.UI.WinForms.GunaGradientButton boton)
         {
-            pic_flecha.Top = boton.Top;
+            pic_flecha.Top = boton.Top + 242;
         }
 
         private void AbrirFormulario(Form formHijo)
@@ -115,6 +130,16 @@ namespace Repuestos_Arias.Formularios
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }        
+        }
+
+        private void pic_flecha_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frm_principal_Load(object sender, EventArgs e)
+        {
+            lbl_nombreUsuario.Text = user.Propietario_;            
+        }
     }
 }

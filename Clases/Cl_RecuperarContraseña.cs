@@ -11,13 +11,13 @@ using System.Net.Mail;
 using System.Net;
 
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     public class Cl_RecuperarContraseña
     {
         Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
-        private string correo_recuperacion = "repuestosarias343@gmail.com";
-        private string contraseña_correo_recuperacion = "Arias4820_Licona";
+        private string correo_recuperacion = "pctecno536@gmail.com";
+        private string contraseña_correo_recuperacion = "admonuser1";
         private MailMessage mmsg = new MailMessage();
         SmtpClient cliente = new SmtpClient();
 
@@ -26,10 +26,10 @@ namespace Repuestos_Arias.Clases
 
         public void EnviarCorreo()
         {              
-            mmsg.To.Add(user.Correo_usuario);
+            mmsg.To.Add(user.Correo_);
             mmsg.Subject = "Recuperacion de Datos";
             mmsg.SubjectEncoding = Encoding.UTF8;
-            mmsg.Body = "Señor " + user.Nombres_propietario + " " + user.Apellidos_propietarios + ", su contraseña es: " + user.Contraseña_usuario;
+            mmsg.Body = "Señor " +user.Propietario_ + ", su contraseña es: " + user.Contraseña_;
             mmsg.BodyEncoding = Encoding.UTF8;
             mmsg.IsBodyHtml = true;
             mmsg.From = new MailAddress(Correo_recuperacion);

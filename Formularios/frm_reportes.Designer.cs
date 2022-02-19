@@ -1,5 +1,5 @@
 ﻿
-namespace Repuestos_Arias.Formularios
+namespace Tecno_Pc.Formularios
 {
     partial class frm_reportes
     {
@@ -49,7 +49,7 @@ namespace Repuestos_Arias.Formularios
             // 
             // Cl_CategoriasBindingSource
             // 
-            this.Cl_CategoriasBindingSource.DataSource = typeof(Repuestos_Arias.Clases.Cl_Categorias);
+            this.Cl_CategoriasBindingSource.DataSource = typeof(Tecno_Pc.Clases.Cl_Categorias);
             // 
             // gunaElipse1
             // 
@@ -73,7 +73,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.btn_minimizar.BaseColor = System.Drawing.Color.White;
             this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Repuestos_Arias.Properties.Resources.minimizar;
+            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
             this.btn_minimizar.Location = new System.Drawing.Point(947, 1);
             this.btn_minimizar.Name = "btn_minimizar";
             this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
@@ -97,7 +97,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.btn_salir.BaseColor = System.Drawing.Color.White;
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Repuestos_Arias.Properties.Resources.CerrarForm;
+            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
             this.btn_salir.Location = new System.Drawing.Point(979, 3);
             this.btn_salir.Name = "btn_salir";
             this.btn_salir.Size = new System.Drawing.Size(31, 36);
@@ -110,7 +110,7 @@ namespace Repuestos_Arias.Formularios
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaPictureBox1.Image = global::Repuestos_Arias.Properties.Resources.Repuestos_Arias_soloLogo;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
             this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
             this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);

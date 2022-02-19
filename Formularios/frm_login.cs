@@ -8,14 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Repuestos_Arias
+namespace Tecno_Pc
 {
     public partial class Form1 : Form
     {
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_RecuperarContraseña recu = new Clases.Cl_RecuperarContraseña();
+
         public Form1()
         {
-            InitializeComponent();
+            InitializeComponent();            
         }
 
         private void btn_CerrarLogin_Click(object sender, EventArgs e)
@@ -38,7 +40,8 @@ namespace Repuestos_Arias
         private void Form1_Load(object sender, EventArgs e)
         {
             txt_pasword.UseSystemPasswordChar = true;
-            Clases.Cl_SqlManaggement sql = new Clases.Cl_SqlManaggement();
+            txt_userName.Text = "admin";
+            txt_pasword.Text = "admonuser1";
         }
 
         #region Eventos Enter y Leave de los textbox               
@@ -78,23 +81,22 @@ namespace Repuestos_Arias
 
         private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            Clases.Cl_RecuperarContraseña recu = new Clases.Cl_RecuperarContraseña();
-            recu.EnviarCorreo();            
+            recu.EnviarCorreo();
         }
 
         private void btn_ingresar_Click(object sender, EventArgs e)
-        {            
-            user.Nombre_usuario = txt_userName.Text;
-            user.Txt_contra = txt_pasword;
-            user.Txt_usu = txt_userName;
+        {
             user.Erp_contra = error_contraseña;
             user.Erp_usu = error_usuario;
+            user.Txt_contra = txt_pasword;
+            user.Txt_usu = txt_userName;
+            user.Usuario_ = txt_userName.Text;
 
-            if (user.ObtenerDatos(lnk_Re_usu_contra)==true)
+            if(user.ObtenerDatos(lnk_Re_usu_contra) == true)
             {
                 this.Hide();
                 Formularios.frm_principal prin = new Formularios.frm_principal();
-                prin.Show();                
+                prin.Show();
             }
         }
 

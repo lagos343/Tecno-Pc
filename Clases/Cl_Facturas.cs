@@ -6,11 +6,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Repuestos_Arias.Clases
+namespace Tecno_Pc.Clases
 {
     class Cl_Facturas
     {
-        Cl_SqlManaggement sql = new Cl_SqlManaggement();
+        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         DataTable datosFacturas = new DataTable();
 
         //datos de la Factura
