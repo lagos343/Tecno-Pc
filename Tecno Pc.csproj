@@ -53,9 +53,6 @@
   </PropertyGroup>
   <PropertyGroup />
   <ItemGroup>
-    <Reference Include="CircularProgressBar">
-      <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\CircularProgressBar.dll</HintPath>
-    </Reference>
     <Reference Include="Guna.UI">
       <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI.dll</HintPath>
     </Reference>
