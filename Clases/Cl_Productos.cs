@@ -55,7 +55,7 @@ namespace Tecno_Pc.Clases
         {
             sql.Sql_Querys("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
                 "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + " where [ID Producto] = " + iDProducto + "", 
-                "Proucto actualizado con exito", "Error 504");
+                "Producto actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
