@@ -67,7 +67,8 @@ namespace Tecno_Pc.Clases
         public void eliminar()
         {
             sql.Sql_Querys("update Empleados set Estado = 0 where [ID Empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
-
+            Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
+            frm.carga();
 
         }
 
