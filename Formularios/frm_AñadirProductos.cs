@@ -175,5 +175,10 @@ namespace Tecno_Pc.Formularios
                 e.Handled = true;
             }
         }
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

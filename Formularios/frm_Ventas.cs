@@ -75,18 +75,7 @@ namespace Tecno_Pc.Formularios
 
         private void ActualizarCatosFactura()
         {
-            lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
-            DataTable UltimaFactura = new DataTable();
             
-
-            if(UltimaFactura.Rows.Count == 0)
-            {
-               
-            }
-            else
-            {
-               
-            }
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
