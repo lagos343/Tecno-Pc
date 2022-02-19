@@ -31,7 +31,7 @@ namespace Tecno_Pc.Formularios
 
         public void Dashboard()
         {
-            lbl_totalProductos.Text = sql.Consulta("select *from Productos").Rows.Count.ToString();
+            lbl_totalProductos.Text = sql.Consulta("select *from Productos where Estado = 1").Rows.Count.ToString();
             lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
             lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
             lbl_ProductosTotales.Text = sql.Consulta2("select sum(Stock) as Stock from Inventarios");
