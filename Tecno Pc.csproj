@@ -110,6 +110,7 @@
     <Compile Include="Clases\ElipseControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Clases\Cl_Contactos.cs" />
     <Compile Include="Formularios\frm_AñadirEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
