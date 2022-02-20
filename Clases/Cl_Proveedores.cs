@@ -56,6 +56,8 @@ namespace Tecno_Pc.Clases
 
             sql.Sql_Querys("update Proveedores set Estado = 0 where [ID Proveedor] =" + iDProveedor,"Se ha elminado al proveedor", "Error al eliminar");
 
+            Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
+            frm.carga();
         }
     }
 }
