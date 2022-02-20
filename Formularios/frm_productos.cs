@@ -24,9 +24,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_productos_Load(object sender, EventArgs e)
         {
-            prod.consultarDatos(dgv_Productos);
             Dashboard();
-            operacionesDataGrid();
         }
 
         public void Dashboard()
@@ -35,6 +33,9 @@ namespace Tecno_Pc.Formularios
             lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
             lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
             lbl_ProductosTotales.Text = sql.Consulta2("select sum(Stock) as Stock from Inventarios");
+
+            prod.consultarDatos(dgv_Productos);            
+            operacionesDataGrid();
         }
 
         public void operacionesDataGrid()        

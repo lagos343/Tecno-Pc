@@ -107,7 +107,10 @@ namespace Tecno_Pc.Formularios
                 prod.guardar();
                 sql.Sql_Querys("insert into Inventarios values((select top 1 [ID Producto] from Productos order by[ID Producto] desc), "+txt_stock.Text+")");
                 Limnpiado();
-            }            
+            }
+
+            Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
+            frm.Dashboard();
         }
 
         private void btn_guardarActualizado_Click(object sender, EventArgs e)
@@ -133,6 +136,9 @@ namespace Tecno_Pc.Formularios
                 sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
                 this.Close();
             }
+
+            Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
+            frm.Dashboard();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)

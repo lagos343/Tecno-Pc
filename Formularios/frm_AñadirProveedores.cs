@@ -129,5 +129,11 @@ namespace Tecno_Pc.Formularios
         {
             this.WindowState = FormWindowState.Minimized;
         }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
     }
 }

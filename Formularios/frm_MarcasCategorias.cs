@@ -246,5 +246,10 @@ namespace Tecno_Pc.Formularios
         {
 
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }
