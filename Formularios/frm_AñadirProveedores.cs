@@ -28,7 +28,7 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();
             if (estado == 1)
             {
-                lbl_titulo.Text = "NUEVO EMPLEADO";
+                lbl_titulo.Text = "NUEVO PROVEEDOR";
                 btn_guardar.Text = "GUARDAR";
                 btn_guardar.Click += guarda_click;
                 iniciarcombobox();
@@ -36,7 +36,7 @@ namespace Tecno_Pc.Formularios
             else if (estado == 2)
             {
                 iniciarcombobox();
-                lbl_titulo.Text = "ACTUALIZAR EMPLEADO";
+                lbl_titulo.Text = "ACTUALIZAR PROVEEDOR";
                 btn_guardar.Text = "ACTUALIZAR";
                 btn_guardar.Click += actualiza_click;
                 txt_id.Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
@@ -84,6 +84,8 @@ namespace Tecno_Pc.Formularios
 
             }
 
+            Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
+            frm.carga();
         }
 
         private void actualiza_click(object sender, EventArgs e)
@@ -108,7 +110,8 @@ namespace Tecno_Pc.Formularios
                 this.Close();
 
             }
-
+            Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
+            frm.carga();
         }
 
         public void limpiado()

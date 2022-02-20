@@ -24,14 +24,28 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
         {
-            frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(1, dgv_Productos);
-            añaem.Show();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirEmpleado);
+            if (frm == null)
+            {
+                frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(1, dgv_Productos);
+                añaem.Show();
+            }
+            else 
+            {
+                frm.BringToFront();
+            }
         }
 
         private void frm_empleados_Load(object sender, EventArgs e)
         {
+            carga();
+        }
+
+        public void carga() 
+        {
             empleados.consultarDatos(dgv_Productos);
             operacionesdatarid();
+
         }
 
         private void operacionesdatarid()
@@ -64,8 +78,6 @@ namespace Tecno_Pc.Formularios
             {
                 frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(2, dgv_Productos);
                 añaem.ShowDialog();
-
-
             }
             else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
@@ -76,6 +88,14 @@ namespace Tecno_Pc.Formularios
                 {
                     empleados.Idempleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                     empleados.eliminar();
+                    #region Limpieza
+                    lbl_id.Text = lbl_email.Text = "";
+                    lbl_depto.Text = lbl_email.Text = "";
+                    lbl_direccion.Text = lbl_email.Text = "";
+                    lbl_puesto.Text = lbl_email.Text = "";
+                    lbl_email.Text = "";
+                    lbl_email.Text = "";
+                    #endregion
                 }
 
                 noti.Close();

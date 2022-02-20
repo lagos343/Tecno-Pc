@@ -26,20 +26,44 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
         {
-            frm_AñadirProveedores añapro = new frm_AñadirProveedores(1, dgv_Productos);
-            añapro.Show();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirProveedores);
+
+            if (frm == null)
+            {
+                frm_AñadirProveedores añapro = new frm_AñadirProveedores(1, dgv_Productos);
+                añapro.Show();
+            }
+            else 
+            {
+                frm.BringToFront();
+            }
+        
         }
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
-            frm_contactos contac = new frm_contactos();
-            contac.Show();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_contactos);
+            if (frm == null)
+            {
+                frm_contactos contac = new frm_contactos();
+                contac.Show();
+            }
+            else 
+            {
+                frm.BringToFront();
+            }
         }
 
         private void frm_proveedores_Load(object sender, EventArgs e)
         {
+            carga();
+        }
+
+        public void carga()
+        {
             proveedores.consultarDatos(dgv_Productos);
             operacionesdatarid();
+
         }
 
         private void operacionesdatarid()
@@ -81,6 +105,14 @@ namespace Tecno_Pc.Formularios
                 {
                     proveedores.IDProveedor = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                     proveedores.eliminar();
+                    #region Limpieza
+                    lbl_id.Text = "";
+                    lbl_nombre.Text = "";
+                    lbl_telefono.Text = "";
+                    lbl_direccion.Text = "";
+                    lbl_email.Text = "";
+                    lbl_depto.Text = "";
+                    #endregion
                 }
 
                 noti.Close();

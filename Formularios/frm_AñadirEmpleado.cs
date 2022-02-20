@@ -98,6 +98,9 @@ namespace Tecno_Pc.Formularios
                 limpiado();
             }
 
+            Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
+            frm.carga();
+
         }
 
         private void actualiza_click(object sender, EventArgs e) 
@@ -124,6 +127,8 @@ namespace Tecno_Pc.Formularios
                 empleados.update();
                 this.Close();
             }
+            Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
+            frm.carga();
         }
 
 
@@ -142,6 +147,17 @@ namespace Tecno_Pc.Formularios
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //Ignorar
+        }
+
+        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        {
+            ReleaseCapture();
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
     }
 }
