@@ -61,6 +61,7 @@ namespace Tecno_Pc.Clases
         public void eliminarDatos()
         {
             sql.Sql_Querys("Update Productos set Estado = 0 where [ID Producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");
+            sql.Sql_Querys("delete from Inventarios where [ID Producto] = " + iDProducto);
         }
     }
 }

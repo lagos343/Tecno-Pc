@@ -129,9 +129,9 @@ namespace Tecno_Pc.Formularios
 
                 noti.Close();
 
-                frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
-                noti2.ShowDialog();
-                noti.Close();
+                //frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
+                //noti2.ShowDialog();
+                //noti.Close();
             }                                                 
         }
 
@@ -141,24 +141,50 @@ namespace Tecno_Pc.Formularios
             objExcel.Application objAplicacion = new objExcel.Application();
             Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
+            objExcel.Range rango = null;
+            objExcel.Style style = objLibro.Styles.Add("EstiloCabecera");            
 
-            objAplicacion.Visible = false;//si es true se abrira automaticamente si es false no se abrira              
+            //definimos el estilo que tendra las cabeceras
+            style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Yellow);
+            style.Font.Bold = true;
+
+            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira            
+                                   
 
             //creacion de la hoja de calculo                   
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
-                objHoja.Cells[1, columna.Index + 1] = columna.HeaderText;
+                objHoja.Cells[3, columna.Index + 3] = columna.HeaderText;                
 
                 foreach (DataGridViewRow fila in dgv_Productos.Rows)
                 {
-                    objHoja.Cells[fila.Index + 2, columna.Index + 1] = fila.Cells[columna.Index].Value;
+                    objHoja.Cells[fila.Index + 4, columna.Index + 3] = fila.Cells[columna.Index].Value;                    
                 }
+
+                rango = objHoja.Columns[columna.Index + 3];
+                rango.Columns.AutoFit();
+                rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
             }
 
+            //creacion de la cabecera
+            rango = objHoja.Range["C3", "M3"];
+            rango.Style = "EstiloCabecera";
+            rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
+
             //guardado del libro
-            objLibro.SaveAs(ruta);
-            objLibro.Close();
-            objAplicacion.Quit();            
+            try
+            {
+                objLibro.SaveAs(ruta);
+            }
+            catch (Exception ex)
+            {
+                frm_notificacion noti2 = new frm_notificacion("No se puede modificar un archivo en uso, en su lugar se creo uno nuevo", 3);
+                noti2.ShowDialog();
+                noti2.Close();
+            }
+
+            //objLibro.Close();
+            //objAplicacion.Quit();            
         }
     }
 }
