@@ -403,6 +403,16 @@ namespace Tecno_Pc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Nuevo2 {
+            get {
+                object obj = ResourceManager.GetObject("Nuevo2", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap perfil_avatar_hombre_icono_redondo {
             get {
                 object obj = ResourceManager.GetObject("perfil-avatar-hombre-icono-redondo", resourceCulture);

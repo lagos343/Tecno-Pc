@@ -139,9 +139,6 @@
   <data name="Eliminar" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Eliminar.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
   <data name="EditarProducto" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\EditarProducto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -175,8 +172,8 @@
   <data name="minimizar Principal1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\minimizar Principal1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="CajaTexto" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\CajaTexto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="LogoTecnoPc" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\LogoTecnoPc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="CerrarForm" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\CerrarForm.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -199,41 +196,50 @@
   <data name="ConfiguracionUsuarios" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\ConfiguracionUsuarios.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Repuestos Arias_soloLogo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Repuestos Arias_soloLogo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Productos Verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Productos Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Salir" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Salir.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="CajaTexto" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\CajaTexto.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Clientes Gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Clientes Gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Productos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Ventas Verde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Ventas Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Compras Verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Compras Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Check" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Check.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Compras Verde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Compras Verde1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Flecha" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Flecha.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Ventas Gris1" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Ventas Gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Empleado" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Empleado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Repuestos Arias" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Repuestos Arias.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="perfil-avatar-hombre-icono-redondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\perfil-avatar-hombre-icono-redondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Compras Verde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Compras Verde1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="SombraPanelProductos" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\SombraPanelProductos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="perfil-avatar-hombre-icono-redondo" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\perfil-avatar-hombre-icono-redondo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Ventas Verde1" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Ventas Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Nuevo" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Nuevo.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -256,13 +262,10 @@
   <data name="Compras Gris" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Compras Gris.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Compras Verde" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Compras Verde.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Productos" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Productos.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="LogoTecnoPc" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\LogoTecnoPc.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Empleado" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Empleado.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="Nuevo2" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Nuevo2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
