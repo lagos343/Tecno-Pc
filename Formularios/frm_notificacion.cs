@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -31,6 +32,7 @@ namespace Tecno_Pc.Formularios
             {
                 btn_confirmar.Visible = true;
                 pic_confirmation.Visible = true;
+                gunaCircleProgressBar1.Visible = false;
             }
 
             if(estado == 2)
@@ -38,14 +40,38 @@ namespace Tecno_Pc.Formularios
                 btn_confirmar.Visible = true;
                 btn_cancelar.Visible = true;
                 pic_exclamation.Visible = true;
+                gunaCircleProgressBar1.Visible = false;
             }
 
             if (estado == 3)
             {
                 btn_confirmar.Visible = true;                
                 pic_exclamation.Visible = true;
+                gunaCircleProgressBar1.Visible = false;
             }
-        }               
+
+            if (estado == 4)
+            {               
+                pic_exclamation.Visible = true;
+                gunaCircleProgressBar1.Visible = true;
+                lbl_Mensaje.Visible = false;
+            }
+        }
+
+        public void barra()
+        {
+            for (int i = 0; i <= 100; i+= 1)
+            {
+                Thread.Sleep(1);
+                gunaCircleProgressBar1.Value = i;
+                gunaCircleProgressBar1.Update();
+
+                if (i == 100)
+                {
+                    i = 0;
+                }
+            }
+        }
 
         private void btn_confirmar_Click(object sender, EventArgs e)
         {
@@ -75,6 +101,13 @@ namespace Tecno_Pc.Formularios
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private async void frm_notificacion_Load(object sender, EventArgs e)
+        {
+            Task tas1 = new Task(barra);
+            tas1.Start();
+            await tas1;
         }
     }
 }

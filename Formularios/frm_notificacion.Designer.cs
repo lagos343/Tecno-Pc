@@ -38,6 +38,7 @@ namespace Tecno_Pc.Formularios
             this.btn_confirmar = new Guna.UI.WinForms.GunaButton();
             this.btn_cancelar = new Guna.UI.WinForms.GunaButton();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.gunaCircleProgressBar1 = new Guna.UI.WinForms.GunaCircleProgressBar();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_exclamation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_confirmation)).BeginInit();
@@ -56,7 +57,7 @@ namespace Tecno_Pc.Formularios
             // 
             // pic_exclamation
             // 
-            this.pic_exclamation.Image = global::Tecno_Pc.Properties.Resources.Informarcion;
+            this.pic_exclamation.Image = ((System.Drawing.Image)(resources.GetObject("pic_exclamation.Image")));
             this.pic_exclamation.Location = new System.Drawing.Point(14, 19);
             this.pic_exclamation.Name = "pic_exclamation";
             this.pic_exclamation.Size = new System.Drawing.Size(161, 95);
@@ -68,7 +69,7 @@ namespace Tecno_Pc.Formularios
             // 
             // pic_confirmation
             // 
-            this.pic_confirmation.Image = global::Tecno_Pc.Properties.Resources.Check;
+            this.pic_confirmation.Image = ((System.Drawing.Image)(resources.GetObject("pic_confirmation.Image")));
             this.pic_confirmation.Location = new System.Drawing.Point(14, 19);
             this.pic_confirmation.Name = "pic_confirmation";
             this.pic_confirmation.Size = new System.Drawing.Size(161, 95);
@@ -150,6 +151,24 @@ namespace Tecno_Pc.Formularios
             // 
             this.gunaElipse1.TargetControl = this;
             // 
+            // gunaCircleProgressBar1
+            // 
+            this.gunaCircleProgressBar1.AnimationSpeed = 0.6F;
+            this.gunaCircleProgressBar1.BaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            this.gunaCircleProgressBar1.IdleColor = System.Drawing.Color.Empty;
+            this.gunaCircleProgressBar1.IdleOffset = 20;
+            this.gunaCircleProgressBar1.IdleThickness = 15;
+            this.gunaCircleProgressBar1.Image = null;
+            this.gunaCircleProgressBar1.ImageSize = new System.Drawing.Size(52, 52);
+            this.gunaCircleProgressBar1.Location = new System.Drawing.Point(31, 133);
+            this.gunaCircleProgressBar1.Name = "gunaCircleProgressBar1";
+            this.gunaCircleProgressBar1.ProgressMaxColor = System.Drawing.Color.Teal;
+            this.gunaCircleProgressBar1.ProgressMinColor = System.Drawing.Color.Teal;
+            this.gunaCircleProgressBar1.ProgressOffset = 20;
+            this.gunaCircleProgressBar1.ProgressThickness = 15;
+            this.gunaCircleProgressBar1.Size = new System.Drawing.Size(121, 120);
+            this.gunaCircleProgressBar1.TabIndex = 5;
+            // 
             // frm_notificacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -157,6 +176,7 @@ namespace Tecno_Pc.Formularios
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(185, 265);
             this.ControlBox = false;
+            this.Controls.Add(this.gunaCircleProgressBar1);
             this.Controls.Add(this.btn_cancelar);
             this.Controls.Add(this.btn_confirmar);
             this.Controls.Add(this.lbl_Mensaje);
@@ -165,6 +185,7 @@ namespace Tecno_Pc.Formularios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_notificacion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Load += new System.EventHandler(this.frm_notificacion_Load);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pic_exclamation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_confirmation)).EndInit();
@@ -180,5 +201,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaButton btn_confirmar;
         private System.Windows.Forms.PictureBox pic_exclamation;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private Guna.UI.WinForms.GunaCircleProgressBar gunaCircleProgressBar1;
     }
 }

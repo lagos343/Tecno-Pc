@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +24,8 @@ namespace Tecno_Pc.Formularios
 
         public frm_principal()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace Tecno_Pc.Formularios
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
+        }       
 
         private void pic_flecha_Click(object sender, EventArgs e)
         {
@@ -139,7 +141,12 @@ namespace Tecno_Pc.Formularios
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            lbl_nombreUsuario.Text = user.Propietario_;            
+            lbl_nombreUsuario.Text = user.Propietario_;                              
         }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {            
+            
+        }        
     }
 }
