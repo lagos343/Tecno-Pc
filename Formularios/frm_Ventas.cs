@@ -179,6 +179,7 @@ namespace Tecno_Pc.Formularios
             num_ISV.Value = 15;
             dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
                 "from Productos p where Estado = 1 order by [Nombre Producto] asc");
+            LimpiarProductoSeleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
                 dgv_Factura.Rows.Remove(fila);
@@ -189,7 +190,7 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Factura.Rows.Count == 0 || cbo_cliente.SelectedIndex == -1 || cbo_tipoPago.SelectedIndex == -1)
             {
-                frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Factura antes de ", 3);
+                frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Factura y llenar todos sus datos antes", 3);
                 noti.ShowDialog();
                 noti.Close();
             }
