@@ -29,10 +29,10 @@ namespace Tecno_Pc.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.cbo_cliente = new System.Windows.Forms.ComboBox();
@@ -160,26 +160,26 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar});
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle12.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Productos.Location = new System.Drawing.Point(32, 94);
             this.dgv_Productos.Name = "dgv_Productos";
@@ -316,7 +316,7 @@ namespace Tecno_Pc.Formularios
             // 
             // gunaLabel11
             // 
-            this.gunaLabel11.BackColor = System.Drawing.Color.Maroon;
+            this.gunaLabel11.BackColor = System.Drawing.Color.MediumBlue;
             this.gunaLabel11.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.gunaLabel11.ForeColor = System.Drawing.Color.White;
             this.gunaLabel11.Location = new System.Drawing.Point(571, 250);
@@ -372,7 +372,7 @@ namespace Tecno_Pc.Formularios
             // 
             // gunaLabel6
             // 
-            this.gunaLabel6.BackColor = System.Drawing.Color.Maroon;
+            this.gunaLabel6.BackColor = System.Drawing.Color.MediumBlue;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
             this.gunaLabel6.ForeColor = System.Drawing.Color.White;
             this.gunaLabel6.Location = new System.Drawing.Point(571, 94);
@@ -680,14 +680,14 @@ namespace Tecno_Pc.Formularios
             this.dgv_Factura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Factura.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Factura.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Factura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Factura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Factura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Eliminar,
@@ -695,15 +695,15 @@ namespace Tecno_Pc.Formularios
             this.Producto,
             this.Cant,
             this.Total});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Factura.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Factura.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Factura.Location = new System.Drawing.Point(572, 279);
             this.dgv_Factura.Name = "dgv_Factura";
@@ -764,7 +764,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.num_ISV.BaseColor = System.Drawing.Color.White;
             this.num_ISV.BorderColor = System.Drawing.Color.Transparent;
-            this.num_ISV.ButtonColor = System.Drawing.Color.Gray;
+            this.num_ISV.ButtonColor = System.Drawing.Color.MediumBlue;
             this.num_ISV.ButtonForeColor = System.Drawing.Color.WhiteSmoke;
             this.num_ISV.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.num_ISV.ForeColor = System.Drawing.Color.Black;
