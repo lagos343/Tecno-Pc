@@ -99,6 +99,7 @@
     <Compile Include="Clases\Cl_Clientes.cs" />
     <Compile Include="Clases\Cl_Facturas.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
+    <Compile Include="Clases\Cl_NotificacionCompra.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />
     <Compile Include="Clases\Cl_Proveedores.cs" />
     <Compile Include="Clases\Cl_RecuperarContraseña.cs" />

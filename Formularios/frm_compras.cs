@@ -168,5 +168,19 @@ namespace Tecno_Pc.Formularios
                 e.Handled = true;
             }
         }
+
+        private void btn_notificacion_Click(object sender, EventArgs e)
+        {
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_MarcasCategorias);
+            if (frm == null)
+            {
+                frm_MarcasCategorias catego = new frm_MarcasCategorias(3);
+                catego.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
+        }
     }
 }

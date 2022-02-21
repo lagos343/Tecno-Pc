@@ -25,6 +25,7 @@ namespace Tecno_Pc.Formularios
         int reporte;
         Clases.Cl_Marcas mar = new Clases.Cl_Marcas();
         Clases.Cl_Categorias cate = new Clases.Cl_Categorias();
+        Clases.Cl_NotificacionCompra  noti = new Clases.Cl_NotificacionCompra();
 
         public frm_MarcasCategorias(int valor)
         {          
@@ -49,6 +50,10 @@ namespace Tecno_Pc.Formularios
                 this.Text = "Marcas";
                 mar.consultarDatos(dgv_datos);
                 reporte = 2;
+            }
+            else if (valor == 3)
+            {
+                carga();
             }
         }
 
@@ -235,6 +240,77 @@ namespace Tecno_Pc.Formularios
             }
         }
 
+
+        #endregion
+
+        #region Notificacion Compra
+        private void btn_hecho_Click(object sender, EventArgs e)
+        {
+            if (editar == true)
+            {
+                noti.Id_noti = int.Parse(txt_id.Text);
+                noti.eliminar();
+            }
+            else if (editar == false)
+            {
+                frm_notificacion noti = new frm_notificacion("Seleccioné algo antes", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }
+
+        }
+
+        private void txt_buscarNotificacion_TextChanged(object sender, EventArgs e)
+        {
+            noti.Producto = txt_buscar.Text;
+            noti.buscardatos(dgv_datos);
+        }
+
+        private void btn_seleccionar_Click(object sender, EventArgs e)
+        {
+            if (dgv_datos.CurrentRow == null)
+            {
+                frm_notificacion noti = new frm_notificacion("Seleccion algo antes", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }
+            else
+            {
+                btn_guardar.Text = "HECHO";
+                txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
+                txt_nombre.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                editar = true;
+            }
+            
+        }
+
+        public void carga()
+        {
+
+            lbl_titulo.Text = "PRODUCTOS POR COMPRAR";
+            btn_nuevo.Text = "Seleccionar";
+            gunaLabel3.Text = "Descripcion";
+            btn_guardar.Text = "HECHO";
+            this.Text = "PRODUCTOS POR COMPRAR";
+            btn_editar.Hide();
+            btn_imprimir.Hide();
+
+            txt_nombre.Enabled = false;
+            editar = false;
+            txt_nombre.Text = "";
+            txt_id.Text = "";
+
+            txt_buscar.TextChanged += txt_buscarNotificacion_TextChanged;
+            btn_nuevo.Click += btn_seleccionar_Click;
+            btn_guardar.Click += btn_hecho_Click;
+
+            noti.consultarDatos(dgv_datos);
+
+            dgv_datos.Columns[0].Visible = false;
+            dgv_datos.Columns[2].Visible = false;
+            dgv_datos.Columns[4].Visible = false;
+
+        }
         #endregion
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -246,5 +322,11 @@ namespace Tecno_Pc.Formularios
         {
 
         }
+
+        private void dgv_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
     }
 }
