@@ -20,6 +20,7 @@ namespace Tecno_Pc.Formularios
         public frm_productos()
         {
             InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void frm_productos_Load(object sender, EventArgs e)
@@ -115,41 +116,49 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_Imprimir_Click(object sender, EventArgs e)
-        {
-            frm_reportes repo = new frm_reportes(3);
-            repo.Show();
-        }
-
-        private void btn_Excel_Click(object sender, EventArgs e)
+        private async void btn_Imprimir_Click(object sender, EventArgs e)
         {
             if (saveFileDialog1.ShowDialog() == DialogResult.OK)
             {
-                string ruta = saveFileDialog1.FileName;
-                objExcel.Application objAplicacion = new objExcel.Application();
-                Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
-                Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
+                frm_notificacion noti = new frm_notificacion("", 4);
+                noti.Show();
 
-                objAplicacion.Visible = false;//si es true se abrira automaticamente si es false no se abrira              
+                Task tar1 = new Task(excelProductos);
+                tar1.Start();
+                await tar1;
 
-                //creacion de la hoja de calculo                   
-                foreach (DataGridViewColumn columna in dgv_Productos.Columns)
+                noti.Close();
+
+                frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
+                noti2.ShowDialog();
+                noti.Close();
+            }                                                 
+        }
+
+        public void excelProductos()
+        {
+            string ruta = saveFileDialog1.FileName;
+            objExcel.Application objAplicacion = new objExcel.Application();
+            Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
+
+            objAplicacion.Visible = false;//si es true se abrira automaticamente si es false no se abrira              
+
+            //creacion de la hoja de calculo                   
+            foreach (DataGridViewColumn columna in dgv_Productos.Columns)
+            {
+                objHoja.Cells[1, columna.Index + 1] = columna.HeaderText;
+
+                foreach (DataGridViewRow fila in dgv_Productos.Rows)
                 {
-                    objHoja.Cells[1, columna.Index + 1] = columna.HeaderText;
-
-                    foreach (DataGridViewRow fila in dgv_Productos.Rows)
-                    {
-                        objHoja.Cells[fila.Index + 2, columna.Index + 1] = fila.Cells[columna.Index].Value;
-                    }
-                }               
-
-                //guardado del libro
-                objLibro.SaveAs(ruta);
-                objLibro.Close();
-                objAplicacion.Quit();
-                frm_notificacion noti = new frm_notificacion("Se ha guardado el excel con los datos", 1);
-                noti.ShowDialog();
+                    objHoja.Cells[fila.Index + 2, columna.Index + 1] = fila.Cells[columna.Index].Value;
+                }
             }
+
+            //guardado del libro
+            objLibro.SaveAs(ruta);
+            objLibro.Close();
+            objAplicacion.Quit();            
         }
     }
 }
