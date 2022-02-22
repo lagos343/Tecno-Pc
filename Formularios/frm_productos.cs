@@ -146,30 +146,40 @@ namespace Tecno_Pc.Formularios
 
             //definimos el estilo que tendra las cabeceras
             style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Yellow);
-            style.Font.Bold = true;
-
-            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira            
+            style.Font.Bold = true;                                
                                    
 
             //creacion de la hoja de calculo                   
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
-                objHoja.Cells[3, columna.Index + 3] = columna.HeaderText;                
+                objHoja.Cells[4, columna.Index + 3] = columna.HeaderText;                
 
                 foreach (DataGridViewRow fila in dgv_Productos.Rows)
                 {
-                    objHoja.Cells[fila.Index + 4, columna.Index + 3] = fila.Cells[columna.Index].Value;                    
+                    objHoja.Cells[fila.Index + 5, columna.Index + 3] = fila.Cells[columna.Index].Value;                    
                 }
 
                 rango = objHoja.Columns[columna.Index + 3];
                 rango.Columns.AutoFit();
-                rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+                rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;                
             }
 
             //creacion de la cabecera
-            rango = objHoja.Range["C3", "M3"];
+            rango = objHoja.Range["C4", "M4"];
             rango.Style = "EstiloCabecera";
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
+            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
+                      
+
+            //Titulo
+            objHoja.Cells[2, 3] = "Reporte de Inventarios de Productos Tecno Pc - Fecha: "+DateTime.Now.ToShortDateString();
+            rango = objHoja.Range["C2", "M2"];            
+            rango.MergeCells = true;
+            rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
+            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
+            rango.RowHeight = 25;
+
+            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira 
 
             //guardado del libro
             try

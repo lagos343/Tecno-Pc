@@ -54,6 +54,9 @@ namespace Tecno_Pc.Formularios
             else if (valor == 3)
             {
                 carga();
+                txt_buscar.TextChanged += txt_buscarNotificacion_TextChanged;
+                btn_nuevo.Click += btn_seleccionar_Click;
+                btn_guardar.Click += btn_hecho_Click;
             }
         }
 
@@ -298,11 +301,7 @@ namespace Tecno_Pc.Formularios
             txt_nombre.Enabled = false;
             editar = false;
             txt_nombre.Text = "";
-            txt_id.Text = "";
-
-            txt_buscar.TextChanged += txt_buscarNotificacion_TextChanged;
-            btn_nuevo.Click += btn_seleccionar_Click;
-            btn_guardar.Click += btn_hecho_Click;
+            txt_id.Text = "";            
 
             noti.consultarDatos(dgv_datos);
 
