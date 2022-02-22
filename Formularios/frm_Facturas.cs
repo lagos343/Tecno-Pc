@@ -30,17 +30,18 @@ namespace Tecno_Pc.Formularios
                 "f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
                 "= f.[ID Transaccion] order by f.[ID Factura] desc");
             operacionesDatagrid();
+            cbo_filtro.SelectedIndex = 1;
         }
 
         private void operacionesDatagrid()
-        {            
-            dgv_Facturas.Columns[0].Width = 30;
-            dgv_Facturas.Columns[4].Width = 100;
-            dgv_Facturas.Columns[5].Width = 100;           
-
+        {
             dgv_Facturas.Columns[1].Visible = false;
             dgv_Facturas.Columns[6].Visible = false;
             dgv_Facturas.Columns[7].Visible = false;
+
+            dgv_Facturas.Columns[0].Width = 50;
+            dgv_Facturas.Columns[2].Width = 280;
+            dgv_Facturas.Columns[3].Width = 280;            
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
@@ -87,7 +88,7 @@ namespace Tecno_Pc.Formularios
             isv = double.Parse(dgv.CurrentRow.Cells[7].Value.ToString());
 
             //carga de lo detalles
-            detalles = sql.Consulta("select df.[ID Factura], p.[Nombre Producto], df.[Precio Historico], df.Cantidad, (df.[Precio Historico] * df.Cantidad) Total from DetalleFactura df " +
+            detalles = sql.Consulta("select df.[ID Factura], (p.[Nombre Producto] +' '+ p.[Modelo]), df.[Precio Historico], df.Cantidad, (df.[Precio Historico] * df.Cantidad) Total from DetalleFactura df " +
                 "inner join Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);
 
             //inicio del objeto excel
@@ -227,25 +228,28 @@ namespace Tecno_Pc.Formularios
 
             //Valores
             double subtot = double.Parse(sql.Consulta2("select Sum([Precio Historico] * Cantidad) SubTotal from DetalleFactura where [ID Factura] = " + id));
-            objHoja.Cells[j + 13, 6] = "L " + subtot;
+            objHoja.Cells[j + 13, 6] = subtot;
             objHoja.Cells[j + 13, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
             objHoja.Cells[j + 13, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[j + 13, 6].NumberFormat = @"_(L #,##0.00_)";
 
-            objHoja.Cells[j + 14, 6] = isv + "%";
+            objHoja.Cells[j + 14, 6] = isv + " % ";
             objHoja.Cells[j + 14, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
             objHoja.Cells[j + 14, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
 
-            objHoja.Cells[j + 15, 6] = "L " + (isv * subtot);
+            objHoja.Cells[j + 15, 6] =(isv * subtot);
             objHoja.Cells[j + 15, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+            objHoja.Cells[j + 15, 6].NumberFormat = @"_(L #,##0.00_)";
 
-            objHoja.Cells[j + 16, 6] ="L " + ((isv * subtot) + subtot);
+            objHoja.Cells[j + 16, 6] =((isv * subtot) + subtot);
             objHoja.Cells[j + 16, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
             objHoja.Cells[j + 16, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
             objHoja.Cells[j + 16, 6].Borders[objExcel.XlBordersIndex.xlEdgeTop].LineStyle = objExcel.XlLineStyle.xlContinuous;
             objHoja.Cells[j + 16, 6].Font.Bold = true;
             objHoja.Cells[j + 16, 6].Font.Size = 13;
             objHoja.Cells[j + 16, 6].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Aquamarine);
-            rango=objHoja.Rows[j+16];
+            objHoja.Cells[j + 16, 6].NumberFormat = @"_(L #,##0.00_)";
+            rango =objHoja.Rows[j+16];
             rango.RowHeight = 30;
             rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
             rango = objHoja.Columns[6];
@@ -266,6 +270,30 @@ namespace Tecno_Pc.Formularios
             }
             //objLibro.Close();
             //objAplicacion.Quit();            
+        }
+
+        private void txt_buscar_TextChanged_1(object sender, EventArgs e)
+        {
+            if (cbo_filtro.Text == "ID Factura" && txt_buscar.Text != "")
+            {
+                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], f.[Fecha Vencimiento], " +
+                "f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
+                "= f.[ID Transaccion] where f.[ID Factura] = "+txt_buscar.Text+" order by f.[ID Factura] desc");
+                operacionesDatagrid();
+            }else if (cbo_filtro.Text == "Cliente")
+            {
+                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], f.[Fecha Vencimiento], " +
+                "f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
+                "= f.[ID Transaccion] where (c.Nombre +' '+ c.Apellido) LIKE '%" + txt_buscar.Text + "%' order by f.[ID Factura] desc");
+                operacionesDatagrid();
+            }
+            else
+            {
+                //txt_buscar.Text = "";
+                //frm_notificacion noti = new frm_notificacion("Debe Escoger un filtro de Busqueda", 3);
+                //noti.ShowDialog();
+                //noti.Close();                
+            }
         }
     }
 }

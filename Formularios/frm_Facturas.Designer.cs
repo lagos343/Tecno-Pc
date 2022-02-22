@@ -38,8 +38,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro = new Guna.UI.WinForms.GunaComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dgv_Facturas = new System.Windows.Forms.DataGridView();
-            this.Mostrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Mostrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -72,6 +72,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 61;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged_1);
             // 
             // pictureBox6
             // 
@@ -107,10 +108,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro.ForeColor = System.Drawing.Color.Black;
             this.cbo_filtro.FormattingEnabled = true;
             this.cbo_filtro.Items.AddRange(new object[] {
-            "No_Factura",
-            "Fecha_Compra",
-            "Nombre_Cliente",
-            "Usuario_Vendedor"});
+            "ID Factura",
+            "Cliente"});
             this.cbo_filtro.Location = new System.Drawing.Point(760, 44);
             this.cbo_filtro.Name = "cbo_filtro";
             this.cbo_filtro.OnHoverItemBaseColor = System.Drawing.Color.Blue;
@@ -178,6 +177,7 @@ namespace Tecno_Pc.Formularios
             this.Mostrar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
             this.Mostrar.Name = "Mostrar";
             this.Mostrar.ReadOnly = true;
+            this.Mostrar.Width = 50;
             // 
             // frm_Facturas
             // 
@@ -209,7 +209,7 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private System.Windows.Forms.DataGridViewImageColumn Mostrar;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewImageColumn Mostrar;
     }
 }
