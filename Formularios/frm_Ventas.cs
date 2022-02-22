@@ -182,7 +182,8 @@ namespace Tecno_Pc.Formularios
             LimpiarProductoSeleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
-                dgv_Factura.Rows.Remove(fila);
+                // dgv_Factura.Rows.Remove(fila);
+                dgv_Factura.Rows.Clear();
             }
         }
 
@@ -210,7 +211,7 @@ namespace Tecno_Pc.Formularios
                     int cant = int.Parse(fila.Cells[3].Value.ToString());
                     sql.Sql_Querys("insert into DetalleFactura values ((select Top 1 [ID Factura] from Facturas order by [ID Factura] desc), "
                         +idprod+", "+precio+", "+cant+")");
-                    sql.Sql_Querys("update Inventarios set Stock -= "+cant+" where[ID Producto] = " + idprod);
+                    //sql.Sql_Querys("update Inventarios set Stock -= "+cant+" where[ID Producto] = " + idprod);
                 }
 
                 frm_notificacion noti = new frm_notificacion("Venta realizada con Exito", 1);
