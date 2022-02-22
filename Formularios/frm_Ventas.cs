@@ -174,17 +174,28 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevaVenta_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow fila in dgv_Factura.Rows)
+            {
+                dgv_Factura.Rows.Remove(fila);
+            }
+
+            foreach (DataGridViewRow fila in dgv_Factura.Rows)
+            {
+                dgv_Factura.Rows.Remove(fila);
+            }
+
             txt_buscar.Clear();
-            InicializarCombobox();
-            num_ISV.Value = 15;
+            InicializarCombobox();            
             dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
                 "from Productos p where Estado = 1 order by [Nombre Producto] asc");
+                    
             LimpiarProductoSeleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
                 // dgv_Factura.Rows.Remove(fila);
                 dgv_Factura.Rows.Clear();
             }
+            num_ISV.Value = 15;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
