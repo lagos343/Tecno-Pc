@@ -26,8 +26,8 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Facturas_Load(object sender, EventArgs e)
         {
-            dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], f.[Fecha Vencimiento] " +
-                "from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
+            dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], f.[Fecha Vencimiento], " +
+                "f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
                 "= f.[ID Transaccion] order by f.[ID Factura] desc");
             operacionesDatagrid();
         }
@@ -40,6 +40,7 @@ namespace Tecno_Pc.Formularios
 
             dgv_Facturas.Columns[1].Visible = false;
             dgv_Facturas.Columns[6].Visible = false;
+            dgv_Facturas.Columns[7].Visible = false;
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
@@ -72,7 +73,9 @@ namespace Tecno_Pc.Formularios
         {
             //Variables            
             System.Data.DataTable detalles = new System.Data.DataTable();
-            string id, empleado, cliente, transac, Fventa, Fvenci;            
+            string id, empleado, cliente, transac, Fventa, Fvenci;
+            double isv;
+            int i=0, j=0;
 
             //Carga de datos desde el datagrid
             id = dgv.CurrentRow.Cells[1].Value.ToString();
@@ -81,6 +84,7 @@ namespace Tecno_Pc.Formularios
             transac = dgv.CurrentRow.Cells[4].Value.ToString();
             Fventa = dgv.CurrentRow.Cells[5].Value.ToString();
             Fvenci = dgv.CurrentRow.Cells[6].Value.ToString();
+            isv = double.Parse(dgv.CurrentRow.Cells[7].Value.ToString());
 
             //carga de lo detalles
             detalles = sql.Consulta("select df.[ID Factura], p.[Nombre Producto], df.[Precio Historico], df.Cantidad, (df.[Precio Historico] * df.Cantidad) Total from DetalleFactura df " +
@@ -99,22 +103,22 @@ namespace Tecno_Pc.Formularios
             //definimos el estilo que tendra las cabeceras
             style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
             style.Font.Bold = true;
-            style.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);                     
-
+            style.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);             
 
             //creacion de la hoja de calculo                   
-            for (int i=1; i< detalles.Columns.Count; i++)
+            for (i=1; i< detalles.Columns.Count; i++)
             {               
-                for (int j=0; j<detalles.Rows.Count; j++)
+                for (j=0; j<detalles.Rows.Count; j++)
                 {
                     objHoja.Cells[j+13, i+2] = detalles.Rows[j][i].ToString();
                     objHoja.Cells[j + 13, i + 2].Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
+                    objHoja.Cells[j + 13, i + 2].Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
                 }
 
                 rango = objHoja.Columns[i+3];
                 //rango.Columns.AutoFit();
                 rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
-            }
+            }            
 
             //Cargando la cabecera
             objHoja.Cells[12, 3] = "Descripcion";
@@ -136,7 +140,8 @@ namespace Tecno_Pc.Formularios
             rango.Style = "EstiloCabecera";
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
             rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
-
+            rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
+            rango.Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
 
             //Nombre de la empresa y Datos
             objHoja.Cells[2, 3] = "Tecno PC";
@@ -154,47 +159,99 @@ namespace Tecno_Pc.Formularios
             objHoja.Cells[7, 3] = "Cliente";
             objHoja.Cells[7, 3].Font.Size = 11;
             objHoja.Cells[7, 3].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+            objHoja.Cells[7, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[7, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
+
             objHoja.Cells[8, 3] = cliente;
             objHoja.Cells[8, 3].Font.Size = 11;
 
             objHoja.Cells[9, 3] = "Empleado";
             objHoja.Cells[9, 3].Font.Size = 11;
             objHoja.Cells[9, 3].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+            objHoja.Cells[9, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[9, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
             objHoja.Cells[10, 3] = empleado;
             objHoja.Cells[10, 3].Font.Size = 11;
 
             //no factura
             objHoja.Cells[2, 6] = "Factura #" + id;
-            objHoja.Cells[2, 6].Font.Size = 18;
+            objHoja.Cells[2, 6].Font.Size = 20;
             objHoja.Cells[2, 6].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
             objHoja.Cells[2, 6].Font.Bold = true;
 
             rango = objHoja.Range["E2:F2"];
             rango.Columns.MergeCells = true;
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
-            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
+            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;            
 
             //Fechas y transacciones
-            objHoja.Cells[7, 5] = "Transaccion";                  
-            objHoja.Cells[7, 5].Font.Bold = true;
-
-            objHoja.Cells[8, 5] = "Fecha";
+            objHoja.Cells[8, 5] = "Transaccion:";                  
             objHoja.Cells[8, 5].Font.Bold = true;
 
-            objHoja.Cells[9, 5] = "Vencimiento";
+            objHoja.Cells[9, 5] = "Fecha:";
             objHoja.Cells[9, 5].Font.Bold = true;
+
+            objHoja.Cells[10, 5] = "Vencimiento:";
+            objHoja.Cells[10, 5].Font.Bold = true;
 
             rango = objHoja.Range["E7:E10"];
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
 
-            objHoja.Cells[7, 6] = transac;    
-            objHoja.Cells[8, 6] = Fventa.Substring(0, 8).ToString();           
-            objHoja.Cells[9, 6] = Fvenci.Substring(0, 8).ToString();
+            objHoja.Cells[8, 6] = transac;    
+            objHoja.Cells[9, 6] = Fventa.Substring(0, 9).ToString();           
+            objHoja.Cells[10, 6] = Fvenci.Substring(0, 9).ToString();
 
             rango = objHoja.Range["F7:F10"];
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
 
-            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira  
+            //dub total, Isv, Impuesto, Total
+            objHoja.Cells[j + 13, 5] = "Sub Total:";
+            objHoja.Cells[j + 13, 5].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[j + 13, 5].Font.Bold = true;
+            
+            objHoja.Cells[j + 14, 5] = "ISV:";
+            objHoja.Cells[j + 14, 5].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[j + 14, 5].Font.Bold = true;
+            
+            objHoja.Cells[j + 15, 5] = "Impuesto:";
+            objHoja.Cells[j + 15, 5].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[j + 15, 5].Font.Bold = true;
+
+
+            objHoja.Cells[j + 16, 5] = "TOTAL FACTURA";
+            objHoja.Cells[j + 16, 5].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[j + 16, 5].Font.Size = 13;
+            objHoja.Cells[j + 16, 5].Borders[objExcel.XlBordersIndex.xlEdgeTop].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[j + 16, 5].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+            objHoja.Cells[j + 16, 5].Font.Bold = true;
+
+            //Valores
+            double subtot = double.Parse(sql.Consulta2("select Sum([Precio Historico] * Cantidad) SubTotal from DetalleFactura where [ID Factura] = " + id));
+            objHoja.Cells[j + 13, 6] = "L " + subtot;
+            objHoja.Cells[j + 13, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+            objHoja.Cells[j + 13, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+
+            objHoja.Cells[j + 14, 6] = isv + "%";
+            objHoja.Cells[j + 14, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+            objHoja.Cells[j + 14, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+
+            objHoja.Cells[j + 15, 6] = "L " + (isv * subtot);
+            objHoja.Cells[j + 15, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+
+            objHoja.Cells[j + 16, 6] ="L " + ((isv * subtot) + subtot);
+            objHoja.Cells[j + 16, 6].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+            objHoja.Cells[j + 16, 6].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[j + 16, 6].Borders[objExcel.XlBordersIndex.xlEdgeTop].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[j + 16, 6].Font.Bold = true;
+            objHoja.Cells[j + 16, 6].Font.Size = 13;
+            objHoja.Cells[j + 16, 6].Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Aquamarine);
+            rango=objHoja.Rows[j+16];
+            rango.RowHeight = 30;
+            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
+            rango = objHoja.Columns[6];
+            rango.Columns.AutoFit();
+
+            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira
 
             //guardado del libro
             try
@@ -207,7 +264,6 @@ namespace Tecno_Pc.Formularios
                 noti2.ShowDialog();
                 noti2.Close();
             }
-
             //objLibro.Close();
             //objAplicacion.Quit();            
         }
