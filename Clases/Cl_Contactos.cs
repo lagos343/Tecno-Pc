@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tecno_Pc.Formularios
-{
-    class CLContactos
+namespace Tecno_Pc.Clases
+{ 
+    class Cl_Contactos
     {
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         private static int iDContacto;
@@ -35,7 +35,7 @@ namespace Tecno_Pc.Formularios
         public void guardar()
         {
             string cadena;
-            cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "','" + Direccion + "', " + 1 + "  )";
+            cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "','" + Direccion + "', " + Convert.ToInt32(estado)+")" ;
             sql.Sql_Querys(cadena, "Contacto añadido con Exito", "Debe llenar todos los datos antes de añadir");
         }
 
@@ -46,12 +46,12 @@ namespace Tecno_Pc.Formularios
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("	 select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ,(select [Nombre] from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where (Nombre Like '%' + '" + Nombre + "' + '%' ) and Estado = 1  order by Nombre asc");
+            dgv.DataSource = sql.Consulta("	 select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ,(select [Nombre] from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where Nombre Like '%"+Nombre+"%'  and Estado = 1  order by Nombre asc");
         }
 
         public void actualizarDatos()
         {
-            sql.Sql_Querys("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  "',Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "',[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", "Error 504");
+            sql.Sql_Querys("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "',[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
