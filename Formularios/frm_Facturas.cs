@@ -287,12 +287,16 @@ namespace Tecno_Pc.Formularios
                 "= f.[ID Transaccion] where (c.Nombre +' '+ c.Apellido) LIKE '%" + txt_buscar.Text + "%' order by f.[ID Factura] desc");
                 operacionesDatagrid();
             }
+            else if (txt_buscar.Text == "")
+            {
+                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], f.[Fecha Vencimiento], " +
+               "f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
+               "= f.[ID Transaccion] order by f.[ID Factura] desc");
+                operacionesDatagrid();                
+            }
             else
             {
-                //txt_buscar.Text = "";
-                //frm_notificacion noti = new frm_notificacion("Debe Escoger un filtro de Busqueda", 3);
-                //noti.ShowDialog();
-                //noti.Close();                
+                //nada xd
             }
         }
     }
