@@ -29,8 +29,8 @@ namespace Tecno_Pc.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -38,7 +38,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.gunaGradientButton1 = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_Imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_nuevoUsuario = new Guna.UI.WinForms.GunaGradientButton();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -64,9 +63,10 @@ namespace Tecno_Pc.Formularios
             // 
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::Tecno_Pc.Properties.Resources.perfil_avatar_hombre_icono_redondo;
-            this.gunaPictureBox2.Location = new System.Drawing.Point(182, 70);
+            this.gunaPictureBox2.Location = new System.Drawing.Point(243, 86);
+            this.gunaPictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
-            this.gunaPictureBox2.Size = new System.Drawing.Size(183, 165);
+            this.gunaPictureBox2.Size = new System.Drawing.Size(244, 203);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox2.TabIndex = 3;
             this.gunaPictureBox2.TabStop = false;
@@ -74,9 +74,10 @@ namespace Tecno_Pc.Formularios
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
-            this.panel1.Location = new System.Drawing.Point(103, 260);
+            this.panel1.Location = new System.Drawing.Point(137, 320);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(900, 1);
+            this.panel1.Size = new System.Drawing.Size(1200, 1);
             this.panel1.TabIndex = 4;
             // 
             // panel5
@@ -89,7 +90,6 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.pictureBox5);
             this.panel5.Controls.Add(this.gunaGradientButton1);
-            this.panel5.Controls.Add(this.btn_Imprimir);
             this.panel5.Controls.Add(this.btn_nuevoUsuario);
             this.panel5.Controls.Add(this.dgv_Productos);
             this.panel5.Controls.Add(this.lbl_propietario);
@@ -103,8 +103,9 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.lbl_tipo);
             this.panel5.Controls.Add(this.label5);
             this.panel5.Location = new System.Drawing.Point(0, -1);
+            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1114, 705);
+            this.panel5.Size = new System.Drawing.Size(1485, 868);
             this.panel5.TabIndex = 7;
             // 
             // txt_buscar
@@ -112,9 +113,10 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_buscar.Location = new System.Drawing.Point(149, 298);
+            this.txt_buscar.Location = new System.Drawing.Point(199, 367);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.Size = new System.Drawing.Size(310, 16);
+            this.txt_buscar.Size = new System.Drawing.Size(413, 20);
             this.txt_buscar.TabIndex = 74;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
@@ -122,9 +124,10 @@ namespace Tecno_Pc.Formularios
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
-            this.pictureBox6.Location = new System.Drawing.Point(114, 291);
+            this.pictureBox6.Location = new System.Drawing.Point(152, 358);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
+            this.pictureBox6.Size = new System.Drawing.Size(40, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 73;
             this.pictureBox6.TabStop = false;
@@ -132,9 +135,10 @@ namespace Tecno_Pc.Formularios
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(111, 289);
+            this.pictureBox5.Location = new System.Drawing.Point(148, 356);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(354, 34);
+            this.pictureBox5.Size = new System.Drawing.Size(472, 42);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 72;
             this.pictureBox5.TabStop = false;
@@ -154,7 +158,8 @@ namespace Tecno_Pc.Formularios
             this.gunaGradientButton1.ForeColor = System.Drawing.Color.White;
             this.gunaGradientButton1.Image = null;
             this.gunaGradientButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaGradientButton1.Location = new System.Drawing.Point(784, 291);
+            this.gunaGradientButton1.Location = new System.Drawing.Point(1045, 358);
+            this.gunaGradientButton1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.gunaGradientButton1.Name = "gunaGradientButton1";
             this.gunaGradientButton1.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
             this.gunaGradientButton1.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
@@ -163,40 +168,11 @@ namespace Tecno_Pc.Formularios
             this.gunaGradientButton1.OnHoverImage = null;
             this.gunaGradientButton1.OnPressedColor = System.Drawing.Color.Transparent;
             this.gunaGradientButton1.Radius = 5;
-            this.gunaGradientButton1.Size = new System.Drawing.Size(92, 32);
+            this.gunaGradientButton1.Size = new System.Drawing.Size(123, 39);
             this.gunaGradientButton1.TabIndex = 19;
             this.gunaGradientButton1.Text = "Clientes";
             this.gunaGradientButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.gunaGradientButton1.Click += new System.EventHandler(this.gunaGradientButton1_Click);
-            // 
-            // btn_Imprimir
-            // 
-            this.btn_Imprimir.AnimationHoverSpeed = 0.07F;
-            this.btn_Imprimir.AnimationSpeed = 0.03F;
-            this.btn_Imprimir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_Imprimir.BaseColor1 = System.Drawing.Color.Purple;
-            this.btn_Imprimir.BaseColor2 = System.Drawing.Color.Purple;
-            this.btn_Imprimir.BorderColor = System.Drawing.Color.Black;
-            this.btn_Imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_Imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_Imprimir.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_Imprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_Imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_Imprimir.Image = null;
-            this.btn_Imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Imprimir.Location = new System.Drawing.Point(901, 291);
-            this.btn_Imprimir.Name = "btn_Imprimir";
-            this.btn_Imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
-            this.btn_Imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
-            this.btn_Imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_Imprimir.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_Imprimir.OnHoverImage = null;
-            this.btn_Imprimir.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_Imprimir.Radius = 5;
-            this.btn_Imprimir.Size = new System.Drawing.Size(92, 32);
-            this.btn_Imprimir.TabIndex = 18;
-            this.btn_Imprimir.Text = "Roles";
-            this.btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // btn_nuevoUsuario
             // 
@@ -213,7 +189,8 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoUsuario.ForeColor = System.Drawing.Color.White;
             this.btn_nuevoUsuario.Image = null;
             this.btn_nuevoUsuario.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nuevoUsuario.Location = new System.Drawing.Point(493, 291);
+            this.btn_nuevoUsuario.Location = new System.Drawing.Point(657, 358);
+            this.btn_nuevoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btn_nuevoUsuario.Name = "btn_nuevoUsuario";
             this.btn_nuevoUsuario.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevoUsuario.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -222,7 +199,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoUsuario.OnHoverImage = null;
             this.btn_nuevoUsuario.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevoUsuario.Radius = 5;
-            this.btn_nuevoUsuario.Size = new System.Drawing.Size(160, 32);
+            this.btn_nuevoUsuario.Size = new System.Drawing.Size(213, 39);
             this.btn_nuevoUsuario.TabIndex = 13;
             this.btn_nuevoUsuario.Text = "Nuevo Usuario";
             this.btn_nuevoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -240,35 +217,37 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_Productos.Location = new System.Drawing.Point(111, 349);
+            this.dgv_Productos.Location = new System.Drawing.Point(148, 430);
+            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.ReadOnly = true;
             this.dgv_Productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Productos.RowHeadersVisible = false;
+            this.dgv_Productos.RowHeadersWidth = 51;
             this.dgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_Productos.Size = new System.Drawing.Size(882, 323);
+            this.dgv_Productos.Size = new System.Drawing.Size(1176, 398);
             this.dgv_Productos.TabIndex = 12;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
@@ -276,6 +255,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.Editar.HeaderText = "";
             this.Editar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
+            this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ReadOnly = true;
             // 
@@ -283,6 +263,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.Eliminar.HeaderText = "";
             this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
+            this.Eliminar.MinimumWidth = 6;
             this.Eliminar.Name = "Eliminar";
             this.Eliminar.ReadOnly = true;
             // 
@@ -290,18 +271,20 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_propietario.AutoSize = true;
             this.lbl_propietario.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_propietario.Location = new System.Drawing.Point(499, 199);
+            this.lbl_propietario.Location = new System.Drawing.Point(665, 245);
+            this.lbl_propietario.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_propietario.Name = "lbl_propietario";
-            this.lbl_propietario.Size = new System.Drawing.Size(0, 17);
+            this.lbl_propietario.Size = new System.Drawing.Size(0, 21);
             this.lbl_propietario.TabIndex = 1;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
             this.label15.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label15.Location = new System.Drawing.Point(403, 199);
+            this.label15.Location = new System.Drawing.Point(537, 245);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(80, 17);
+            this.label15.Size = new System.Drawing.Size(99, 21);
             this.label15.TabIndex = 0;
             this.label15.Text = "Propietario";
             // 
@@ -309,18 +292,20 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_contra.AutoSize = true;
             this.lbl_contra.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_contra.Location = new System.Drawing.Point(499, 163);
+            this.lbl_contra.Location = new System.Drawing.Point(665, 201);
+            this.lbl_contra.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_contra.Name = "lbl_contra";
-            this.lbl_contra.Size = new System.Drawing.Size(0, 17);
+            this.lbl_contra.Size = new System.Drawing.Size(0, 21);
             this.lbl_contra.TabIndex = 1;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label13.Location = new System.Drawing.Point(403, 163);
+            this.label13.Location = new System.Drawing.Point(537, 201);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(78, 17);
+            this.label13.Size = new System.Drawing.Size(99, 21);
             this.label13.TabIndex = 0;
             this.label13.Text = "Contraseña";
             // 
@@ -328,18 +313,20 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_user.AutoSize = true;
             this.lbl_user.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_user.Location = new System.Drawing.Point(499, 129);
+            this.lbl_user.Location = new System.Drawing.Point(665, 159);
+            this.lbl_user.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_user.Name = "lbl_user";
-            this.lbl_user.Size = new System.Drawing.Size(0, 17);
+            this.lbl_user.Size = new System.Drawing.Size(0, 21);
             this.lbl_user.TabIndex = 1;
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label11.Location = new System.Drawing.Point(403, 129);
+            this.label11.Location = new System.Drawing.Point(537, 159);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(57, 17);
+            this.label11.Size = new System.Drawing.Size(71, 21);
             this.label11.TabIndex = 0;
             this.label11.Text = "Usuario";
             // 
@@ -347,18 +334,20 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_id.AutoSize = true;
             this.lbl_id.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_id.Location = new System.Drawing.Point(499, 92);
+            this.lbl_id.Location = new System.Drawing.Point(665, 113);
+            this.lbl_id.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_id.Name = "lbl_id";
-            this.lbl_id.Size = new System.Drawing.Size(0, 17);
+            this.lbl_id.Size = new System.Drawing.Size(0, 21);
             this.lbl_id.TabIndex = 1;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label9.Location = new System.Drawing.Point(403, 92);
+            this.label9.Location = new System.Drawing.Point(537, 113);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(23, 17);
+            this.label9.Size = new System.Drawing.Size(28, 21);
             this.label9.TabIndex = 0;
             this.label9.Text = "ID";
             // 
@@ -366,30 +355,33 @@ namespace Tecno_Pc.Formularios
             // 
             this.lbl_tipo.AutoSize = true;
             this.lbl_tipo.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            this.lbl_tipo.Location = new System.Drawing.Point(805, 92);
+            this.lbl_tipo.Location = new System.Drawing.Point(1073, 113);
+            this.lbl_tipo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lbl_tipo.Name = "lbl_tipo";
-            this.lbl_tipo.Size = new System.Drawing.Size(0, 17);
+            this.lbl_tipo.Size = new System.Drawing.Size(0, 21);
             this.lbl_tipo.TabIndex = 1;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Segoe UI Black", 9.5F);
-            this.label5.Location = new System.Drawing.Point(736, 92);
+            this.label5.Location = new System.Drawing.Point(981, 113);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(29, 17);
+            this.label5.Size = new System.Drawing.Size(36, 21);
             this.label5.TabIndex = 0;
             this.label5.Text = "Rol";
             // 
             // frm_Usuarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
-            this.ClientSize = new System.Drawing.Size(1114, 705);
+            this.ClientSize = new System.Drawing.Size(1485, 868);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_Usuarios";
             this.Text = "Usuarios";
             this.Load += new System.EventHandler(this.frm_Usuarios_Load);
@@ -422,7 +414,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_nuevoUsuario;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private Guna.UI.WinForms.GunaGradientButton btn_Imprimir;
         private Guna.UI.WinForms.GunaGradientButton gunaGradientButton1;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;

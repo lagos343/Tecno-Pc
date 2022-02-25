@@ -141,12 +141,40 @@ namespace Tecno_Pc.Formularios
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            lbl_nombreUsuario.Text = user.Propietario_;                              
+            carga();                             
         }
 
         private async void button1_Click(object sender, EventArgs e)
         {            
             
         }        
+
+        private void carga()
+        {
+            lbl_nombreUsuario.Text = user.Propietario_;
+
+            if (user.IdRol_ == 2)    //Rol Vendedor
+            {
+                btn_compras.Hide();
+                btn_proveedores.Hide();
+                btn_empleados.Hide();
+            }
+            else if (user.IdRol_ == 3)  //Rol Jefe de Compras
+            {
+                btn_ventas.Hide();
+                btn_Facturas.Hide();
+                btn_empleados.Hide();
+                btn_proveedores.Hide();
+            }
+            else if (user.IdRol_ == 4)  //Rol Empleador
+            {
+                btn_Facturas.Hide();
+                btn_ventas.Hide();
+                btn_Productos.Hide();
+                btn_compras.Hide();    
+            }
+
+
+        }
     }
 }

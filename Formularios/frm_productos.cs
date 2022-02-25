@@ -16,6 +16,7 @@ namespace Tecno_Pc.Formularios
     {
         Clases.Cl_Productos prod = new Clases.Cl_Productos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
 
         public frm_productos()
         {
@@ -26,6 +27,7 @@ namespace Tecno_Pc.Formularios
         private void frm_productos_Load(object sender, EventArgs e)
         {
             Dashboard();
+            usuario();
         }
 
         public void Dashboard()
@@ -229,7 +231,26 @@ namespace Tecno_Pc.Formularios
             }
 
             //objLibro.Close();
-            //objAplicacion.Quit();            
+            //objAplicacion.Quit();
+            
+        }
+
+        private void usuario()
+        {
+            if(login.IdRol_ == 2)
+            {
+                btn_nuevoProducto.Hide();
+                btn_Imprimir.Hide();
+                dgv_Productos.Columns[0].Visible = false;
+                dgv_Productos.Columns[1].Visible = false;
+                btn_Marcas.Hide();
+                btn_categorias.Hide();
+
+
+            }
+
+
+
         }
     }
 }
