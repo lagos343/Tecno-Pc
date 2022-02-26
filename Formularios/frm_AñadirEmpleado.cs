@@ -195,5 +195,10 @@ namespace Tecno_Pc.Formularios
         }
 
         #endregion
+
+        private void btn_guardar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

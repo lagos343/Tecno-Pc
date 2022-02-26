@@ -13,15 +13,15 @@ using objExcel = Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Formularios
 {
-    
+
     public partial class frm_clientes : Form
     {
 
-        bool actualizar=false;
+        bool actualizar = false;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);        
+        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         Clases.Cl_Clientes cli = new Clases.Cl_Clientes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
@@ -29,9 +29,9 @@ namespace Tecno_Pc.Formularios
         public frm_clientes()
         {
 
-            InitializeComponent();            
+            InitializeComponent();
             InicializarCombobox();
-           
+
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -45,7 +45,7 @@ namespace Tecno_Pc.Formularios
         }
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
-            
+
         }
         private void Limnpiado()
         {
@@ -57,7 +57,7 @@ namespace Tecno_Pc.Formularios
             txt_Tel.Clear();
             txt_Email.Clear();
             txt_Direccion.Clear();
-            actualizar = false;    
+            actualizar = false;
         }
 
         public void operacionesDataGrid()
@@ -77,9 +77,9 @@ namespace Tecno_Pc.Formularios
         {
             cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [Nombre Depto] asc");
             cmb_Depto.DisplayMember = "Nombre Depto";
-            cmb_Depto.ValueMember = "ID Depto";    
-           
-            
+            cmb_Depto.ValueMember = "ID Depto";
+
+
 
         }
 
@@ -97,7 +97,7 @@ namespace Tecno_Pc.Formularios
             {
 
 
-                
+
                 if (actualizar == true)
                 {
                     cli.IDCliente = int.Parse(txt_id.Text.ToString());
@@ -122,7 +122,7 @@ namespace Tecno_Pc.Formularios
                     cli.guardar();
                 }
 
-                
+
                 btn_guardar.Text = "Guardar";
                 dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
                 operacionesDataGrid();
@@ -151,12 +151,12 @@ namespace Tecno_Pc.Formularios
                 InicializarCombobox();
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
                 cmb_Depto.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
-                txt_Ident.Text= dgv_datos.CurrentRow.Cells[2].Value.ToString();
-                txt_Nombre.Text= dgv_datos.CurrentRow.Cells[3].Value.ToString();
-                txt_Apell.Text= dgv_datos.CurrentRow.Cells[4].Value.ToString();
-                txt_Tel.Text= dgv_datos.CurrentRow.Cells[5].Value.ToString();
-                txt_Email.Text= dgv_datos.CurrentRow.Cells[6].Value.ToString();
-                txt_Direccion.Text= dgv_datos.CurrentRow.Cells[7].Value.ToString();
+                txt_Ident.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                txt_Nombre.Text = dgv_datos.CurrentRow.Cells[3].Value.ToString();
+                txt_Apell.Text = dgv_datos.CurrentRow.Cells[4].Value.ToString();
+                txt_Tel.Text = dgv_datos.CurrentRow.Cells[5].Value.ToString();
+                txt_Email.Text = dgv_datos.CurrentRow.Cells[6].Value.ToString();
+                txt_Direccion.Text = dgv_datos.CurrentRow.Cells[7].Value.ToString();
                 actualizar = true;
                 btn_guardar.Text = "Actualizar";
             }
@@ -186,5 +186,12 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);    }
+            SendMessage(this.Handle, 0x112, 0xf012, 0);
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
