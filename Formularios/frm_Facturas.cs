@@ -299,5 +299,10 @@ namespace Tecno_Pc.Formularios
                 //nada xd
             }
         }
+
+        private void saveFileDialog1_FileOk(object sender, CancelEventArgs e)
+        {
+
+        }
     }
 }

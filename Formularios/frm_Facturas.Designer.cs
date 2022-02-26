@@ -38,8 +38,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro = new Guna.UI.WinForms.GunaComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dgv_Facturas = new System.Windows.Forms.DataGridView();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Mostrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -178,6 +178,10 @@ namespace Tecno_Pc.Formularios
             this.Mostrar.Name = "Mostrar";
             this.Mostrar.ReadOnly = true;
             this.Mostrar.Width = 50;
+            // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // frm_Facturas
             // 
