@@ -480,9 +480,11 @@ namespace Tecno_Pc.Formularios
             this.txt_Ident.CausesValidation = false;
             this.txt_Ident.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Ident.Location = new System.Drawing.Point(758, 152);
+            this.txt_Ident.MaxLength = 13;
             this.txt_Ident.Name = "txt_Ident";
             this.txt_Ident.Size = new System.Drawing.Size(126, 16);
             this.txt_Ident.TabIndex = 55;
+            this.txt_Ident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Ident_KeyPress);
             // 
             // pictureBox4
             // 
@@ -511,9 +513,11 @@ namespace Tecno_Pc.Formularios
             this.txt_Nombre.CausesValidation = false;
             this.txt_Nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Nombre.Location = new System.Drawing.Point(907, 152);
+            this.txt_Nombre.MaxLength = 30;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_Nombre.TabIndex = 58;
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // pictureBox7
             // 
@@ -542,9 +546,11 @@ namespace Tecno_Pc.Formularios
             this.txt_Tel.CausesValidation = false;
             this.txt_Tel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Tel.Location = new System.Drawing.Point(907, 216);
+            this.txt_Tel.MaxLength = 20;
             this.txt_Tel.Name = "txt_Tel";
             this.txt_Tel.Size = new System.Drawing.Size(126, 16);
             this.txt_Tel.TabIndex = 64;
+            this.txt_Tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tel_KeyPress);
             // 
             // pictureBox8
             // 
@@ -573,9 +579,11 @@ namespace Tecno_Pc.Formularios
             this.txt_Apell.CausesValidation = false;
             this.txt_Apell.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Apell.Location = new System.Drawing.Point(758, 216);
+            this.txt_Apell.MaxLength = 50;
             this.txt_Apell.Name = "txt_Apell";
             this.txt_Apell.Size = new System.Drawing.Size(126, 16);
             this.txt_Apell.TabIndex = 61;
+            this.txt_Apell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Apell_KeyPress);
             // 
             // pictureBox9
             // 
@@ -604,6 +612,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Email.CausesValidation = false;
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Email.Location = new System.Drawing.Point(758, 281);
+            this.txt_Email.MaxLength = 50;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(273, 16);
             this.txt_Email.TabIndex = 67;

@@ -107,8 +107,9 @@ namespace Tecno_Pc.Formularios
             this.txt_email.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_email.CausesValidation = false;
             this.txt_email.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_email.Location = new System.Drawing.Point(319, 180);
+            this.txt_email.Location = new System.Drawing.Point(319, 178);
             this.txt_email.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_email.MaxLength = 50;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(227, 16);
             this.txt_email.TabIndex = 133;
@@ -147,7 +148,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_depto.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbo_depto.ForeColor = System.Drawing.Color.Black;
             this.cbo_depto.FormattingEnabled = true;
-            this.cbo_depto.Location = new System.Drawing.Point(320, 249);
+            this.cbo_depto.Location = new System.Drawing.Point(320, 248);
             this.cbo_depto.Margin = new System.Windows.Forms.Padding(4);
             this.cbo_depto.Name = "cbo_depto";
             this.cbo_depto.OnHoverItemBaseColor = System.Drawing.Color.Blue;
@@ -182,11 +183,13 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_telefono.CausesValidation = false;
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_telefono.Location = new System.Drawing.Point(25, 180);
+            this.txt_telefono.Location = new System.Drawing.Point(25, 178);
             this.txt_telefono.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_telefono.MaxLength = 20;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(227, 16);
             this.txt_telefono.TabIndex = 124;
+            this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // gunaLabel4
             // 
@@ -217,9 +220,11 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(319, 104);
             this.txt_nombre.Margin = new System.Windows.Forms.Padding(4);
+            this.txt_nombre.MaxLength = 50;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 121;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaLabel1
             // 

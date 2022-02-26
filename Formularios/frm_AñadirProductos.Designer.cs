@@ -173,7 +173,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.Size = new System.Drawing.Size(543, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;            
+            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_id
             // 
@@ -213,6 +213,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(317, 89);
+            this.txt_nombre.MaxLength = 50;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 37;
@@ -276,6 +277,7 @@ namespace Tecno_Pc.Formularios
             this.txt_modelo.CausesValidation = false;
             this.txt_modelo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_modelo.Location = new System.Drawing.Point(19, 149);
+            this.txt_modelo.MaxLength = 50;
             this.txt_modelo.Name = "txt_modelo";
             this.txt_modelo.Size = new System.Drawing.Size(227, 16);
             this.txt_modelo.TabIndex = 40;

@@ -106,6 +106,7 @@ namespace Tecno_Pc.Formularios
             this.txt_email.CausesValidation = false;
             this.txt_email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_email.Location = new System.Drawing.Point(760, 281);
+            this.txt_email.MaxLength = 50;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(273, 16);
             this.txt_email.TabIndex = 102;
@@ -137,9 +138,11 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.CausesValidation = false;
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_telefono.Location = new System.Drawing.Point(909, 216);
+            this.txt_telefono.MaxLength = 20;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(126, 16);
             this.txt_telefono.TabIndex = 99;
+            this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // pictureBox8
             // 
@@ -168,9 +171,11 @@ namespace Tecno_Pc.Formularios
             this.txt_apellido.CausesValidation = false;
             this.txt_apellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_apellido.Location = new System.Drawing.Point(760, 216);
+            this.txt_apellido.MaxLength = 50;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(126, 16);
             this.txt_apellido.TabIndex = 96;
+            this.txt_apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_apellido_KeyPress);
             // 
             // pictureBox9
             // 
@@ -199,9 +204,11 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(909, 152);
+            this.txt_nombre.MaxLength = 50;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_nombre.TabIndex = 93;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // picturenombre
             // 

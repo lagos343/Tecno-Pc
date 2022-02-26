@@ -218,5 +218,13 @@ namespace Tecno_Pc.Formularios
         {
             //Ignorar
         }
+
+        private void txt_cant_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }
