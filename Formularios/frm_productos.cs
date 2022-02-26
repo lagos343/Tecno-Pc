@@ -37,7 +37,13 @@ namespace Tecno_Pc.Formularios
             lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
             lbl_ProductosTotales.Text = sql.Consulta2("select sum(Stock) as Stock from Inventarios i inner join Productos p on p.[ID Producto] = i.[ID Producto] where p.Estado = 1");
 
-            prod.consultarDatos(dgv_Productos);            
+            prod.consultarDatos(dgv_Productos);
+
+            foreach (DataGridViewColumn columna in dgv_Productos.Columns)
+            {
+                columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
             operacionesDataGrid();
         }
 
@@ -97,26 +103,33 @@ namespace Tecno_Pc.Formularios
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
+            try
             {
-                frm_AñadirProductos aña = new frm_AñadirProductos(2, dgv_Productos);
-                aña.ShowDialog();
-                
-
-            } else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
-            {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este producto?", 2);
-                noti.ShowDialog();
-
-                if (noti.Dialogresul == DialogResult.OK)
+                if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
                 {
-                    prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                    prod.eliminarDatos();
-                }
+                    frm_AñadirProductos aña = new frm_AñadirProductos(2, dgv_Productos);
+                    aña.ShowDialog();
 
-                Dashboard();
-                noti.Close();
+
+                }
+                else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
+                {
+                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este producto?", 2);
+                    noti.ShowDialog();
+
+                    if (noti.Dialogresul == DialogResult.OK)
+                    {
+                        prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        prod.eliminarDatos();
+                    }
+
+                    Dashboard();
+                    noti.Close();
+                }
             }
+            catch (Exception ex)
+            {        
+            }            
         }
 
         private async void btn_Imprimir_Click(object sender, EventArgs e)
