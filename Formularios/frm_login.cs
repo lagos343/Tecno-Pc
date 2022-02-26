@@ -17,7 +17,12 @@ namespace Tecno_Pc
 
         public Form1()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            this.ttMensaje.SetToolTip(this.txt_pasword, "Contraseña");
+            this.ttMensaje.SetToolTip(this.txt_userName, "Nombre de usuario");
+            this.ttMensaje.SetToolTip(this.chk_paswordChar, "Activar/Desactivar vista de la contraseña");
+            this.ttMensaje.SetToolTip(this.btn_CerrarLogin, "Salir");
+            this.ttMensaje.SetToolTip(this.btn_ingresar, "Ingresar al sistema");
         }
 
         private void btn_CerrarLogin_Click(object sender, EventArgs e)
@@ -40,8 +45,8 @@ namespace Tecno_Pc
         private void Form1_Load(object sender, EventArgs e)
         {
             txt_pasword.UseSystemPasswordChar = true;
-            txt_userName.Text = "admin";
-            txt_pasword.Text = "admonuser1";
+            //txt_userName.Text = "admin";
+            //txt_pasword.Text = "admonuser1";
         }
 
         #region Eventos Enter y Leave de los textbox               
@@ -95,6 +100,10 @@ namespace Tecno_Pc
             if(user.ObtenerDatos(lnk_Re_usu_contra) == true)
             {
                 this.Hide();
+                txt_userName.Text = "Usuario";
+                txt_pasword.Text = "Contraseña";
+                chk_paswordChar.Checked = false;
+                txt_pasword.UseSystemPasswordChar = true;
                 Formularios.frm_principal prin = new Formularios.frm_principal();
                 prin.Show();
             }

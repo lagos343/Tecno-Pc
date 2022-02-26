@@ -52,6 +52,8 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_cerrar = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
+            this.btn_LogOut = new System.Windows.Forms.PictureBox();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Panel_Slider.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
@@ -60,6 +62,7 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -70,6 +73,7 @@ namespace Tecno_Pc.Formularios
             // Panel_Slider
             // 
             this.Panel_Slider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Panel_Slider.Controls.Add(this.btn_LogOut);
             this.Panel_Slider.Controls.Add(this.pic_flecha);
             this.Panel_Slider.Controls.Add(this.lbl_nombreUsuario);
             this.Panel_Slider.Controls.Add(this.gunaLinePanel2);
@@ -139,7 +143,7 @@ namespace Tecno_Pc.Formularios
             this.flowLayoutPanel1.Controls.Add(this.btn_proveedores);
             this.flowLayoutPanel1.Location = new System.Drawing.Point(1, 242);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(174, 486);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(174, 373);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // btn_ventas
@@ -348,7 +352,7 @@ namespace Tecno_Pc.Formularios
             // gunaPictureBox1
             // 
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Default;
             this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
             this.gunaPictureBox1.Location = new System.Drawing.Point(12, 3);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
@@ -406,6 +410,18 @@ namespace Tecno_Pc.Formularios
             this.panel_container.Size = new System.Drawing.Size(1114, 705);
             this.panel_container.TabIndex = 3;
             // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_LogOut.Image = global::Tecno_Pc.Properties.Resources.cerrar;
+            this.btn_LogOut.Location = new System.Drawing.Point(152, 708);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(28, 24);
+            this.btn_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_LogOut.TabIndex = 8;
+            this.btn_LogOut.TabStop = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
+            // 
             // frm_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -428,6 +444,7 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -455,5 +472,7 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_Usuarios;
         private Guna.UI.WinForms.GunaGradientButton btn_empleados;
         private Guna.UI.WinForms.GunaGradientButton btn_proveedores;
+        private System.Windows.Forms.PictureBox btn_LogOut;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

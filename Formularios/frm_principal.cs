@@ -26,6 +26,7 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            toolTip1.SetToolTip(btn_LogOut, "Cerrar sesion");
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -173,8 +174,20 @@ namespace Tecno_Pc.Formularios
                 btn_Productos.Hide();
                 btn_compras.Hide();    
             }
+        }
 
+        private void btn_LogOut_Click(object sender, EventArgs e)
+        {
+            Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea cerrar Sesion?", 2);
+            noti.ShowDialog();
 
+            if (noti.Dialogresul == DialogResult.OK)
+            {
+                noti.Close();
+                Form1 frm = Application.OpenForms.OfType<Form1>().SingleOrDefault();
+                frm.Show();
+                this.Close();
+            }                       
         }
     }
 }
