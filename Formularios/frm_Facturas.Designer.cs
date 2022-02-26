@@ -38,10 +38,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro = new Guna.UI.WinForms.GunaComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dgv_Facturas = new System.Windows.Forms.DataGridView();
-            this.Codigo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fecha = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Hora = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Descripcion = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.Mostrar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -66,6 +64,7 @@ namespace Tecno_Pc.Formularios
             // 
             // txt_buscar
             // 
+            this.txt_buscar.BackColor = System.Drawing.Color.White;
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
@@ -73,6 +72,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 61;
+            this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged_1);
             // 
             // pictureBox6
             // 
@@ -108,10 +108,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro.ForeColor = System.Drawing.Color.Black;
             this.cbo_filtro.FormattingEnabled = true;
             this.cbo_filtro.Items.AddRange(new object[] {
-            "No_Factura",
-            "Fecha_Compra",
-            "Nombre_Cliente",
-            "Usuario_Vendedor"});
+            "ID Factura",
+            "Cliente"});
             this.cbo_filtro.Location = new System.Drawing.Point(760, 44);
             this.cbo_filtro.Name = "cbo_filtro";
             this.cbo_filtro.OnHoverItemBaseColor = System.Drawing.Color.Blue;
@@ -151,10 +149,7 @@ namespace Tecno_Pc.Formularios
             this.dgv_Facturas.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Facturas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Facturas.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Codigo,
-            this.Fecha,
-            this.Hora,
-            this.Descripcion});
+            this.Mostrar});
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
@@ -174,25 +169,15 @@ namespace Tecno_Pc.Formularios
             this.dgv_Facturas.TabIndex = 11;
             this.dgv_Facturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Facturas_CellContentClick);
             // 
-            // Codigo
+            // Mostrar
             // 
-            this.Codigo.HeaderText = "Codigo";
-            this.Codigo.Name = "Codigo";
-            // 
-            // Fecha
-            // 
-            this.Fecha.HeaderText = "Fecha";
-            this.Fecha.Name = "Fecha";
-            // 
-            // Hora
-            // 
-            this.Hora.HeaderText = "Hora";
-            this.Hora.Name = "Hora";
-            // 
-            // Descripcion
-            // 
-            this.Descripcion.HeaderText = "Descripcion";
-            this.Descripcion.Name = "Descripcion";
+            this.Mostrar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Mostrar.Frozen = true;
+            this.Mostrar.HeaderText = "";
+            this.Mostrar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
+            this.Mostrar.Name = "Mostrar";
+            this.Mostrar.ReadOnly = true;
+            this.Mostrar.Width = 50;
             // 
             // frm_Facturas
             // 
@@ -221,12 +206,10 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaComboBox cbo_filtro;
         private System.Windows.Forms.PictureBox pictureBox7;
         private System.Windows.Forms.DataGridView dgv_Facturas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Codigo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fecha;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Hora;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Descripcion;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.DataGridViewImageColumn Mostrar;
     }
 }

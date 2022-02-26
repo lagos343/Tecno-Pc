@@ -92,13 +92,16 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="WinFormAnimation, Version=1.6.0.4, Culture=neutral, PublicKeyToken=310fd07b25df79b3, processorArchitecture=MSIL">
+      <HintPath>packages\WinFormAnimation.1.6.0.4\lib\net40\WinFormAnimation.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Cl_Categorias.cs" />
     <Compile Include="Clases\Cl_Empleados.cs" />
     <Compile Include="Clases\Cl_Clientes.cs" />
-    <Compile Include="Clases\Cl_Facturas.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
+    <Compile Include="Clases\Cl_NotificacionCompra.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />
     <Compile Include="Clases\Cl_Proveedores.cs" />
     <Compile Include="Clases\Cl_RecuperarContraseña.cs" />
@@ -111,6 +114,7 @@
     <Compile Include="Clases\ElipseControl.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Clases\Cl_Contactos.cs" />
     <Compile Include="Formularios\frm_AñadirEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -322,6 +326,7 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\Nuevo2.png" />
     <None Include="Resources\Empleado.png" />
     <None Include="Resources\LogoTecnoPc.png" />
     <None Include="Resources\proveedor.png" />

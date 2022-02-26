@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -23,7 +24,8 @@ namespace Tecno_Pc.Formularios
 
         public frm_principal()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            Control.CheckForIllegalCrossThreadCalls = false;
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -130,7 +132,7 @@ namespace Tecno_Pc.Formularios
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }
+        }       
 
         private void pic_flecha_Click(object sender, EventArgs e)
         {
@@ -139,7 +141,40 @@ namespace Tecno_Pc.Formularios
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            lbl_nombreUsuario.Text = user.Propietario_;            
+            carga();                             
+        }
+
+        private async void button1_Click(object sender, EventArgs e)
+        {            
+            
+        }        
+
+        private void carga()
+        {
+            lbl_nombreUsuario.Text = user.Propietario_;
+
+            if (user.IdRol_ == 2)    //Rol Vendedor
+            {
+                btn_compras.Hide();
+                btn_proveedores.Hide();
+                btn_empleados.Hide();
+            }
+            else if (user.IdRol_ == 3)  //Rol Jefe de Compras
+            {
+                btn_ventas.Hide();
+                btn_Facturas.Hide();
+                btn_empleados.Hide();
+                btn_proveedores.Hide();
+            }
+            else if (user.IdRol_ == 4)  //Rol Empleador
+            {
+                btn_Facturas.Hide();
+                btn_ventas.Hide();
+                btn_Productos.Hide();
+                btn_compras.Hide();    
+            }
+
+
         }
     }
 }

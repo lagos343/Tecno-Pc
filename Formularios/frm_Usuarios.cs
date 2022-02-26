@@ -17,6 +17,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
+        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
         public frm_Usuarios()
         {
             InitializeComponent();            
@@ -26,6 +27,7 @@ namespace Tecno_Pc.Formularios
         {
             user.consultarDatos(dgv_Productos);
             operacionesdgv();
+            usuarios();
         }
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
@@ -91,6 +93,30 @@ namespace Tecno_Pc.Formularios
                 lbl_tipo.Text = dgv_Productos.CurrentRow.Cells[9].Value.ToString();
 
             }
+        }
+
+
+
+        private void usuarios()
+        {
+            if (login.IdRol_ == 3 || login.IdRol_ == 2)
+            {
+                btn_nuevoUsuario.Hide();
+                dgv_Productos.Hide();
+                txt_buscar.Hide();
+                pictureBox5.Hide();
+                pictureBox6.Hide();
+                lbl_id.Text = login.IdRol_.ToString();
+                lbl_user.Text = login.Usuario_;
+                lbl_contra.Text = login.Contraseña_;
+                lbl_propietario.Text = login.Propietario_;
+                lbl_tipo.Text = login.Rol_;
+            }
+            if (login.IdRol_ == 3 || login.IdRol_ == 4)
+            {
+                gunaGradientButton1.Hide();
+            }
+
         }
     }
 }
