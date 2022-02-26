@@ -34,7 +34,6 @@ namespace Tecno_Pc
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_CerrarLogin = new System.Windows.Forms.PictureBox();
-            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -45,9 +44,11 @@ namespace Tecno_Pc
             this.lnk_Re_usu_contra = new Guna.UI.WinForms.GunaLinkLabel();
             this.error_usuario = new System.Windows.Forms.ErrorProvider(this.components);
             this.error_contraseña = new System.Windows.Forms.ErrorProvider(this.components);
-            this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
-            this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
+            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
+            this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CerrarLogin)).BeginInit();
@@ -93,17 +94,6 @@ namespace Tecno_Pc
             this.btn_CerrarLogin.TabIndex = 1;
             this.btn_CerrarLogin.TabStop = false;
             this.btn_CerrarLogin.Click += new System.EventHandler(this.btn_CerrarLogin_Click);
-            // 
-            // elipseControl1
-            // 
-            this.elipseControl1.BackColor = System.Drawing.Color.Teal;
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.ForeColor = System.Drawing.Color.Teal;
-            this.elipseControl1.Location = new System.Drawing.Point(0, 29);
-            this.elipseControl1.Name = "elipseControl1";
-            this.elipseControl1.Size = new System.Drawing.Size(87, 70);
-            this.elipseControl1.TabIndex = 2;
-            this.elipseControl1.Text = "elipseControl1";
             // 
             // pictureBox1
             // 
@@ -247,6 +237,11 @@ namespace Tecno_Pc
             // 
             this.error_contraseña.ContainerControl = this;
             // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.Radius = 3;
+            this.gunaElipse1.TargetControl = this.btn_ingresar;
+            // 
             // elipseControl3
             // 
             this.elipseControl3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
@@ -258,15 +253,21 @@ namespace Tecno_Pc
             this.elipseControl3.TabIndex = 4;
             this.elipseControl3.Text = "elipseControl3";
             // 
+            // elipseControl1
+            // 
+            this.elipseControl1.BackColor = System.Drawing.Color.Teal;
+            this.elipseControl1.CornerRadius = 15;
+            this.elipseControl1.ForeColor = System.Drawing.Color.Teal;
+            this.elipseControl1.Location = new System.Drawing.Point(0, 29);
+            this.elipseControl1.Name = "elipseControl1";
+            this.elipseControl1.Size = new System.Drawing.Size(87, 70);
+            this.elipseControl1.TabIndex = 2;
+            this.elipseControl1.Text = "elipseControl1";
+            // 
             // elipseComponent1
             // 
             this.elipseComponent1.CornerRadius = 15;
             this.elipseComponent1.TargetControl = this;
-            // 
-            // gunaElipse1
-            // 
-            this.gunaElipse1.Radius = 3;
-            this.gunaElipse1.TargetControl = this.btn_ingresar;
             // 
             // Form1
             // 
@@ -320,6 +321,7 @@ namespace Tecno_Pc
         private System.Windows.Forms.ErrorProvider error_contraseña;
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.ToolTip ttMensaje;
     }
 }
 

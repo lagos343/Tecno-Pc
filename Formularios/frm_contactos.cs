@@ -134,7 +134,7 @@ namespace Tecno_Pc.Formularios
 
 
                 btn_guardar.Text = "Guardar";
-                dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
+                dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
                 operacionesDataGrid();
                 Limnpiado();
             }
@@ -153,8 +153,8 @@ namespace Tecno_Pc.Formularios
             {
                 InicializarCombobox();
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
-                cmb_depto.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
-                cmb_proveedor.SelectedValue = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                cmb_depto.SelectedValue = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                cmb_proveedor.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[3].Value.ToString();
                 txt_apellido.Text = dgv_datos.CurrentRow.Cells[4].Value.ToString();
                 txt_telefono.Text = dgv_datos.CurrentRow.Cells[5].Value.ToString();
@@ -185,6 +185,34 @@ namespace Tecno_Pc.Formularios
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
+
+        #region keypress
+
+        private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_apellido_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
+
+        #endregion
 
         //private void dgv_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         //{
