@@ -165,14 +165,15 @@ namespace Tecno_Pc.Formularios
                 btn_ventas.Hide();
                 btn_Facturas.Hide();
                 btn_empleados.Hide();
-                btn_proveedores.Hide();
+                
             }
             else if (user.IdRol_ == 4)  //Rol Empleador
             {
                 btn_Facturas.Hide();
                 btn_ventas.Hide();
                 btn_Productos.Hide();
-                btn_compras.Hide();    
+                btn_compras.Hide();
+                btn_proveedores.Hide();
             }
         }
 

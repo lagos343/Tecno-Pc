@@ -60,6 +60,8 @@ namespace Tecno_Pc.Clases
         public void eliminar()
         {
             sql.Sql_Querys("update Usuarios set Estado = 0 where [ID Usuario] ="+id_usuarios);
+            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
+            frm.carga();
         }
     }
 
