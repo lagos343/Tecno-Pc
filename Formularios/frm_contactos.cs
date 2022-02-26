@@ -134,7 +134,7 @@ namespace Tecno_Pc.Formularios
 
 
                 btn_guardar.Text = "Guardar";
-                dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
+                dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
                 operacionesDataGrid();
                 Limnpiado();
             }
@@ -153,8 +153,8 @@ namespace Tecno_Pc.Formularios
             {
                 InicializarCombobox();
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
-                cmb_depto.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
-                cmb_proveedor.SelectedValue = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                cmb_depto.SelectedValue = dgv_datos.CurrentRow.Cells[2].Value.ToString();
+                cmb_proveedor.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[3].Value.ToString();
                 txt_apellido.Text = dgv_datos.CurrentRow.Cells[4].Value.ToString();
                 txt_telefono.Text = dgv_datos.CurrentRow.Cells[5].Value.ToString();
