@@ -31,6 +31,7 @@ namespace Tecno_Pc.Formularios
 
             InitializeComponent();            
             InicializarCombobox();
+           
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
