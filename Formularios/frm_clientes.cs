@@ -189,9 +189,11 @@ namespace Tecno_Pc.Formularios
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btn_imprimir_Click(object sender, EventArgs e)
+        private async void btn_imprimir_Click(object sender, EventArgs e)
         {
-
+            
         }
+
+
     }
 }
