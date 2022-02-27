@@ -38,8 +38,8 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro = new Guna.UI.WinForms.GunaComboBox();
             this.pictureBox7 = new System.Windows.Forms.PictureBox();
             this.dgv_Facturas = new System.Windows.Forms.DataGridView();
-            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.Mostrar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -110,7 +110,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro.Items.AddRange(new object[] {
             "ID Factura",
             "Cliente"});
-            this.cbo_filtro.Location = new System.Drawing.Point(760, 44);
+            this.cbo_filtro.Location = new System.Drawing.Point(760, 45);
             this.cbo_filtro.Name = "cbo_filtro";
             this.cbo_filtro.OnHoverItemBaseColor = System.Drawing.Color.Blue;
             this.cbo_filtro.OnHoverItemForeColor = System.Drawing.Color.White;
