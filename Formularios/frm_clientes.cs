@@ -31,6 +31,23 @@ namespace Tecno_Pc.Formularios
 
             InitializeComponent();
             InicializarCombobox();
+            //Tooltip
+            this.ttMensaje.SetToolTip(this.cmb_Depto, "Combobox de departamento");
+            this.ttMensaje.SetToolTip(this.txt_Ident, "Caja de texto del No. de Identidad del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_Nombre, "Caja de texto del Nombre del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_Apell, "Caja de texto del Apellido del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_Tel, "Caja de texto del Telefono del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_Email, "Caja de texto del Correo del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_Direccion, "Caja de texto de la Direccion del Cliente");
+            this.ttMensaje.SetToolTip(this.txt_buscar, "Caja de texto de busqueda filtrada por Nombre");
+            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes a Excel");
+            this.ttMensaje.SetToolTip(this.btn_salir, "Salir");
+            this.ttMensaje.SetToolTip(this.btn_minimizar, "Minimizar");
+            this.ttMensaje.SetToolTip(this.btn_nuevo, "Boton para Limpiar las cajas de texto");
+            this.ttMensaje.SetToolTip(this.btn_editar, "Boton para Editar la informacion del Cliente");
+            this.ttMensaje.SetToolTip(this.btn_eliminar, "Boton para Eliminar la informacion del Cliente");
+            this.ttMensaje.SetToolTip(this.btn_guardar, "Boton para Guardar informacion del Cliente");
+
 
         }
 
@@ -191,8 +208,135 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_imprimir_Click(object sender, EventArgs e)
         {
-            
+            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
+            {
+                frm_notificacion noti = new frm_notificacion("", 4);
+                noti.Show();
+
+                Task tar1 = new Task(excelClientes);
+                tar1.Start();
+                await tar1;
+
+                noti.Close();
+
+                //frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
+                //noti2.ShowDialog();
+                //noti.Close();
+            }
+
         }
+
+        public void excelClientes()
+        {
+
+            System.Data.DataTable detalles = new System.Data.DataTable();
+            int i = 0, j = 0;
+
+            //Carga de los Productos
+            detalles = sql.Consulta(" select  c.Nombre, c.Apellido, c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1");
+
+
+            //Llamado a la api de Excle y declaracion de las variables pertinentes
+            string ruta = saveFileDialog1.FileName;
+            objExcel.Application objAplicacion = new objExcel.Application();
+            Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
+            Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
+            objExcel.Range rango = null;
+            objExcel.Style style = objLibro.Styles.Add("EstiloCabecera");
+            objHoja.Cells.RowHeight = 18;
+            objHoja.Cells.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+
+
+            //definimos el estilo que tendra las cabeceras
+            style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+            style.Font.Bold = true;
+            style.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
+            style.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
+            style.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
+
+            //definicion de los valores de la Cabevcera
+            objHoja.Cells[5, 3] = "Nombre";
+            objHoja.Cells[5, 5] = "Identidad";
+            objHoja.Cells[5, 6] = "Telefono";
+            objHoja.Cells[5, 4] = "Apellido";
+            objHoja.Cells[5, 7] = "Direccion";
+            objHoja.Cells[5, 8] = "Correo Electronico";
+            objHoja.Cells[5, 9] = "Departamento";
+
+            //Titulo
+            objHoja.Cells[2, 3] = "Tecno PC";
+            objHoja.Cells[2, 3].Font.Size = 18;
+            objHoja.Cells[2, 3].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+            objHoja.Cells[2, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
+            objHoja.Cells[2, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
+
+            objHoja.Cells[3, 3] = "Reporte de Clientes";
+            objHoja.Cells[3, 3].Font.Size = 11;
+
+            objHoja.Cells[2, 9] = DateTime.Now.ToShortDateString();
+
+
+            //creacion de la hoja de calculo                   
+            for (i = 0; i < detalles.Columns.Count; i++)
+            {
+                for (j = 0; j < detalles.Rows.Count; j++)
+                {
+                    if (i + 3 == 5)
+                    {
+                        objHoja.Cells[j + 6, i + 3] = "'" + detalles.Rows[j][i].ToString();
+                        objHoja.Cells[j + 6, i + 3].Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
+                        objHoja.Cells[j + 6, i + 3].Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
+                    }
+                    else
+                    {
+
+                        objHoja.Cells[j + 6, i + 3] = detalles.Rows[j][i].ToString();
+                        objHoja.Cells[j + 6, i + 3].Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
+                        objHoja.Cells[j + 6, i + 3].Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
+
+                    }
+                }
+
+                rango = objHoja.Columns[i + 3];
+                rango.Columns.AutoFit();
+                rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
+
+                //creacion de la cabecera
+                rango = objHoja.Range["C5", "I5"];
+                rango.Style = "EstiloCabecera";
+                rango.Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
+                rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
+
+            }
+            //Fecha
+            objHoja.Cells[2, 8] = "Fecha:";
+            objHoja.Cells[2, 8].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[2, 8].Font.Bold = true;
+
+            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira 
+
+
+            //guardado del libro
+            try
+            {
+                objLibro.SaveAs(ruta);
+            }
+            catch (Exception ex)
+            {
+                frm_notificacion noti2 = new frm_notificacion("Ocurrio un error al modificar el archivo, en su lugar se creo uno nuevo", 3);
+                noti2.ShowDialog();
+                noti2.Close();
+            }
+
+            //objLibro.Close();
+            //objAplicacion.Quit();
+
+
+        }
+
+
+
+
 
 
     }
