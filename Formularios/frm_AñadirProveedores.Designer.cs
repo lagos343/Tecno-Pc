@@ -300,6 +300,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.TabIndex = 115;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // pictureBox2
             // 
