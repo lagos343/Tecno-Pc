@@ -151,7 +151,7 @@ namespace Tecno_Pc.Formularios
 
             //Carga de los Productos
 
-            detalles = sql.Consulta("SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], Empleados.Identidad, Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
+            detalles = sql.Consulta("SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], '-'+Empleados.Identidad+'-' [Identidad], Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
                 " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC");
 
             //Llamado a la api de Excle y declaracion de las variables pertinentes
