@@ -30,8 +30,8 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.lbl_totalProductos = new Guna.UI.WinForms.GunaLabel();
@@ -67,7 +67,6 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel3 = new Guna.UI.WinForms.GunaLinePanel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.flowLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -89,10 +88,9 @@ namespace Tecno_Pc.Formularios
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.Controls.Add(this.panel1);
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(4, 4);
-            this.flowLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(361, 100);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(271, 81);
             this.flowLayoutPanel1.TabIndex = 0;
             // 
             // panel1
@@ -103,10 +101,9 @@ namespace Tecno_Pc.Formularios
             this.panel1.Controls.Add(this.gunaLabel1);
             this.panel1.Controls.Add(this.gunaLinePanel2);
             this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(4, 4);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(353, 96);
+            this.panel1.Size = new System.Drawing.Size(265, 78);
             this.panel1.TabIndex = 4;
             // 
             // lbl_totalProductos
@@ -114,10 +111,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_totalProductos.BackColor = System.Drawing.Color.Transparent;
             this.lbl_totalProductos.Font = new System.Drawing.Font("Ebrima", 16F);
             this.lbl_totalProductos.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_totalProductos.Location = new System.Drawing.Point(213, 7);
-            this.lbl_totalProductos.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_totalProductos.Location = new System.Drawing.Point(160, 6);
             this.lbl_totalProductos.Name = "lbl_totalProductos";
-            this.lbl_totalProductos.Size = new System.Drawing.Size(124, 52);
+            this.lbl_totalProductos.Size = new System.Drawing.Size(93, 42);
             this.lbl_totalProductos.TabIndex = 7;
             this.lbl_totalProductos.Text = "100";
             this.lbl_totalProductos.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -128,10 +124,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel1.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel1.ForeColor = System.Drawing.Color.DarkGray;
-            this.gunaLabel1.Location = new System.Drawing.Point(4, 64);
-            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel1.Location = new System.Drawing.Point(3, 52);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(108, 23);
+            this.gunaLabel1.Size = new System.Drawing.Size(89, 19);
             this.gunaLabel1.TabIndex = 6;
             this.gunaLabel1.Text = "PRODUCTOS";
             // 
@@ -140,20 +135,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel2.BackColor = System.Drawing.Color.Silver;
             this.gunaLinePanel2.LineColor = System.Drawing.Color.Transparent;
             this.gunaLinePanel2.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel2.Location = new System.Drawing.Point(8, 63);
-            this.gunaLinePanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel2.Location = new System.Drawing.Point(6, 51);
             this.gunaLinePanel2.Name = "gunaLinePanel2";
-            this.gunaLinePanel2.Size = new System.Drawing.Size(333, 1);
+            this.gunaLinePanel2.Size = new System.Drawing.Size(250, 1);
             this.gunaLinePanel2.TabIndex = 5;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.Productos;
-            this.pictureBox1.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 9);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(57, 46);
+            this.pictureBox1.Size = new System.Drawing.Size(43, 37);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 4;
             this.pictureBox1.TabStop = false;
@@ -166,10 +159,9 @@ namespace Tecno_Pc.Formularios
             this.panel2.Controls.Add(this.gunaLabel3);
             this.panel2.Controls.Add(this.gunaLinePanel1);
             this.panel2.Controls.Add(this.pictureBox2);
-            this.panel2.Location = new System.Drawing.Point(379, 7);
-            this.panel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel2.Location = new System.Drawing.Point(284, 6);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(353, 96);
+            this.panel2.Size = new System.Drawing.Size(265, 78);
             this.panel2.TabIndex = 5;
             // 
             // lbl_TotalCategorias
@@ -177,10 +169,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_TotalCategorias.BackColor = System.Drawing.Color.Transparent;
             this.lbl_TotalCategorias.Font = new System.Drawing.Font("Ebrima", 16F);
             this.lbl_TotalCategorias.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_TotalCategorias.Location = new System.Drawing.Point(216, 7);
-            this.lbl_TotalCategorias.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_TotalCategorias.Location = new System.Drawing.Point(162, 6);
             this.lbl_TotalCategorias.Name = "lbl_TotalCategorias";
-            this.lbl_TotalCategorias.Size = new System.Drawing.Size(124, 52);
+            this.lbl_TotalCategorias.Size = new System.Drawing.Size(93, 42);
             this.lbl_TotalCategorias.TabIndex = 7;
             this.lbl_TotalCategorias.Text = "100";
             this.lbl_TotalCategorias.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -191,10 +182,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel3.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel3.ForeColor = System.Drawing.Color.DarkGray;
-            this.gunaLabel3.Location = new System.Drawing.Point(4, 64);
-            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel3.Location = new System.Drawing.Point(3, 52);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(109, 23);
+            this.gunaLabel3.Size = new System.Drawing.Size(89, 19);
             this.gunaLabel3.TabIndex = 6;
             this.gunaLabel3.Text = "CATEGORIAS";
             // 
@@ -203,20 +193,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel1.BackColor = System.Drawing.Color.Silver;
             this.gunaLinePanel1.LineColor = System.Drawing.Color.Transparent;
             this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel1.Location = new System.Drawing.Point(8, 63);
-            this.gunaLinePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel1.Location = new System.Drawing.Point(6, 51);
             this.gunaLinePanel1.Name = "gunaLinePanel1";
-            this.gunaLinePanel1.Size = new System.Drawing.Size(333, 1);
+            this.gunaLinePanel1.Size = new System.Drawing.Size(250, 1);
             this.gunaLinePanel1.TabIndex = 5;
             // 
             // pictureBox2
             // 
             this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox2.Image = global::Tecno_Pc.Properties.Resources.Categorias;
-            this.pictureBox2.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(6, 9);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(57, 46);
+            this.pictureBox2.Size = new System.Drawing.Size(43, 37);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox2.TabIndex = 4;
             this.pictureBox2.TabStop = false;
@@ -224,10 +212,9 @@ namespace Tecno_Pc.Formularios
             // flowLayoutPanel4
             // 
             this.flowLayoutPanel4.Controls.Add(this.panel4);
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(1119, 4);
-            this.flowLayoutPanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(839, 3);
             this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(367, 100);
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(275, 81);
             this.flowLayoutPanel4.TabIndex = 3;
             // 
             // panel4
@@ -238,10 +225,9 @@ namespace Tecno_Pc.Formularios
             this.panel4.Controls.Add(this.gunaLabel7);
             this.panel4.Controls.Add(this.gunaLinePanel4);
             this.panel4.Controls.Add(this.pictureBox4);
-            this.panel4.Location = new System.Drawing.Point(4, 4);
-            this.panel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(353, 96);
+            this.panel4.Size = new System.Drawing.Size(265, 78);
             this.panel4.TabIndex = 5;
             // 
             // lbl_ProductosTotales
@@ -249,10 +235,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_ProductosTotales.BackColor = System.Drawing.Color.Transparent;
             this.lbl_ProductosTotales.Font = new System.Drawing.Font("Ebrima", 16F);
             this.lbl_ProductosTotales.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_ProductosTotales.Location = new System.Drawing.Point(217, 7);
-            this.lbl_ProductosTotales.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_ProductosTotales.Location = new System.Drawing.Point(163, 6);
             this.lbl_ProductosTotales.Name = "lbl_ProductosTotales";
-            this.lbl_ProductosTotales.Size = new System.Drawing.Size(124, 52);
+            this.lbl_ProductosTotales.Size = new System.Drawing.Size(93, 42);
             this.lbl_ProductosTotales.TabIndex = 7;
             this.lbl_ProductosTotales.Text = "100";
             this.lbl_ProductosTotales.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -263,10 +248,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel7.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel7.ForeColor = System.Drawing.Color.DarkGray;
-            this.gunaLabel7.Location = new System.Drawing.Point(4, 64);
-            this.gunaLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel7.Location = new System.Drawing.Point(3, 52);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(113, 23);
+            this.gunaLabel7.Size = new System.Drawing.Size(92, 19);
             this.gunaLabel7.TabIndex = 6;
             this.gunaLabel7.Text = "TOTAL STOCK";
             // 
@@ -275,20 +259,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel4.BackColor = System.Drawing.Color.Silver;
             this.gunaLinePanel4.LineColor = System.Drawing.Color.Transparent;
             this.gunaLinePanel4.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel4.Location = new System.Drawing.Point(8, 63);
-            this.gunaLinePanel4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel4.Location = new System.Drawing.Point(6, 51);
             this.gunaLinePanel4.Name = "gunaLinePanel4";
-            this.gunaLinePanel4.Size = new System.Drawing.Size(333, 1);
+            this.gunaLinePanel4.Size = new System.Drawing.Size(250, 1);
             this.gunaLinePanel4.TabIndex = 5;
             // 
             // pictureBox4
             // 
             this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.Totales;
-            this.pictureBox4.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(6, 9);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(57, 46);
+            this.pictureBox4.Size = new System.Drawing.Size(43, 37);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox4.TabIndex = 4;
             this.pictureBox4.TabStop = false;
@@ -297,7 +279,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.panel5.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.panel5.Controls.Add(this.toolStrip1);
             this.panel5.Controls.Add(this.txt_buscar);
             this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.pictureBox5);
@@ -306,10 +287,9 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.btn_Imprimir);
             this.panel5.Controls.Add(this.btn_Marcas);
             this.panel5.Controls.Add(this.btn_categorias);
-            this.panel5.Location = new System.Drawing.Point(0, 107);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel5.Location = new System.Drawing.Point(0, 87);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1485, 767);
+            this.panel5.Size = new System.Drawing.Size(1114, 623);
             this.panel5.TabIndex = 4;
             // 
             // txt_buscar
@@ -317,10 +297,9 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_buscar.Location = new System.Drawing.Point(92, 96);
-            this.txt_buscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_buscar.Location = new System.Drawing.Point(69, 78);
             this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.Size = new System.Drawing.Size(413, 20);
+            this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 14;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
@@ -328,10 +307,9 @@ namespace Tecno_Pc.Formularios
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
-            this.pictureBox6.Location = new System.Drawing.Point(45, 87);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(34, 71);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 13;
             this.pictureBox6.TabStop = false;
@@ -339,10 +317,9 @@ namespace Tecno_Pc.Formularios
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(41, 85);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(31, 69);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(472, 42);
+            this.pictureBox5.Size = new System.Drawing.Size(354, 34);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 12;
             this.pictureBox5.TabStop = false;
@@ -359,36 +336,35 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_Productos.Location = new System.Drawing.Point(41, 148);
-            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_Productos.Location = new System.Drawing.Point(31, 120);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Productos.RowHeadersVisible = false;
             this.dgv_Productos.RowHeadersWidth = 51;
             this.dgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_Productos.Size = new System.Drawing.Size(1401, 585);
+            this.dgv_Productos.Size = new System.Drawing.Size(1051, 475);
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
@@ -421,8 +397,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoProducto.ForeColor = System.Drawing.Color.White;
             this.btn_nuevoProducto.Image = null;
             this.btn_nuevoProducto.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_nuevoProducto.Location = new System.Drawing.Point(536, 86);
-            this.btn_nuevoProducto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_nuevoProducto.Location = new System.Drawing.Point(402, 70);
             this.btn_nuevoProducto.Name = "btn_nuevoProducto";
             this.btn_nuevoProducto.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevoProducto.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -431,7 +406,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoProducto.OnHoverImage = null;
             this.btn_nuevoProducto.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevoProducto.Radius = 5;
-            this.btn_nuevoProducto.Size = new System.Drawing.Size(216, 39);
+            this.btn_nuevoProducto.Size = new System.Drawing.Size(162, 32);
             this.btn_nuevoProducto.TabIndex = 10;
             this.btn_nuevoProducto.Text = "Nuevo Producto";
             this.btn_nuevoProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -452,8 +427,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Imprimir.ForeColor = System.Drawing.Color.White;
             this.btn_Imprimir.Image = null;
             this.btn_Imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Imprimir.Location = new System.Drawing.Point(1119, 87);
-            this.btn_Imprimir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Imprimir.Location = new System.Drawing.Point(839, 71);
             this.btn_Imprimir.Name = "btn_Imprimir";
             this.btn_Imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
             this.btn_Imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
@@ -462,7 +436,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Imprimir.OnHoverImage = null;
             this.btn_Imprimir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_Imprimir.Radius = 5;
-            this.btn_Imprimir.Size = new System.Drawing.Size(324, 39);
+            this.btn_Imprimir.Size = new System.Drawing.Size(243, 32);
             this.btn_Imprimir.TabIndex = 9;
             this.btn_Imprimir.Text = "Reportes";
             this.btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -483,8 +457,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Marcas.ForeColor = System.Drawing.Color.White;
             this.btn_Marcas.Image = null;
             this.btn_Marcas.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_Marcas.Location = new System.Drawing.Point(1119, 27);
-            this.btn_Marcas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_Marcas.Location = new System.Drawing.Point(839, 22);
             this.btn_Marcas.Name = "btn_Marcas";
             this.btn_Marcas.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_Marcas.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -493,7 +466,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Marcas.OnHoverImage = null;
             this.btn_Marcas.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_Marcas.Radius = 5;
-            this.btn_Marcas.Size = new System.Drawing.Size(141, 39);
+            this.btn_Marcas.Size = new System.Drawing.Size(106, 32);
             this.btn_Marcas.TabIndex = 7;
             this.btn_Marcas.Text = "Marcas";
             this.btn_Marcas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -514,8 +487,7 @@ namespace Tecno_Pc.Formularios
             this.btn_categorias.ForeColor = System.Drawing.Color.White;
             this.btn_categorias.Image = null;
             this.btn_categorias.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_categorias.Location = new System.Drawing.Point(1301, 27);
-            this.btn_categorias.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_categorias.Location = new System.Drawing.Point(976, 22);
             this.btn_categorias.Name = "btn_categorias";
             this.btn_categorias.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_categorias.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -524,7 +496,7 @@ namespace Tecno_Pc.Formularios
             this.btn_categorias.OnHoverImage = null;
             this.btn_categorias.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_categorias.Radius = 5;
-            this.btn_categorias.Size = new System.Drawing.Size(141, 39);
+            this.btn_categorias.Size = new System.Drawing.Size(106, 32);
             this.btn_categorias.TabIndex = 7;
             this.btn_categorias.Text = "Categorias";
             this.btn_categorias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -538,10 +510,9 @@ namespace Tecno_Pc.Formularios
             this.panel3.Controls.Add(this.gunaLabel5);
             this.panel3.Controls.Add(this.gunaLinePanel3);
             this.panel3.Controls.Add(this.pictureBox3);
-            this.panel3.Location = new System.Drawing.Point(4, 4);
-            this.panel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel3.Location = new System.Drawing.Point(3, 3);
             this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(353, 96);
+            this.panel3.Size = new System.Drawing.Size(265, 78);
             this.panel3.TabIndex = 5;
             // 
             // lbl_totalMarcas
@@ -549,10 +520,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_totalMarcas.BackColor = System.Drawing.Color.Transparent;
             this.lbl_totalMarcas.Font = new System.Drawing.Font("Ebrima", 16F);
             this.lbl_totalMarcas.ForeColor = System.Drawing.Color.DarkGray;
-            this.lbl_totalMarcas.Location = new System.Drawing.Point(215, 7);
-            this.lbl_totalMarcas.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_totalMarcas.Location = new System.Drawing.Point(161, 6);
             this.lbl_totalMarcas.Name = "lbl_totalMarcas";
-            this.lbl_totalMarcas.Size = new System.Drawing.Size(124, 52);
+            this.lbl_totalMarcas.Size = new System.Drawing.Size(93, 42);
             this.lbl_totalMarcas.TabIndex = 7;
             this.lbl_totalMarcas.Text = "100";
             this.lbl_totalMarcas.TextAlign = System.Drawing.ContentAlignment.TopRight;
@@ -563,10 +533,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel5.BackColor = System.Drawing.Color.Transparent;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 10F);
             this.gunaLabel5.ForeColor = System.Drawing.Color.DarkGray;
-            this.gunaLabel5.Location = new System.Drawing.Point(4, 64);
-            this.gunaLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel5.Location = new System.Drawing.Point(3, 52);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(77, 23);
+            this.gunaLabel5.Size = new System.Drawing.Size(64, 19);
             this.gunaLabel5.TabIndex = 6;
             this.gunaLabel5.Text = "MARCAS";
             // 
@@ -575,20 +544,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel3.BackColor = System.Drawing.Color.Silver;
             this.gunaLinePanel3.LineColor = System.Drawing.Color.Transparent;
             this.gunaLinePanel3.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel3.Location = new System.Drawing.Point(8, 63);
-            this.gunaLinePanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel3.Location = new System.Drawing.Point(6, 51);
             this.gunaLinePanel3.Name = "gunaLinePanel3";
-            this.gunaLinePanel3.Size = new System.Drawing.Size(333, 1);
+            this.gunaLinePanel3.Size = new System.Drawing.Size(250, 1);
             this.gunaLinePanel3.TabIndex = 5;
             // 
             // pictureBox3
             // 
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.Marcas;
-            this.pictureBox3.Location = new System.Drawing.Point(8, 11);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(6, 9);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(57, 46);
+            this.pictureBox3.Size = new System.Drawing.Size(43, 37);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 4;
             this.pictureBox3.TabStop = false;
@@ -596,26 +563,16 @@ namespace Tecno_Pc.Formularios
             // flowLayoutPanel3
             // 
             this.flowLayoutPanel3.Controls.Add(this.panel3);
-            this.flowLayoutPanel3.Location = new System.Drawing.Point(745, 4);
-            this.flowLayoutPanel3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(559, 3);
             this.flowLayoutPanel3.Name = "flowLayoutPanel3";
-            this.flowLayoutPanel3.Size = new System.Drawing.Size(360, 100);
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(270, 81);
             this.flowLayoutPanel3.TabIndex = 2;
-            // 
-            // toolStrip1
-            // 
-            this.toolStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
-            this.toolStrip1.Location = new System.Drawing.Point(0, 0);
-            this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1485, 25);
-            this.toolStrip1.TabIndex = 15;
-            this.toolStrip1.Text = "toolStrip1";
             // 
             // frm_productos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1485, 868);
+            this.ClientSize = new System.Drawing.Size(1114, 705);
             this.ControlBox = false;
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel5);
@@ -623,7 +580,6 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.flowLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_productos";
             this.Text = "frm_productos";
             this.Load += new System.EventHandler(this.frm_productos_Load);
@@ -688,7 +644,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolTip toolTip1;
     }
 }
