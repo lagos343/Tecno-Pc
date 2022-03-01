@@ -22,6 +22,10 @@ namespace Tecno_Pc.Formularios
         public frm_proveedores()
         {
             InitializeComponent();
+            this.toolTip1.SetToolTip(this.btn_contactos, "Gestionar Contactos");
+            this.toolTip1.SetToolTip(this.btn_reporte, "Crear Reporte");
+            this.toolTip1.SetToolTip(this.btn_nuevoUsuario, "Agregar Proveedor");
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
 
         }
 

@@ -22,6 +22,11 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            this.toolTip1.SetToolTip(this.btn_nuevoProducto, "Agregar Producto");
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
+            this.toolTip1.SetToolTip(this.btn_Imprimir, "Crear Reporte");
+            this.toolTip1.SetToolTip(this.btn_categorias, "Gestionar Categorias");
+            this.toolTip1.SetToolTip(this.btn_Marcas, "Gestionar Marcas");
         }
 
         private void frm_productos_Load(object sender, EventArgs e)

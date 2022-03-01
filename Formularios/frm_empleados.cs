@@ -20,6 +20,9 @@ namespace Tecno_Pc.Formularios
         public frm_empleados()
         {
             InitializeComponent();
+            this.toolTip1.SetToolTip(this.btn_nuevoUsuario, "Agregar Empleado");
+            this.toolTip1.SetToolTip(this.btn_reporte, "Crear Reporte");
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
         }
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)

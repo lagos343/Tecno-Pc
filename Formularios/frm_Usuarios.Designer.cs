@@ -29,11 +29,13 @@ namespace Tecno_Pc.Formularios
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.gunaPictureBox2 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_reporte = new Guna.UI.WinForms.GunaGradientButton();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -52,7 +54,7 @@ namespace Tecno_Pc.Formularios
             this.label9 = new System.Windows.Forms.Label();
             this.lbl_tipo = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
-            this.btn_reporte = new Guna.UI.WinForms.GunaGradientButton();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
@@ -109,6 +111,36 @@ namespace Tecno_Pc.Formularios
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1485, 868);
             this.panel5.TabIndex = 7;
+            // 
+            // btn_reporte
+            // 
+            this.btn_reporte.AnimationHoverSpeed = 0.07F;
+            this.btn_reporte.AnimationSpeed = 0.03F;
+            this.btn_reporte.BackColor = System.Drawing.Color.Transparent;
+            this.btn_reporte.BaseColor1 = System.Drawing.Color.Purple;
+            this.btn_reporte.BaseColor2 = System.Drawing.Color.Purple;
+            this.btn_reporte.BorderColor = System.Drawing.Color.Black;
+            this.btn_reporte.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_reporte.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_reporte.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_reporte.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_reporte.ForeColor = System.Drawing.Color.White;
+            this.btn_reporte.Image = null;
+            this.btn_reporte.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_reporte.Location = new System.Drawing.Point(1214, 358);
+            this.btn_reporte.Margin = new System.Windows.Forms.Padding(4);
+            this.btn_reporte.Name = "btn_reporte";
+            this.btn_reporte.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
+            this.btn_reporte.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
+            this.btn_reporte.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_reporte.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_reporte.OnHoverImage = null;
+            this.btn_reporte.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_reporte.Radius = 5;
+            this.btn_reporte.Size = new System.Drawing.Size(123, 39);
+            this.btn_reporte.TabIndex = 80;
+            this.btn_reporte.Text = "Reportes";
+            this.btn_reporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_buscar
             // 
@@ -374,36 +406,6 @@ namespace Tecno_Pc.Formularios
             this.label5.TabIndex = 0;
             this.label5.Text = "Rol";
             // 
-            // btn_reporte
-            // 
-            this.btn_reporte.AnimationHoverSpeed = 0.07F;
-            this.btn_reporte.AnimationSpeed = 0.03F;
-            this.btn_reporte.BackColor = System.Drawing.Color.Transparent;
-            this.btn_reporte.BaseColor1 = System.Drawing.Color.Purple;
-            this.btn_reporte.BaseColor2 = System.Drawing.Color.Purple;
-            this.btn_reporte.BorderColor = System.Drawing.Color.Black;
-            this.btn_reporte.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_reporte.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_reporte.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_reporte.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_reporte.ForeColor = System.Drawing.Color.White;
-            this.btn_reporte.Image = null;
-            this.btn_reporte.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_reporte.Location = new System.Drawing.Point(1214, 358);
-            this.btn_reporte.Margin = new System.Windows.Forms.Padding(4);
-            this.btn_reporte.Name = "btn_reporte";
-            this.btn_reporte.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
-            this.btn_reporte.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
-            this.btn_reporte.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_reporte.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_reporte.OnHoverImage = null;
-            this.btn_reporte.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_reporte.Radius = 5;
-            this.btn_reporte.Size = new System.Drawing.Size(123, 39);
-            this.btn_reporte.TabIndex = 80;
-            this.btn_reporte.Text = "Reportes";
-            this.btn_reporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // frm_Usuarios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -451,5 +453,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private Guna.UI.WinForms.GunaGradientButton btn_reporte;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

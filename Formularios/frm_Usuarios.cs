@@ -20,7 +20,11 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
         public frm_Usuarios()
         {
-            InitializeComponent();            
+            InitializeComponent();
+            this.toolTip1.SetToolTip(this.btn_reporte, "Crear Reporte");
+            this.toolTip1.SetToolTip(this.btn_nuevoUsuario, "Agregar Usuario");
+            this.toolTip1.SetToolTip(this.gunaGradientButton1, "Gestionar Cliente");
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
         }    
 
         public void carga()

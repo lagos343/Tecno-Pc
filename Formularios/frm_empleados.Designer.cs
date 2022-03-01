@@ -29,8 +29,9 @@ namespace Tecno_Pc.Formularios
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
@@ -56,6 +57,7 @@ namespace Tecno_Pc.Formularios
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_reporte = new Guna.UI.WinForms.GunaGradientButton();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
@@ -74,30 +76,30 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar,
             this.Eliminar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Productos.Location = new System.Drawing.Point(152, 411);
-            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_Productos.Margin = new System.Windows.Forms.Padding(4);
             this.dgv_Productos.Name = "dgv_Productos";
             this.dgv_Productos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Productos.RowHeadersVisible = false;
@@ -137,7 +139,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoUsuario.Image = null;
             this.btn_nuevoUsuario.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_nuevoUsuario.Location = new System.Drawing.Point(1079, 354);
-            this.btn_nuevoUsuario.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_nuevoUsuario.Margin = new System.Windows.Forms.Padding(4);
             this.btn_nuevoUsuario.Name = "btn_nuevoUsuario";
             this.btn_nuevoUsuario.OnHoverBaseColor1 = System.Drawing.Color.Teal;
             this.btn_nuevoUsuario.OnHoverBaseColor2 = System.Drawing.Color.Teal;
@@ -174,7 +176,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_buscar.Location = new System.Drawing.Point(203, 361);
-            this.txt_buscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_buscar.Margin = new System.Windows.Forms.Padding(4);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(413, 20);
             this.txt_buscar.TabIndex = 77;
@@ -185,7 +187,7 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
             this.pictureBox6.Location = new System.Drawing.Point(156, 352);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox6.Name = "pictureBox6";
             this.pictureBox6.Size = new System.Drawing.Size(40, 37);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -196,7 +198,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
             this.pictureBox5.Location = new System.Drawing.Point(152, 350);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox5.Name = "pictureBox5";
             this.pictureBox5.Size = new System.Drawing.Size(472, 42);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -208,7 +210,7 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox2.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox2.Image = global::Tecno_Pc.Properties.Resources.Empleado;
             this.gunaPictureBox2.Location = new System.Drawing.Point(249, 78);
-            this.gunaPictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPictureBox2.Margin = new System.Windows.Forms.Padding(4);
             this.gunaPictureBox2.Name = "gunaPictureBox2";
             this.gunaPictureBox2.Size = new System.Drawing.Size(244, 203);
             this.gunaPictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -343,7 +345,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.panel1.BackColor = System.Drawing.Color.Silver;
             this.panel1.Location = new System.Drawing.Point(123, 316);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(1200, 1);
             this.panel1.TabIndex = 91;
@@ -409,7 +411,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.dgv_Productos);
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frm_empleados";
             this.Text = "frm_empleados";
             this.Load += new System.EventHandler(this.frm_empleados_Load);
@@ -448,5 +450,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.Panel panel1;
         private Guna.UI.WinForms.GunaGradientButton btn_reporte;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

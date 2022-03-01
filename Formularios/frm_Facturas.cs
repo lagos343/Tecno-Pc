@@ -22,6 +22,8 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
+            this.toolTip1.SetToolTip(this.cbo_filtro, "Seleccionar Filtro de Busquedad");
         }
 
         private void frm_Facturas_Load(object sender, EventArgs e)

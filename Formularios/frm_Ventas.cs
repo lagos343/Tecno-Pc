@@ -18,6 +18,7 @@ namespace Tecno_Pc.Formularios
         public frm_Ventas()
         {
             InitializeComponent();
+            this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
         }
 
         private void frm_Ventas_Load(object sender, EventArgs e)
