@@ -23,11 +23,22 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();            
         }    
 
-        private void frm_Usuarios_Load(object sender, EventArgs e)
+        public void carga()
         {
             user.consultarDatos(dgv_Productos);
             operacionesdgv();
             usuarios();
+
+            foreach(DataGridViewColumn columna in dgv_Productos.Columns)
+            {
+                columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+            }
+
+        }
+
+        private void frm_Usuarios_Load(object sender, EventArgs e)
+        {
+            carga();
         }
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
@@ -64,35 +75,47 @@ namespace Tecno_Pc.Formularios
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
-            {
-                frm_AñadirUsuarios añaem = new frm_AñadirUsuarios(2, dgv_Productos);
-                añaem.ShowDialog();
-
-
-            }
-            else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
-            {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
-                noti.ShowDialog();
-
-                if (noti.Dialogresul == DialogResult.OK)
+            try {
+                if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
                 {
-                    user.Id_usuarios = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                    user.eliminar();
+                    frm_AñadirUsuarios añaem = new frm_AñadirUsuarios(2, dgv_Productos);
+                    añaem.ShowDialog();
+
+
                 }
+                else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
+                {
+                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
+                    noti.ShowDialog();
 
-                noti.Close();
-            }
-            else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre Usuario"].Selected)
-            {
-                lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
-                lbl_user.Text = dgv_Productos.CurrentRow.Cells[5].Value.ToString();
-                lbl_contra.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
-                lbl_propietario.Text = dgv_Productos.CurrentRow.Cells[8].Value.ToString();
-                lbl_tipo.Text = dgv_Productos.CurrentRow.Cells[9].Value.ToString();
+                    if (noti.Dialogresul == DialogResult.OK)
+                    {
+                        user.Id_usuarios = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        user.eliminar();
 
+                        #region limpieza
+                        lbl_id.Text = "";
+                        lbl_contra.Text = "";
+                        lbl_propietario.Text = "";
+                        lbl_tipo.Text = "";
+                        lbl_user.Text = "";
+                        #endregion
+                    }
+
+                    noti.Close();
+                }
+                else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre Usuario"].Selected)
+                {
+                    lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
+                    lbl_user.Text = dgv_Productos.CurrentRow.Cells[5].Value.ToString();
+                    lbl_contra.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
+                    lbl_propietario.Text = dgv_Productos.CurrentRow.Cells[8].Value.ToString();
+                    lbl_tipo.Text = dgv_Productos.CurrentRow.Cells[9].Value.ToString();
+
+                }
             }
+            catch(Exception ex) { }
+            
         }
 
 
@@ -111,6 +134,7 @@ namespace Tecno_Pc.Formularios
                 lbl_contra.Text = login.Contraseña_;
                 lbl_propietario.Text = login.Propietario_;
                 lbl_tipo.Text = login.Rol_;
+                btn_reporte.Hide();
             }
             if (login.IdRol_ == 3 || login.IdRol_ == 4)
             {

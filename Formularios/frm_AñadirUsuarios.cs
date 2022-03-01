@@ -74,6 +74,9 @@ namespace Tecno_Pc.Formularios
                 user.guardar();
                 limpiar();
             }
+
+            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
+            frm.carga();
         }
         private void actualiza_click(object sender, EventArgs e)
         {
@@ -94,6 +97,9 @@ namespace Tecno_Pc.Formularios
                 user.actualizarDatos();
                 this.Close();
             }
+            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
+            frm.carga();
+
         }
         public void limpiar()
         {
@@ -116,7 +122,9 @@ namespace Tecno_Pc.Formularios
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
+
             this.Close();
+
         }
     }
 }
