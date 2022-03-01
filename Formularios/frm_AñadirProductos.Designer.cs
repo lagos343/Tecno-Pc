@@ -432,6 +432,8 @@ namespace Tecno_Pc.Formularios
             // 
             // cbo_proveedor
             // 
+            this.cbo_proveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbo_proveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbo_proveedor.FormattingEnabled = true;
@@ -447,6 +449,8 @@ namespace Tecno_Pc.Formularios
             // 
             // cbo_categoria
             // 
+            this.cbo_categoria.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbo_categoria.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_categoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_categoria.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbo_categoria.FormattingEnabled = true;
@@ -462,6 +466,8 @@ namespace Tecno_Pc.Formularios
             // 
             // cbo_marca
             // 
+            this.cbo_marca.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.cbo_marca.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.cbo_marca.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_marca.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.cbo_marca.FormattingEnabled = true;
@@ -474,7 +480,6 @@ namespace Tecno_Pc.Formularios
             this.cbo_marca.Name = "cbo_marca";
             this.cbo_marca.Size = new System.Drawing.Size(233, 23);
             this.cbo_marca.TabIndex = 82;
-            this.cbo_marca.TextChanged += new System.EventHandler(this.cbo_marca_TextChanged);
             // 
             // frm_AñadirProductos
             // 

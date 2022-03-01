@@ -48,10 +48,12 @@ namespace Tecno_Pc.Formularios
             cboempleado.DataSource = sql.Consulta("select * from Empleados where Estado = 1 order by Nombre asc");
             cboempleado.DisplayMember = "Nombre";
             cboempleado.ValueMember = "ID Empleado";
+            cboempleado.SelectedIndex = -1;
 
             cborol.DataSource = sql.Consulta("select * from Roles order by [Nombre Rol] asc");
             cborol.DisplayMember = "Nombre Rol";
             cborol.ValueMember = "IDRol";
+            cborol.SelectedIndex = -1;
         }
 
         private void guarda_click(object sender, EventArgs e)

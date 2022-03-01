@@ -37,7 +37,6 @@ namespace Tecno_Pc.Formularios
             this.txt_email = new System.Windows.Forms.TextBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.cbo_depto = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.txt_telefono = new System.Windows.Forms.TextBox();
@@ -56,6 +55,7 @@ namespace Tecno_Pc.Formularios
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.cbo_depto = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -135,26 +135,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 131;
             this.pictureBox5.TabStop = false;
-            // 
-            // cbo_depto
-            // 
-            this.cbo_depto.BackColor = System.Drawing.Color.White;
-            this.cbo_depto.BaseColor = System.Drawing.Color.White;
-            this.cbo_depto.BorderColor = System.Drawing.Color.Transparent;
-            this.cbo_depto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cbo_depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbo_depto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbo_depto.FocusedColor = System.Drawing.Color.Empty;
-            this.cbo_depto.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cbo_depto.ForeColor = System.Drawing.Color.Black;
-            this.cbo_depto.FormattingEnabled = true;
-            this.cbo_depto.Location = new System.Drawing.Point(320, 248);
-            this.cbo_depto.Margin = new System.Windows.Forms.Padding(4);
-            this.cbo_depto.Name = "cbo_depto";
-            this.cbo_depto.OnHoverItemBaseColor = System.Drawing.Color.Blue;
-            this.cbo_depto.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbo_depto.Size = new System.Drawing.Size(227, 24);
-            this.cbo_depto.TabIndex = 130;
             // 
             // gunaLabel2
             // 
@@ -383,19 +363,31 @@ namespace Tecno_Pc.Formularios
             // 
             this.gunaElipse1.TargetControl = this;
             // 
+            // cbo_depto
+            // 
+            this.cbo_depto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbo_depto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbo_depto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbo_depto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_depto.FormattingEnabled = true;
+            this.cbo_depto.Location = new System.Drawing.Point(319, 248);
+            this.cbo_depto.Name = "cbo_depto";
+            this.cbo_depto.Size = new System.Drawing.Size(227, 23);
+            this.cbo_depto.TabIndex = 143;
+            // 
             // frm_AñadirProveedores
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(571, 376);
+            this.Controls.Add(this.cbo_depto);
             this.Controls.Add(this.txt_direccion);
             this.Controls.Add(this.gunaLabel9);
             this.Controls.Add(this.pictureBox9);
             this.Controls.Add(this.txt_email);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.pictureBox5);
-            this.Controls.Add(this.cbo_depto);
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.pictureBox3);
             this.Controls.Add(this.txt_telefono);
@@ -439,7 +431,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.TextBox txt_email;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private Guna.UI.WinForms.GunaComboBox cbo_depto;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.TextBox txt_telefono;
@@ -458,5 +449,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaPictureBox btn_salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.ComboBox cbo_depto;
     }
 }

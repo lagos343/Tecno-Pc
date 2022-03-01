@@ -64,10 +64,12 @@ namespace Tecno_Pc.Formularios
             cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [Nombre Puesto] asc");
             cbo_puesto.DisplayMember = "Nombre Puesto";
             cbo_puesto.ValueMember = "ID Puesto";
+            cbo_puesto.SelectedIndex = -1;
 
             cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [Nombre Depto] asc");
             cbo_depto.DisplayMember = "Nombre Depto";
             cbo_depto.ValueMember = "ID Depto";
+            cbo_depto.SelectedIndex = -1;
             
 
         }

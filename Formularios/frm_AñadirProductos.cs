@@ -70,21 +70,19 @@ namespace Tecno_Pc.Formularios
         {
             cbo_marca.DataSource = sql.Consulta("select *from Marcas order by [Nombre Marca] asc");
             cbo_marca.DisplayMember = "Nombre Marca";
-            cbo_marca.ValueMember = "ID Marca";          
+            cbo_marca.ValueMember = "ID Marca";
+            cbo_marca.SelectedIndex = -1;
 
             cbo_categoria.DataSource = sql.Consulta("select *from Categorias order by [Nombre Categoria] asc");
             cbo_categoria.DisplayMember = "Nombre Categoria";
             cbo_categoria.ValueMember = "ID Categoria";
+            cbo_categoria.SelectedIndex = -1;
 
             cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where Estado = 1 order by Nombre asc");
             cbo_proveedor.DisplayMember = "Nombre";
             cbo_proveedor.ValueMember = "ID Proveedor";
-        }
-
-        private void cbo_marca_TextChanged(object sender, EventArgs e)
-        {        
-            
-        }
+            cbo_proveedor.SelectedIndex = -1;
+        }        
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
@@ -178,6 +176,8 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        #endregion    
+        #endregion
+
+        
     }
 }

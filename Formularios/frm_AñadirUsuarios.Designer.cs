@@ -36,7 +36,6 @@ namespace Tecno_Pc.Formularios
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.cborol = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
@@ -51,8 +50,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.cboempleado = new Guna.UI.WinForms.GunaComboBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.cboempleado = new System.Windows.Forms.ComboBox();
+            this.cborol = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -126,25 +126,6 @@ namespace Tecno_Pc.Formularios
             this.panel1.Size = new System.Drawing.Size(567, 40);
             this.panel1.TabIndex = 2;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
-            // 
-            // cborol
-            // 
-            this.cborol.BackColor = System.Drawing.Color.White;
-            this.cborol.BaseColor = System.Drawing.Color.White;
-            this.cborol.BorderColor = System.Drawing.Color.Transparent;
-            this.cborol.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cborol.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cborol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cborol.FocusedColor = System.Drawing.Color.Empty;
-            this.cborol.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cborol.ForeColor = System.Drawing.Color.Black;
-            this.cborol.FormattingEnabled = true;
-            this.cborol.Location = new System.Drawing.Point(19, 241);
-            this.cborol.Name = "cborol";
-            this.cborol.OnHoverItemBaseColor = System.Drawing.Color.Blue;
-            this.cborol.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cborol.Size = new System.Drawing.Size(227, 24);
-            this.cborol.TabIndex = 81;
             // 
             // gunaLabel7
             // 
@@ -312,28 +293,33 @@ namespace Tecno_Pc.Formularios
             this.pictureBox2.TabIndex = 58;
             this.pictureBox2.TabStop = false;
             // 
-            // cboempleado
-            // 
-            this.cboempleado.BackColor = System.Drawing.Color.White;
-            this.cboempleado.BaseColor = System.Drawing.Color.White;
-            this.cboempleado.BorderColor = System.Drawing.Color.Transparent;
-            this.cboempleado.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cboempleado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboempleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cboempleado.FocusedColor = System.Drawing.Color.Empty;
-            this.cboempleado.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cboempleado.ForeColor = System.Drawing.Color.Black;
-            this.cboempleado.FormattingEnabled = true;
-            this.cboempleado.Location = new System.Drawing.Point(317, 167);
-            this.cboempleado.Name = "cboempleado";
-            this.cboempleado.OnHoverItemBaseColor = System.Drawing.Color.Blue;
-            this.cboempleado.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cboempleado.Size = new System.Drawing.Size(227, 24);
-            this.cboempleado.TabIndex = 84;
-            // 
             // gunaElipse1
             // 
             this.gunaElipse1.TargetControl = this;
+            // 
+            // cboempleado
+            // 
+            this.cboempleado.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cboempleado.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cboempleado.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cboempleado.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cboempleado.FormattingEnabled = true;
+            this.cboempleado.Location = new System.Drawing.Point(319, 167);
+            this.cboempleado.Name = "cboempleado";
+            this.cboempleado.Size = new System.Drawing.Size(227, 23);
+            this.cboempleado.TabIndex = 85;
+            // 
+            // cborol
+            // 
+            this.cborol.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cborol.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cborol.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cborol.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cborol.FormattingEnabled = true;
+            this.cborol.Location = new System.Drawing.Point(21, 241);
+            this.cborol.Name = "cborol";
+            this.cborol.Size = new System.Drawing.Size(227, 23);
+            this.cborol.TabIndex = 86;
             // 
             // frm_AñadirUsuarios
             // 
@@ -341,8 +327,8 @@ namespace Tecno_Pc.Formularios
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(567, 369);
-            this.Controls.Add(this.cboempleado);
             this.Controls.Add(this.cborol);
+            this.Controls.Add(this.cboempleado);
             this.Controls.Add(this.gunaLabel7);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.gunaLabel2);
@@ -384,7 +370,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaPictureBox btn_salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaComboBox cborol;
         private Guna.UI.WinForms.GunaLabel gunaLabel7;
         private System.Windows.Forms.PictureBox pictureBox6;
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
@@ -399,7 +384,8 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private Guna.UI.WinForms.GunaGradientButton btn_guardar;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Guna.UI.WinForms.GunaComboBox cboempleado;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.ComboBox cborol;
+        private System.Windows.Forms.ComboBox cboempleado;
     }
 }

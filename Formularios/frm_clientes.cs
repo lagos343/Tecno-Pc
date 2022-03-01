@@ -74,7 +74,8 @@ namespace Tecno_Pc.Formularios
         {
             cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [Nombre Depto] asc");
             cmb_Depto.DisplayMember = "Nombre Depto";
-            cmb_Depto.ValueMember = "ID Depto";           
+            cmb_Depto.ValueMember = "ID Depto";
+            cmb_Depto.SelectedIndex = -1;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)

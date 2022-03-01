@@ -69,11 +69,12 @@ namespace Tecno_Pc.Formularios
             cmb_depto.DataSource = sql.Consulta("select *from Departamentos order by [Nombre Depto] asc");
             cmb_depto.DisplayMember = "Nombre Depto";
             cmb_depto.ValueMember = "ID Depto";
+            cmb_depto.SelectedIndex = -1;
             
             cmb_proveedor.DataSource = sql.Consulta("select * from Proveedores order by [Nombre] asc");
             cmb_proveedor.DisplayMember = "Nombre";
             cmb_proveedor.ValueMember = "ID Proveedor";
-
+            cmb_proveedor.SelectedIndex = -1;
         }
 
         

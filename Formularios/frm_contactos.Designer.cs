@@ -46,7 +46,6 @@ namespace Tecno_Pc.Formularios
             this.picturenombre = new System.Windows.Forms.PictureBox();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
-            this.cmb_proveedor = new Guna.UI.WinForms.GunaComboBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -70,8 +69,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.cmb_depto = new Guna.UI.WinForms.GunaComboBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.cmb_depto = new System.Windows.Forms.ComboBox();
+            this.cmb_proveedor = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureemail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -240,24 +240,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 89;
             this.pictureBox4.TabStop = false;
-            // 
-            // cmb_proveedor
-            // 
-            this.cmb_proveedor.BackColor = System.Drawing.Color.Transparent;
-            this.cmb_proveedor.BaseColor = System.Drawing.Color.Transparent;
-            this.cmb_proveedor.BorderColor = System.Drawing.Color.Transparent;
-            this.cmb_proveedor.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmb_proveedor.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_proveedor.FocusedColor = System.Drawing.Color.Empty;
-            this.cmb_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmb_proveedor.ForeColor = System.Drawing.Color.Black;
-            this.cmb_proveedor.FormattingEnabled = true;
-            this.cmb_proveedor.Location = new System.Drawing.Point(907, 84);
-            this.cmb_proveedor.Name = "cmb_proveedor";
-            this.cmb_proveedor.OnHoverItemBaseColor = System.Drawing.Color.White;
-            this.cmb_proveedor.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmb_proveedor.Size = new System.Drawing.Size(131, 24);
-            this.cmb_proveedor.TabIndex = 87;
             // 
             // gunaLabel1
             // 
@@ -631,33 +613,40 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // cmb_depto
-            // 
-            this.cmb_depto.BackColor = System.Drawing.Color.Transparent;
-            this.cmb_depto.BaseColor = System.Drawing.Color.Transparent;
-            this.cmb_depto.BorderColor = System.Drawing.Color.Transparent;
-            this.cmb_depto.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawFixed;
-            this.cmb_depto.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmb_depto.FocusedColor = System.Drawing.Color.Empty;
-            this.cmb_depto.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.cmb_depto.ForeColor = System.Drawing.Color.Black;
-            this.cmb_depto.FormattingEnabled = true;
-            this.cmb_depto.Location = new System.Drawing.Point(758, 149);
-            this.cmb_depto.Name = "cmb_depto";
-            this.cmb_depto.OnHoverItemBaseColor = System.Drawing.Color.White;
-            this.cmb_depto.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cmb_depto.Size = new System.Drawing.Size(131, 24);
-            this.cmb_depto.TabIndex = 103;
-            // 
             // gunaElipse1
             // 
             this.gunaElipse1.TargetControl = this;
+            // 
+            // cmb_depto
+            // 
+            this.cmb_depto.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_depto.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_depto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_depto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_depto.FormattingEnabled = true;
+            this.cmb_depto.Location = new System.Drawing.Point(757, 149);
+            this.cmb_depto.Name = "cmb_depto";
+            this.cmb_depto.Size = new System.Drawing.Size(133, 23);
+            this.cmb_depto.TabIndex = 104;
+            // 
+            // cmb_proveedor
+            // 
+            this.cmb_proveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cmb_proveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cmb_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cmb_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmb_proveedor.FormattingEnabled = true;
+            this.cmb_proveedor.Location = new System.Drawing.Point(905, 85);
+            this.cmb_proveedor.Name = "cmb_proveedor";
+            this.cmb_proveedor.Size = new System.Drawing.Size(133, 23);
+            this.cmb_proveedor.TabIndex = 105;
             // 
             // frm_contactos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1053, 450);
+            this.Controls.Add(this.cmb_proveedor);
             this.Controls.Add(this.cmb_depto);
             this.Controls.Add(this.gunaLabel8);
             this.Controls.Add(this.txt_email);
@@ -673,7 +662,6 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.picturenombre);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.cmb_proveedor);
             this.Controls.Add(this.gunaLabel1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.pictureBox2);
@@ -736,7 +724,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox picturenombre;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
         private System.Windows.Forms.PictureBox pictureBox4;
-        private Guna.UI.WinForms.GunaComboBox cmb_proveedor;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
@@ -760,7 +747,8 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLabel lbl_titulo;
         private Guna.UI.WinForms.GunaPictureBox btn_salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
-        private Guna.UI.WinForms.GunaComboBox cmb_depto;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.ComboBox cmb_proveedor;
+        private System.Windows.Forms.ComboBox cmb_depto;
     }
 }
