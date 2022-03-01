@@ -27,6 +27,8 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
             toolTip1.SetToolTip(btn_LogOut, "Cerrar sesion");
+            toolTip1.SetToolTip(btn_cerrar, "Salir");
+            toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
