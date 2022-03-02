@@ -18,7 +18,7 @@ namespace Tecno_Pc.Clases
         private static string modelo;
         private static double precioUnitario;
         private static bool estado;
-
+        private static string codbarra;
 
         #region Encapsulamiento
 
@@ -30,13 +30,14 @@ namespace Tecno_Pc.Clases
         public string Modelo { get => modelo; set => modelo = value; }
         public double PrecioUnitario { get => precioUnitario; set => precioUnitario = value; }
         public bool Estado { get => estado; set => estado = value; }
+        public string Codbarra { get => codbarra; set => codbarra = value; }
 
         #endregion
 
         public void guardar()
         {
             string cadena;
-            cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+")";
+            cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
             sql.Sql_Querys(cadena, "Producto añadido con Exito", "Debe llenar todos los datos antes de añadir");
         }
 
@@ -54,7 +55,7 @@ namespace Tecno_Pc.Clases
         public void actualizarDatos()
         {
             sql.Sql_Querys("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
-                "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + " where [ID Producto] = " + iDProducto + "", 
+                "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + ", CodBarra = '"+codbarra+"' where [ID Producto] = " + iDProducto + "", 
                 "Producto actualizado con exito", "Error 504");
         }
 

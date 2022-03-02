@@ -33,6 +33,7 @@ namespace Tecno_Pc.Formularios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_principal));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.Panel_Slider = new Guna.UI.WinForms.GunaPanel();
+            this.btn_LogOut = new System.Windows.Forms.PictureBox();
             this.pic_flecha = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_nombreUsuario = new Guna.UI.WinForms.GunaLabel();
             this.gunaLinePanel2 = new Guna.UI.WinForms.GunaLinePanel();
@@ -49,12 +50,13 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_Header = new Guna.UI.WinForms.GunaPanel();
+            this.swt_codbar = new Guna.UI.WinForms.GunaGoogleSwitch();
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_cerrar = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
-            this.btn_LogOut = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Panel_Slider.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -62,7 +64,6 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -80,6 +81,7 @@ namespace Tecno_Pc.Formularios
             this.Panel_Slider.Controls.Add(this.gunaPictureBox2);
             this.Panel_Slider.Controls.Add(this.flowLayoutPanel1);
             this.Panel_Slider.Controls.Add(this.gunaLinePanel1);
+            this.Panel_Slider.Controls.Add(this.swt_codbar);
             this.Panel_Slider.Controls.Add(this.gunaLabel1);
             this.Panel_Slider.Controls.Add(this.gunaPictureBox1);
             this.Panel_Slider.Dock = System.Windows.Forms.DockStyle.Left;
@@ -87,6 +89,18 @@ namespace Tecno_Pc.Formularios
             this.Panel_Slider.Name = "Panel_Slider";
             this.Panel_Slider.Size = new System.Drawing.Size(186, 740);
             this.Panel_Slider.TabIndex = 1;
+            // 
+            // btn_LogOut
+            // 
+            this.btn_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_LogOut.Image = global::Tecno_Pc.Properties.Resources.cerrar;
+            this.btn_LogOut.Location = new System.Drawing.Point(152, 708);
+            this.btn_LogOut.Name = "btn_LogOut";
+            this.btn_LogOut.Size = new System.Drawing.Size(28, 24);
+            this.btn_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_LogOut.TabIndex = 8;
+            this.btn_LogOut.TabStop = false;
+            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
             // 
             // pic_flecha
             // 
@@ -373,6 +387,19 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.TabIndex = 2;
             this.panel_Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Header_MouseDown);
             // 
+            // swt_codbar
+            // 
+            this.swt_codbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.swt_codbar.BaseColor = System.Drawing.Color.Transparent;
+            this.swt_codbar.CheckedOffColor = System.Drawing.Color.White;
+            this.swt_codbar.CheckedOnColor = System.Drawing.Color.DimGray;
+            this.swt_codbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.swt_codbar.Location = new System.Drawing.Point(9, 709);
+            this.swt_codbar.Name = "swt_codbar";
+            this.swt_codbar.Size = new System.Drawing.Size(38, 20);
+            this.swt_codbar.TabIndex = 98;
+            this.swt_codbar.CheckedChanged += new System.EventHandler(this.swt_codbar_CheckedChanged);
+            // 
             // gunaPictureBox3
             // 
             this.gunaPictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Right;
@@ -410,18 +437,6 @@ namespace Tecno_Pc.Formularios
             this.panel_container.Size = new System.Drawing.Size(1114, 705);
             this.panel_container.TabIndex = 3;
             // 
-            // btn_LogOut
-            // 
-            this.btn_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_LogOut.Image = global::Tecno_Pc.Properties.Resources.cerrar;
-            this.btn_LogOut.Location = new System.Drawing.Point(152, 708);
-            this.btn_LogOut.Name = "btn_LogOut";
-            this.btn_LogOut.Size = new System.Drawing.Size(28, 24);
-            this.btn_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_LogOut.TabIndex = 8;
-            this.btn_LogOut.TabStop = false;
-            this.btn_LogOut.Click += new System.EventHandler(this.btn_LogOut_Click);
-            // 
             // frm_principal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -437,6 +452,7 @@ namespace Tecno_Pc.Formularios
             this.Text = "Tecno Pc";
             this.Load += new System.EventHandler(this.frm_principal_Load);
             this.Panel_Slider.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
@@ -444,7 +460,6 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_cerrar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -474,5 +489,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_proveedores;
         private System.Windows.Forms.PictureBox btn_LogOut;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Guna.UI.WinForms.GunaGoogleSwitch swt_codbar;
     }
 }

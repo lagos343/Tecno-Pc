@@ -65,6 +65,10 @@ namespace Tecno_Pc.Formularios
             this.cbo_proveedor = new System.Windows.Forms.ComboBox();
             this.cbo_categoria = new System.Windows.Forms.ComboBox();
             this.cbo_marca = new System.Windows.Forms.ComboBox();
+            this.pic_CodBar = new System.Windows.Forms.PictureBox();
+            this.txt_codBarra = new System.Windows.Forms.TextBox();
+            this.pictureBox10 = new System.Windows.Forms.PictureBox();
+            this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -77,6 +81,8 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_CodBar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -161,7 +167,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(12, 317);
+            this.btn_guardar.Location = new System.Drawing.Point(12, 389);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -170,10 +176,11 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnHoverImage = null;
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(543, 33);
+            this.btn_guardar.Size = new System.Drawing.Size(245, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // txt_id
             // 
@@ -481,12 +488,58 @@ namespace Tecno_Pc.Formularios
             this.cbo_marca.Size = new System.Drawing.Size(233, 23);
             this.cbo_marca.TabIndex = 82;
             // 
+            // pic_CodBar
+            // 
+            this.pic_CodBar.Location = new System.Drawing.Point(310, 321);
+            this.pic_CodBar.Name = "pic_CodBar";
+            this.pic_CodBar.Size = new System.Drawing.Size(245, 101);
+            this.pic_CodBar.TabIndex = 83;
+            this.pic_CodBar.TabStop = false;
+            // 
+            // txt_codBarra
+            // 
+            this.txt_codBarra.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_codBarra.CausesValidation = false;
+            this.txt_codBarra.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_codBarra.Location = new System.Drawing.Point(19, 328);
+            this.txt_codBarra.MaxLength = 12;
+            this.txt_codBarra.Name = "txt_codBarra";
+            this.txt_codBarra.Size = new System.Drawing.Size(227, 16);
+            this.txt_codBarra.TabIndex = 85;
+            this.txt_codBarra.TextChanged += new System.EventHandler(this.txt_codBarra_TextChanged);
+            this.txt_codBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codBarra_KeyPress);
+            // 
+            // pictureBox10
+            // 
+            this.pictureBox10.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox10.Location = new System.Drawing.Point(12, 321);
+            this.pictureBox10.Name = "pictureBox10";
+            this.pictureBox10.Size = new System.Drawing.Size(245, 31);
+            this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox10.TabIndex = 84;
+            this.pictureBox10.TabStop = false;
+            // 
+            // gunaLabel10
+            // 
+            this.gunaLabel10.AutoSize = true;
+            this.gunaLabel10.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel10.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel10.Location = new System.Drawing.Point(8, 303);
+            this.gunaLabel10.Name = "gunaLabel10";
+            this.gunaLabel10.Size = new System.Drawing.Size(52, 15);
+            this.gunaLabel10.TabIndex = 86;
+            this.gunaLabel10.Text = "CODIGO";
+            // 
             // frm_AñadirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(567, 370);
+            this.ClientSize = new System.Drawing.Size(567, 440);
+            this.Controls.Add(this.gunaLabel10);
+            this.Controls.Add(this.txt_codBarra);
+            this.Controls.Add(this.pictureBox10);
+            this.Controls.Add(this.pic_CodBar);
             this.Controls.Add(this.cbo_marca);
             this.Controls.Add(this.cbo_categoria);
             this.Controls.Add(this.cbo_proveedor);
@@ -535,6 +588,8 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pic_CodBar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -576,5 +631,9 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ComboBox cbo_marca;
         private System.Windows.Forms.ComboBox cbo_categoria;
         private System.Windows.Forms.ComboBox cbo_proveedor;
+        private Guna.UI.WinForms.GunaLabel gunaLabel10;
+        private System.Windows.Forms.TextBox txt_codBarra;
+        private System.Windows.Forms.PictureBox pictureBox10;
+        private System.Windows.Forms.PictureBox pic_CodBar;
     }
 }
