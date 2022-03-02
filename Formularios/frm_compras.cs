@@ -22,7 +22,7 @@ namespace Tecno_Pc.Formularios
             this.toolTip1.SetToolTip(this.btn_notificacion, "Productos por Comprar");
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
 
-            if (Properties.Settings.Default.CodBar == true)
+            if (Properties.Settings.Default.CodBar == "true")
             {
                 dgv_Productos.Enabled = false;
                 txt_cant.Enabled = false;
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
         {
             if (txt_buscar.Text != "")
             {
-                if (Properties.Settings.Default.CodBar == true)
+                if (Properties.Settings.Default.CodBar == "true")
                 {
                     dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
                     "from Productos p where Estado = 1 and CodBarra = '" + txt_buscar.Text + "' order by [Nombre Producto] asc");

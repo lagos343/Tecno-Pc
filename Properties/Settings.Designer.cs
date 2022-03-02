@@ -25,10 +25,10 @@ namespace Tecno_Pc.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("False")]
-        public bool CodBar {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CodBar {
             get {
-                return ((bool)(this["CodBar"]));
+                return ((string)(this["CodBar"]));
             }
             set {
                 this["CodBar"] = value;
