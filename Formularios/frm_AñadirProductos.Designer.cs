@@ -167,7 +167,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(12, 389);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 389);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnHoverImage = null;
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(245, 33);
+            this.btn_guardar.Size = new System.Drawing.Size(246, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
