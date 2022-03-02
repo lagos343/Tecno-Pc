@@ -47,10 +47,10 @@ namespace Tecno_Pc.Formularios
             this.btn_empleados = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_proveedores = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaLinePanel1 = new Guna.UI.WinForms.GunaLinePanel();
+            this.swt_codbar = new Guna.UI.WinForms.GunaGoogleSwitch();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_Header = new Guna.UI.WinForms.GunaPanel();
-            this.swt_codbar = new Guna.UI.WinForms.GunaGoogleSwitch();
             this.gunaPictureBox3 = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_cerrar = new Guna.UI.WinForms.GunaPictureBox();
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
@@ -352,6 +352,19 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel1.Size = new System.Drawing.Size(165, 1);
             this.gunaLinePanel1.TabIndex = 0;
             // 
+            // swt_codbar
+            // 
+            this.swt_codbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.swt_codbar.BaseColor = System.Drawing.Color.Transparent;
+            this.swt_codbar.CheckedOffColor = System.Drawing.Color.WhiteSmoke;
+            this.swt_codbar.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(195)))), ((int)(((byte)(140)))));
+            this.swt_codbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.swt_codbar.Location = new System.Drawing.Point(9, 709);
+            this.swt_codbar.Name = "swt_codbar";
+            this.swt_codbar.Size = new System.Drawing.Size(38, 20);
+            this.swt_codbar.TabIndex = 98;
+            this.swt_codbar.CheckedChanged += new System.EventHandler(this.swt_codbar_CheckedChanged);
+            // 
             // gunaLabel1
             // 
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
@@ -386,19 +399,6 @@ namespace Tecno_Pc.Formularios
             this.panel_Header.Size = new System.Drawing.Size(1114, 35);
             this.panel_Header.TabIndex = 2;
             this.panel_Header.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel_Header_MouseDown);
-            // 
-            // swt_codbar
-            // 
-            this.swt_codbar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
-            this.swt_codbar.BaseColor = System.Drawing.Color.Transparent;
-            this.swt_codbar.CheckedOffColor = System.Drawing.Color.White;
-            this.swt_codbar.CheckedOnColor = System.Drawing.Color.DimGray;
-            this.swt_codbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.swt_codbar.Location = new System.Drawing.Point(9, 709);
-            this.swt_codbar.Name = "swt_codbar";
-            this.swt_codbar.Size = new System.Drawing.Size(38, 20);
-            this.swt_codbar.TabIndex = 98;
-            this.swt_codbar.CheckedChanged += new System.EventHandler(this.swt_codbar_CheckedChanged);
             // 
             // gunaPictureBox3
             // 
