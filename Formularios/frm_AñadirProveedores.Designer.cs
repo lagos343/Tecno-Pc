@@ -56,6 +56,11 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.cbo_depto = new System.Windows.Forms.ComboBox();
+            this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_telefono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_correo = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_departamento = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -66,6 +71,11 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_correo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_departamento)).BeginInit();
             this.SuspendLayout();
             // 
             // txt_direccion
@@ -79,6 +89,7 @@ namespace Tecno_Pc.Formularios
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(227, 75);
             this.txt_direccion.TabIndex = 142;
+            this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
             // 
             // gunaLabel9
             // 
@@ -113,6 +124,7 @@ namespace Tecno_Pc.Formularios
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(227, 16);
             this.txt_email.TabIndex = 133;
+            this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // gunaLabel5
             // 
@@ -169,6 +181,7 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(227, 16);
             this.txt_telefono.TabIndex = 124;
+            this.txt_telefono.TextChanged += new System.EventHandler(this.txt_telefono_TextChanged);
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
             // gunaLabel4
@@ -204,6 +217,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 121;
+            this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaLabel1
@@ -375,6 +389,27 @@ namespace Tecno_Pc.Formularios
             this.cbo_depto.Name = "cbo_depto";
             this.cbo_depto.Size = new System.Drawing.Size(227, 23);
             this.cbo_depto.TabIndex = 143;
+            this.cbo_depto.SelectedIndexChanged += new System.EventHandler(this.cbo_depto_SelectedIndexChanged);
+            // 
+            // erp_nombre
+            // 
+            this.erp_nombre.ContainerControl = this;
+            // 
+            // erp_telefono
+            // 
+            this.erp_telefono.ContainerControl = this;
+            // 
+            // erp_correo
+            // 
+            this.erp_correo.ContainerControl = this;
+            // 
+            // erp_direccion
+            // 
+            this.erp_direccion.ContainerControl = this;
+            // 
+            // erp_departamento
+            // 
+            this.erp_departamento.ContainerControl = this;
             // 
             // frm_AñadirProveedores
             // 
@@ -419,6 +454,11 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_correo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_departamento)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -451,5 +491,10 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.ComboBox cbo_depto;
+        private System.Windows.Forms.ErrorProvider erp_nombre;
+        private System.Windows.Forms.ErrorProvider erp_telefono;
+        private System.Windows.Forms.ErrorProvider erp_correo;
+        private System.Windows.Forms.ErrorProvider erp_direccion;
+        private System.Windows.Forms.ErrorProvider erp_departamento;
     }
 }

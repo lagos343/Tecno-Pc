@@ -68,6 +68,8 @@ namespace Tecno_Pc.Formularios
             lbl_stock.Text = "";
             txt_buscar.Clear();
             txt_buscar.Focus();
+            erp_cant.Clear();
+            erp_dgvfactura.Clear();
         }
 
         private int buscarRepetidos(string id)
@@ -82,12 +84,7 @@ namespace Tecno_Pc.Formularios
             }
             return coin;
         }
-
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
+        
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgv_Productos.Rows[e.RowIndex].Cells["Añadir"].Selected)
@@ -120,8 +117,7 @@ namespace Tecno_Pc.Formularios
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
                 //dgv_Factura.Rows.Remove(fila);
-                dgv_Factura.Rows.Clear();
-                
+                dgv_Factura.Rows.Clear();                
             }
         }
 
@@ -132,6 +128,8 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Compra antes de guardar", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_dgvfactura.Clear();
+                erp_dgvfactura.SetError(dgv_Factura, "Agregue productos a la venta");
             }
             else
             {
@@ -221,6 +219,7 @@ namespace Tecno_Pc.Formularios
         private void btn_añadir_Click(object sender, EventArgs e)
         {
             int cant = 0;
+            erp_dgvfactura.Clear();
 
             if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
             {
@@ -239,12 +238,16 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad comprada", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "Indique la cantidad");
             }
             else if (int.Parse(txt_cant.Text) <= 0)
             {
                 frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "Indique una cantidad positiva");
             }
             else
             {
@@ -260,7 +263,7 @@ namespace Tecno_Pc.Formularios
                 dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
                 Operacionesdatagrid2();
                 LimpiarProductoSeleccionado();
-                txt_cant.Enabled = false;
+                //txt_cant.Enabled = false;
             }
         }
 
@@ -274,6 +277,10 @@ namespace Tecno_Pc.Formularios
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;
+            }
+            else
+            {
+                erp_cant.Clear();
             }
         }
     }

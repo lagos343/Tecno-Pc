@@ -89,7 +89,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
                 {
-                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
+                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este usuario?", 2);
                     noti.ShowDialog();
 
                     if (noti.Dialogresul == DialogResult.OK)

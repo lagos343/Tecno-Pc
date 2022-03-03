@@ -69,6 +69,14 @@ namespace Tecno_Pc.Formularios
             this.txt_codBarra = new System.Windows.Forms.TextBox();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
+            this.erp = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp2 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp3 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp4 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp5 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp6 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp7 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp8 = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -83,6 +91,14 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_CodBar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp8)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -224,6 +240,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 37;
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaLabel1
             // 
@@ -288,6 +305,7 @@ namespace Tecno_Pc.Formularios
             this.txt_modelo.Name = "txt_modelo";
             this.txt_modelo.Size = new System.Drawing.Size(227, 16);
             this.txt_modelo.TabIndex = 40;
+            this.txt_modelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_modelo_KeyPress);
             // 
             // gunaLabel4
             // 
@@ -338,7 +356,7 @@ namespace Tecno_Pc.Formularios
             this.txt_stock.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_stock.Location = new System.Drawing.Point(150, 211);
             this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(100, 16);
+            this.txt_stock.Size = new System.Drawing.Size(96, 16);
             this.txt_stock.TabIndex = 46;
             this.txt_stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_KeyPress);
             // 
@@ -451,8 +469,9 @@ namespace Tecno_Pc.Formularios
             "estas"});
             this.cbo_proveedor.Location = new System.Drawing.Point(316, 207);
             this.cbo_proveedor.Name = "cbo_proveedor";
-            this.cbo_proveedor.Size = new System.Drawing.Size(233, 23);
+            this.cbo_proveedor.Size = new System.Drawing.Size(228, 23);
             this.cbo_proveedor.TabIndex = 82;
+            this.cbo_proveedor.SelectedIndexChanged += new System.EventHandler(this.cbo_proveedor_SelectedIndexChanged);
             // 
             // cbo_categoria
             // 
@@ -468,8 +487,9 @@ namespace Tecno_Pc.Formularios
             "estas"});
             this.cbo_categoria.Location = new System.Drawing.Point(316, 268);
             this.cbo_categoria.Name = "cbo_categoria";
-            this.cbo_categoria.Size = new System.Drawing.Size(233, 23);
+            this.cbo_categoria.Size = new System.Drawing.Size(228, 23);
             this.cbo_categoria.TabIndex = 82;
+            this.cbo_categoria.SelectedIndexChanged += new System.EventHandler(this.cbo_categoria_SelectedIndexChanged);
             // 
             // cbo_marca
             // 
@@ -485,8 +505,9 @@ namespace Tecno_Pc.Formularios
             "estas"});
             this.cbo_marca.Location = new System.Drawing.Point(19, 268);
             this.cbo_marca.Name = "cbo_marca";
-            this.cbo_marca.Size = new System.Drawing.Size(233, 23);
+            this.cbo_marca.Size = new System.Drawing.Size(227, 23);
             this.cbo_marca.TabIndex = 82;
+            this.cbo_marca.SelectedIndexChanged += new System.EventHandler(this.cbo_marca_SelectedIndexChanged);
             // 
             // pic_CodBar
             // 
@@ -529,6 +550,38 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel10.Size = new System.Drawing.Size(52, 15);
             this.gunaLabel10.TabIndex = 86;
             this.gunaLabel10.Text = "CODIGO";
+            // 
+            // erp
+            // 
+            this.erp.ContainerControl = this;
+            // 
+            // erp2
+            // 
+            this.erp2.ContainerControl = this;
+            // 
+            // erp3
+            // 
+            this.erp3.ContainerControl = this;
+            // 
+            // erp4
+            // 
+            this.erp4.ContainerControl = this;
+            // 
+            // erp5
+            // 
+            this.erp5.ContainerControl = this;
+            // 
+            // erp6
+            // 
+            this.erp6.ContainerControl = this;
+            // 
+            // erp7
+            // 
+            this.erp7.ContainerControl = this;
+            // 
+            // erp8
+            // 
+            this.erp8.ContainerControl = this;
             // 
             // frm_AñadirProductos
             // 
@@ -590,6 +643,14 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_CodBar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp8)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -635,5 +696,13 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.TextBox txt_codBarra;
         private System.Windows.Forms.PictureBox pictureBox10;
         private System.Windows.Forms.PictureBox pic_CodBar;
+        private System.Windows.Forms.ErrorProvider erp;
+        private System.Windows.Forms.ErrorProvider erp2;
+        private System.Windows.Forms.ErrorProvider erp3;
+        private System.Windows.Forms.ErrorProvider erp4;
+        private System.Windows.Forms.ErrorProvider erp5;
+        private System.Windows.Forms.ErrorProvider erp6;
+        private System.Windows.Forms.ErrorProvider erp7;
+        private System.Windows.Forms.ErrorProvider erp8;
     }
 }

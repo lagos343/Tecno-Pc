@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using Microsoft.Office.Interop.Excel;
 using objExcel = Microsoft.Office.Interop.Excel;
+using System.Text.RegularExpressions;
 
 namespace Tecno_Pc.Formularios
 {
@@ -75,6 +76,13 @@ namespace Tecno_Pc.Formularios
             txt_Email.Clear();
             txt_Direccion.Clear();
             actualizar = false;
+            erp_apellido.Clear();
+            erp_depto.Clear();
+            erp_direccion.Clear();
+            erp_email.Clear();
+            erp_identidad.Clear();
+            erp_nombre.Clear();
+            erp_telefono.Clear();            
         }
 
         public void operacionesDataGrid()
@@ -102,17 +110,15 @@ namespace Tecno_Pc.Formularios
         {
 
             if (cmb_Depto.SelectedIndex == -1 || txt_Ident.Text == "" || txt_Nombre.Text == "" || txt_Apell.Text == "" || txt_Tel.Text == "" || txt_Email.Text == "" ||
-                txt_Direccion.Text == "")
+                txt_Direccion.Text == "" || ValidarEmail(txt_Email.Text) == false)
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
+                escoger_erp();
             }
             else
             {
-
-
-
                 if (actualizar == true)
                 {
                     cli.IDCliente = int.Parse(txt_id.Text.ToString());
@@ -137,13 +143,87 @@ namespace Tecno_Pc.Formularios
                     cli.guardar();
                 }
 
-
                 btn_guardar.Text = "Guardar";
                 dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
                 operacionesDataGrid();
                 Limnpiado();
             }
         }
+
+        private void escoger_erp()
+        {
+            if (cmb_Depto.SelectedIndex == -1)
+            {
+                erp_depto.Clear();
+                erp_depto.SetError(cmb_Depto, "No puede quedar vacio");
+            }
+
+            if (txt_Ident.Text == "")
+            {
+                erp_identidad.Clear();
+                erp_identidad.SetError(txt_Ident, "No puede quedar vacio");
+            }
+
+            if (txt_Nombre.Text == "")
+            {
+                erp_nombre.Clear();
+                erp_nombre.SetError(txt_Nombre, "No puede quedar vacio");
+            }
+
+            if (txt_Apell.Text == "")
+            {
+                erp_apellido.Clear();
+                erp_apellido.SetError(txt_Apell, "No puede quedar vacio");
+            }
+
+            if (txt_Tel.Text == "")
+            {
+                erp_telefono.Clear();
+                erp_telefono.SetError(txt_Tel, "No puede quedar vacio");
+            }
+
+            if (txt_Email.Text == "")
+            {
+                erp_email.Clear();
+                erp_email.SetError(txt_Email, "No puede quedar vacio");
+            }
+            else
+            {
+                if (ValidarEmail(txt_Email.Text) == false)
+                {
+                    erp_email.Clear();
+                    erp_email.SetError(txt_Email, "solo emails validos: Example@dominio.algo");
+                }
+            }
+
+            if (txt_Direccion.Text == "")
+            {
+                erp_direccion.Clear();
+                erp_direccion.SetError(txt_Direccion, "No puede quedar vacio");
+            }
+        }
+
+        public static bool ValidarEmail(string comprobarEmail)
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(comprobarEmail, emailFormato))
+            {
+                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
+
 
         private void frm_clientes_Load(object sender, EventArgs e)
         {
@@ -179,10 +259,26 @@ namespace Tecno_Pc.Formularios
 
         private void btn_eliminar_Click(object sender, EventArgs e)
         {
-            cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-            cli.eliminarDatos();
-            dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
-            operacionesDataGrid();
+            if(dgv_datos.CurrentRow != null)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este cliente?", 2);
+                noti.ShowDialog();
+
+                if (noti.Dialogresul == DialogResult.OK)
+                {
+                    noti.Close();
+                    cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
+                    cli.eliminarDatos();
+                    dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                    operacionesDataGrid();
+                }                
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Debe selecionar algo antes de eliminar", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }            
         }
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -332,10 +428,75 @@ namespace Tecno_Pc.Formularios
 
         }
 
+        #region keypress              
 
+        private void txt_Ident_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txt_Nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txt_Apell_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsLetter(e.KeyChar)) && (e.KeyChar != (char)Keys.Back) && (e.KeyChar != (char)Keys.Space))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void txt_Tel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                e.Handled = true;
+            }
+        }
 
+        private void cmb_Depto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_depto.Clear();
+        }
+
+        private void txt_Ident_TextChanged(object sender, EventArgs e)
+        {
+            erp_identidad.Clear();
+        }
+
+        private void txt_Nombre_TextChanged(object sender, EventArgs e)
+        {
+            erp_nombre.Clear();
+        }
+
+        private void txt_Apell_TextChanged(object sender, EventArgs e)
+        {
+            erp_apellido.Clear();
+        }
+
+        private void txt_Tel_TextChanged(object sender, EventArgs e)
+        {
+            erp_telefono.Clear();
+        }
+
+        private void txt_Email_TextChanged(object sender, EventArgs e)
+        {
+            erp_email.Clear();
+        }
+
+        private void txt_Direccion_TextChanged(object sender, EventArgs e)
+        {
+            erp_direccion.Clear();
+        }
+
+        #endregion
     }
 }
