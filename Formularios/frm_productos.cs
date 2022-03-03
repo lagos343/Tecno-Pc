@@ -188,9 +188,9 @@ namespace Tecno_Pc.Formularios
 
             //definicion de los valores de la Cabevcera
             objHoja.Cells[5, 3] = "Producto";
-            objHoja.Cells[5, 4] = "Modelo";
             objHoja.Cells[5, 5] = "Precio";
             objHoja.Cells[5, 6] = "Categoria";
+            objHoja.Cells[5, 4] = "Modelo";
             objHoja.Cells[5, 7] = "Marca";
             objHoja.Cells[5, 8] = "Proveedor";
             objHoja.Cells[5, 9] = "Stock";
