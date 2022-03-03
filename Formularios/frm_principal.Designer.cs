@@ -197,7 +197,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Facturas.FocusedColor = System.Drawing.Color.Empty;
             this.btn_Facturas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_Facturas.ForeColor = System.Drawing.Color.White;
-            this.btn_Facturas.Image = global::Tecno_Pc.Properties.Resources.Clientes_Gris1;
+            this.btn_Facturas.Image = global::Tecno_Pc.Properties.Resources.Ventas_Gris1;
             this.btn_Facturas.ImageSize = new System.Drawing.Size(20, 20);
             this.btn_Facturas.Location = new System.Drawing.Point(3, 51);
             this.btn_Facturas.Name = "btn_Facturas";
@@ -205,7 +205,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Facturas.OnHoverBaseColor2 = System.Drawing.Color.Transparent;
             this.btn_Facturas.OnHoverBorderColor = System.Drawing.Color.Transparent;
             this.btn_Facturas.OnHoverForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(195)))), ((int)(((byte)(140)))));
-            this.btn_Facturas.OnHoverImage = global::Tecno_Pc.Properties.Resources.Clientes_Verde;
+            this.btn_Facturas.OnHoverImage = global::Tecno_Pc.Properties.Resources.Ventas_Verde;
             this.btn_Facturas.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_Facturas.Size = new System.Drawing.Size(171, 42);
             this.btn_Facturas.TabIndex = 4;
@@ -358,6 +358,7 @@ namespace Tecno_Pc.Formularios
             this.swt_codbar.BaseColor = System.Drawing.Color.Transparent;
             this.swt_codbar.CheckedOffColor = System.Drawing.Color.WhiteSmoke;
             this.swt_codbar.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(195)))), ((int)(((byte)(140)))));
+            this.swt_codbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swt_codbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.swt_codbar.Location = new System.Drawing.Point(9, 709);
             this.swt_codbar.Name = "swt_codbar";

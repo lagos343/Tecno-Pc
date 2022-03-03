@@ -100,8 +100,8 @@ namespace Tecno_Pc
             if(user.ObtenerDatos(lnk_Re_usu_contra) == true)
             {
                 this.Hide();
-                txt_userName.Text = "Usuario";
-                txt_pasword.Text = "Contraseña";
+                txt_userName.Text = "Lagos343";
+                txt_pasword.Text = "Manino10";
                 chk_paswordChar.Checked = false;
                 txt_pasword.UseSystemPasswordChar = true;
                 Formularios.frm_principal prin = new Formularios.frm_principal();
