@@ -44,6 +44,7 @@ namespace Tecno_Pc.Clases
         public void consultarDatos(DataGridView dgv)
         {
             dgv.DataSource = sql.Consulta(" select c.[ID Cliente] as ID,c.Nombre ,c.Apellido,c.Identidad,c.Telefono,c.Direccion,c.[Correo Electronico],d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1");
+       
         }
 
         public void buscarDatos(DataGridView dgv)

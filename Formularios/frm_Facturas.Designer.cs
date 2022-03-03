@@ -190,6 +190,10 @@ namespace Tecno_Pc.Formularios
             this.Mostrar.ReadOnly = true;
             this.Mostrar.Width = 50;
             // 
+            // saveFileDialog1
+            // 
+            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
+            // 
             // frm_Facturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);

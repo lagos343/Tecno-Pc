@@ -30,8 +30,8 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_clientes));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -73,6 +73,8 @@ namespace Tecno_Pc.Formularios
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.cmb_Depto = new System.Windows.Forms.ComboBox();
+            this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
@@ -279,25 +281,25 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_datos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_datos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.dgv_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle4;
             this.dgv_datos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_datos.Location = new System.Drawing.Point(25, 107);
             this.dgv_datos.Name = "dgv_datos";
@@ -466,7 +468,6 @@ namespace Tecno_Pc.Formularios
             this.txt_Ident.Name = "txt_Ident";
             this.txt_Ident.Size = new System.Drawing.Size(126, 16);
             this.txt_Ident.TabIndex = 55;
-            this.txt_Ident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Ident_KeyPress);
             // 
             // pictureBox4
             // 
@@ -499,7 +500,6 @@ namespace Tecno_Pc.Formularios
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_Nombre.TabIndex = 58;
-            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // pictureBox7
             // 
@@ -532,7 +532,6 @@ namespace Tecno_Pc.Formularios
             this.txt_Tel.Name = "txt_Tel";
             this.txt_Tel.Size = new System.Drawing.Size(126, 16);
             this.txt_Tel.TabIndex = 64;
-            this.txt_Tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tel_KeyPress);
             // 
             // pictureBox8
             // 
@@ -565,7 +564,6 @@ namespace Tecno_Pc.Formularios
             this.txt_Apell.Name = "txt_Apell";
             this.txt_Apell.Size = new System.Drawing.Size(126, 16);
             this.txt_Apell.TabIndex = 61;
-            this.txt_Apell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Apell_KeyPress);
             // 
             // pictureBox9
             // 
@@ -637,6 +635,7 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.TabIndex = 42;
             this.btn_imprimir.Text = "IMPRIMIR - EXPORTAR";
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // cmb_Depto
             // 
@@ -759,5 +758,7 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaPictureBox btn_salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.ComboBox cmb_Depto;
+        private System.Windows.Forms.ToolTip ttMensaje;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
     }
 }
