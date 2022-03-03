@@ -16,18 +16,24 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_Productos productos = new Clases.Cl_Productos();
 
 
-
         public frm_compras()
         {
             InitializeComponent();
             this.toolTip1.SetToolTip(this.btn_notificacion, "Productos por Comprar");
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
+
+            if (Properties.Settings.Default.CodBar == "true")
+            {
+                dgv_Productos.Enabled = false;
+                txt_cant.Enabled = false;
+            }
         }
 
         private void frm_compras_Load(object sender, EventArgs e)
         {
             productos.consultarDatos(dgv_Productos);
             Operacionesdatagrid1();
+            txt_buscar.Focus();
         }
 
         private void Operacionesdatagrid1()
@@ -38,6 +44,7 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[4].Visible = false;
             dgv_Productos.Columns[6].Visible = false;
             dgv_Productos.Columns[8].Visible = false;
+            dgv_Productos.Columns[9].Visible = false;
             dgv_Productos.Columns[0].Width = 50;
 
             dgv_Productos.Columns[5].HeaderText = "Producto";
@@ -59,6 +66,8 @@ namespace Tecno_Pc.Formularios
             lbl_precio.Text = "";
             lbl_producto.Text = "";
             lbl_stock.Text = "";
+            txt_buscar.Clear();
+            txt_buscar.Focus();
         }
 
         private int buscarRepetidos(string id)
@@ -87,7 +96,7 @@ namespace Tecno_Pc.Formularios
                 lbl_Id.Text = dgv_Productos.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[7].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[5].Value.ToString();
-                lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[9].Value.ToString();
+                lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[10].Value.ToString();
             }
         }
 
@@ -96,8 +105,7 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Factura.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
-                dgv_Factura.Rows.RemoveAt(e.RowIndex);
-            
+                dgv_Factura.Rows.RemoveAt(e.RowIndex);            
             }
 
             //lbl_TotalVenta.Text = calcularTotaleventa().ToString();
@@ -166,9 +174,48 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged_1(object sender, EventArgs e)
         {
-            productos.NombreProducto = txt_buscar.Text;
-            productos.buscarDatos(dgv_Productos);
-            Operacionesdatagrid1();
+            if (txt_buscar.Text != "")
+            {
+                if (Properties.Settings.Default.CodBar == "true")
+                {
+                    dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
+                    "from Productos p where Estado = 1 and CodBarra = '" + txt_buscar.Text + "' order by [Nombre Producto] asc");
+                    Operacionesdatagrid1();
+
+                    if (txt_buscar.Text.Length == 12)
+                    {
+                        if (dgv_Productos.Rows.Count != 0)
+                        {                            
+                            lbl_Id.Text = dgv_Productos.Rows[0].Cells[1].Value.ToString();
+                            lbl_precio.Text = dgv_Productos.Rows[0].Cells[7].Value.ToString();
+                            lbl_producto.Text = dgv_Productos.Rows[0].Cells[5].Value.ToString() + " " + dgv_Productos.Rows[0].Cells[6].Value.ToString();
+                            lbl_stock.Text = dgv_Productos.Rows[0].Cells[10].Value.ToString();
+                            txt_cant.Enabled = true;
+                            txt_cant.Focus();
+                        }
+                        else
+                        {
+                            frm_notificacion noti = new frm_notificacion("No se encontro el Producto", 3);
+                            noti.ShowDialog();
+                            noti.Close();
+                            LimpiarProductoSeleccionado();
+                        }
+                    }
+                }
+                else
+                {
+                    productos.NombreProducto = txt_buscar.Text;
+                    productos.buscarDatos(dgv_Productos);
+                    Operacionesdatagrid1();
+                }
+            }
+            else
+            {
+                productos.NombreProducto = txt_buscar.Text;
+                productos.buscarDatos(dgv_Productos);
+                Operacionesdatagrid1();
+            }
+            
         }
 
         private void btn_añadir_Click(object sender, EventArgs e)
@@ -209,10 +256,11 @@ namespace Tecno_Pc.Formularios
                     }
                 }
 
-                double total = double.Parse(txt_cant.Text) * double.Parse(lbl_precio.Text);
+                double total = cant * double.Parse(lbl_precio.Text);
                 dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
                 Operacionesdatagrid2();
                 LimpiarProductoSeleccionado();
+                txt_cant.Enabled = false;
             }
         }
 

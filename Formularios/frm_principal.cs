@@ -29,6 +29,13 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(btn_LogOut, "Cerrar sesion");
             toolTip1.SetToolTip(btn_cerrar, "Salir");
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
+            toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");                      
+
+            if (Properties.Settings.Default.CodBar == "")
+            {
+                Properties.Settings.Default.CodBar = "false";
+                Properties.Settings.Default.Save();
+            }           
         }
 
         private void btn_cerrar_Click(object sender, EventArgs e)
@@ -144,7 +151,16 @@ namespace Tecno_Pc.Formularios
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            carga();                             
+            carga();
+
+            if (Properties.Settings.Default.CodBar == "true")
+            {
+                swt_codbar.Checked = true;
+            }
+            else
+            {
+                swt_codbar.Checked = false;
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -191,6 +207,32 @@ namespace Tecno_Pc.Formularios
                 frm.Show();
                 this.Close();
             }                       
+        }
+
+        private void swt_codbar_CheckedChanged(object sender, EventArgs e)
+        {
+            if (swt_codbar.Checked == true)
+            {
+                Properties.Settings.Default.CodBar = "true";
+                Properties.Settings.Default.Save();
+            }
+            else
+            {
+                Properties.Settings.Default.CodBar = "false";
+                Properties.Settings.Default.Save();
+            }
+
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_Ventas);
+            if (frm != null)
+            {
+                btn_ventas.PerformClick();
+            }
+
+            Form frm2 = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_compras);
+            if (frm2 != null)
+            {
+                btn_compras.PerformClick();
+            }
         }
     }
 }

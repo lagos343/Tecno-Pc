@@ -59,6 +59,7 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[4].Visible = false;
             dgv_Productos.Columns[5].Visible = false;
             dgv_Productos.Columns[9].Visible = false;
+            dgv_Productos.Columns[10].Visible = false;
 
             dgv_Productos.Columns[0].Width = 50;
             dgv_Productos.Columns[1].Width = 50;            
@@ -163,7 +164,7 @@ namespace Tecno_Pc.Formularios
 
             //Carga de los Productos
             detalles = sql.Consulta("select p.[Nombre Producto], p.Modelo, p.[Precio Unitario], c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
-                "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p " +
+                "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, '-'+CodBarra+'-' from Productos p " +
                 "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
                 "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1");
 
@@ -193,6 +194,7 @@ namespace Tecno_Pc.Formularios
             objHoja.Cells[5, 7] = "Marca";
             objHoja.Cells[5, 8] = "Proveedor";
             objHoja.Cells[5, 9] = "Stock";
+            objHoja.Cells[5, 10] = "Codigo de Barras";
 
 
             //Titulo
@@ -205,7 +207,7 @@ namespace Tecno_Pc.Formularios
             objHoja.Cells[3, 3] = "Reporte de Inventarios de Productos";
             objHoja.Cells[3, 3].Font.Size = 11;
 
-            objHoja.Cells[2, 9] = DateTime.Now.ToShortDateString();
+            objHoja.Cells[2, 10] = DateTime.Now.ToShortDateString();
 
 
             //creacion de la hoja de calculo                   
@@ -224,16 +226,16 @@ namespace Tecno_Pc.Formularios
             }
 
             //creacion de la cabecera
-            rango = objHoja.Range["C5", "I5"];
+            rango = objHoja.Range["C5", "J5"];
             rango.Style = "EstiloCabecera";
             rango.Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
             rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
 
 
             //Fecha
-            objHoja.Cells[2, 8] = "Fecha:";
-            objHoja.Cells[2, 8].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
-            objHoja.Cells[2, 8].Font.Bold = true;         
+            objHoja.Cells[2, 9] = "Fecha:";
+            objHoja.Cells[2, 9].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[2, 9].Font.Bold = true;         
             
             objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira 
 

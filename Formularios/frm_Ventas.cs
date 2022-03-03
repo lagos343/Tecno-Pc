@@ -19,6 +19,13 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
+
+            if (Properties.Settings.Default.CodBar == "true")
+            {
+                dgv_Productos.Enabled = false;                
+                txt_cant.Enabled = false;
+                btn_añadir.Enabled = false;
+            }
         }
 
         private void frm_Ventas_Load(object sender, EventArgs e)
@@ -27,6 +34,7 @@ namespace Tecno_Pc.Formularios
                 "from Productos p where Estado = 1 order by [Nombre Producto] asc");
             Operacionesdatagrid1();
             InicializarCombobox();
+            txt_buscar.Focus();
         }
 
         private void InicializarCombobox()
@@ -50,6 +58,7 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[3].Visible = false;
             dgv_Productos.Columns[4].Visible = false;
             dgv_Productos.Columns[8].Visible = false;
+            dgv_Productos.Columns[9].Visible = false;
 
             dgv_Productos.Columns[0].Width = 30;
             dgv_Productos.Columns[5].Width = 190;           
@@ -71,6 +80,8 @@ namespace Tecno_Pc.Formularios
             lbl_precio.Text = "";
             lbl_producto.Text = "";
             lbl_stock.Text = "";
+            txt_buscar.Clear();
+            txt_buscar.Focus();
         }
 
         private int buscarRepetidos(string id)
@@ -154,7 +165,7 @@ namespace Tecno_Pc.Formularios
                     }
                 }
 
-                total = double.Parse(txt_cant.Text) * double.Parse(lbl_precio.Text);
+                total = cant * double.Parse(lbl_precio.Text);
                 dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
 
                 lbl_TotalVenta.Text = calcularTotaleventa().ToString();
@@ -275,15 +286,54 @@ namespace Tecno_Pc.Formularios
                 lbl_Id.Text = dgv_Productos.Rows[e.RowIndex].Cells[1].Value.ToString();
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[7].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[5].Value.ToString() + " " + dgv_Productos.Rows[e.RowIndex].Cells[6].Value.ToString();
-                lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[9].Value.ToString();
+                lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[10].Value.ToString();
             }
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                "from Productos p where Estado = 1 and [Nombre Producto] LIKE '%"+txt_buscar.Text+"%' order by [Nombre Producto] asc");
-            Operacionesdatagrid1();
+            if (txt_buscar.Text != "")
+            {
+                if (Properties.Settings.Default.CodBar == "true")
+                {
+                    dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
+                    "from Productos p where Estado = 1 and CodBarra = '" + txt_buscar.Text + "' order by [Nombre Producto] asc");
+                    Operacionesdatagrid1();
+
+                    if (txt_buscar.Text.Length == 12)
+                    {
+                        if (dgv_Productos.Rows.Count != 0)
+                        {
+                            txt_cant.Text = "1";
+                            lbl_Id.Text = dgv_Productos.Rows[0].Cells[1].Value.ToString();
+                            lbl_precio.Text = dgv_Productos.Rows[0].Cells[7].Value.ToString();
+                            lbl_producto.Text = dgv_Productos.Rows[0].Cells[5].Value.ToString() + " " + dgv_Productos.Rows[0].Cells[6].Value.ToString();
+                            lbl_stock.Text = dgv_Productos.Rows[0].Cells[10].Value.ToString();
+                            btn_añadir.PerformClick();                            
+                        }
+                        else
+                        {
+                            frm_notificacion noti = new frm_notificacion("No se encontro el Producto", 3);
+                            noti.ShowDialog();
+                            noti.Close();
+                            LimpiarProductoSeleccionado();
+                        }
+                    }
+                }
+                else
+                {
+                    dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
+                    "from Productos p where Estado = 1 and [Nombre Producto] LIKE '%" + txt_buscar.Text + "%' order by [Nombre Producto] asc");
+                    Operacionesdatagrid1();
+                }
+            }
+            else
+            {
+                dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
+                    "from Productos p where Estado = 1 and [Nombre Producto] LIKE '%" + txt_buscar.Text + "%' order by [Nombre Producto] asc");
+                Operacionesdatagrid1();
+            }           
+            
         }
 
         private void dgv_Factura_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -299,6 +349,11 @@ namespace Tecno_Pc.Formularios
         private void num_ISV_ValueChanged(object sender, EventArgs e)
         {
             lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+        }
+
+        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            
         }
     }
 }

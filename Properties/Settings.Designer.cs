@@ -22,5 +22,17 @@ namespace Tecno_Pc.Properties {
                 return defaultInstance;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CodBar {
+            get {
+                return ((string)(this["CodBar"]));
+            }
+            set {
+                this["CodBar"] = value;
+            }
+        }
     }
 }
