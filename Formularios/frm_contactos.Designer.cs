@@ -30,7 +30,7 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_contactos));
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.txt_email = new System.Windows.Forms.TextBox();
@@ -72,6 +72,7 @@ namespace Tecno_Pc.Formularios
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.cmb_depto = new System.Windows.Forms.ComboBox();
             this.cmb_proveedor = new System.Windows.Forms.ComboBox();
+            this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.erp_porveedor = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_depto = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
@@ -520,15 +521,15 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_datos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_datos.Location = new System.Drawing.Point(25, 106);
             this.dgv_datos.Name = "dgv_datos";
@@ -662,6 +663,10 @@ namespace Tecno_Pc.Formularios
             this.cmb_proveedor.Size = new System.Drawing.Size(130, 23);
             this.cmb_proveedor.TabIndex = 105;
             this.cmb_proveedor.SelectedIndexChanged += new System.EventHandler(this.cmb_proveedor_SelectedIndexChanged);
+            // 
+            // saveFileDialog1
+            // 
+        //this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
             // 
             // erp_porveedor
             // 
@@ -807,6 +812,7 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.ComboBox cmb_proveedor;
         private System.Windows.Forms.ComboBox cmb_depto;
+        private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.ErrorProvider erp_porveedor;
         private System.Windows.Forms.ErrorProvider erp_depto;
         private System.Windows.Forms.ErrorProvider erp_nombre;
