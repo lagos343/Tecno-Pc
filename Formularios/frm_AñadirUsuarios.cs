@@ -63,6 +63,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
                 noti.Close();
+                escoger_erp();
             }
             else
             {
@@ -78,6 +79,34 @@ namespace Tecno_Pc.Formularios
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
             frm.carga();
         }
+
+        private void escoger_erp() 
+        {
+            if (txt_pass.Text == "")
+            {
+                erp_contra.Clear();
+                erp_contra.SetError(txt_pass, "No puede quedar vacio");
+            }   
+
+            if (txt_usuario.Text == "")
+            {
+                erp_usuario.Clear();
+                erp_usuario.SetError(txt_usuario, "No puede quedar vacio");
+            }
+
+            if (cboempleado.SelectedIndex == -1)
+            {
+                erp_empleado.Clear();
+                erp_empleado.SetError(cboempleado, "No puede quedar vacio");
+            }
+
+            if (cborol.SelectedIndex == -1)
+            {
+                erp_rol.Clear();
+                erp_rol.SetError(cborol, "No puede quedar vacio");
+            }
+        }
+
         private void actualiza_click(object sender, EventArgs e)
         {
             if (txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
@@ -85,6 +114,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
                 noti.ShowDialog();
                 noti.Close();
+                escoger_erp();
             }
             else
             {
@@ -126,5 +156,29 @@ namespace Tecno_Pc.Formularios
             this.Close();
 
         }
+
+        #region keypress
+
+        private void txt_usuario_TextChanged(object sender, EventArgs e)
+        {
+            erp_usuario.Clear();
+        }
+
+        private void txt_pass_TextChanged(object sender, EventArgs e)
+        {
+            erp_contra.Clear();
+        }
+
+        private void cboempleado_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_empleado.Clear();
+        }
+
+        private void cborol_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_rol.Clear();
+        }
+
+        #endregion
     }
 }

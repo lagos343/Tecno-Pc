@@ -89,7 +89,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
                 {
-                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
+                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este usuario?", 2);
                     noti.ShowDialog();
 
                     if (noti.Dialogresul == DialogResult.OK)
@@ -135,7 +135,7 @@ namespace Tecno_Pc.Formularios
                 pictureBox6.Hide();
                 lbl_id.Text = login.IdRol_.ToString();
                 lbl_user.Text = login.Usuario_;
-                lbl_contra.Text = login.Contraseña_;
+                lbl_contra.Text = login.Contraseña_.Substring(0, 2)+"**********";
                 lbl_propietario.Text = login.Propietario_;
                 lbl_tipo.Text = login.Rol_;
                 btn_reporte.Hide();

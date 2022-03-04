@@ -96,6 +96,7 @@ namespace Tecno_Pc.Formularios
             txt_buscar.Clear();
             txt_buscar.Focus();
             editar = false;
+            erp_nombre.Clear();
         }        
 
         private void btn_excel_Click(object sender, EventArgs e)
@@ -145,6 +146,8 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_nombre.Clear();
+                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
             }
             else
             {
@@ -199,6 +202,8 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_nombre.Clear();
+                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
             }
             else
             {
@@ -247,6 +252,7 @@ namespace Tecno_Pc.Formularios
         #endregion
 
         #region Notificacion Compra
+
         private void btn_hecho_Click(object sender, EventArgs e)
         {
             if (editar == true)
@@ -310,22 +316,11 @@ namespace Tecno_Pc.Formularios
             dgv_datos.Columns[4].Visible = false;
 
         }
-        #endregion
+        #endregion        
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
-
+            erp_nombre.Clear();
         }
-
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgv_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
     }
 }

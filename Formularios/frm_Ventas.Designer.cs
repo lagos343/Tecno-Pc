@@ -91,6 +91,10 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.erp_cant = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_tipopagos = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_cliente = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_dgvfactura = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
@@ -106,6 +110,10 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_dgvfactura)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -448,6 +456,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_cliente.Name = "cbo_cliente";
             this.cbo_cliente.Size = new System.Drawing.Size(233, 23);
             this.cbo_cliente.TabIndex = 82;
+            this.cbo_cliente.SelectedIndexChanged += new System.EventHandler(this.cbo_cliente_SelectedIndexChanged);
             // 
             // cbo_tipoPago
             // 
@@ -465,6 +474,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_tipoPago.Name = "cbo_tipoPago";
             this.cbo_tipoPago.Size = new System.Drawing.Size(233, 23);
             this.cbo_tipoPago.TabIndex = 81;
+            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);
             this.cbo_tipoPago.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
             // 
             // pictureBox11
@@ -534,7 +544,7 @@ namespace Tecno_Pc.Formularios
             this.btn_añadir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
             this.btn_añadir.ForeColor = System.Drawing.Color.White;
             this.btn_añadir.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
-            this.btn_añadir.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_añadir.ImageSize = new System.Drawing.Size(15, 15);
             this.btn_añadir.Location = new System.Drawing.Point(32, 626);
             this.btn_añadir.Name = "btn_añadir";
             this.btn_añadir.OnHoverBaseColor1 = System.Drawing.Color.Teal;
@@ -918,6 +928,22 @@ namespace Tecno_Pc.Formularios
             this.pictureBox4.TabIndex = 86;
             this.pictureBox4.TabStop = false;
             // 
+            // erp_cant
+            // 
+            this.erp_cant.ContainerControl = this;
+            // 
+            // erp_tipopagos
+            // 
+            this.erp_tipopagos.ContainerControl = this;
+            // 
+            // erp_cliente
+            // 
+            this.erp_cliente.ContainerControl = this;
+            // 
+            // erp_dgvfactura
+            // 
+            this.erp_dgvfactura.ContainerControl = this;
+            // 
             // frm_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -945,6 +971,10 @@ namespace Tecno_Pc.Formularios
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_dgvfactura)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1009,5 +1039,9 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
         private Guna.UI.WinForms.GunaLabel gunaLabel15;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider erp_cant;
+        private System.Windows.Forms.ErrorProvider erp_tipopagos;
+        private System.Windows.Forms.ErrorProvider erp_cliente;
+        private System.Windows.Forms.ErrorProvider erp_dgvfactura;
     }
 }
