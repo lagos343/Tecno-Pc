@@ -135,7 +135,7 @@ namespace Tecno_Pc.Formularios
                 pictureBox6.Hide();
                 lbl_id.Text = login.IdRol_.ToString();
                 lbl_user.Text = login.Usuario_;
-                lbl_contra.Text = login.Contraseña_;
+                lbl_contra.Text = login.Contraseña_.Substring(0, 2)+"**********";
                 lbl_propietario.Text = login.Propietario_;
                 lbl_tipo.Text = login.Rol_;
                 btn_reporte.Hide();
