@@ -112,10 +112,9 @@ namespace Tecno_Pc.Formularios
                 {
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
                     lbl_user.Text = dgv_Productos.CurrentRow.Cells[5].Value.ToString();
-                    lbl_contra.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
+                    lbl_contra.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString().Substring(0, 2) + "**********"; 
                     lbl_propietario.Text = dgv_Productos.CurrentRow.Cells[8].Value.ToString();
                     lbl_tipo.Text = dgv_Productos.CurrentRow.Cells[9].Value.ToString();
-
                 }
             }
             catch(Exception ex) { }
