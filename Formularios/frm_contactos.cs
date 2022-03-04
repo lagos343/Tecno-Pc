@@ -47,7 +47,7 @@ namespace Tecno_Pc.Formularios
         {
 
         }
-        private void Limnpiado()
+       
 
         
         private void Limnpiado()
@@ -92,8 +92,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        private void frm_contactos_Load(object sender, EventArgs e)
-                
+          
         private void frm_contactos_Load(object sender, EventArgs e)
         {
             dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
@@ -356,12 +355,6 @@ namespace Tecno_Pc.Formularios
         {
             erp_direccion.Clear();
         }
-
-        private void btn_imprimir_Click(object sender, EventArgs e)
-        {
-
-        }
-
 
         #endregion
 
