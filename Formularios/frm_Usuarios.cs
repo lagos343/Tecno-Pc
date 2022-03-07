@@ -249,8 +249,6 @@ namespace Tecno_Pc.Formularios
                 noti2.ShowDialog();
                 noti2.Close();
             }
-
-
         }
     }
 }
