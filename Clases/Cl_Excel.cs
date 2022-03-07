@@ -63,15 +63,12 @@ namespace Tecno_Pc.Clases
             objHoja.Cells[2, 3].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
             objHoja.Cells[2, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].LineStyle = objExcel.XlLineStyle.xlContinuous;
             objHoja.Cells[2, 3].Borders[objExcel.XlBordersIndex.xlEdgeBottom].Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Gray);
-
             objHoja.Cells[3, 3] = titulo;
             objHoja.Cells[3, 3].Font.Size = 11;
 
             //Fecha
             i = detalles.Columns.Count;
-            objHoja.Cells[2, i + 2] = "Fecha: " + DateTime.Now.ToShortDateString();
-            objHoja.Cells[2, i + 2].HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
-            objHoja.Cells[2, i + 2].Font.Bold = true;
+            objHoja.Cells[2, i + 2] = "Fecha: " + DateTime.Now.ToShortDateString();            
 
             //creacion de la hoja de calculo                   
             for (i = 0; i < detalles.Columns.Count; i++)
@@ -89,11 +86,12 @@ namespace Tecno_Pc.Clases
             }
 
             //creacion de la cabecera
+            objHoja.Cells[2, i + 2].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
+            objHoja.Cells[2, i + 2].Font.Bold = true;
             rango = objHoja.Range[rangocabecera.Substring(0, 2), rangocabecera.Substring(3, 2)];
             rango.Style = "EstiloCabecera";
             rango.Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
-            rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;
-            
+            rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;            
 
             objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira 
 
@@ -102,17 +100,12 @@ namespace Tecno_Pc.Clases
             {
                 objLibro.SaveAs(ruta);
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Ocurrio un error al modificar el archivo, en su lugar se creo uno nuevo", 3);
                 noti2.ShowDialog();
                 noti2.Close();
-            }
-
-            //objLibro.Close();
-            //objAplicacion.Quit();
-
+            }      
         }
-
     }
 }
