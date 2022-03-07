@@ -8,9 +8,8 @@ using Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_Excel
+    class Cl_Excel: Cl_SqlMaestra
     {
-        Clases.Cl_SqlMaestra sql = new Cl_SqlMaestra();
         private string consulta;
         private string ruta;
         private string[] cabecera;
@@ -32,7 +31,7 @@ namespace Tecno_Pc.Clases
             int i = 0, j = 0;
 
             //Carga de los Productos
-            detalles = sql.Consulta(consulta);
+            detalles = Consulta(consulta);
 
             //Llamado a la api de Excle y declaracion de las variables pertinentes            
             objExcel.Application objAplicacion = new objExcel.Application();

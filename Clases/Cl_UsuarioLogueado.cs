@@ -9,9 +9,8 @@ using Guna.UI.WinForms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_UsuarioLogueado
+    class Cl_UsuarioLogueado: Cl_SqlMaestra
     {
-        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         DataTable datos;
         private ErrorProvider erp_usu;
         private ErrorProvider erp_contra;
@@ -52,7 +51,7 @@ namespace Tecno_Pc.Clases
             string cadena;
             cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], u.Clave, (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
                 "r.[Nombre Rol] from Usuarios u inner join Roles r on u.[ID Rol] = r.IDRol inner join Empleados e on u.[ID Empleado] = e.[ID Empleado] where [Nombre Usuario] = '"+usuario_+"'";
-            datos = sql.Consulta(cadena);
+            datos = Consulta(cadena);
 
             try
             {

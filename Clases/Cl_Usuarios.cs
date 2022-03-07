@@ -7,16 +7,14 @@ using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_Usuarios
+    class Cl_Usuarios: Cl_SqlMaestra
     {
-        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         private static int id_usuarios;
         private static int id_rol;
         private static int id_empleado;
         private static string nombre_usuario;
         private static string clave;
         private static bool estado;
-
 
         #region encapsulamiento
         
@@ -28,38 +26,34 @@ namespace Tecno_Pc.Clases
         public  bool Estado { get => estado; set => estado = value; }
         #endregion
 
-
-
-
-
-
         public void guardar()
         {
-            sql.Sql_Querys("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+"', '"+Clave+"', "+ Convert.ToInt32(estado) + ")",
+            Sql_Querys("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+"', '"+Clave+"', "+ Convert.ToInt32(estado) + ")",
                 "Usuario añadido con exito", "Debe llenar todos los datos antes de añadir");
         }
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) as Empleado, " +
+            dgv.DataSource = Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) as Empleado, " +
                 "(select [Nombre Rol]  from Roles where Roles .IDRol = Usuarios .[ID Rol] ) as Rol  from Usuarios where Estado = 1 order by [Nombre Usuario] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) as Empleado, (select [Nombre Rol]  from Roles where Roles .IDRol = Usuarios .[ID Rol] ) " +
+            dgv.DataSource = Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) " +
+                "as Empleado, (select [Nombre Rol]  from Roles where Roles .IDRol = Usuarios .[ID Rol] ) " +
                 "as Rol  from Usuarios where Estado = 1 and [Nombre Usuario] like '%"+nombre_usuario+"%' order by [Nombre Usuario] asc");
         }
 
         public void actualizarDatos()
         {
-            sql.Sql_Querys("update Usuarios set [ID Rol] = "+id_rol+", [ID Empleado] = "+Id_empleado+", " +
+            Sql_Querys("update Usuarios set [ID Rol] = "+id_rol+", [ID Empleado] = "+Id_empleado+", " +
                 "[Nombre Usuario] = '"+nombre_usuario+"', Clave = '"+Clave+"' where [ID Usuario] = "+id_usuarios, 
                 "Usuario actualizado con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void eliminar()
         {
-            sql.Sql_Querys("update Usuarios set Estado = 0 where [ID Usuario] ="+id_usuarios);
+            Sql_Querys("update Usuarios set Estado = 0 where [ID Usuario] ="+id_usuarios);
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
             frm.carga();
         }

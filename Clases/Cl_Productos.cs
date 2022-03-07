@@ -7,9 +7,8 @@ using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_Productos
-    {
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+    class Cl_Productos: Cl_SqlMaestra
+    {        
         private static int iDProducto;
         private static int iDCategoria;
         private static int iDMarca;
@@ -38,31 +37,30 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
-            sql.Sql_Querys(cadena, "Producto añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Producto añadido con Exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 order by [Nombre Producto] asc");
+            dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 order by [Nombre Producto] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 and [Nombre Producto] " +
+            dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 and [Nombre Producto] " +
                 "Like '%" + nombreProducto + "%' order by [Nombre Producto] asc");
         }
 
         public void actualizarDatos()
         {
-            sql.Sql_Querys("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
+            Sql_Querys("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
                 "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + ", CodBarra = '"+codbarra+"' where [ID Producto] = " + iDProducto + "", 
                 "Producto actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
         {
-            sql.Sql_Querys("Update Productos set Estado = 0 where [ID Producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");
-            //sql.Sql_Querys("delete from Inventarios where [ID Producto] = " + iDProducto);
+            Sql_Querys("Update Productos set Estado = 0 where [ID Producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
         }
     }
 }

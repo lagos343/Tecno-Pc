@@ -52,8 +52,6 @@ namespace Tecno_Pc.Clases
                 noti.ShowDialog();
                 noti.Close();
             }
-
-        }
-        
+        }        
     }
 }
