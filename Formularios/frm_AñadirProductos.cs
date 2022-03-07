@@ -20,8 +20,7 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         Clases.Cl_Productos prod = new Clases.Cl_Productos(); 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();        
 
         public frm_AñadirProductos(int estado, DataGridView dat)
         {
@@ -31,7 +30,6 @@ namespace Tecno_Pc.Formularios
                 lbl_titulo.Text = "NUEVO PRODUCTO";
                 btn_guardar.Click += btn_guardarGuardado_Click;
                 InicializarCombobox();
-
             }
             else if (estado == 2)
             {
@@ -64,12 +62,7 @@ namespace Tecno_Pc.Formularios
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void frm_AñadirProductos_Load(object sender, EventArgs e)
-        {
-            
-        }
+        }        
 
         public void InicializarCombobox()
         {
@@ -102,7 +95,6 @@ namespace Tecno_Pc.Formularios
             else
             {
                 DataTable datos = new DataTable();
-
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
                     "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
 
@@ -196,24 +188,12 @@ namespace Tecno_Pc.Formularios
             else
             {
                 DataTable datos = new DataTable();
-
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
                     "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
 
                 if (datos.Rows.Count == 0)
                 {
-                    prod.IDProducto = int.Parse(txt_id.Text);
-                    prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                    prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                    prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                    prod.NombreProducto = txt_nombre.Text;
-                    prod.Modelo = txt_modelo.Text;
-                    prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                    prod.Estado = swt_estado.Checked;
-                    prod.Codbarra = txt_codBarra.Text;
-                    prod.actualizarDatos();
-                    sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
-                    this.Close();
+                    actualizar();
                 }
                 else
                 {
@@ -222,18 +202,7 @@ namespace Tecno_Pc.Formularios
 
                     if (codbar == txt_codBarra.Text)
                     {
-                        prod.IDProducto = int.Parse(txt_id.Text);
-                        prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                        prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                        prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                        prod.NombreProducto = txt_nombre.Text;
-                        prod.Modelo = txt_modelo.Text;
-                        prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                        prod.Estado = swt_estado.Checked;
-                        prod.Codbarra = txt_codBarra.Text;
-                        prod.actualizarDatos();
-                        sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
-                        this.Close();
+                        actualizar();
                     }
                     else
                     {
@@ -246,6 +215,22 @@ namespace Tecno_Pc.Formularios
 
             Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
             frm.Dashboard();
+        }
+
+        private void actualizar()
+        {
+            prod.IDProducto = int.Parse(txt_id.Text);
+            prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+            prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+            prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+            prod.NombreProducto = txt_nombre.Text;
+            prod.Modelo = txt_modelo.Text;
+            prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+            prod.Estado = swt_estado.Checked;
+            prod.Codbarra = txt_codBarra.Text;
+            prod.actualizarDatos();
+            sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
+            this.Close();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -266,7 +251,6 @@ namespace Tecno_Pc.Formularios
             cbo_marca.SelectedIndex = -1;
             cbo_proveedor.SelectedIndex = -1;
         }
-
 
         #region KeyPress        
 
@@ -356,12 +340,6 @@ namespace Tecno_Pc.Formularios
                 cod.IncludeLabel = true;
                 pic_CodBar.Image = cod.Encode(BarcodeLib.TYPE.CODE128, txt_codBarra.Text, Color.Black, Color.FromArgb(224, 224, 224), 245, 101);
             } 
-        }
-
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-
-        }
-                
+        }                       
     }
 }

@@ -195,8 +195,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.Size = new System.Drawing.Size(246, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;            
             // 
             // txt_id
             // 
@@ -626,8 +625,7 @@ namespace Tecno_Pc.Formularios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Añadir Productos";
-            this.Load += new System.EventHandler(this.frm_AñadirProductos_Load);
+            this.Text = "Añadir Productos";            
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();

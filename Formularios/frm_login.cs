@@ -44,9 +44,7 @@ namespace Tecno_Pc
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txt_pasword.UseSystemPasswordChar = true;
-            //txt_userName.Text = "admin";
-            //txt_pasword.Text = "admonuser1";
+            txt_pasword.UseSystemPasswordChar = true;            
         }
 
         #region Eventos Enter y Leave de los textbox               

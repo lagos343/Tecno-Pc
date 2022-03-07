@@ -54,7 +54,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
-            this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -360,37 +359,6 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_nombre.ContainerControl = this;
             // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.AnimationHoverSpeed = 0.07F;
-            this.btn_imprimir.AnimationSpeed = 0.03F;
-            this.btn_imprimir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.BorderColor = System.Drawing.Color.Black;
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Tecno_Pc.Properties.Resources.Imprimir;
-            this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(572, 61);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.OnHoverImage = null;
-            this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.Radius = 3;
-            this.btn_imprimir.Size = new System.Drawing.Size(290, 32);
-            this.btn_imprimir.TabIndex = 22;
-            this.btn_imprimir.Text = "Reporte";
-            this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_imprimir.Visible = false;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
             // frm_MarcasCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -405,7 +373,6 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.btn_editar);
             this.Controls.Add(this.btn_nuevo);
             this.Controls.Add(this.dgv_datos);
@@ -419,7 +386,6 @@ namespace Tecno_Pc.Formularios
             this.Name = "frm_MarcasCategorias";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_MarcasCategorias";
-            this.Load += new System.EventHandler(this.frm_MarcasCategorias_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
@@ -460,6 +426,5 @@ namespace Tecno_Pc.Formularios
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private Guna.UI.WinForms.GunaPictureBox btn_minimizar;
         private System.Windows.Forms.ErrorProvider erp_nombre;
-        private Guna.UI.WinForms.GunaGradientButton btn_imprimir;
     }
 }
