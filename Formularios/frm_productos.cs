@@ -171,8 +171,6 @@ namespace Tecno_Pc.Formularios
                 dgv_Productos.Columns[1].Visible = false;
                 btn_Marcas.Hide();
                 btn_categorias.Hide();
-
-
             }
         }
     }
