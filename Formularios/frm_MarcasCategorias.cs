@@ -254,8 +254,7 @@ namespace Tecno_Pc.Formularios
             gunaLabel3.Text = "Descripcion";
             btn_guardar.Text = "HECHO";
             this.Text = "PRODUCTOS POR COMPRAR";
-            btn_editar.Hide();
-            btn_imprimir.Hide();
+            btn_editar.Hide();            
 
             txt_nombre.Enabled = false;
             editar = false;
