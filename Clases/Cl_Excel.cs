@@ -10,14 +10,14 @@ namespace Tecno_Pc.Clases
 {
     class Cl_Excel: Cl_SqlMaestra
     {
-        private string consulta;
+        private string cadena_consulta;
         private string ruta;
         private string[] cabecera;
         private string titulo;
         private string rangocabecera;
 
         #region Encapsulamiento
-        public string Consulta { get => consulta; set => consulta = value; }
+        public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }
         public string Ruta { get => ruta; set => ruta = value; }
         public string[] Cabecera { get => cabecera; set => cabecera = value; }
         public string Titulo { get => titulo; set => titulo = value; }
@@ -31,7 +31,7 @@ namespace Tecno_Pc.Clases
             int i = 0, j = 0;
 
             //Carga de los Productos
-            detalles = Consulta(consulta);
+            detalles = Consulta(cadena_consulta);
 
             //Llamado a la api de Excle y declaracion de las variables pertinentes            
             objExcel.Application objAplicacion = new objExcel.Application();

@@ -172,7 +172,7 @@ namespace Tecno_Pc.Formularios
 
         public void excelProveedores()
         {
-            excel.Consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
+            excel.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
                 " Proveedores INNER JOIN  Departamentos ON Proveedores.[ID Depto] = Departamentos.[ID Depto]" +
                 " WHERE Proveedores.Estado = 1 ORDER BY Nombre asc";
             excel.Ruta = saveFileDialog1.FileName;

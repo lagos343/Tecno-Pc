@@ -150,7 +150,7 @@ namespace Tecno_Pc.Formularios
 
         private void excelProductos()
         {
-            ex.Consulta = "select p.[Nombre Producto], p.Modelo, p.[Precio Unitario], c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
+            ex.Cadena_consulta = "select p.[Nombre Producto], p.Modelo, p.[Precio Unitario], c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
                 "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, '-'+CodBarra+'-' from Productos p " +
                 "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
                 "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1";

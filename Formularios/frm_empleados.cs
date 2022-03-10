@@ -146,7 +146,7 @@ namespace Tecno_Pc.Formularios
 
         public void excelEmpleados()
         {
-            excel.Consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], '-'+Empleados.Identidad+'-' [Identidad], Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
+            excel.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], '-'+Empleados.Identidad+'-' [Identidad], Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
                 " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC";
             excel.Ruta = saveFileDialog1.FileName;
             excel.Cabecera = new string[6] { "Empleado" , "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
