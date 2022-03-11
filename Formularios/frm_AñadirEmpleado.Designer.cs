@@ -200,7 +200,6 @@ namespace Tecno_Pc.Formularios
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(567, 40);
             this.panel1.TabIndex = 85;
-            this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
             // btn_minimizar
@@ -458,7 +457,6 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.TabIndex = 86;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // pictureBox2
             // 

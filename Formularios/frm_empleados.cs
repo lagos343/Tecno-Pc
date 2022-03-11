@@ -105,6 +105,7 @@ namespace Tecno_Pc.Formularios
                         lbl_puesto.Text = lbl_email.Text = "";
                         lbl_email.Text = "";
                         lbl_email.Text = "";
+                        lbl_telefono.Text = "";
                         #endregion
                     }
 
