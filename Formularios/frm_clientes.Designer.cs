@@ -75,6 +75,13 @@ namespace Tecno_Pc.Formularios
             this.cmb_Depto = new System.Windows.Forms.ComboBox();
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
+            this.erp_depto = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_identidad = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_apellido = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_telefono = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_email = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
@@ -90,6 +97,13 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_identidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_apellido)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_email)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -163,7 +177,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
-            this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_guardar.ImageSize = new System.Drawing.Size(15, 15);
             this.btn_guardar.Location = new System.Drawing.Point(525, 407);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
@@ -193,7 +207,7 @@ namespace Tecno_Pc.Formularios
             this.btn_eliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_eliminar.ForeColor = System.Drawing.Color.White;
             this.btn_eliminar.Image = global::Tecno_Pc.Properties.Resources.Eliminar;
-            this.btn_eliminar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_eliminar.ImageSize = new System.Drawing.Size(15, 15);
             this.btn_eliminar.Location = new System.Drawing.Point(332, 407);
             this.btn_eliminar.Name = "btn_eliminar";
             this.btn_eliminar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
@@ -223,7 +237,7 @@ namespace Tecno_Pc.Formularios
             this.btn_editar.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_editar.ForeColor = System.Drawing.Color.White;
             this.btn_editar.Image = global::Tecno_Pc.Properties.Resources.Editar;
-            this.btn_editar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_editar.ImageSize = new System.Drawing.Size(15, 15);
             this.btn_editar.Location = new System.Drawing.Point(179, 407);
             this.btn_editar.Name = "btn_editar";
             this.btn_editar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
@@ -253,7 +267,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_nuevo.ForeColor = System.Drawing.Color.White;
             this.btn_nuevo.Image = global::Tecno_Pc.Properties.Resources.Nuevo;
-            this.btn_nuevo.ImageSize = new System.Drawing.Size(25, 25);
+            this.btn_nuevo.ImageSize = new System.Drawing.Size(15, 15);
             this.btn_nuevo.Location = new System.Drawing.Point(25, 407);
             this.btn_nuevo.Name = "btn_nuevo";
             this.btn_nuevo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
@@ -412,8 +426,9 @@ namespace Tecno_Pc.Formularios
             this.txt_Direccion.Location = new System.Drawing.Point(760, 346);
             this.txt_Direccion.Multiline = true;
             this.txt_Direccion.Name = "txt_Direccion";
-            this.txt_Direccion.Size = new System.Drawing.Size(271, 78);
+            this.txt_Direccion.Size = new System.Drawing.Size(273, 78);
             this.txt_Direccion.TabIndex = 48;
+            this.txt_Direccion.TextChanged += new System.EventHandler(this.txt_Direccion_TextChanged);
             // 
             // gunaLabel1
             // 
@@ -468,6 +483,8 @@ namespace Tecno_Pc.Formularios
             this.txt_Ident.Name = "txt_Ident";
             this.txt_Ident.Size = new System.Drawing.Size(126, 16);
             this.txt_Ident.TabIndex = 55;
+            this.txt_Ident.TextChanged += new System.EventHandler(this.txt_Ident_TextChanged);
+            this.txt_Ident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Ident_KeyPress);
             // 
             // pictureBox4
             // 
@@ -500,6 +517,8 @@ namespace Tecno_Pc.Formularios
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_Nombre.TabIndex = 58;
+            this.txt_Nombre.TextChanged += new System.EventHandler(this.txt_Nombre_TextChanged);
+            this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
             // pictureBox7
             // 
@@ -532,6 +551,8 @@ namespace Tecno_Pc.Formularios
             this.txt_Tel.Name = "txt_Tel";
             this.txt_Tel.Size = new System.Drawing.Size(126, 16);
             this.txt_Tel.TabIndex = 64;
+            this.txt_Tel.TextChanged += new System.EventHandler(this.txt_Tel_TextChanged);
+            this.txt_Tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tel_KeyPress);
             // 
             // pictureBox8
             // 
@@ -564,6 +585,8 @@ namespace Tecno_Pc.Formularios
             this.txt_Apell.Name = "txt_Apell";
             this.txt_Apell.Size = new System.Drawing.Size(126, 16);
             this.txt_Apell.TabIndex = 61;
+            this.txt_Apell.TextChanged += new System.EventHandler(this.txt_Apell_TextChanged);
+            this.txt_Apell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Apell_KeyPress);
             // 
             // pictureBox9
             // 
@@ -594,8 +617,9 @@ namespace Tecno_Pc.Formularios
             this.txt_Email.Location = new System.Drawing.Point(758, 281);
             this.txt_Email.MaxLength = 50;
             this.txt_Email.Name = "txt_Email";
-            this.txt_Email.Size = new System.Drawing.Size(273, 16);
+            this.txt_Email.Size = new System.Drawing.Size(275, 16);
             this.txt_Email.TabIndex = 67;
+            this.txt_Email.TextChanged += new System.EventHandler(this.txt_Email_TextChanged);
             // 
             // pictureBox10
             // 
@@ -620,9 +644,9 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
             this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = global::Tecno_Pc.Properties.Resources.Imprimir;
+            this.btn_imprimir.Image = global::Tecno_Pc.Properties.Resources.Excel;
             this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(504, 59);
+            this.btn_imprimir.Location = new System.Drawing.Point(505, 59);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -631,9 +655,9 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.OnHoverImage = null;
             this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_imprimir.Radius = 3;
-            this.btn_imprimir.Size = new System.Drawing.Size(226, 31);
+            this.btn_imprimir.Size = new System.Drawing.Size(225, 31);
             this.btn_imprimir.TabIndex = 42;
-            this.btn_imprimir.Text = "IMPRIMIR - EXPORTAR";
+            this.btn_imprimir.Text = "REPORTES";
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
@@ -646,8 +670,37 @@ namespace Tecno_Pc.Formularios
             this.cmb_Depto.FormattingEnabled = true;
             this.cmb_Depto.Location = new System.Drawing.Point(904, 85);
             this.cmb_Depto.Name = "cmb_Depto";
-            this.cmb_Depto.Size = new System.Drawing.Size(132, 23);
+            this.cmb_Depto.Size = new System.Drawing.Size(129, 23);
             this.cmb_Depto.TabIndex = 68;
+            this.cmb_Depto.SelectedIndexChanged += new System.EventHandler(this.cmb_Depto_SelectedIndexChanged);
+            // 
+            // erp_depto
+            // 
+            this.erp_depto.ContainerControl = this;
+            // 
+            // erp_identidad
+            // 
+            this.erp_identidad.ContainerControl = this;
+            // 
+            // erp_nombre
+            // 
+            this.erp_nombre.ContainerControl = this;
+            // 
+            // erp_apellido
+            // 
+            this.erp_apellido.ContainerControl = this;
+            // 
+            // erp_telefono
+            // 
+            this.erp_telefono.ContainerControl = this;
+            // 
+            // erp_email
+            // 
+            this.erp_email.ContainerControl = this;
+            // 
+            // erp_direccion
+            // 
+            this.erp_direccion.ContainerControl = this;
             // 
             // frm_clientes
             // 
@@ -711,6 +764,13 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_identidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_apellido)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -760,5 +820,12 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ComboBox cmb_Depto;
         private System.Windows.Forms.ToolTip ttMensaje;
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
+        private System.Windows.Forms.ErrorProvider erp_depto;
+        private System.Windows.Forms.ErrorProvider erp_identidad;
+        private System.Windows.Forms.ErrorProvider erp_nombre;
+        private System.Windows.Forms.ErrorProvider erp_apellido;
+        private System.Windows.Forms.ErrorProvider erp_telefono;
+        private System.Windows.Forms.ErrorProvider erp_email;
+        private System.Windows.Forms.ErrorProvider erp_direccion;
     }
 }

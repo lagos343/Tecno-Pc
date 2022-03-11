@@ -7,10 +7,8 @@ using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_Clientes
+    class Cl_Clientes: Cl_SqlMaestra
     {
-
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         private static int iDCliente;
         public static int iDDepto;
         private static string Identidad;
@@ -20,7 +18,6 @@ namespace Tecno_Pc.Clases
         private static string CorreoElectronico;
         private static string Direccion;
         private static bool estado;
-
 
         #region Encapsulamiento
 
@@ -34,34 +31,35 @@ namespace Tecno_Pc.Clases
         public string Direccionn { get => Direccion; set => Direccion = value; }
        // public bool Estado { get => estado; set => estado = value; }
         #endregion
+
         public void guardar()
         {
             string cadena;
             cadena = "insert into Clientes values (" + iDDepto + ", " + Identidad + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '"+CorreoElectronico+"','"+Direccion+"', "+ 1 +"  )";
-            sql.Sql_Querys(cadena, "Cliente añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Cliente añadido con Exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta(" select c.[ID Cliente] as ID,c.Nombre ,c.Apellido,c.Identidad,c.Telefono,c.Direccion,c.[Correo Electronico],d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1");
-       
+            dgv.DataSource = Consulta(" select c.[ID Cliente] as ID,c.Nombre ,c.Apellido,c.Identidad,c.Telefono,c.Direccion,c.[Correo Electronico],d.[Nombre Depto] from Clientes as c inner join " +
+                "Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1");       
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select * from Clientes where Estado=1 and Nombre LIKE '%"+Nombre+"%'");
+            dgv.DataSource = Consulta("select * from Clientes where Estado=1 and Nombre LIKE '%"+Nombre+"%'");
         }
 
         public void actualizarDatos()
         {
-            sql.Sql_Querys("update Clientes set [ID Depto]="+iDDepto+",Identidad='"+Identidad+"',Nombre='"+Nombre+"',Apellido='"+Apellido+"',Telefono='"+Telefono+"',[Correo Electronico]='"+CorreoElectronico+"',Direccion='"+Direccion+"' where  [ID Cliente]="+iDCliente+"", "Cliente actualizado con exito", "Error 504");
+            Sql_Querys("update Clientes set [ID Depto]="+iDDepto+",Identidad='"+Identidad+"',Nombre='"+Nombre+"',Apellido='"+Apellido+"',Telefono='"+Telefono+"',[Correo Electronico]='"
+                +CorreoElectronico+"',Direccion='"+Direccion+"' where  [ID Cliente]="+iDCliente+"", "Cliente actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
         {
-            sql.Sql_Querys("Update Clientes set Estado = 0 where [ID Cliente] = " + iDCliente, "Se ha elminado este Cliente", "Error al eliminar");
+            Sql_Querys("Update Clientes set Estado = 0 where [ID Cliente] = " + iDCliente, "Se ha elminado este Cliente", "Error al eliminar");
         }
-
     }
 }
 

@@ -82,6 +82,10 @@ namespace Tecno_Pc.Formularios
             lbl_stock.Text = "";
             txt_buscar.Clear();
             txt_buscar.Focus();
+            erp_cant.Clear();
+            erp_cliente.Clear();
+            erp_dgvfactura.Clear();
+            erp_tipopagos.Clear();            
         }
 
         private int buscarRepetidos(string id)
@@ -113,13 +117,10 @@ namespace Tecno_Pc.Formularios
             return coin;
         }
 
-        private void ActualizarCatosFactura()
-        {
-            
-        }                
 
         private void btn_añadir_Click(object sender, EventArgs e)
         {
+            erp_dgvfactura.Clear();
             int cant = 0; 
 
             if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
@@ -139,12 +140,16 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad vendida", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "indique la cantidad vendida");
             }
             else if (int.Parse(txt_cant.Text) <= 0)
             {
                 frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "indique una cantidad positiva");
             }
             else if(cant > int.Parse(lbl_stock.Text))
             {
@@ -152,6 +157,8 @@ namespace Tecno_Pc.Formularios
                     "' pero solo hay " + lbl_stock.Text + " unidades en existencia", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "indique una cantidad dentro del stock");
             }
             else
             {
@@ -214,9 +221,10 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Factura.Rows.Count == 0 || cbo_cliente.SelectedIndex == -1 || cbo_tipoPago.SelectedIndex == -1)
             {
-                frm_notificacion noti = new frm_notificacion("Debe añadir productos a la Factura y llenar todos sus datos antes", 3);
+                frm_notificacion noti = new frm_notificacion("Error al guardar la Factura, ¡faltan datos!", 3);
                 noti.ShowDialog();
                 noti.Close();
+                escoger_erp();
             }
             else
             {
@@ -244,14 +252,32 @@ namespace Tecno_Pc.Formularios
             }            
         }
 
-        #region KeyPres
-
-        private void txt_nomCliente_KeyPress(object sender, KeyPressEventArgs e)
+        private void escoger_erp()
         {
-            if ((char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            if (dgv_Factura.Rows.Count == 0)
             {
-                e.Handled = true;
+                erp_dgvfactura.Clear();
+                erp_dgvfactura.SetError(dgv_Factura, "Añada productos a la factura");
             }
+
+            if (cbo_cliente.SelectedIndex == -1)
+            {
+                erp_cliente.Clear();
+                erp_cliente.SetError(cbo_cliente, "Escoja un cliente");
+            }
+
+            if (cbo_tipoPago.SelectedIndex == -1)
+            {
+                erp_tipopagos.Clear();
+                erp_tipopagos.SetError(cbo_tipoPago, "Esgoja un tipo de pago");
+            }
+        }
+
+        #region KeyPres
+        
+        private void cbo_tipoPago_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_tipopagos.Clear();
         }
 
         private void txt_cant_KeyPress(object sender, KeyPressEventArgs e)
@@ -260,16 +286,16 @@ namespace Tecno_Pc.Formularios
             {
                 e.Handled = true;
             }
-        }
-
-        private void txt_rebaja_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            else
             {
-                e.Handled = true;
+                erp_cant.Clear();
             }
         }
 
+        private void cbo_cliente_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_cliente.Clear();
+        }
 
         #endregion
 
@@ -355,5 +381,7 @@ namespace Tecno_Pc.Formularios
         {
             
         }
+
+        
     }
 }

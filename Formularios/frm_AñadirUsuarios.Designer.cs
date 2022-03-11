@@ -53,6 +53,10 @@ namespace Tecno_Pc.Formularios
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.cboempleado = new System.Windows.Forms.ComboBox();
             this.cborol = new System.Windows.Forms.ComboBox();
+            this.erp_usuario = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_contra = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_empleado = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_rol = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -62,6 +66,10 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_usuario)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_contra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_empleado)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_rol)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_minimizar
@@ -179,6 +187,7 @@ namespace Tecno_Pc.Formularios
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(227, 16);
             this.txt_pass.TabIndex = 66;
+            this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
             // 
             // gunaLabel4
             // 
@@ -211,6 +220,7 @@ namespace Tecno_Pc.Formularios
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(227, 16);
             this.txt_usuario.TabIndex = 63;
+            this.txt_usuario.TextChanged += new System.EventHandler(this.txt_usuario_TextChanged);
             // 
             // gunaLabel1
             // 
@@ -308,6 +318,7 @@ namespace Tecno_Pc.Formularios
             this.cboempleado.Name = "cboempleado";
             this.cboempleado.Size = new System.Drawing.Size(227, 23);
             this.cboempleado.TabIndex = 85;
+            this.cboempleado.SelectedIndexChanged += new System.EventHandler(this.cboempleado_SelectedIndexChanged);
             // 
             // cborol
             // 
@@ -320,6 +331,23 @@ namespace Tecno_Pc.Formularios
             this.cborol.Name = "cborol";
             this.cborol.Size = new System.Drawing.Size(227, 23);
             this.cborol.TabIndex = 86;
+            this.cborol.SelectedIndexChanged += new System.EventHandler(this.cborol_SelectedIndexChanged);
+            // 
+            // erp_usuario
+            // 
+            this.erp_usuario.ContainerControl = this;
+            // 
+            // erp_contra
+            // 
+            this.erp_contra.ContainerControl = this;
+            // 
+            // erp_empleado
+            // 
+            this.erp_empleado.ContainerControl = this;
+            // 
+            // erp_rol
+            // 
+            this.erp_rol.ContainerControl = this;
             // 
             // frm_AñadirUsuarios
             // 
@@ -347,6 +375,7 @@ namespace Tecno_Pc.Formularios
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirUsuarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Usuarios";
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
@@ -358,6 +387,10 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_usuario)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_contra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_empleado)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_rol)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -387,5 +420,9 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.ComboBox cborol;
         private System.Windows.Forms.ComboBox cboempleado;
+        private System.Windows.Forms.ErrorProvider erp_usuario;
+        private System.Windows.Forms.ErrorProvider erp_contra;
+        private System.Windows.Forms.ErrorProvider erp_empleado;
+        private System.Windows.Forms.ErrorProvider erp_rol;
     }
 }

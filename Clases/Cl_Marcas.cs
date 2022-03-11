@@ -7,9 +7,8 @@ using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_Marcas
+    class Cl_Marcas: Cl_SqlMaestra
     {
-        Cl_SqlMaestra sql = new Cl_SqlMaestra();
         private static int iDMarca;
         private static string nombreMarca;
 
@@ -25,24 +24,24 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombreMarca + "')";
-            sql.Sql_Querys(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
         }
 
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Marcas order by [Nombre Marca] asc");
+            dgv.DataSource = Consulta("select *from Marcas order by [Nombre Marca] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = sql.Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
+            dgv.DataSource = Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
         }
 
         public void actualizarDatos()
         {
             string cadena;
             cadena = "Update Marcas set [Nombre Marca] = '"+nombreMarca+"' where [ID Marca] = "+iDMarca+"";
-            sql.Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
         }       
     }
 }

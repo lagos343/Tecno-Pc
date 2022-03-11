@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using System.Text.RegularExpressions;
 
 namespace Tecno_Pc.Formularios
 {
@@ -78,12 +79,12 @@ namespace Tecno_Pc.Formularios
         {
 
             if (txt_identidad.Text == "" || txt_nombre.Text == "" || txt_apellido.Text == "" || txt_telefono.Text == "" || txt_direccion.Text == "" 
-                || txt_correo.Text == "" || cbo_puesto.SelectedIndex == -1 || cbo_depto.SelectedIndex == -1)
+                || txt_correo.Text == "" || cbo_puesto.SelectedIndex == -1 || cbo_depto.SelectedIndex == -1 || ValidarEmail(txt_correo.Text) == false)
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-
+                escoger_erp();
             }
             else 
             {
@@ -108,12 +109,12 @@ namespace Tecno_Pc.Formularios
         private void actualiza_click(object sender, EventArgs e) 
         {
             if (txt_identidad.Text == "" || txt_nombre.Text == "" || txt_apellido.Text == "" || txt_telefono.Text == "" || txt_direccion.Text == ""
-                || txt_correo.Text == "" || cbo_puesto.SelectedIndex == -1 || cbo_depto.SelectedIndex == -1)
+                || txt_correo.Text == "" || cbo_puesto.SelectedIndex == -1 || cbo_depto.SelectedIndex == -1 || ValidarEmail(txt_correo.Text) == false)
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-
+                escoger_erp();
             }
             else 
             {
@@ -133,6 +134,85 @@ namespace Tecno_Pc.Formularios
             frm.carga();
         }
 
+        private void escoger_erp()
+        {
+            if (txt_identidad.Text == "")
+            {
+                erp_id.Clear();
+                erp_id.SetError(txt_identidad, "No puede quedar vacio");
+            }
+
+            if (txt_nombre.Text == "")
+            {
+                erp_nom.Clear();
+                erp_nom.SetError(txt_nombre, "No puede quedar vacio");
+            }
+
+            if (txt_apellido.Text == "")
+            {
+                erp_ape.Clear();
+                erp_ape.SetError(txt_apellido, "No puede quedar vacio");
+            }
+
+            if (txt_telefono.Text == "")
+            {
+                erp_tel.Clear();
+                erp_tel.SetError(txt_telefono, "No puede quedar vacio");
+            }
+
+            if (txt_direccion.Text == "")
+            {
+                erp_dir.Clear();
+                erp_dir.SetError(txt_direccion, "No puede quedar vacio");
+            }
+
+            if (cbo_puesto.SelectedIndex == -1)
+            {
+                erp_puesto.Clear();
+                erp_puesto.SetError(cbo_puesto, "No puede quedar vacio");
+            }
+
+            if (cbo_depto.SelectedIndex == -1)
+            {
+                erp_depto.Clear();
+                erp_depto.SetError(cbo_depto, "No puede quedar vacio");
+            }            
+
+            if (txt_correo.Text == "")
+            {
+                erp_email.Clear();
+                erp_email.SetError(txt_correo, "No puede quedar vacio");
+            }
+            else
+            {
+                if (ValidarEmail(txt_correo.Text) == false)
+                {
+                    erp_email.Clear();
+                    erp_email.SetError(txt_correo, "solo emails validos: Example@dominio.algo");
+                }
+            }
+        }
+
+        public static bool ValidarEmail(string comprobarEmail)
+        {
+            string emailFormato;
+            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
+            if (Regex.IsMatch(comprobarEmail, emailFormato))
+            {
+                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            else
+            {
+                return false;
+            }
+        }
 
         public void limpiado() 
         {
@@ -196,11 +276,51 @@ namespace Tecno_Pc.Formularios
             }
         }
 
+        private void txt_identidad_TextChanged(object sender, EventArgs e)
+        {
+            erp_id.Clear();
+        }
+
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
+        {
+            erp_nom.Clear();
+        }
+
+        private void txt_apellido_TextChanged(object sender, EventArgs e)
+        {
+            erp_ape.Clear();
+        }
+
+        private void cbo_puesto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_puesto.Clear();
+        }
+
+        private void cbo_depto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_depto.Clear();
+        }
+
+        private void txt_telefono_TextChanged(object sender, EventArgs e)
+        {
+            erp_tel.Clear();
+        }
+
+        private void txt_correo_TextChanged(object sender, EventArgs e)
+        {
+            erp_email.Clear();
+        }
+
+        private void txt_direccion_TextChanged(object sender, EventArgs e)
+        {
+            erp_dir.Clear();
+        }
+
         #endregion
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
 
-        }
+        }        
     }
 }

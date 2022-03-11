@@ -134,6 +134,7 @@
     <Compile Include="Clases\Cl_Categorias.cs" />
     <Compile Include="Clases\Cl_Empleados.cs" />
     <Compile Include="Clases\Cl_Clientes.cs" />
+    <Compile Include="Clases\Cl_Excel.cs" />
     <Compile Include="Clases\Cl_Marcas.cs" />
     <Compile Include="Clases\Cl_NotificacionCompra.cs" />
     <Compile Include="Clases\Cl_Productos.cs" />

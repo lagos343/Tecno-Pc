@@ -22,7 +22,7 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
                         
         bool editar = false;
-        int reporte;
+        //int reporte;
         Clases.Cl_Marcas mar = new Clases.Cl_Marcas();
         Clases.Cl_Categorias cate = new Clases.Cl_Categorias();
         Clases.Cl_NotificacionCompra  noti = new Clases.Cl_NotificacionCompra();
@@ -38,8 +38,7 @@ namespace Tecno_Pc.Formularios
                 txt_buscar.TextChanged += txt_buscarCategorias_TextChanged;
                 btn_editar.Click += btn_editarCategorias_Click;                            
                 this.Text = "Categorias";
-                cate.consultarDatos(dgv_datos);
-                reporte = 1;
+                cate.consultarDatos(dgv_datos);                
             }
             else if (valor == 2)
             {
@@ -48,8 +47,7 @@ namespace Tecno_Pc.Formularios
                 txt_buscar.TextChanged += txt_buscarMarcas_TextChanged;
                 btn_editar.Click += btn_editarMarcas_Click;            
                 this.Text = "Marcas";
-                mar.consultarDatos(dgv_datos);
-                reporte = 2;
+                mar.consultarDatos(dgv_datos);                
             }
             else if (valor == 3)
             {
@@ -59,12 +57,7 @@ namespace Tecno_Pc.Formularios
                 carga();                
             }
         }
-
-        private void frm_MarcasCategorias_Load(object sender, EventArgs e)
-        {
-                  
-        }
-
+        
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -96,45 +89,9 @@ namespace Tecno_Pc.Formularios
             txt_buscar.Clear();
             txt_buscar.Focus();
             editar = false;
-        }        
-
-        private void btn_excel_Click(object sender, EventArgs e)
-        {            
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                string ruta = saveFileDialog1.FileName;
-                objExcel.Application objAplicacion = new objExcel.Application();
-                Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
-                Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
-
-                objAplicacion.Visible = false;//si es true se abrira automaticamente si es false no se abrira              
-
-                //creacion de la hoja de calculo                   
-                foreach (DataGridViewColumn columna in dgv_datos.Columns)
-                {
-                    objHoja.Cells[1, columna.Index+1] = columna.HeaderText;                   
-
-                    foreach (DataGridViewRow fila in dgv_datos.Rows)
-                    {
-                        objHoja.Cells[fila.Index+2, columna.Index + 1] = fila.Cells[columna.Index].Value;                        
-                    }
-                }
-
-                //guardado del libro
-                objLibro.SaveAs(ruta);
-                objLibro.Close();
-                objAplicacion.Quit();
-                frm_notificacion noti = new frm_notificacion("Se ha guardado el excel con los datos", 1);
-                noti.ShowDialog();
-            }
-        }
-
-        private void btn_imprimir_Click(object sender, EventArgs e)
-        {
-            frm_reportes rep = new frm_reportes(reporte);
-            rep.Show();
-        }
-
+            erp_nombre.Clear();
+        }                
+               
         #endregion
 
         #region Categorias Botones
@@ -145,6 +102,8 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_nombre.Clear();
+                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
             }
             else
             {
@@ -199,6 +158,8 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
                 noti.ShowDialog();
                 noti.Close();
+                erp_nombre.Clear();
+                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
             }
             else
             {
@@ -243,10 +204,10 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-
         #endregion
 
         #region Notificacion Compra
+
         private void btn_hecho_Click(object sender, EventArgs e)
         {
             if (editar == true)
@@ -283,20 +244,17 @@ namespace Tecno_Pc.Formularios
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
                 editar = true;
-            }
-            
+            }            
         }
 
         public void carga()
         {
-
             lbl_titulo.Text = "PRODUCTOS POR COMPRAR";
             btn_nuevo.Text = "Seleccionar";
             gunaLabel3.Text = "Descripcion";
             btn_guardar.Text = "HECHO";
             this.Text = "PRODUCTOS POR COMPRAR";
-            btn_editar.Hide();
-            btn_imprimir.Hide();
+            btn_editar.Hide();            
 
             txt_nombre.Enabled = false;
             editar = false;
@@ -308,24 +266,13 @@ namespace Tecno_Pc.Formularios
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[2].Visible = false;
             dgv_datos.Columns[4].Visible = false;
-
         }
-        #endregion
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        #endregion        
+
+        private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
-
+            erp_nombre.Clear();
         }
-
-        private void btn_editar_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void dgv_datos_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-
-        }
-
     }
 }
