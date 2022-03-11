@@ -330,7 +330,7 @@ namespace Tecno_Pc.Formularios
             excel.RangoCabecera = "C5 I5";
             excel.Titulo = "Reporte de Clientes";
             excel.GenerarExcel();
-            //
+            
             
 
         }
