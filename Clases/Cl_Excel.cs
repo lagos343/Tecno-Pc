@@ -30,10 +30,10 @@ namespace Tecno_Pc.Clases
             System.Data.DataTable detalles = new System.Data.DataTable();
             int i = 0, j = 0;
 
-            //Carga de los Productos
+            
             detalles = Consulta(cadena_consulta);
 
-            //Llamado a la api de Excle y declaracion de las variables pertinentes            
+                       
             objExcel.Application objAplicacion = new objExcel.Application();
             Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
@@ -43,20 +43,20 @@ namespace Tecno_Pc.Clases
             objHoja.Cells.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
 
 
-            //definimos el estilo que tendra las cabeceras
+            
             style.Interior.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
             style.Font.Bold = true;
             style.HorizontalAlignment = objExcel.XlHAlign.xlHAlignCenter;
             style.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
             style.Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.White);
 
-            //definicion de los valores de la Cabecera
+            
             for (int k = 0; k < detalles.Columns.Count; k++)
             {
                 objHoja.Cells[5, k + 3] = Cabecera[k];
             }
 
-            //Titulo
+            
             objHoja.Cells[2, 3] = "Tecno PC";
             objHoja.Cells[2, 3].Font.Size = 18;
             objHoja.Cells[2, 3].Font.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
@@ -65,11 +65,11 @@ namespace Tecno_Pc.Clases
             objHoja.Cells[3, 3] = titulo;
             objHoja.Cells[3, 3].Font.Size = 11;
 
-            //Fecha
+           
             i = detalles.Columns.Count;
             objHoja.Cells[2, i + 2] = "Fecha: " + DateTime.Now.ToShortDateString();            
 
-            //creacion de la hoja de calculo                   
+                               
             for (i = 0; i < detalles.Columns.Count; i++)
             {
                 for (j = 0; j < detalles.Rows.Count; j++)
@@ -84,7 +84,7 @@ namespace Tecno_Pc.Clases
                 rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignLeft;
             }
 
-            //creacion de la cabecera
+            
             objHoja.Cells[2, i + 2].HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
             objHoja.Cells[2, i + 2].Font.Bold = true;
             rango = objHoja.Range[rangocabecera.Substring(0, 2), rangocabecera.Substring(3, 2)];
@@ -92,9 +92,9 @@ namespace Tecno_Pc.Clases
             rango.Borders.Color = System.Drawing.ColorTranslator.ToOle(System.Drawing.Color.Blue);
             rango.Borders.LineStyle = objExcel.XlLineStyle.xlContinuous;            
 
-            objAplicacion.Visible = true;//si es true se abrira automaticamente si es false no se abrira 
+            objAplicacion.Visible = true;
 
-            //guardado del libro
+            
             try
             {
                 objLibro.SaveAs(ruta);
