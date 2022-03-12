@@ -240,12 +240,6 @@
     <Compile Include="Formularios\frm_proveedores.Designer.cs">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
     </Compile>
-    <Compile Include="Formularios\frm_reportes.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Formularios\frm_reportes.Designer.cs">
-      <DependentUpon>frm_reportes.cs</DependentUpon>
-    </Compile>
     <Compile Include="Formularios\frm_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -305,19 +299,12 @@
     <EmbeddedResource Include="Formularios\frm_proveedores.resx">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\frm_reportes.resx">
-      <DependentUpon>frm_reportes.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Usuarios.resx">
       <DependentUpon>frm_Usuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Ventas.resx">
       <DependentUpon>frm_Ventas.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Formularios\Report_Facturas.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Productos.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Marcas.rdlc" />
-    <EmbeddedResource Include="Formularios\Report_Categorias.rdlc" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <SubType>Designer</SubType>

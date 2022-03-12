@@ -30,10 +30,9 @@ namespace Tecno_Pc.Formularios
 
         public frm_clientes()
         {
-
             InitializeComponent();
             InicializarCombobox();
-            //Tooltip
+            
             this.ttMensaje.SetToolTip(this.cmb_Depto, "Combobox de departamento");
             this.ttMensaje.SetToolTip(this.txt_Ident, "Caja de texto del No. de Identidad del Cliente");
             this.ttMensaje.SetToolTip(this.txt_Nombre, "Caja de texto del Nombre del Cliente");
@@ -49,8 +48,6 @@ namespace Tecno_Pc.Formularios
             this.ttMensaje.SetToolTip(this.btn_editar, "Boton para Editar la informacion del Cliente");
             this.ttMensaje.SetToolTip(this.btn_eliminar, "Boton para Eliminar la informacion del Cliente");
             this.ttMensaje.SetToolTip(this.btn_guardar, "Boton para Guardar informacion del Cliente");
-
-
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -89,10 +86,8 @@ namespace Tecno_Pc.Formularios
             dgv_datos.Columns[1].Visible = false;
             dgv_datos.Columns[7].Visible = false;
             dgv_datos.Columns[8].Visible = false;
-
             dgv_datos.Columns[2].Width = 100;
             dgv_datos.Columns[5].Width = 80;
-
         }
 
 
@@ -106,7 +101,6 @@ namespace Tecno_Pc.Formularios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-
             if (cmb_Depto.SelectedIndex == -1 || txt_Ident.Text == "" || txt_Nombre.Text == "" || txt_Apell.Text == "" || txt_Tel.Text == "" || txt_Email.Text == "" ||
                 txt_Direccion.Text == "" || ValidarEmail(txt_Email.Text) == false)
             {
@@ -222,7 +216,6 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-
         private void frm_clientes_Load(object sender, EventArgs e)
         {
             dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
@@ -232,7 +225,6 @@ namespace Tecno_Pc.Formularios
 
         private void btn_editar_Click(object sender, EventArgs e)
         {
-
             if (dgv_datos.CurrentRow == null)
             {
                 frm_notificacion noti = new frm_notificacion("Escoja algo antes para poder modificarlo", 3);
@@ -309,27 +301,18 @@ namespace Tecno_Pc.Formularios
                 tar1.Start();
                 await tar1;
 
-                noti.Close();
-
-                //frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
-                //noti2.ShowDialog();
-                //noti.Close();
+                noti.Close();                
             }
-
         }
 
         public void excelClientes()
         {
-
             excel.Cadena_consulta = " select c.Nombre, c.Apellido,'-'+ c.Identidad+'-', c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
             excel.Ruta = saveFileDialog1.FileName;
             excel.Cabecera = new string[7] { "Cliente", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
             excel.RangoCabecera = "C5 I5";
             excel.Titulo = "Reporte de Clientes";
-            excel.GenerarExcel();
-            
-            
-
+            excel.GenerarExcel();         
         }
 
         #region keypress              

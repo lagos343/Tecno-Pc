@@ -231,11 +231,6 @@ namespace Tecno_Pc.Formularios
             this.Close();
         }
 
-        private void panel1_Paint(object sender, PaintEventArgs e)
-        {
-            //Ignorar
-        }
-
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
@@ -317,10 +312,6 @@ namespace Tecno_Pc.Formularios
         }
 
         #endregion
-
-        private void btn_guardar_Click(object sender, EventArgs e)
-        {
-
-        }        
+     
     }
 }

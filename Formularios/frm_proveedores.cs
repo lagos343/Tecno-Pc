@@ -143,15 +143,6 @@ namespace Tecno_Pc.Formularios
             catch (Exception ex) { }
         }
 
-        private void label3_Click(object sender, EventArgs e)
-        {
-            /*Ignorar*/
-        }
-
-        private void btn_Imprimir_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private async void btn_reporte_Click(object sender, EventArgs e)
         {
