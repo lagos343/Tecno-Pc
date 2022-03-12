@@ -32,6 +32,25 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             InicializarCombobox();
+
+            this.toolTip1.SetToolTip(this.cmb_depto, "Combobox de departamento");
+            this.toolTip1.SetToolTip(this.cmb_proveedor, "Combobox de proveedor");
+            this.toolTip1.SetToolTip(this.txt_id, "Caja de texto del No. de Identidad del Contacto");
+            this.toolTip1.SetToolTip(this.txt_nombre, "Caja de texto del Nombre del Contacto");
+            this.toolTip1.SetToolTip(this.txt_apellido, "Caja de texto del Apellido del Contacto");
+            this.toolTip1.SetToolTip(this.txt_telefono, "Caja de texto del Telefono del Contacto");
+            this.toolTip1.SetToolTip(this.txt_email, "Caja de texto del Correo del Contacto");
+            this.toolTip1.SetToolTip(this.txt_direccion, "Caja de texto de la Direccion del Contacto");
+            this.toolTip1.SetToolTip(this.txt_buscar, "Caja de texto de busqueda filtrada por Contacto");
+            this.toolTip1.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Contacto a Excel");
+            this.toolTip1.SetToolTip(this.btn_salir, "Salir");
+            this.toolTip1.SetToolTip(this.btn_minimizar, "Minimizar");
+            this.toolTip1.SetToolTip(this.btn_nuevo, "Boton para Limpiar las cajas de texto");
+            this.toolTip1.SetToolTip(this.btn_editar, "Boton para Editar la informacion del Contacto");
+            this.toolTip1.SetToolTip(this.btn_eliminar, "Boton para Eliminar la informacion del Contacto");
+            this.toolTip1.SetToolTip(this.btn_guardar, "Boton para Guardar informacion del Contacto");
+
+
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -378,6 +397,7 @@ namespace Tecno_Pc.Formularios
             excel.GenerarExcel();
         }
 
+    
     }       
 }
 

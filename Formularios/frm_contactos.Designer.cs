@@ -80,6 +80,7 @@ namespace Tecno_Pc.Formularios
             this.erp_telefono = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_email = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureemail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -664,10 +665,6 @@ namespace Tecno_Pc.Formularios
             this.cmb_proveedor.TabIndex = 105;
             this.cmb_proveedor.SelectedIndexChanged += new System.EventHandler(this.cmb_proveedor_SelectedIndexChanged);
             // 
-            // saveFileDialog1
-            // 
-        //this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
             // erp_porveedor
             // 
             this.erp_porveedor.ContainerControl = this;
@@ -820,5 +817,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_telefono;
         private System.Windows.Forms.ErrorProvider erp_email;
         private System.Windows.Forms.ErrorProvider erp_direccion;
+        private System.Windows.Forms.ToolTip toolTip1;
     }
 }

@@ -156,5 +156,7 @@ namespace Tecno_Pc.Formularios
             excel.GenerarExcel();
 
         }
+
+    
     }
 }
