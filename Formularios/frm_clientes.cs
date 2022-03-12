@@ -62,10 +62,7 @@ namespace Tecno_Pc.Formularios
         {
             this.Close();
         }
-        private void btn_guardarGuardado_Click(object sender, EventArgs e)
-        {
-
-        }
+        
         private void Limnpiado()
         {
             cmb_Depto.SelectedIndex = -1;
