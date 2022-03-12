@@ -105,7 +105,6 @@ namespace Tecno_Pc.Formularios
                 dgv_Factura.Rows.RemoveAt(e.RowIndex);            
             }
 
-            //lbl_TotalVenta.Text = calcularTotaleventa().ToString();
         }
 
         private void btn_nuevaCompra_Click(object sender, EventArgs e)
@@ -116,7 +115,6 @@ namespace Tecno_Pc.Formularios
             LimpiarProductoSeleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
-                //dgv_Factura.Rows.Remove(fila);
                 dgv_Factura.Rows.Clear();                
             }
         }
@@ -263,14 +261,9 @@ namespace Tecno_Pc.Formularios
                 dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
                 Operacionesdatagrid2();
                 LimpiarProductoSeleccionado();
-                //txt_cant.Enabled = false;
             }
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            //Ignorar
-        }
 
         private void txt_cant_KeyPress_1(object sender, KeyPressEventArgs e)
         {
