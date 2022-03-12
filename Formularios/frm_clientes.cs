@@ -301,7 +301,9 @@ namespace Tecno_Pc.Formularios
                 tar1.Start();
                 await tar1;
 
-                noti.Close();                
+                noti.Close();
+
+                
             }
         }
 
