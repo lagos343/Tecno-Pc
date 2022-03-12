@@ -33,7 +33,7 @@ namespace Tecno_Pc.Formularios
 
             InitializeComponent();
             InicializarCombobox();
-            //Tooltip
+            
             this.ttMensaje.SetToolTip(this.cmb_Depto, "Combobox de departamento");
             this.ttMensaje.SetToolTip(this.txt_Ident, "Caja de texto del No. de Identidad del Cliente");
             this.ttMensaje.SetToolTip(this.txt_Nombre, "Caja de texto del Nombre del Cliente");
@@ -311,9 +311,7 @@ namespace Tecno_Pc.Formularios
 
                 noti.Close();
 
-                //frm_notificacion noti2 = new frm_notificacion("Se ha guardado el excel con los datos", 1);
-                //noti2.ShowDialog();
-                //noti.Close();
+                
             }
 
         }
