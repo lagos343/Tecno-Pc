@@ -111,8 +111,7 @@ namespace Tecno_Pc.Formularios
             this.pic_flecha.Size = new System.Drawing.Size(16, 42);
             this.pic_flecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_flecha.TabIndex = 7;
-            this.pic_flecha.TabStop = false;
-            this.pic_flecha.Click += new System.EventHandler(this.pic_flecha_Click);
+            this.pic_flecha.TabStop = false;            
             // 
             // lbl_nombreUsuario
             // 

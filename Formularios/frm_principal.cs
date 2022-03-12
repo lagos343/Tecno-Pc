@@ -142,12 +142,7 @@ namespace Tecno_Pc.Formularios
         private void gunaPictureBox3_Click(object sender, EventArgs e)
         {
             this.WindowState = FormWindowState.Minimized;
-        }       
-
-        private void pic_flecha_Click(object sender, EventArgs e)
-        {
-
-        }
+        }               
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
@@ -161,12 +156,7 @@ namespace Tecno_Pc.Formularios
             {
                 swt_codbar.Checked = false;
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {            
-            
-        }        
+        }                
 
         private void carga()
         {
