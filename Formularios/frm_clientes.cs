@@ -309,7 +309,7 @@ namespace Tecno_Pc.Formularios
         {
             excel.Cadena_consulta = " select c.Nombre, c.Apellido,'-'+ c.Identidad+'-', c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
             excel.Ruta = saveFileDialog1.FileName;
-            excel.Cabecera = new string[7] { "Cliente", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
+            excel.Cabecera = new string[7] { "Nombre", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
             excel.RangoCabecera = "C5 I5";
             excel.Titulo = "Reporte de Clientes";
             excel.GenerarExcel();         
