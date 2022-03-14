@@ -27,6 +27,13 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
+            toolTip1.SetToolTip(this.btn_bd, "Escoge la ruta donde esta guradada la Base de Datos");
+            toolTip1.SetToolTip(this.btn_guardar, "Guardar la configuracion inicial");
+            toolTip1.SetToolTip(this.btn_minimizar, "Minimizar");
+            toolTip1.SetToolTip(this.btn_ruta, "Escoge la ruta donde se guardaran los reportes");
+            toolTip1.SetToolTip(this.btn_salir, "Salir");
+            toolTip1.SetToolTip(this.btn_servers, "Refrescar la lista de Servidores");
+            toolTip1.SetToolTip(this.cbo_autenticaciones, "Autenticacion de logueo al server");
         }
 
         private void frm_ConfigurarDB_Load(object sender, EventArgs e)
@@ -95,6 +102,7 @@ namespace Tecno_Pc.Formularios
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 txt_ruta.Text = folderBrowserDialog1.SelectedPath;
+                erp_rutReports.Clear();
             }
         }
 
@@ -107,6 +115,7 @@ namespace Tecno_Pc.Formularios
                     frm_notificacion noti3 = new frm_notificacion("Indique las credenciales de Sql server", 3);
                     noti3.ShowDialog();
                     noti3.Close();
+                    escoger_erp();
                 }
                 else
                 {
@@ -164,11 +173,56 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti3 = new frm_notificacion("Llene todos los datos", 3);
                 noti3.ShowDialog();
                 noti3.Close();
+                escoger_erp();
             }         
+        }
+
+        public void escoger_erp()
+        {
+            if (cbo_servers.SelectedIndex == -1)
+            {
+                erp_servidor.Clear();
+                erp_servidor.SetError(cbo_servers, "Escoja un servidor");
+            }
+
+            if (cbo_autenticaciones.SelectedIndex == -1)
+            {
+                erp_auten.Clear();
+                erp_auten.SetError(cbo_autenticaciones, "Escoja un tipo de Autenticacion");
+            }
+
+            if (txt_db.Text == "")
+            {
+                erp_bd.Clear();
+                erp_bd.SetError(txt_db, "Especifique la ruta");
+            }
+
+            if (txt_ruta.Text == "")
+            {
+                erp_rutReports.Clear();
+                erp_rutReports.SetError(txt_ruta, "Especifique la ruta");
+            }
+
+            if (cbo_autenticaciones.SelectedIndex == 1)
+            {
+                if(txt_password.Text == "")
+                {
+                    erp_contra.Clear();
+                    erp_contra.SetError(txt_password, "No puede quedar vacio");
+                }
+
+                if (txt_user.Text == "")
+                {
+                    erp_usu.Clear();
+                    erp_usu.SetError(txt_user, "No puede quedar vacio");
+                }
+            }
         }
 
         private void cbo_autenticaciones_SelectedIndexChanged(object sender, EventArgs e)
         {
+            erp_auten.Clear();
+
             if (cbo_autenticaciones.SelectedIndex == 1)
             {
                 txt_password.Enabled = true;
@@ -196,6 +250,7 @@ namespace Tecno_Pc.Formularios
                 if (openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 11, 7) == "TecnoPc")
                 {
                     txt_db.Text = openFileDialog1.FileName;
+                    erp_bd.Clear();
                 }
                 else
                 {                   
@@ -206,5 +261,24 @@ namespace Tecno_Pc.Formularios
                 }                
             }
         }
+
+        #region limpiar_erps
+        
+        private void cbo_servers_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            erp_servidor.Clear();
+        }
+
+        private void txt_user_TextChanged(object sender, EventArgs e)
+        {
+            erp_usu.Clear();
+        }
+
+        private void txt_password_TextChanged(object sender, EventArgs e)
+        {
+            erp_contra.Clear();
+        }
+
+        #endregion
     }
 }

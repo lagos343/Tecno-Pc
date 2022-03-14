@@ -62,6 +62,13 @@ namespace Tecno_Pc.Formularios
             this.txt_db = new System.Windows.Forms.TextBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.erp_servidor = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_auten = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_usu = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_contra = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_rutReports = new System.Windows.Forms.ErrorProvider(this.components);
+            this.erp_bd = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -73,6 +80,12 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_servidor)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_auten)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_usu)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_contra)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_rutReports)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_bd)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -148,6 +161,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_servers.Name = "cbo_servers";
             this.cbo_servers.Size = new System.Drawing.Size(339, 23);
             this.cbo_servers.TabIndex = 117;
+            this.cbo_servers.SelectedIndexChanged += new System.EventHandler(this.cbo_servers_SelectedIndexChanged);
             // 
             // pictureBox6
             // 
@@ -232,6 +246,7 @@ namespace Tecno_Pc.Formularios
             this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(227, 16);
             this.txt_password.TabIndex = 126;
+            this.txt_password.TextChanged += new System.EventHandler(this.txt_password_TextChanged);
             // 
             // gunaLabel3
             // 
@@ -291,6 +306,7 @@ namespace Tecno_Pc.Formularios
             this.txt_user.Name = "txt_user";
             this.txt_user.Size = new System.Drawing.Size(227, 16);
             this.txt_user.TabIndex = 98;
+            this.txt_user.TextChanged += new System.EventHandler(this.txt_user_TextChanged);
             // 
             // pictureBox1
             // 
@@ -401,7 +417,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(22, 499);
+            this.btn_guardar.Location = new System.Drawing.Point(22, 508);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -455,7 +471,7 @@ namespace Tecno_Pc.Formularios
             this.btn_bd.OnHoverImage = null;
             this.btn_bd.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_bd.Radius = 3;
-            this.btn_bd.Size = new System.Drawing.Size(95, 31);
+            this.btn_bd.Size = new System.Drawing.Size(93, 31);
             this.btn_bd.TabIndex = 134;
             this.btn_bd.Text = "......";
             this.btn_bd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -487,11 +503,35 @@ namespace Tecno_Pc.Formularios
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
             // 
+            // erp_servidor
+            // 
+            this.erp_servidor.ContainerControl = this;
+            // 
+            // erp_auten
+            // 
+            this.erp_auten.ContainerControl = this;
+            // 
+            // erp_usu
+            // 
+            this.erp_usu.ContainerControl = this;
+            // 
+            // erp_contra
+            // 
+            this.erp_contra.ContainerControl = this;
+            // 
+            // erp_rutReports
+            // 
+            this.erp_rutReports.ContainerControl = this;
+            // 
+            // erp_bd
+            // 
+            this.erp_bd.ContainerControl = this;
+            // 
             // frm_ConfigurarDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 549);
+            this.ClientSize = new System.Drawing.Size(528, 559);
             this.Controls.Add(this.gunaLabel6);
             this.Controls.Add(this.btn_bd);
             this.Controls.Add(this.txt_db);
@@ -526,6 +566,12 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_servidor)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_auten)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_usu)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_contra)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_rutReports)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_bd)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -564,5 +610,12 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.TextBox txt_db;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ErrorProvider erp_servidor;
+        private System.Windows.Forms.ErrorProvider erp_auten;
+        private System.Windows.Forms.ErrorProvider erp_usu;
+        private System.Windows.Forms.ErrorProvider erp_contra;
+        private System.Windows.Forms.ErrorProvider erp_rutReports;
+        private System.Windows.Forms.ErrorProvider erp_bd;
     }
 }
