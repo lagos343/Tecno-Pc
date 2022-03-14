@@ -17,7 +17,7 @@ namespace Tecno_Pc
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Form frm = new Form();
-            frm = new Formularios.frm_ConfigurarDB();
+            frm = new Formularios.frm_ConfigurarDB(false);
 
             if (Properties.Settings.Default.Servidor == string.Empty)
             {
