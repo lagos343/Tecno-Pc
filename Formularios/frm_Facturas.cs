@@ -49,20 +49,16 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Facturas.Rows[e.RowIndex].Cells["Mostrar"].Selected)
             {
-                dgv = dgv_Facturas; 
-                
-                if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-                {
-                    frm_notificacion noti = new frm_notificacion("", 4);
-                    noti.Show();
+                dgv = dgv_Facturas;
 
-                    Task tar1 = new Task(exelFacturas); 
-                    tar1.Start();
-                    await tar1;
+                frm_notificacion noti = new frm_notificacion("", 4);
+                noti.Show();
 
-                    noti.Close();
-                }
-                
+                Task tar1 = new Task(exelFacturas);
+                tar1.Start();
+                await tar1;
+
+                noti.Close();
             }
         }
 
@@ -85,7 +81,7 @@ namespace Tecno_Pc.Formularios
             detalles = sql.Consulta("select df.[ID Factura], (p.[Nombre Producto] +' '+ p.[Modelo]), df.[Precio Historico], df.Cantidad, (df.[Precio Historico] * df.Cantidad) Total from DetalleFactura df " +
                 "inner join Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);
 
-            string ruta = saveFileDialog1.FileName;
+            string ruta = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura #" + id + " " + DateTime.Now.ToLongDateString();
             objExcel.Application objAplicacion = new objExcel.Application();
             Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;

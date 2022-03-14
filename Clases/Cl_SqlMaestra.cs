@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -13,7 +13,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra
     {
-        private string Servidor = "localhost";
+        private string Servidor = Properties.Settings.Default.Servidor.ToString();
         private string DataBase = "TECNOPC";    
         private string cadena_coneccion;        
         SqlConnection connection = new SqlConnection();
@@ -24,8 +24,16 @@ namespace Tecno_Pc.Clases
 
         public Cl_SqlMaestra()
         {
-            cadena_coneccion = "Data Source=" +Servidor+"; Initial Catalog="+DataBase+"; Integrated Security=True";
-            connection.ConnectionString = cadena_coneccion;            
+            if (Properties.Settings.Default.WindowsAuten == false)
+            {
+                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; User ID="+Properties.Settings.Default.Usuario.ToString()
+                    +"; Password="+Properties.Settings.Default.Contraseña;
+            }
+            else
+            {
+                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; Integrated Security=True";
+            }
+            connection.ConnectionString = cadena_coneccion;
         }
 
        
@@ -97,6 +105,6 @@ namespace Tecno_Pc.Clases
             cmd.ExecuteNonQuery();
 
             Cerrar();
-        }
+        }        
     }
 }

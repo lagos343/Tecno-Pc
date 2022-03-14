@@ -146,18 +146,14 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_reporte_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                frm_notificacion noti = new frm_notificacion("", 4);
-                noti.Show();
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
 
-                Task tar1 = new Task(excelProveedores);
-                tar1.Start();
-                await tar1;
+            Task tar1 = new Task(excelProveedores);
+            tar1.Start();
+            await tar1;
 
-                noti.Close();
-            }
-
+            noti.Close();
         }
 
 
@@ -166,10 +162,10 @@ namespace Tecno_Pc.Formularios
             excel.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
                 " Proveedores INNER JOIN  Departamentos ON Proveedores.[ID Depto] = Departamentos.[ID Depto]" +
                 " WHERE Proveedores.Estado = 1 ORDER BY Nombre asc";
-            excel.Ruta = saveFileDialog1.FileName;
             excel.Cabecera = new string[5] { "Proveedor", "Telefono", "Departamento", "Dirección", "Correo Electrónico" };
             excel.RangoCabecera = "C5 G5";
             excel.Titulo = "Reporte de Proveedores";
+            excel.Carpeta = "Proveedores";
             excel.GenerarExcel();
         }
     }

@@ -5,23 +5,24 @@ using System.Text;
 using System.Threading.Tasks;
 using objExcel = Microsoft.Office.Interop.Excel;
 using Microsoft.Office.Interop.Excel;
+using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
     class Cl_Excel: Cl_SqlMaestra
     {
         private string cadena_consulta;
-        private string ruta;
+        private string carpeta;
         private string[] cabecera;
         private string titulo;
         private string rangocabecera;
 
         #region Encapsulamiento
-        public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }
-        public string Ruta { get => ruta; set => ruta = value; }
+        public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }        
         public string[] Cabecera { get => cabecera; set => cabecera = value; }
         public string Titulo { get => titulo; set => titulo = value; }
         public string RangoCabecera { get => rangocabecera; set => rangocabecera = value; }
+        public string Carpeta { get => carpeta; set => carpeta = value; }
 
         #endregion
 
@@ -97,7 +98,7 @@ namespace Tecno_Pc.Clases
             
             try
             {
-                objLibro.SaveAs(ruta);
+                objLibro.SaveAs(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + DateTime.Now.ToLongDateString());                
             }
             catch (Exception)
             {

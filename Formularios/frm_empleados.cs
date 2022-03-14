@@ -132,27 +132,24 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_reporte_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                frm_notificacion noti = new frm_notificacion("", 4);
-                noti.Show();
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
 
-                Task tar1 = new Task(excelEmpleados);
-                tar1.Start();
-                await tar1;
+            Task tar1 = new Task(excelEmpleados);
+            tar1.Start();
+            await tar1;
 
-                noti.Close();
-            }
+            noti.Close();
         }
 
         public void excelEmpleados()
         {
             excel.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], '-'+Empleados.Identidad+'-' [Identidad], Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
                 " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC";
-            excel.Ruta = saveFileDialog1.FileName;
             excel.Cabecera = new string[6] { "Empleado" , "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
             excel.RangoCabecera = "C5 H5";
             excel.Titulo = "Reporte de Empleados";
+            excel.Carpeta = "Empleados";
             excel.GenerarExcel();
 
         }

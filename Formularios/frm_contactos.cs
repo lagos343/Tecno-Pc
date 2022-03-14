@@ -373,27 +373,24 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_imprimir_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                frm_notificacion noti = new frm_notificacion("", 4);
-                noti.Show();
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
 
-                Task tar1 = new Task(excelContactos);
-                tar1.Start();
-                await tar1;
+            Task tar1 = new Task(excelContactos);
+            tar1.Start();
+            await tar1;
 
-                noti.Close();
-            }
+            noti.Close();
         }
 
         public void excelContactos()
         {
             excel.Cadena_consulta = "Select [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
                 "Departamentos.[ID Depto] inner join Proveedores ON Contactos.[ID Proveedor] = Proveedores.[ID Proveedor] WHERE Contactos.Estado = 1 ORDER BY Contacto ASC";
-            excel.Ruta = saveFileDialog1.FileName;
             excel.Cabecera = new string[6] { "Proveedor", "Departamento", "Nombre", "Telefono", "Correo Electrónico", "Dirección" };
             excel.RangoCabecera = "C5 H5";
             excel.Titulo = "Reporte de Contactos";
+            excel.Carpeta = "Contactos";
             excel.GenerarExcel();
         }
 

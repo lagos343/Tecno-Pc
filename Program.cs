@@ -10,13 +10,26 @@ namespace Tecno_Pc
     {
         /// <summary>
         /// Punto de entrada principal para la aplicación.
-        /// </summary>
+        /// </summary  
         [STAThread]
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Form1());            
+            Form frm = new Form();
+            frm = new Formularios.frm_ConfigurarDB();
+
+            if (Properties.Settings.Default.Servidor == string.Empty)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Detectamos que es su primer inicio de Sesion, antes de empezar debe llenar correctamente el siguiente formulario", 1);
+                noti.ShowDialog();
+                noti.Close();
+                Application.Run(frm);
+            }
+            else
+            {
+                Application.Run(new Form1());
+            }                       
         }
     }
 }
