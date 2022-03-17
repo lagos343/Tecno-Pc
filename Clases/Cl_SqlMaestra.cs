@@ -45,7 +45,7 @@ namespace Tecno_Pc.Clases
             }
             catch (Exception)
             {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con sql, ¿Desea abrir la configuracion?", 2);
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
                 noti.ShowDialog();
 
                 if (noti.Dialogresul == DialogResult.OK)

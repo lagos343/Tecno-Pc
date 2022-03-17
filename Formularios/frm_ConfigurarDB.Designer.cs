@@ -57,10 +57,6 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_bd = new Guna.UI.WinForms.GunaGradientButton();
-            this.txt_db = new System.Windows.Forms.TextBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.erp_servidor = new System.Windows.Forms.ErrorProvider(this.components);
@@ -79,7 +75,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_servidor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_auten)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_usu)).BeginInit();
@@ -419,7 +414,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(22, 508);
+            this.btn_guardar.Location = new System.Drawing.Point(22, 450);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -437,69 +432,6 @@ namespace Tecno_Pc.Formularios
             // gunaElipse1
             // 
             this.gunaElipse1.TargetControl = this;
-            // 
-            // gunaLabel6
-            // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel6.Location = new System.Drawing.Point(21, 429);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(137, 15);
-            this.gunaLabel6.TabIndex = 135;
-            this.gunaLabel6.Text = "RUTA DE BASE DE DATOS";
-            // 
-            // btn_bd
-            // 
-            this.btn_bd.AnimationHoverSpeed = 0.07F;
-            this.btn_bd.AnimationSpeed = 0.03F;
-            this.btn_bd.BackColor = System.Drawing.Color.Transparent;
-            this.btn_bd.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_bd.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_bd.BorderColor = System.Drawing.Color.Black;
-            this.btn_bd.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_bd.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_bd.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_bd.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btn_bd.ForeColor = System.Drawing.Color.White;
-            this.btn_bd.Image = null;
-            this.btn_bd.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_bd.Location = new System.Drawing.Point(411, 447);
-            this.btn_bd.Name = "btn_bd";
-            this.btn_bd.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_bd.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_bd.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_bd.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_bd.OnHoverImage = null;
-            this.btn_bd.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_bd.Radius = 3;
-            this.btn_bd.Size = new System.Drawing.Size(93, 31);
-            this.btn_bd.TabIndex = 134;
-            this.btn_bd.Text = "......";
-            this.btn_bd.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_bd.Click += new System.EventHandler(this.btn_bd_Click);
-            // 
-            // txt_db
-            // 
-            this.txt_db.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_db.CausesValidation = false;
-            this.txt_db.Enabled = false;
-            this.txt_db.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_db.Location = new System.Drawing.Point(31, 455);
-            this.txt_db.MaxLength = 50;
-            this.txt_db.Name = "txt_db";
-            this.txt_db.Size = new System.Drawing.Size(339, 16);
-            this.txt_db.TabIndex = 133;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(24, 447);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(357, 31);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 132;
-            this.pictureBox5.TabStop = false;
             // 
             // openFileDialog1
             // 
@@ -533,11 +465,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(528, 559);
-            this.Controls.Add(this.gunaLabel6);
-            this.Controls.Add(this.btn_bd);
-            this.Controls.Add(this.txt_db);
-            this.Controls.Add(this.pictureBox5);
+            this.ClientSize = new System.Drawing.Size(528, 502);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.gunaLabel5);
             this.Controls.Add(this.btn_ruta);
@@ -567,7 +495,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_servidor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_auten)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_usu)).EndInit();
@@ -607,10 +534,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaGradientButton btn_guardar;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
-        private Guna.UI.WinForms.GunaLabel gunaLabel6;
-        private Guna.UI.WinForms.GunaGradientButton btn_bd;
-        private System.Windows.Forms.TextBox txt_db;
-        private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider erp_servidor;

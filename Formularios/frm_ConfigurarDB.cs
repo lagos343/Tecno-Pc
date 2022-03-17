@@ -17,6 +17,7 @@ namespace Tecno_Pc.Formularios
     public partial class frm_ConfigurarDB : Form
     {
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        public bool EscribirServer = false;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
@@ -27,7 +28,6 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-            toolTip1.SetToolTip(this.btn_bd, "Escoge la ruta donde esta guradada la Base de Datos");
             toolTip1.SetToolTip(this.btn_guardar, "Guardar la configuracion inicial");
             toolTip1.SetToolTip(this.btn_minimizar, "Minimizar");
             toolTip1.SetToolTip(this.btn_ruta, "Escoge la ruta donde se guardaran los reportes");
@@ -67,8 +67,8 @@ namespace Tecno_Pc.Formularios
             DataColumn server = new DataColumn("server", typeof(System.String));
             DataTable sqls2 = new DataTable();
             sqls2.Columns.Add(server);
-            
-            for(int i = 0; i < sqls.Rows.Count; i++)
+
+            for (int i = 0; i < sqls.Rows.Count; i++)
             {
                 if (sqls.Rows[i][1].ToString() == "")
                 {
@@ -77,8 +77,8 @@ namespace Tecno_Pc.Formularios
                 else
                 {
                     sqls2.Rows.Add(sqls.Rows[i][0].ToString() + @"\" + sqls.Rows[i][1].ToString());
-                }                
-            }
+                }
+            }                            
 
             cbo_servers.DataSource = sqls2;                               
         }
@@ -91,11 +91,22 @@ namespace Tecno_Pc.Formularios
             Task tar = new Task(CargarServers);
             tar.Start();
             await tar;
-
-            cbo_servers.DisplayMember = "server";    
-            cbo_servers.ValueMember = "server";
-            cbo_servers.SelectedIndex = -1;
             noti.Close();
+
+            if (cbo_servers.Items.Count != 0)
+            {
+                cbo_servers.DisplayMember = "server";
+                cbo_servers.ValueMember = "server";
+                cbo_servers.SelectedIndex = -1;
+                EscribirServer = false;
+            }
+            else
+            {
+                Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Hubo un error al intentar encontrar servidores, Escriba el servidor manualmente", 3);
+                noti2.ShowDialog();
+                noti2.Close();
+                EscribirServer = true;
+            }                      
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -127,7 +138,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {                    
-            if (cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_db.Text != "" && txt_ruta.Text != "")
+            if (cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "")
             { 
                 if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == ""))
                 {
@@ -166,17 +177,7 @@ namespace Tecno_Pc.Formularios
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Usuarios");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Facturas");
 
-                        Properties.Settings.Default.Save();
-
-                        ProcessStartInfo cmd;
-                        cmd = new ProcessStartInfo("sqlcmd", "-S " + cbo_servers.Text + " -i " + txt_db.Text);
-                        cmd.UseShellExecute = false;
-                        cmd.CreateNoWindow = true;
-                        cmd.RedirectStandardOutput = true;
-
-                        Process ejecutar = new Process();
-                        ejecutar.StartInfo = cmd;
-                        ejecutar.Start();
+                        Properties.Settings.Default.Save();                                               
 
                         noti.Close();
                         Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Configuracion guardada con exito", 1);
@@ -208,13 +209,7 @@ namespace Tecno_Pc.Formularios
             {
                 erp_auten.Clear();
                 erp_auten.SetError(cbo_autenticaciones, "Escoja un tipo de Autenticacion");
-            }
-
-            if (txt_db.Text == "")
-            {
-                erp_bd.Clear();
-                erp_bd.SetError(txt_db, "Especifique la ruta");
-            }
+            }                      
 
             if (txt_ruta.Text == "")
             {
@@ -258,28 +253,7 @@ namespace Tecno_Pc.Formularios
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }
-
-        private void btn_bd_Click(object sender, EventArgs e)
-        {
-            openFileDialog1.Filter = "Sql Documents|*.sql";
-
-            if (openFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                if (openFileDialog1.FileName.Substring(openFileDialog1.FileName.Length - 11, 7) == "TecnoPc")
-                {
-                    txt_db.Text = openFileDialog1.FileName;
-                    erp_bd.Clear();
-                }
-                else
-                {                   
-                    frm_notificacion noti = new frm_notificacion("Escoja la base de datos de Tecno Pc", 3);
-                    noti.ShowDialog();
-                    noti.Close();
-                    txt_db.Text = "";
-                }                
-            }
-        }
+        }       
 
         #region limpiar_erps
         
@@ -302,6 +276,7 @@ namespace Tecno_Pc.Formularios
 
         private void cbo_servers_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (EscribirServer == false)
             e.Handled = true;
         }
     }
