@@ -24,7 +24,7 @@ namespace Tecno_Pc.Clases
 
         public Cl_SqlMaestra()
         {
-            if (Properties.Settings.Default.WindowsAuten == false)
+            if (Properties.Settings.Default.WindowsAuten == "false")
             {
                 cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; User ID="+Properties.Settings.Default.Usuario.ToString()
                     +"; Password="+Properties.Settings.Default.Contraseña;

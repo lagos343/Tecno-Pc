@@ -49,9 +49,10 @@ namespace Tecno_Pc.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public bool WindowsAuten {
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WindowsAuten {
             get {
-                return ((bool)(this["WindowsAuten"]));
+                return ((string)(this["WindowsAuten"]));
             }
             set {
                 this["WindowsAuten"] = value;

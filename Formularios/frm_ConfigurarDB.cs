@@ -39,7 +39,7 @@ namespace Tecno_Pc.Formularios
             {
                 cbo_servers.Text = Properties.Settings.Default.Servidor.ToString();
 
-                if (Properties.Settings.Default.WindowsAuten == true)
+                if (Properties.Settings.Default.WindowsAuten == "true")
                 {
                     cbo_autenticaciones.SelectedIndex = 0;
                 }
@@ -61,9 +61,9 @@ namespace Tecno_Pc.Formularios
         }
 
         private void CargarServers()
-        {                 
-            SqlDataSourceEnumerator instance = SqlDataSourceEnumerator.Instance;
-            DataTable sqls = instance.GetDataSources();
+        {
+            DataTable sqls = new DataTable(); 
+            sqls = SqlDataSourceEnumerator.Instance.GetDataSources();
             DataColumn server = new DataColumn("server", typeof(System.String));
             DataTable sqls2 = new DataTable();
             sqls2.Columns.Add(server);
@@ -147,13 +147,13 @@ namespace Tecno_Pc.Formularios
 
                         if (cbo_autenticaciones.SelectedIndex == 1)
                         {
-                            Properties.Settings.Default.WindowsAuten = false;
+                            Properties.Settings.Default.WindowsAuten = "false";
                             Properties.Settings.Default.Usuario = txt_user.Text;
                             Properties.Settings.Default.Contraseña = txt_password.Text;
                         }
                         else
                         {
-                            Properties.Settings.Default.WindowsAuten = true;
+                            Properties.Settings.Default.WindowsAuten = "true";
                         }
 
                         Properties.Settings.Default.RutaReportes = txt_ruta.Text;

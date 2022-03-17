@@ -8,7 +8,7 @@
     <Setting Name="Servidor" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
-    <Setting Name="WindowsAuten" Type="System.Boolean" Scope="User">
+    <Setting Name="WindowsAuten" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
     <Setting Name="Usuario" Type="System.String" Scope="User">
