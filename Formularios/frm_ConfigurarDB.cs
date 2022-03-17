@@ -23,7 +23,7 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        public frm_ConfigurarDB()
+        public frm_ConfigurarDB(bool modi)
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
@@ -34,6 +34,25 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(this.btn_salir, "Salir");
             toolTip1.SetToolTip(this.btn_servers, "Refrescar la lista de Servidores");
             toolTip1.SetToolTip(this.cbo_autenticaciones, "Autenticacion de logueo al server");
+
+            if (modi == true)
+            {
+                cbo_servers.Text = Properties.Settings.Default.Servidor.ToString();
+
+                if (Properties.Settings.Default.WindowsAuten == true)
+                {
+                    cbo_autenticaciones.SelectedIndex = 0;
+                }
+                else
+                {
+                    cbo_autenticaciones.SelectedIndex = 1;
+
+                    txt_user.Text = Properties.Settings.Default.Usuario.ToString();
+                    txt_password.Text = Properties.Settings.Default.Contraseña.ToString();
+                }
+
+                txt_ruta.Text = Properties.Settings.Default.RutaReportes.ToString();
+            }            
         }
 
         private void frm_ConfigurarDB_Load(object sender, EventArgs e)
@@ -108,7 +127,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {                    
-            if (cbo_servers.SelectedIndex != -1 && cbo_autenticaciones.SelectedIndex != -1 && txt_db.Text != "" && txt_ruta.Text != "")
+            if (cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_db.Text != "" && txt_ruta.Text != "")
             { 
                 if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == ""))
                 {
@@ -179,7 +198,7 @@ namespace Tecno_Pc.Formularios
 
         public void escoger_erp()
         {
-            if (cbo_servers.SelectedIndex == -1)
+            if (cbo_servers.Text != "")
             {
                 erp_servidor.Clear();
                 erp_servidor.SetError(cbo_servers, "Escoja un servidor");
@@ -280,5 +299,10 @@ namespace Tecno_Pc.Formularios
         }
 
         #endregion
+
+        private void cbo_servers_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            e.Handled = true;
+        }
     }
 }

@@ -39,7 +39,29 @@ namespace Tecno_Pc.Clases
        
         public void Abrir()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con sql, ¿Desea abrir la configuracion?", 2);
+                noti.ShowDialog();
+
+                if (noti.Dialogresul == DialogResult.OK)
+                {   
+                    Formularios.frm_ConfigurarDB bd = new Formularios.frm_ConfigurarDB(true);
+                    bd.Show();
+
+                    Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Form1);
+                    if (frm != null)
+                    {
+                        frm.Hide();
+                    }
+                }
+                
+                noti.Close(); 
+            }            
         }
 
         public void Cerrar()
@@ -52,7 +74,11 @@ namespace Tecno_Pc.Clases
             Abrir();
             adapter = new SqlDataAdapter(cadena, cadena_coneccion);
             Tabla_Resultados = new DataTable();
-            adapter.Fill(Tabla_Resultados);
+            try
+            {
+                adapter.Fill(Tabla_Resultados);
+            }
+            catch (Exception){}            
             Cerrar();
 
             return Tabla_Resultados;
