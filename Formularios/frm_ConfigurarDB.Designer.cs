@@ -162,7 +162,6 @@ namespace Tecno_Pc.Formularios
             this.cbo_servers.Size = new System.Drawing.Size(339, 23);
             this.cbo_servers.TabIndex = 117;
             this.cbo_servers.SelectedIndexChanged += new System.EventHandler(this.cbo_servers_SelectedIndexChanged);
-            this.cbo_servers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbo_servers_KeyPress);
             // 
             // pictureBox6
             // 
@@ -284,7 +283,6 @@ namespace Tecno_Pc.Formularios
             // cbo_autenticaciones
             // 
             this.cbo_autenticaciones.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbo_autenticaciones.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbo_autenticaciones.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_autenticaciones.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_autenticaciones.FormattingEnabled = true;
