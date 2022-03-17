@@ -199,7 +199,7 @@ namespace Tecno_Pc.Formularios
 
         public void escoger_erp()
         {
-            if (cbo_servers.Text != "")
+            if (cbo_servers.Text == "")
             {
                 erp_servidor.Clear();
                 erp_servidor.SetError(cbo_servers, "Escoja un servidor");

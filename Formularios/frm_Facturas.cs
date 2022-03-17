@@ -81,7 +81,7 @@ namespace Tecno_Pc.Formularios
             detalles = sql.Consulta("select df.[ID Factura], (p.[Nombre Producto] +' '+ p.[Modelo]), df.[Precio Historico], df.Cantidad, (df.[Precio Historico] * df.Cantidad) Total from DetalleFactura df " +
                 "inner join Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);
 
-            string ruta = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura #" + id + " " + DateTime.Now.ToLongDateString();
+            string ruta = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura #" + id;
             objExcel.Application objAplicacion = new objExcel.Application();
             Workbook objLibro = objAplicacion.Workbooks.Add(XlSheetType.xlWorksheet);
             Worksheet objHoja = (Worksheet)objAplicacion.ActiveSheet;
