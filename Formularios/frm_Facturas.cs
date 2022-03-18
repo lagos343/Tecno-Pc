@@ -23,6 +23,7 @@ namespace Tecno_Pc.Formularios
             Control.CheckForIllegalCrossThreadCalls = false;
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
             this.toolTip1.SetToolTip(this.cbo_filtro, "Seleccionar Filtro de Busqueda");
+            this.toolTip1.SetToolTip(this.cbo_filtro, "Reportes de Ventas");
         }
 
         private void frm_Facturas_Load(object sender, EventArgs e)
@@ -272,6 +273,22 @@ namespace Tecno_Pc.Formularios
                 operacionesDatagrid();                
             }
             else{}
-        }        
+        }
+
+        private void btn_imprimir_Click(object sender, EventArgs e)
+        {
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVenta);
+
+            if (frm == null)
+            {
+                frm_ReportVenta report = new frm_ReportVenta();
+                report.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
+
+        }
     }
 }
