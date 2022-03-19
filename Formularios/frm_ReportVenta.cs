@@ -53,7 +53,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(excelContactos);
+                Task tar1 = new Task(excelVentas);
                 tar1.Start();
                 await tar1;
 
@@ -61,7 +61,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void excelContactos()
+        private void excelVentas()
         {
             DateTime desde = new DateTime(), hasta = new DateTime();
 
