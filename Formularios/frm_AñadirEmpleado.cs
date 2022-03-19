@@ -138,6 +138,7 @@ namespace Tecno_Pc.Formularios
 
         private void actualiza_click(object sender, EventArgs e) 
         {
+            definicionarray();
             if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1)
             {
                 empleados.Idempleado = int.Parse(txt_id.Text);
