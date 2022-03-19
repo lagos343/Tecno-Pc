@@ -176,6 +176,7 @@ namespace Tecno_Pc.Formularios
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Productos");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Usuarios");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Facturas");
+                        Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Ventas");
 
                         Properties.Settings.Default.Save();                                               
 

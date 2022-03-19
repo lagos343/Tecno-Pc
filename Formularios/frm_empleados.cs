@@ -123,11 +123,7 @@ namespace Tecno_Pc.Formularios
                 }
 
             }
-            catch(Exception ex)
-            {
-            }
-
-            
+            catch(Exception ex){}            
         }
 
         private async void btn_reporte_Click(object sender, EventArgs e)
@@ -150,10 +146,8 @@ namespace Tecno_Pc.Formularios
             excel.RangoCabecera = "C5 H5";
             excel.Titulo = "Reporte de Empleados";
             excel.Carpeta = "Empleados";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();
-
-        }
-
-    
+        }    
     }
 }

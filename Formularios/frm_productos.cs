@@ -155,6 +155,7 @@ namespace Tecno_Pc.Formularios
             ex.Titulo = "Reporte de inventarios de Productos";
             ex.RangoCabecera = "C5 J5";
             ex.Carpeta = "Productos";
+            ex.Fecha = DateTime.Now.ToShortDateString();
             ex.GenerarExcel();
         }        
 

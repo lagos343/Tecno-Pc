@@ -309,6 +309,7 @@ namespace Tecno_Pc.Formularios
             excel.Cabecera = new string[7] { "Nombre", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
             excel.RangoCabecera = "C5 I5";
             excel.Titulo = "Reporte de Clientes";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();         
         }
 
