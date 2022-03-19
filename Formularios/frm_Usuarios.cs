@@ -171,6 +171,7 @@ namespace Tecno_Pc.Formularios
             excel.RangoCabecera = "C5 F5";
             excel.Titulo = "Reporte de Usuarios";
             excel.Carpeta = "Usuarios";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();   
         }
     }

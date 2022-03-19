@@ -391,6 +391,7 @@ namespace Tecno_Pc.Formularios
             excel.RangoCabecera = "C5 H5";
             excel.Titulo = "Reporte de Contactos";
             excel.Carpeta = "Contactos";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();
         }
 

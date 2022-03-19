@@ -154,6 +154,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Clases\Cl_Contactos.cs" />
+    <Compile Include="Clases\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Formularios\frm_AñadirEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -370,6 +373,8 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\calendarDark.png" />
+    <None Include="Resources\calendarWhite.png" />
     <None Include="Resources\Nuevo2.png" />
     <None Include="Resources\Empleado.png" />
     <None Include="Resources\LogoTecnoPc.png" />

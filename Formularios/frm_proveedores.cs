@@ -166,6 +166,7 @@ namespace Tecno_Pc.Formularios
             excel.RangoCabecera = "C5 G5";
             excel.Titulo = "Reporte de Proveedores";
             excel.Carpeta = "Proveedores";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();
         }
     }
