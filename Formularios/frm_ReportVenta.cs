@@ -78,16 +78,16 @@ namespace Tecno_Pc.Formularios
                 hasta = dtp_hasta.Value;
             }    
             
-            ex.Cadena_consulta = "select f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido as Cliente, e.Nombre + ' ' + e.Apellido as Empleado, " +
+            ex.Cadena_consulta = "select f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido as Cliente, e.Nombre + ' ' + e.Apellido as Empleado, tr.[Tipo Transaccion]  ,f.ISV*100 [ISV]," +
                     "sum((df.[Precio Historico] * df.Cantidad) + (df.[Precio Historico] * df.Cantidad * f.ISV)) as [Total Venta] from Facturas f " +
                     "inner join DetalleFactura df on df.[ID Factura] = f.[ID Factura] inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] " +
-                    "inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] where ((f.[Fecha Venta] <= '"+hasta.ToString("yyyy-MM-dd") +"') and (f.[Fecha Venta] >= '"
+                    "inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones tr on tr.[ID Transaccion] = f.[ID Transaccion] where ((f.[Fecha Venta] <= '" + hasta.ToString("yyyy-MM-dd") +"') and (f.[Fecha Venta] >= '"
                     +desde.ToString("yyyy-MM-dd") +"')) " +
-                    "group by f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido, e.Nombre + ' ' + e.Apellido";
+                    "group by f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido, e.Nombre + ' ' + e.Apellido, tr.[Tipo Transaccion]  ,f.ISV";
             ex.Carpeta = "Ventas";
-            ex.Cabecera = new string[5] { "#Factura", "Fecha", "Cliente", "Empleado", "Total" };
+            ex.Cabecera = new string[7] { "#Factura", "Fecha", "Cliente", "Empleado", "Transaccion", "ISV", "Total" };
             ex.Titulo = "Reporte de Ventas";
-            ex.RangoCabecera = "C5 G5";
+            ex.RangoCabecera = "C5 I5";
             ex.GenerarExcel();
         }
 
