@@ -147,6 +147,7 @@
     <Compile Include="Clases\Cl_SqlMaestra.cs" />
     <Compile Include="Clases\Cl_Usuarios.cs" />
     <Compile Include="Clases\Cl_UsuarioLogueado.cs" />
+    <Compile Include="Clases\Cl_Validacion.cs" />
     <Compile Include="Clases\ElipseComponent.cs">
       <SubType>Component</SubType>
     </Compile>
