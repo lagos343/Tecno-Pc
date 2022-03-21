@@ -41,26 +41,15 @@ namespace Tecno_Pc.Clases
                     Error[i].SetError(Text[i], "Campo Vacio");
                     conteo= false;
                 }
-
                 else if (Text[i].Text.Length < Minimo[i])
                 {
                     Error[i].SetError(Text[i], "El minimo de caracteres es " + Minimo[i]);
                     conteo= false;
                 }
-
-                else if (Regex.IsMatch(Text[i].Text, Regular[i]))
+                else if (Regex.Replace(Text[i].Text, Regular[i], String.Empty).Length != 0)
                 {
-
-                    if (Regex.Replace(Text[i].Text, Regular[i], String.Empty).Length == 0)
-                    {
-                        conteo= true;
-                    }
-                    else
-                    {
-                        Error[i].SetError(Text[i], Msj[i]);
-                        conteo= false;
-
-                    }
+                    Error[i].SetError(Text[i], Msj[i]);
+                    conteo = false;                    
                 }
                 else
                 {
@@ -71,29 +60,19 @@ namespace Tecno_Pc.Clases
                 {
                     control += 1;
                 }
-
             }
-
-            
+                       
 
             if (control > 0)
             {
                 control = 0;
-
                 return false;
-
             }
             else
             {
                 control = 0;
-                return true;
-                
-            }
-
-            
-
-        }
-
-  
+                return true;                
+            }          
+        }  
     }
 }

@@ -374,6 +374,7 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\server.png" />
     <None Include="Resources\calendarDark.png" />
     <None Include="Resources\calendarWhite.png" />
     <None Include="Resources\Nuevo2.png" />

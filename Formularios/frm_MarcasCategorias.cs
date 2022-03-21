@@ -26,6 +26,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_Marcas mar = new Clases.Cl_Marcas();
         Clases.Cl_Categorias cate = new Clases.Cl_Categorias();
         Clases.Cl_NotificacionCompra  noti = new Clases.Cl_NotificacionCompra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_MarcasCategorias(int valor)
         {          
@@ -69,6 +70,24 @@ namespace Tecno_Pc.Formularios
             this.Close();
         }
 
+        public void definicionarrayMarcas()
+        {
+            vld.Text = new System.Windows.Forms.TextBox[1] {txt_nombre};
+            vld.Error = new ErrorProvider[1] {erp_nombre};
+            vld.Minimo = new int[1] {3};
+            vld.Regular = new string[1] {"[A-Z, a-z, 0-9, ¡ * + % & $ # _]"};
+            vld.Msj = new string[1] { @"Solo alfanumericos y especiales como: (¡ * + % & $ # _)" };
+        }
+
+        public void definicionarrayCategorias()
+        {
+            vld.Text = new System.Windows.Forms.TextBox[1] { txt_nombre };
+            vld.Error = new ErrorProvider[1] { erp_nombre };
+            vld.Minimo = new int[1] { 3 };
+            vld.Regular = new string[1] { "[A-Z, a-z, 0-9]" };
+            vld.Msj = new string[1] { "Solo alfanumericos" };
+        }
+
         #region Botones del form
 
         private void btn_nuevo_Click(object sender, EventArgs e)
@@ -97,13 +116,13 @@ namespace Tecno_Pc.Formularios
         #region Categorias Botones
         private void btn_guardarCategorias (object sender, EventArgs e)
         {
-            if (txt_nombre.Text == "" )
+            definicionarrayCategorias();
+
+            if (vld.comprobartxt() == false)
             {                
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
+                frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();
-                erp_nombre.Clear();
-                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
+                noti.Close();                
             }
             else
             {
@@ -153,13 +172,13 @@ namespace Tecno_Pc.Formularios
         #region Marcas Botones
         private void btn_guardarMarcas(object sender, EventArgs e)
         {
-            if (txt_nombre.Text == "" )
+            definicionarrayMarcas();
+
+            if (vld.comprobartxt() == false)
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos antes de Continuar", 3);
+                frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();
-                erp_nombre.Clear();
-                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
+                noti.Close();                
             }
             else
             {

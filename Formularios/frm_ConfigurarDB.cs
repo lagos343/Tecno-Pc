@@ -85,6 +85,7 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_actualizar_Click(object sender, EventArgs e)
         {
+            btn_servers.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
@@ -106,7 +107,8 @@ namespace Tecno_Pc.Formularios
                 noti2.ShowDialog();
                 noti2.Close();
                 EscribirServer = true;
-            }                      
+            }
+            btn_servers.Enabled = true;
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -183,8 +185,13 @@ namespace Tecno_Pc.Formularios
                         noti.Close();
                         Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Configuracion guardada con exito", 1);
                         noti2.ShowDialog();
-                        Form1 login = new Form1();
-                        login.Show();
+
+                        Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_principal);
+                        if (frm == null)
+                        {
+                            Form1 login = new Form1();
+                            login.Show();
+                        }                                                                      
                         this.Hide();
                     }                    
                 }
