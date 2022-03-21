@@ -50,6 +50,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                btn_imprimir.Enabled = false;
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
@@ -57,7 +58,8 @@ namespace Tecno_Pc.Formularios
                 tar1.Start();
                 await tar1;
 
-                noti.Close();                
+                noti.Close();
+                btn_imprimir.Enabled = true;
             }
         }
 

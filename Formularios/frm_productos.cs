@@ -135,6 +135,7 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_Imprimir_Click(object sender, EventArgs e)
         {
+            btn_Imprimir.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
@@ -143,6 +144,7 @@ namespace Tecno_Pc.Formularios
             await tar1;
 
             noti.Close();
+            btn_Imprimir.Enabled = true;
         }
 
         private void excelProductos()

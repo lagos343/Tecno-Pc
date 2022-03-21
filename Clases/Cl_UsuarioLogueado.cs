@@ -50,8 +50,9 @@ namespace Tecno_Pc.Clases
             bool ingresar = false;
             datos = new DataTable();
             string cadena;
-            cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], u.Clave, (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
-                "r.[Nombre Rol], u.Estado from Usuarios u inner join Roles r on u.[ID Rol] = r.IDRol inner join Empleados e on u.[ID Empleado] = e.[ID Empleado] where [Nombre Usuario] = '" + usuario_+ "' and u.Estado = 1";
+            cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc', u.Clave)), (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
+                "r.[Nombre Rol], u.Estado from Usuarios u inner join Roles r on u.[ID Rol] = r.IDRol inner join Empleados e on u.[ID Empleado] = e.[ID Empleado] where " +
+                "[Nombre Usuario] = '" + usuario_+ "' and u.Estado = 1";
             datos = Consulta(cadena);
 
             try
@@ -66,6 +67,8 @@ namespace Tecno_Pc.Clases
                 telefono_ = datos.Rows[0][7].ToString();
                 rol_ = datos.Rows[0][8].ToString();
 
+                if (txt_usu.Text == usuario_)
+                {
                     if (Txt_contra.Text == contraseña_)
                     {
                         ingresar = true;
@@ -74,7 +77,12 @@ namespace Tecno_Pc.Clases
                     {
                         erp_contra.SetError(txt_contra, "La contraseña es incorrecta");
                         lbl_recu.Visible = true;
-                    }      
+                    }
+                }
+                else
+                {
+                    erp_usu.SetError(txt_usu, "El usuario ingresado no existe");
+                }              
             }
             catch (Exception ex)
             {

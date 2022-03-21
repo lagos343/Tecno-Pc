@@ -110,10 +110,9 @@ namespace Tecno_Pc.Formularios
             this.btn_minimizar.BaseColor = System.Drawing.Color.White;
             this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.btn_minimizar.Location = new System.Drawing.Point(669, 2);
-            this.btn_minimizar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_minimizar.Location = new System.Drawing.Point(502, 2);
             this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(37, 46);
+            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
             this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_minimizar.TabIndex = 4;
             this.btn_minimizar.TabStop = false;
@@ -124,10 +123,9 @@ namespace Tecno_Pc.Formularios
             this.btn_salir.BaseColor = System.Drawing.Color.White;
             this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.btn_salir.Location = new System.Drawing.Point(709, 4);
-            this.btn_salir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_salir.Location = new System.Drawing.Point(532, 3);
             this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(41, 44);
+            this.btn_salir.Size = new System.Drawing.Size(31, 36);
             this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_salir.TabIndex = 3;
             this.btn_salir.TabStop = false;
@@ -138,10 +136,9 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
             this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(4, 6);
-            this.gunaPictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
             this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(37, 36);
+            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
             this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
@@ -155,9 +152,8 @@ namespace Tecno_Pc.Formularios
             this.panel1.Controls.Add(this.gunaPictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(756, 49);
+            this.panel1.Size = new System.Drawing.Size(567, 40);
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
@@ -166,10 +162,9 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.AutoSize = true;
             this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.lbl_titulo.ForeColor = System.Drawing.Color.White;
-            this.lbl_titulo.Location = new System.Drawing.Point(49, 16);
-            this.lbl_titulo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lbl_titulo.Location = new System.Drawing.Point(37, 13);
             this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(138, 20);
+            this.lbl_titulo.Size = new System.Drawing.Size(110, 15);
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "NUEVO PRODUCTO";
             // 
@@ -188,8 +183,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(15, 479);
-            this.btn_guardar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btn_guardar.Location = new System.Drawing.Point(11, 389);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
@@ -198,7 +192,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnHoverImage = null;
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(328, 41);
+            this.btn_guardar.Size = new System.Drawing.Size(246, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -209,10 +203,9 @@ namespace Tecno_Pc.Formularios
             this.txt_id.CausesValidation = false;
             this.txt_id.Enabled = false;
             this.txt_id.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_id.Location = new System.Drawing.Point(25, 110);
-            this.txt_id.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_id.Location = new System.Drawing.Point(19, 89);
             this.txt_id.Name = "txt_id";
-            this.txt_id.Size = new System.Drawing.Size(303, 20);
+            this.txt_id.Size = new System.Drawing.Size(227, 16);
             this.txt_id.TabIndex = 34;
             // 
             // gunaLabel3
@@ -220,20 +213,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel3.AutoSize = true;
             this.gunaLabel3.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel3.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel3.Location = new System.Drawing.Point(11, 74);
-            this.gunaLabel3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel3.Location = new System.Drawing.Point(8, 60);
             this.gunaLabel3.Name = "gunaLabel3";
-            this.gunaLabel3.Size = new System.Drawing.Size(24, 20);
+            this.gunaLabel3.Size = new System.Drawing.Size(18, 15);
             this.gunaLabel3.TabIndex = 33;
             this.gunaLabel3.Text = "ID";
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox2.Location = new System.Drawing.Point(16, 101);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox2.Location = new System.Drawing.Point(12, 82);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox2.Size = new System.Drawing.Size(245, 31);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 32;
             this.pictureBox2.TabStop = false;
@@ -243,12 +234,11 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_nombre.Location = new System.Drawing.Point(423, 110);
-            this.txt_nombre.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_nombre.Location = new System.Drawing.Point(317, 89);
             this.txt_nombre.MaxLength = 20;
             this.txt_nombre.Name = "txt_nombre";
-            this.txt_nombre.Size = new System.Drawing.Size(303, 20);
-            this.txt_nombre.TabIndex = 37;
+            this.txt_nombre.Size = new System.Drawing.Size(227, 16);
+            this.txt_nombre.TabIndex = 1;
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaLabel1
@@ -256,20 +246,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel1.AutoSize = true;
             this.gunaLabel1.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel1.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel1.Location = new System.Drawing.Point(408, 74);
-            this.gunaLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel1.Location = new System.Drawing.Point(306, 60);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(70, 20);
+            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
             this.gunaLabel1.TabIndex = 36;
             this.gunaLabel1.Text = "NOMBRE";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox1.Location = new System.Drawing.Point(413, 101);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(310, 82);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox1.Size = new System.Drawing.Size(245, 31);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 35;
             this.pictureBox1.TabStop = false;
@@ -279,11 +267,10 @@ namespace Tecno_Pc.Formularios
             this.txt_precio.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_precio.CausesValidation = false;
             this.txt_precio.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_precio.Location = new System.Drawing.Point(423, 183);
-            this.txt_precio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_precio.Location = new System.Drawing.Point(317, 149);
             this.txt_precio.Name = "txt_precio";
-            this.txt_precio.Size = new System.Drawing.Size(303, 20);
-            this.txt_precio.TabIndex = 43;
+            this.txt_precio.Size = new System.Drawing.Size(227, 16);
+            this.txt_precio.TabIndex = 3;
             this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
             // 
             // gunaLabel2
@@ -291,20 +278,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(408, 148);
-            this.gunaLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel2.Location = new System.Drawing.Point(306, 120);
             this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(128, 20);
+            this.gunaLabel2.Size = new System.Drawing.Size(102, 15);
             this.gunaLabel2.TabIndex = 42;
             this.gunaLabel2.Text = "PRECIO UNITARIO";
             // 
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox3.Location = new System.Drawing.Point(413, 175);
-            this.pictureBox3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox3.Location = new System.Drawing.Point(310, 142);
             this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox3.Size = new System.Drawing.Size(245, 31);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox3.TabIndex = 41;
             this.pictureBox3.TabStop = false;
@@ -314,12 +299,11 @@ namespace Tecno_Pc.Formularios
             this.txt_modelo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_modelo.CausesValidation = false;
             this.txt_modelo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_modelo.Location = new System.Drawing.Point(25, 183);
-            this.txt_modelo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_modelo.Location = new System.Drawing.Point(19, 149);
             this.txt_modelo.MaxLength = 15;
             this.txt_modelo.Name = "txt_modelo";
-            this.txt_modelo.Size = new System.Drawing.Size(303, 20);
-            this.txt_modelo.TabIndex = 40;
+            this.txt_modelo.Size = new System.Drawing.Size(227, 16);
+            this.txt_modelo.TabIndex = 2;
             this.txt_modelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_modelo_KeyPress);
             // 
             // gunaLabel4
@@ -327,20 +311,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel4.AutoSize = true;
             this.gunaLabel4.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel4.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel4.Location = new System.Drawing.Point(11, 148);
-            this.gunaLabel4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel4.Location = new System.Drawing.Point(8, 120);
             this.gunaLabel4.Name = "gunaLabel4";
-            this.gunaLabel4.Size = new System.Drawing.Size(69, 20);
+            this.gunaLabel4.Size = new System.Drawing.Size(56, 15);
             this.gunaLabel4.TabIndex = 39;
             this.gunaLabel4.Text = "MODELO";
             // 
             // pictureBox4
             // 
             this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox4.Location = new System.Drawing.Point(16, 175);
-            this.pictureBox4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox4.Location = new System.Drawing.Point(12, 142);
             this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox4.Size = new System.Drawing.Size(245, 31);
             this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox4.TabIndex = 38;
             this.pictureBox4.TabStop = false;
@@ -350,20 +332,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel5.AutoSize = true;
             this.gunaLabel5.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel5.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel5.Location = new System.Drawing.Point(188, 223);
-            this.gunaLabel5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel5.Location = new System.Drawing.Point(141, 181);
             this.gunaLabel5.Name = "gunaLabel5";
-            this.gunaLabel5.Size = new System.Drawing.Size(53, 20);
+            this.gunaLabel5.Size = new System.Drawing.Size(42, 15);
             this.gunaLabel5.TabIndex = 48;
             this.gunaLabel5.Text = "STOCK";
             // 
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(413, 250);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(310, 203);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox5.Size = new System.Drawing.Size(245, 31);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 47;
             this.pictureBox5.TabStop = false;
@@ -373,11 +353,10 @@ namespace Tecno_Pc.Formularios
             this.txt_stock.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_stock.CausesValidation = false;
             this.txt_stock.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_stock.Location = new System.Drawing.Point(200, 260);
-            this.txt_stock.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_stock.Location = new System.Drawing.Point(150, 211);
             this.txt_stock.Name = "txt_stock";
-            this.txt_stock.Size = new System.Drawing.Size(128, 20);
-            this.txt_stock.TabIndex = 46;
+            this.txt_stock.Size = new System.Drawing.Size(96, 16);
+            this.txt_stock.TabIndex = 4;
             this.txt_stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_KeyPress);
             // 
             // gunaLabel6
@@ -385,20 +364,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel6.AutoSize = true;
             this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel6.Location = new System.Drawing.Point(11, 223);
-            this.gunaLabel6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel6.Location = new System.Drawing.Point(8, 181);
             this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(64, 20);
+            this.gunaLabel6.Size = new System.Drawing.Size(49, 15);
             this.gunaLabel6.TabIndex = 45;
             this.gunaLabel6.Text = "ESTADO";
             // 
             // pictureBox6
             // 
             this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox6.Location = new System.Drawing.Point(16, 250);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(12, 203);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox6.Size = new System.Drawing.Size(245, 31);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox6.TabIndex = 44;
             this.pictureBox6.TabStop = false;
@@ -408,20 +385,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel7.AutoSize = true;
             this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel7.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel7.Location = new System.Drawing.Point(408, 298);
-            this.gunaLabel7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel7.Location = new System.Drawing.Point(306, 242);
             this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(87, 20);
+            this.gunaLabel7.Size = new System.Drawing.Size(69, 15);
             this.gunaLabel7.TabIndex = 54;
             this.gunaLabel7.Text = "CATEGORIA";
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox7.Location = new System.Drawing.Point(413, 325);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Location = new System.Drawing.Point(310, 264);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox7.Size = new System.Drawing.Size(245, 31);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 53;
             this.pictureBox7.TabStop = false;
@@ -431,20 +406,18 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel8.AutoSize = true;
             this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel8.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel8.Location = new System.Drawing.Point(11, 298);
-            this.gunaLabel8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel8.Location = new System.Drawing.Point(8, 242);
             this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(60, 20);
+            this.gunaLabel8.Size = new System.Drawing.Size(49, 15);
             this.gunaLabel8.TabIndex = 51;
             this.gunaLabel8.Text = "MARCA";
             // 
             // pictureBox8
             // 
             this.pictureBox8.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox8.Location = new System.Drawing.Point(16, 325);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox8.Location = new System.Drawing.Point(12, 264);
             this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox8.Size = new System.Drawing.Size(245, 31);
             this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox8.TabIndex = 50;
             this.pictureBox8.TabStop = false;
@@ -453,10 +426,9 @@ namespace Tecno_Pc.Formularios
             // 
             this.gunaLinePanel1.LineColor = System.Drawing.Color.Black;
             this.gunaLinePanel1.LineStyle = System.Windows.Forms.BorderStyle.None;
-            this.gunaLinePanel1.Location = new System.Drawing.Point(159, 215);
-            this.gunaLinePanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.gunaLinePanel1.Location = new System.Drawing.Point(119, 175);
             this.gunaLinePanel1.Name = "gunaLinePanel1";
-            this.gunaLinePanel1.Size = new System.Drawing.Size(31, 105);
+            this.gunaLinePanel1.Size = new System.Drawing.Size(23, 85);
             this.gunaLinePanel1.TabIndex = 57;
             // 
             // gunaLabel9
@@ -464,10 +436,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel9.Location = new System.Drawing.Point(408, 223);
-            this.gunaLabel9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel9.Location = new System.Drawing.Point(306, 181);
             this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(93, 20);
+            this.gunaLabel9.Size = new System.Drawing.Size(73, 15);
             this.gunaLabel9.TabIndex = 59;
             this.gunaLabel9.Text = "PROVEEDOR";
             // 
@@ -478,11 +449,10 @@ namespace Tecno_Pc.Formularios
             this.swt_estado.CheckedOffColor = System.Drawing.Color.DarkGray;
             this.swt_estado.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.swt_estado.FillColor = System.Drawing.Color.White;
-            this.swt_estado.Location = new System.Drawing.Point(61, 257);
-            this.swt_estado.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.swt_estado.Location = new System.Drawing.Point(46, 209);
             this.swt_estado.Name = "swt_estado";
-            this.swt_estado.Size = new System.Drawing.Size(51, 25);
-            this.swt_estado.TabIndex = 60;
+            this.swt_estado.Size = new System.Drawing.Size(38, 20);
+            this.swt_estado.TabIndex = 20;
             // 
             // cbo_proveedor
             // 
@@ -496,11 +466,10 @@ namespace Tecno_Pc.Formularios
             "bb",
             "como ",
             "estas"});
-            this.cbo_proveedor.Location = new System.Drawing.Point(421, 255);
-            this.cbo_proveedor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbo_proveedor.Location = new System.Drawing.Point(316, 207);
             this.cbo_proveedor.Name = "cbo_proveedor";
-            this.cbo_proveedor.Size = new System.Drawing.Size(303, 28);
-            this.cbo_proveedor.TabIndex = 82;
+            this.cbo_proveedor.Size = new System.Drawing.Size(228, 23);
+            this.cbo_proveedor.TabIndex = 5;
             this.cbo_proveedor.SelectedIndexChanged += new System.EventHandler(this.cbo_proveedor_SelectedIndexChanged);
             // 
             // cbo_categoria
@@ -515,11 +484,10 @@ namespace Tecno_Pc.Formularios
             "bb",
             "como ",
             "estas"});
-            this.cbo_categoria.Location = new System.Drawing.Point(421, 330);
-            this.cbo_categoria.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbo_categoria.Location = new System.Drawing.Point(316, 268);
             this.cbo_categoria.Name = "cbo_categoria";
-            this.cbo_categoria.Size = new System.Drawing.Size(303, 28);
-            this.cbo_categoria.TabIndex = 82;
+            this.cbo_categoria.Size = new System.Drawing.Size(228, 23);
+            this.cbo_categoria.TabIndex = 7;
             this.cbo_categoria.SelectedIndexChanged += new System.EventHandler(this.cbo_categoria_SelectedIndexChanged);
             // 
             // cbo_marca
@@ -534,19 +502,17 @@ namespace Tecno_Pc.Formularios
             "bb",
             "como ",
             "estas"});
-            this.cbo_marca.Location = new System.Drawing.Point(25, 330);
-            this.cbo_marca.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbo_marca.Location = new System.Drawing.Point(19, 268);
             this.cbo_marca.Name = "cbo_marca";
-            this.cbo_marca.Size = new System.Drawing.Size(301, 28);
-            this.cbo_marca.TabIndex = 82;
+            this.cbo_marca.Size = new System.Drawing.Size(227, 23);
+            this.cbo_marca.TabIndex = 6;
             this.cbo_marca.SelectedIndexChanged += new System.EventHandler(this.cbo_marca_SelectedIndexChanged);
             // 
             // pic_CodBar
             // 
-            this.pic_CodBar.Location = new System.Drawing.Point(413, 395);
-            this.pic_CodBar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pic_CodBar.Location = new System.Drawing.Point(310, 321);
             this.pic_CodBar.Name = "pic_CodBar";
-            this.pic_CodBar.Size = new System.Drawing.Size(327, 124);
+            this.pic_CodBar.Size = new System.Drawing.Size(245, 101);
             this.pic_CodBar.TabIndex = 83;
             this.pic_CodBar.TabStop = false;
             // 
@@ -555,22 +521,20 @@ namespace Tecno_Pc.Formularios
             this.txt_codBarra.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_codBarra.CausesValidation = false;
             this.txt_codBarra.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_codBarra.Location = new System.Drawing.Point(25, 404);
-            this.txt_codBarra.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_codBarra.Location = new System.Drawing.Point(19, 328);
             this.txt_codBarra.MaxLength = 12;
             this.txt_codBarra.Name = "txt_codBarra";
-            this.txt_codBarra.Size = new System.Drawing.Size(303, 20);
-            this.txt_codBarra.TabIndex = 85;
+            this.txt_codBarra.Size = new System.Drawing.Size(227, 16);
+            this.txt_codBarra.TabIndex = 8;
             this.txt_codBarra.TextChanged += new System.EventHandler(this.txt_codBarra_TextChanged);
             this.txt_codBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codBarra_KeyPress);
             // 
             // pictureBox10
             // 
             this.pictureBox10.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox10.Location = new System.Drawing.Point(16, 395);
-            this.pictureBox10.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox10.Location = new System.Drawing.Point(12, 321);
             this.pictureBox10.Name = "pictureBox10";
-            this.pictureBox10.Size = new System.Drawing.Size(327, 38);
+            this.pictureBox10.Size = new System.Drawing.Size(245, 31);
             this.pictureBox10.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox10.TabIndex = 84;
             this.pictureBox10.TabStop = false;
@@ -580,10 +544,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel10.AutoSize = true;
             this.gunaLabel10.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel10.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel10.Location = new System.Drawing.Point(11, 373);
-            this.gunaLabel10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.gunaLabel10.Location = new System.Drawing.Point(8, 303);
             this.gunaLabel10.Name = "gunaLabel10";
-            this.gunaLabel10.Size = new System.Drawing.Size(65, 20);
+            this.gunaLabel10.Size = new System.Drawing.Size(52, 15);
             this.gunaLabel10.TabIndex = 86;
             this.gunaLabel10.Text = "CODIGO";
             // 
@@ -621,10 +584,10 @@ namespace Tecno_Pc.Formularios
             // 
             // frm_AñadirProductos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.ClientSize = new System.Drawing.Size(756, 542);
+            this.ClientSize = new System.Drawing.Size(567, 440);
             this.Controls.Add(this.gunaLabel10);
             this.Controls.Add(this.txt_codBarra);
             this.Controls.Add(this.pictureBox10);
@@ -660,7 +623,6 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_AñadirProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Añadir Productos";

@@ -20,7 +20,8 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         Clases.Cl_Productos prod = new Clases.Cl_Productos(); 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();        
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_AñadirProductos(int estado, DataGridView dat)
         {
@@ -80,19 +81,22 @@ namespace Tecno_Pc.Formularios
             cbo_proveedor.DisplayMember = "Nombre";
             cbo_proveedor.ValueMember = "ID Proveedor";
             cbo_proveedor.SelectedIndex = -1;
-        }        
+        }
+
+        public void definicionarray()
+        {
+            vld.Text = new TextBox[5] {txt_codBarra, txt_modelo, txt_nombre, txt_precio, txt_stock};
+            vld.Error = new ErrorProvider[5] {erp5, erp4, erp, erp2, erp3};
+            vld.Minimo = new int[5] {12, 3, 4, 2, 1};
+            vld.Regular = new string[5] {"[0-9]", "[A-Z, a-z, 0-9]", "[A-Z, a-z, 0-9]", "[0-9]{1,7}\\.[0-9]{1,4}", "[0-9]"};
+            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio: 0000000.00", "Solo digitos numericos" };
+        }
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
-            if (txt_nombre.Text == "" || txt_modelo.Text == "" || txt_precio.Text == "" || txt_stock.Text == "" || 
-                 cbo_categoria.SelectedIndex == -1 || cbo_marca.SelectedIndex == -1 || cbo_proveedor.SelectedIndex == -1 || txt_codBarra.Text == "")
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarray();
+
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1)
             {
                 DataTable datos = new DataTable();
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
@@ -117,7 +121,14 @@ namespace Tecno_Pc.Formularios
                     frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
                     noti.ShowDialog();
                     noti.Close();
-                }                
+                }
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();                                
             }
 
             Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
@@ -125,67 +136,31 @@ namespace Tecno_Pc.Formularios
         }
 
         private void escoger_erp()
-        {
-            if (txt_nombre.Text == "")
-            {
-                erp.Clear();
-                erp.SetError(txt_nombre, "no puede quedar vacio");
-            }
-
-            if (txt_precio.Text == "")
-            {
-                erp2.Clear();
-                erp2.SetError(txt_precio, "no puede quedar vacio");
-            }
-
-            if (txt_stock.Text == "")
-            {
-                erp3.Clear();
-                erp3.SetError(txt_stock, "no puede quedar vacio");
-            }
-
-            if (txt_modelo.Text == "")
-            {
-                erp4.Clear();
-                erp4.SetError(txt_modelo, "no puede quedar vacio");
-            }
-
-            if (txt_codBarra.Text == "")
-            {
-                erp5.Clear();
-                erp5.SetError(txt_codBarra, "no puede quedar vacio");
-            }
-
+        {           
             if (cbo_categoria.SelectedIndex == -1)
             {
                 erp6.Clear();
-                erp6.SetError(cbo_categoria, "no puede quedar vacio");
+                erp6.SetError(cbo_categoria, "Seleccione algo valido");
             }
 
             if (cbo_marca.SelectedIndex == -1)
             {
                 erp7.Clear();
-                erp7.SetError(cbo_marca, "no puede quedar vacio");
+                erp7.SetError(cbo_marca, "Seleccione algo valido");
             }
 
             if (cbo_proveedor.SelectedIndex == -1)
             {
                 erp8.Clear();
-                erp8.SetError(cbo_proveedor, "no puede quedar vacio");
+                erp8.SetError(cbo_proveedor, "Seleccione algo valido");
             }
         }  
 
         private void btn_guardarActualizado_Click(object sender, EventArgs e)
         {
-            if (txt_nombre.Text == "" || txt_modelo.Text == "" || txt_precio.Text == "" || txt_stock.Text == "" ||
-                 cbo_categoria.SelectedIndex == -1 || cbo_marca.SelectedIndex == -1 || cbo_proveedor.SelectedIndex == -1 || txt_codBarra.Text == "")
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarray();
+
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 )
             {
                 DataTable datos = new DataTable();
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
@@ -198,7 +173,7 @@ namespace Tecno_Pc.Formularios
                 else
                 {
                     string codbar;
-                    codbar = sql.Consulta2("select CodBarra from Productos where [ID Producto] = "+txt_id.Text);
+                    codbar = sql.Consulta2("select CodBarra from Productos where [ID Producto] = " + txt_id.Text);
 
                     if (codbar == txt_codBarra.Text)
                     {
@@ -209,8 +184,15 @@ namespace Tecno_Pc.Formularios
                         frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
                         noti.ShowDialog();
                         noti.Close();
-                    }                    
-                }                
+                    }
+                }
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();                                
             }
 
             Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
@@ -280,6 +262,11 @@ namespace Tecno_Pc.Formularios
 
         private void txt_codBarra_KeyPress(object sender, KeyPressEventArgs e)
         {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btn_guardar.PerformClick();
+            }
+                        
             if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
             {
                 e.Handled = true;

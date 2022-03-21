@@ -104,6 +104,7 @@ namespace Tecno_Pc
                 txt_pasword.Text = "Contraseña";
                 chk_paswordChar.Checked = false;
                 txt_pasword.UseSystemPasswordChar = true;
+                lnk_Re_usu_contra.Visible = false;
                 Formularios.frm_principal prin = new Formularios.frm_principal();
                 prin.Show();
             }

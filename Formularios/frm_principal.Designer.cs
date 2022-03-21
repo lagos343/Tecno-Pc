@@ -33,6 +33,7 @@ namespace Tecno_Pc.Formularios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_principal));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.Panel_Slider = new Guna.UI.WinForms.GunaPanel();
+            this.btn_server = new System.Windows.Forms.PictureBox();
             this.btn_LogOut = new System.Windows.Forms.PictureBox();
             this.pic_flecha = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_nombreUsuario = new Guna.UI.WinForms.GunaLabel();
@@ -56,6 +57,7 @@ namespace Tecno_Pc.Formularios
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Panel_Slider.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_server)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).BeginInit();
@@ -74,6 +76,7 @@ namespace Tecno_Pc.Formularios
             // Panel_Slider
             // 
             this.Panel_Slider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Panel_Slider.Controls.Add(this.btn_server);
             this.Panel_Slider.Controls.Add(this.btn_LogOut);
             this.Panel_Slider.Controls.Add(this.pic_flecha);
             this.Panel_Slider.Controls.Add(this.lbl_nombreUsuario);
@@ -90,11 +93,23 @@ namespace Tecno_Pc.Formularios
             this.Panel_Slider.Size = new System.Drawing.Size(186, 740);
             this.Panel_Slider.TabIndex = 1;
             // 
+            // btn_server
+            // 
+            this.btn_server.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_server.Image = global::Tecno_Pc.Properties.Resources.server;
+            this.btn_server.Location = new System.Drawing.Point(86, 705);
+            this.btn_server.Name = "btn_server";
+            this.btn_server.Size = new System.Drawing.Size(28, 24);
+            this.btn_server.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_server.TabIndex = 99;
+            this.btn_server.TabStop = false;
+            this.btn_server.Click += new System.EventHandler(this.btn_server_Click);
+            // 
             // btn_LogOut
             // 
             this.btn_LogOut.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_LogOut.Image = global::Tecno_Pc.Properties.Resources.cerrar;
-            this.btn_LogOut.Location = new System.Drawing.Point(152, 708);
+            this.btn_LogOut.Location = new System.Drawing.Point(150, 705);
             this.btn_LogOut.Name = "btn_LogOut";
             this.btn_LogOut.Size = new System.Drawing.Size(28, 24);
             this.btn_LogOut.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -111,7 +126,7 @@ namespace Tecno_Pc.Formularios
             this.pic_flecha.Size = new System.Drawing.Size(16, 42);
             this.pic_flecha.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pic_flecha.TabIndex = 7;
-            this.pic_flecha.TabStop = false;            
+            this.pic_flecha.TabStop = false;
             // 
             // lbl_nombreUsuario
             // 
@@ -359,7 +374,7 @@ namespace Tecno_Pc.Formularios
             this.swt_codbar.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(98)))), ((int)(((byte)(195)))), ((int)(((byte)(140)))));
             this.swt_codbar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.swt_codbar.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.swt_codbar.Location = new System.Drawing.Point(9, 709);
+            this.swt_codbar.Location = new System.Drawing.Point(10, 707);
             this.swt_codbar.Name = "swt_codbar";
             this.swt_codbar.Size = new System.Drawing.Size(38, 20);
             this.swt_codbar.TabIndex = 98;
@@ -452,6 +467,7 @@ namespace Tecno_Pc.Formularios
             this.Text = "Tecno Pc";
             this.Load += new System.EventHandler(this.frm_principal_Load);
             this.Panel_Slider.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_server)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox2)).EndInit();
@@ -490,5 +506,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox btn_LogOut;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI.WinForms.GunaGoogleSwitch swt_codbar;
+        private System.Windows.Forms.PictureBox btn_server;
     }
 }

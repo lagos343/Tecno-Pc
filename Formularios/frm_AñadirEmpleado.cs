@@ -51,7 +51,6 @@ namespace Tecno_Pc.Formularios
                 txt_correo .Text = dat.CurrentRow.Cells[7 + 2].Value.ToString();
                 txt_direccion .Text = dat.CurrentRow.Cells[8 + 2].Value.ToString();
             }
-
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -62,7 +61,6 @@ namespace Tecno_Pc.Formularios
 
         public void iniciarcombobox()
         {
-
             cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [Nombre Puesto] asc");
             cbo_puesto.DisplayMember = "Nombre Puesto";
             cbo_puesto.ValueMember = "ID Puesto";
@@ -71,9 +69,7 @@ namespace Tecno_Pc.Formularios
             cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [Nombre Depto] asc");
             cbo_depto.DisplayMember = "Nombre Depto";
             cbo_depto.ValueMember = "ID Depto";
-            cbo_depto.SelectedIndex = -1;
-            
-
+            cbo_depto.SelectedIndex = -1;           
         }
 
 
@@ -92,16 +88,13 @@ namespace Tecno_Pc.Formularios
             if(cbo_depto.SelectedIndex == -1)
             {
                 erp_depto.Clear();
-                erp_depto.SetError(cbo_depto, "Campo Vacio");
+                erp_depto.SetError(cbo_depto, "Seleccione algo valido");
             }
             if (cbo_puesto.SelectedIndex == -1)
             {
                 erp_puesto.Clear();
-                erp_puesto.SetError(cbo_puesto, "Campo Vacio");
+                erp_puesto.SetError(cbo_puesto, "Seleccione algo valido");
             }
-
-
-
         }
 
         private void guarda_click(object sender, EventArgs e)
@@ -119,12 +112,10 @@ namespace Tecno_Pc.Formularios
                 empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
                 empleados.Estado = Convert.ToBoolean(true);
                 empleados.guardar();
-                limpiado();
-                
+                limpiado();                
             }
-            else 
-            {
-                
+            else  
+            {                
                 frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
@@ -133,7 +124,6 @@ namespace Tecno_Pc.Formularios
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();
-
         }
 
         private void actualiza_click(object sender, EventArgs e) 
@@ -174,9 +164,7 @@ namespace Tecno_Pc.Formularios
             txt_direccion.Clear();
             txt_correo.Clear();
             cbo_depto.SelectedIndex = -1;
-            cbo_puesto.SelectedIndex = -1;
-            
-        
+            cbo_puesto.SelectedIndex = -1;                  
         }
         private void btn_salir_Click(object sender, EventArgs e)
         {

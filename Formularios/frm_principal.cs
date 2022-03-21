@@ -29,7 +29,8 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(btn_LogOut, "Cerrar sesion");
             toolTip1.SetToolTip(btn_cerrar, "Salir");
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
-            toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");                      
+            toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");
+            toolTip1.SetToolTip(btn_server, "Configurar DB");
 
             if (Properties.Settings.Default.CodBar == "")
             {
@@ -222,6 +223,20 @@ namespace Tecno_Pc.Formularios
             if (frm2 != null)
             {
                 btn_compras.PerformClick();
+            }
+        }
+
+        private void btn_server_Click(object sender, EventArgs e)
+        {
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ConfigurarDB);
+            if (frm == null)
+            {
+                frm_ConfigurarDB db = new frm_ConfigurarDB(true);
+                db.Show();
+            }
+            else
+            {
+                frm.BringToFront();
             }
         }
     }
