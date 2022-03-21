@@ -23,6 +23,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_AñadirProveedores(int estado, DataGridView dat)
         {
@@ -61,18 +62,22 @@ namespace Tecno_Pc.Formularios
             cbo_depto.SelectedIndex = -1;
         }
 
+        public void definicionarrayPro()
+        {
+            vld.Text = new TextBox[4] {txt_nombre, txt_telefono, txt_email, txt_direccion};
+            vld.Error = new ErrorProvider[4] {erp_nombre, erp_telefono, erp_correo, erp_direccion };
+            vld.Minimo = new int[4] {2,8,10,5};
+            vld.Regular = new string[4] {"[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", "[A-Z, a-z, 0-9]" };
+            vld.Msj = new string[4] { "Solo caracteres" , "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: Example@dominio.algo" , "Caracteres especiales no validos" };
+
+        }
+
 
         private void guarda_click(object sender, EventArgs e)
         {
+            definicionarrayPro();
 
-            if (txt_nombre.Text == "" || txt_telefono.Text == "" || txt_email.Text == "" || txt_direccion.Text == "" || cbo_depto.SelectedIndex == -1 || ValidarEmail(txt_email.Text) == false)
-            {
-                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1)
             {
                 proveedores.Nombre = txt_nombre.Text;
                 proveedores.Telefono = txt_telefono.Text;
@@ -82,7 +87,13 @@ namespace Tecno_Pc.Formularios
                 proveedores.Estado = Convert.ToBoolean(true);
                 proveedores.guardar();
                 limpiado();
-
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();
             }
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
@@ -91,15 +102,9 @@ namespace Tecno_Pc.Formularios
 
         private void actualiza_click(object sender, EventArgs e)
         {
+            definicionarrayPro();
 
-            if (txt_nombre.Text == "" || txt_telefono.Text == "" || txt_email.Text == "" || txt_direccion.Text == "" || cbo_depto.SelectedIndex == -1 || ValidarEmail(txt_email.Text) == false)
-            {
-                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1)
             {
                 proveedores.IDProveedor = int.Parse(txt_id.Text);
                 proveedores.Nombre = txt_nombre.Text;
@@ -109,6 +114,14 @@ namespace Tecno_Pc.Formularios
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 proveedores.actualizarDatos();
                 this.Close();
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();
+                
 
             }
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
@@ -117,38 +130,6 @@ namespace Tecno_Pc.Formularios
 
         private void escoger_erp()  
         {
-            if(txt_nombre.Text == "")
-            {
-                erp_nombre.Clear();
-                erp_nombre.SetError(txt_nombre, "No puede quedar vacio");
-            }
-
-            if (txt_telefono.Text == "")
-            {
-                erp_telefono.Clear();
-                erp_telefono.SetError(txt_telefono, "No puede quedar vacio");
-            }
-
-            if (txt_email.Text == "")
-            {
-                erp_correo.Clear();
-                erp_correo.SetError(txt_email, "No puede quedar vacio");
-            }
-            else
-            {
-                if (ValidarEmail(txt_email.Text) == false)
-                {
-                    erp_correo.Clear();
-                    erp_correo.SetError(txt_email, "solo emails validos: Example@dominio.algo");
-                }
-            }
-
-            if (txt_direccion.Text == "")
-            {
-                erp_direccion.Clear();
-                erp_direccion.SetError(txt_direccion, "No puede quedar vacio");
-            }
-
             if (cbo_depto.SelectedIndex == -1)
             {
                 erp_departamento.Clear();
@@ -156,26 +137,6 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        public static bool ValidarEmail(string comprobarEmail)
-        {
-            string emailFormato;
-            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(comprobarEmail, emailFormato))
-            {
-                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
-            }
-        }
 
         public void limpiado()
         {
