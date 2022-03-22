@@ -23,6 +23,8 @@ namespace Tecno_Pc
             this.ttMensaje.SetToolTip(this.chk_paswordChar, "Activar/Desactivar vista de la contraseña");
             this.ttMensaje.SetToolTip(this.btn_CerrarLogin, "Salir");
             this.ttMensaje.SetToolTip(this.btn_ingresar, "Ingresar al sistema");
+            //Properties.Settings.Default.Servidor = "";
+            //Properties.Settings.Default.Save();
         }
 
         private void btn_CerrarLogin_Click(object sender, EventArgs e)
@@ -102,6 +104,7 @@ namespace Tecno_Pc
                 txt_pasword.Text = "Contraseña";
                 chk_paswordChar.Checked = false;
                 txt_pasword.UseSystemPasswordChar = true;
+                lnk_Re_usu_contra.Visible = false;
                 Formularios.frm_principal prin = new Formularios.frm_principal();
                 prin.Show();
             }
@@ -115,6 +118,14 @@ namespace Tecno_Pc
         private void txt_pasword_TextChanged(object sender, EventArgs e)
         {
             error_contraseña.Clear();
+        }
+
+        private void txt_pasword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btn_ingresar.PerformClick();
+            }
         }
     }
 }

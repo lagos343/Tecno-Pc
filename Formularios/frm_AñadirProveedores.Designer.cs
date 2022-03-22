@@ -61,6 +61,7 @@ namespace Tecno_Pc.Formularios
             this.erp_correo = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_departamento = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
@@ -83,20 +84,21 @@ namespace Tecno_Pc.Formularios
             this.txt_direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_direccion.CausesValidation = false;
             this.txt_direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_direccion.Location = new System.Drawing.Point(25, 251);
+            this.txt_direccion.Location = new System.Drawing.Point(317, 250);
             this.txt_direccion.Margin = new System.Windows.Forms.Padding(4);
             this.txt_direccion.Multiline = true;
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(227, 75);
-            this.txt_direccion.TabIndex = 142;
+            this.txt_direccion.TabIndex = 5;
             this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
+            this.txt_direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_direccion_KeyPress);
             // 
             // gunaLabel9
             // 
             this.gunaLabel9.AutoSize = true;
             this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel9.Location = new System.Drawing.Point(13, 225);
+            this.gunaLabel9.Location = new System.Drawing.Point(306, 225);
             this.gunaLabel9.Name = "gunaLabel9";
             this.gunaLabel9.Size = new System.Drawing.Size(68, 15);
             this.gunaLabel9.TabIndex = 141;
@@ -105,7 +107,7 @@ namespace Tecno_Pc.Formularios
             // pictureBox9
             // 
             this.pictureBox9.Image = global::Tecno_Pc.Properties.Resources.CajaDescripcion;
-            this.pictureBox9.Location = new System.Drawing.Point(16, 244);
+            this.pictureBox9.Location = new System.Drawing.Point(309, 244);
             this.pictureBox9.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox9.Name = "pictureBox9";
             this.pictureBox9.Size = new System.Drawing.Size(241, 87);
@@ -120,10 +122,10 @@ namespace Tecno_Pc.Formularios
             this.txt_email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_email.Location = new System.Drawing.Point(319, 178);
             this.txt_email.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_email.MaxLength = 50;
+            this.txt_email.MaxLength = 30;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(227, 16);
-            this.txt_email.TabIndex = 133;
+            this.txt_email.TabIndex = 3;
             this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // gunaLabel5
@@ -153,7 +155,7 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel2.AutoSize = true;
             this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(306, 225);
+            this.gunaLabel2.Location = new System.Drawing.Point(13, 225);
             this.gunaLabel2.Name = "gunaLabel2";
             this.gunaLabel2.Size = new System.Drawing.Size(94, 15);
             this.gunaLabel2.TabIndex = 126;
@@ -162,7 +164,7 @@ namespace Tecno_Pc.Formularios
             // pictureBox3
             // 
             this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox3.Location = new System.Drawing.Point(309, 244);
+            this.pictureBox3.Location = new System.Drawing.Point(16, 244);
             this.pictureBox3.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(245, 31);
@@ -177,10 +179,10 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_telefono.Location = new System.Drawing.Point(25, 178);
             this.txt_telefono.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_telefono.MaxLength = 20;
+            this.txt_telefono.MaxLength = 8;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(227, 16);
-            this.txt_telefono.TabIndex = 124;
+            this.txt_telefono.TabIndex = 2;
             this.txt_telefono.TextChanged += new System.EventHandler(this.txt_telefono_TextChanged);
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
@@ -213,10 +215,10 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(319, 104);
             this.txt_nombre.Margin = new System.Windows.Forms.Padding(4);
-            this.txt_nombre.MaxLength = 50;
+            this.txt_nombre.MaxLength = 20;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
-            this.txt_nombre.TabIndex = 121;
+            this.txt_nombre.TabIndex = 1;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
@@ -280,7 +282,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.ForeColor = System.Drawing.Color.White;
             this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
             this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(309, 298);
+            this.btn_guardar.Location = new System.Drawing.Point(16, 298);
             this.btn_guardar.Margin = new System.Windows.Forms.Padding(4);
             this.btn_guardar.Name = "btn_guardar";
             this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
@@ -291,7 +293,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(245, 33);
-            this.btn_guardar.TabIndex = 115;
+            this.btn_guardar.TabIndex = 6;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -384,10 +386,10 @@ namespace Tecno_Pc.Formularios
             this.cbo_depto.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.cbo_depto.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbo_depto.FormattingEnabled = true;
-            this.cbo_depto.Location = new System.Drawing.Point(319, 248);
+            this.cbo_depto.Location = new System.Drawing.Point(26, 248);
             this.cbo_depto.Name = "cbo_depto";
             this.cbo_depto.Size = new System.Drawing.Size(227, 23);
-            this.cbo_depto.TabIndex = 143;
+            this.cbo_depto.TabIndex = 4;
             this.cbo_depto.SelectedIndexChanged += new System.EventHandler(this.cbo_depto_SelectedIndexChanged);
             // 
             // erp_nombre
@@ -409,6 +411,15 @@ namespace Tecno_Pc.Formularios
             // erp_departamento
             // 
             this.erp_departamento.ContainerControl = this;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, -61);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(572, 437);
+            this.panel2.TabIndex = 142;
             // 
             // frm_AñadirProveedores
             // 
@@ -436,6 +447,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -495,5 +507,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_correo;
         private System.Windows.Forms.ErrorProvider erp_direccion;
         private System.Windows.Forms.ErrorProvider erp_departamento;
+        private System.Windows.Forms.Panel panel2;
     }
 }

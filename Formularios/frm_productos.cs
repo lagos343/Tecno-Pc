@@ -135,17 +135,16 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_Imprimir_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                frm_notificacion noti = new frm_notificacion("", 4);
-                noti.Show();
+            btn_Imprimir.Enabled = false;
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
 
-                Task tar1 = new Task(excelProductos);
-                tar1.Start();
-                await tar1;
+            Task tar1 = new Task(excelProductos);
+            tar1.Start();
+            await tar1;
 
-                noti.Close();                
-            }                                                 
+            noti.Close();
+            btn_Imprimir.Enabled = true;
         }
 
         private void excelProductos()
@@ -154,10 +153,11 @@ namespace Tecno_Pc.Formularios
                 "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, '-'+CodBarra+'-' from Productos p " +
                 "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
                 "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1";
-            ex.Ruta = saveFileDialog1.FileName;
             ex.Cabecera =  new string[8] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras"};
             ex.Titulo = "Reporte de inventarios de Productos";
             ex.RangoCabecera = "C5 J5";
+            ex.Carpeta = "Productos";
+            ex.Fecha = DateTime.Now.ToShortDateString();
             ex.GenerarExcel();
         }        
 

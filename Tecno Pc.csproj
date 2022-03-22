@@ -52,6 +52,10 @@
     <ApplicationIcon>LogoTecnoPc.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup />
+  <PropertyGroup />
+  <PropertyGroup>
+    <StartupObject>Tecno_Pc.Program</StartupObject>
+  </PropertyGroup>
   <PropertyGroup>
     <NoWin32Manifest>true</NoWin32Manifest>
   </PropertyGroup>
@@ -143,6 +147,7 @@
     <Compile Include="Clases\Cl_SqlMaestra.cs" />
     <Compile Include="Clases\Cl_Usuarios.cs" />
     <Compile Include="Clases\Cl_UsuarioLogueado.cs" />
+    <Compile Include="Clases\Cl_Validacion.cs" />
     <Compile Include="Clases\ElipseComponent.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -150,6 +155,9 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Clases\Cl_Contactos.cs" />
+    <Compile Include="Clases\RJDatePicker.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Formularios\frm_AñadirEmpleado.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -185,6 +193,12 @@
     </Compile>
     <Compile Include="Formularios\frm_compras.Designer.cs">
       <DependentUpon>frm_compras.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ConfigurarDB.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ConfigurarDB.Designer.cs">
+      <DependentUpon>frm_ConfigurarDB.cs</DependentUpon>
     </Compile>
     <Compile Include="Formularios\frm_contactos.cs">
       <SubType>Form</SubType>
@@ -240,6 +254,12 @@
     <Compile Include="Formularios\frm_proveedores.Designer.cs">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_ReportVenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ReportVenta.Designer.cs">
+      <DependentUpon>frm_ReportVenta.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -272,6 +292,9 @@
     <EmbeddedResource Include="Formularios\frm_compras.resx">
       <DependentUpon>frm_compras.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_ConfigurarDB.resx">
+      <DependentUpon>frm_ConfigurarDB.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_contactos.resx">
       <DependentUpon>frm_contactos.cs</DependentUpon>
     </EmbeddedResource>
@@ -298,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_proveedores.resx">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_ReportVenta.resx">
+      <DependentUpon>frm_ReportVenta.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Usuarios.resx">
       <DependentUpon>frm_Usuarios.cs</DependentUpon>
@@ -348,6 +374,18 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\FondoFormRep1.png" />
+    <None Include="Resources\FondoFormRep.png" />
+    <None Include="Resources\FondoFormCLi21.png" />
+    <None Include="Resources\FondoFormCLi2.png" />
+    <None Include="Resources\FondoFormCLi.png" />
+    <None Include="Resources\FondoFormProd1.png" />
+    <None Include="Resources\FondoFormProd.png" />
+    <None Include="Resources\FondoFormNoti1.png" />
+    <None Include="Resources\FondoFormNoti.png" />
+    <None Include="Resources\server.png" />
+    <None Include="Resources\calendarDark.png" />
+    <None Include="Resources\calendarWhite.png" />
     <None Include="Resources\Nuevo2.png" />
     <None Include="Resources\Empleado.png" />
     <None Include="Resources\LogoTecnoPc.png" />

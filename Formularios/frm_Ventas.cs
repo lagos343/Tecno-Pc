@@ -210,8 +210,7 @@ namespace Tecno_Pc.Formularios
                     
             LimpiarProductoSeleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
-            {
-                // dgv_Factura.Rows.Remove(fila);
+            {                
                 dgv_Factura.Rows.Clear();
             }
             num_ISV.Value = 15;
@@ -242,7 +241,6 @@ namespace Tecno_Pc.Formularios
                     int cant = int.Parse(fila.Cells[3].Value.ToString());
                     sql.Sql_Querys("insert into DetalleFactura values ((select Top 1 [ID Factura] from Facturas order by [ID Factura] desc), "
                         +idprod+", "+precio+", "+cant+")");
-                    //sql.Sql_Querys("update Inventarios set Stock -= "+cant+" where[ID Producto] = " + idprod);
                 }
 
                 frm_notificacion noti = new frm_notificacion("Venta realizada con Exito", 1);
@@ -299,11 +297,6 @@ namespace Tecno_Pc.Formularios
 
         #endregion
 
-        private void comboBox1_TextChanged(object sender, EventArgs e)
-        {
-                     
-        }
-
         private void dgv_Productos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
@@ -313,6 +306,7 @@ namespace Tecno_Pc.Formularios
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[7].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[5].Value.ToString() + " " + dgv_Productos.Rows[e.RowIndex].Cells[6].Value.ToString();
                 lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[10].Value.ToString();
+                txt_cant.Focus();
             }
         }
 
@@ -375,13 +369,6 @@ namespace Tecno_Pc.Formularios
         private void num_ISV_ValueChanged(object sender, EventArgs e)
         {
             lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-        }
-
-        private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
-
-        
+        }        
     }
 }

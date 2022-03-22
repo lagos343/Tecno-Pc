@@ -34,6 +34,7 @@ namespace Tecno_Pc
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_CerrarLogin = new System.Windows.Forms.PictureBox();
+            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,7 +48,6 @@ namespace Tecno_Pc
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
-            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
             this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -95,6 +95,17 @@ namespace Tecno_Pc
             this.btn_CerrarLogin.TabStop = false;
             this.btn_CerrarLogin.Click += new System.EventHandler(this.btn_CerrarLogin_Click);
             // 
+            // elipseControl1
+            // 
+            this.elipseControl1.BackColor = System.Drawing.Color.Teal;
+            this.elipseControl1.CornerRadius = 15;
+            this.elipseControl1.ForeColor = System.Drawing.Color.Teal;
+            this.elipseControl1.Location = new System.Drawing.Point(0, 29);
+            this.elipseControl1.Name = "elipseControl1";
+            this.elipseControl1.Size = new System.Drawing.Size(87, 70);
+            this.elipseControl1.TabIndex = 2;
+            this.elipseControl1.Text = "elipseControl1";
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = global::Tecno_Pc.Properties.Resources.perfil_avatar_hombre_icono_redondo;
@@ -140,7 +151,7 @@ namespace Tecno_Pc
             this.chk_paswordChar.Name = "chk_paswordChar";
             this.chk_paswordChar.Radius = 3;
             this.chk_paswordChar.Size = new System.Drawing.Size(119, 20);
-            this.chk_paswordChar.TabIndex = 8;
+            this.chk_paswordChar.TabIndex = 3;
             this.chk_paswordChar.Text = "ver contraseña";
             this.chk_paswordChar.CheckedChanged += new System.EventHandler(this.chk_paswordChar_CheckedChanged);
             // 
@@ -158,7 +169,7 @@ namespace Tecno_Pc
             this.txt_userName.PasswordChar = '\0';
             this.txt_userName.SelectedText = "";
             this.txt_userName.Size = new System.Drawing.Size(200, 30);
-            this.txt_userName.TabIndex = 10;
+            this.txt_userName.TabIndex = 1;
             this.txt_userName.Text = "Usuario";
             this.txt_userName.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_userName.TextChanged += new System.EventHandler(this.txt_userName_TextChanged);
@@ -180,11 +191,12 @@ namespace Tecno_Pc
             this.txt_pasword.PasswordChar = '\0';
             this.txt_pasword.SelectedText = "";
             this.txt_pasword.Size = new System.Drawing.Size(200, 30);
-            this.txt_pasword.TabIndex = 11;
+            this.txt_pasword.TabIndex = 2;
             this.txt_pasword.Text = "Contraseña";
             this.txt_pasword.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.txt_pasword.TextChanged += new System.EventHandler(this.txt_pasword_TextChanged);
             this.txt_pasword.Enter += new System.EventHandler(this.txt_pasword_Enter);
+            this.txt_pasword.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pasword_KeyPress);
             this.txt_pasword.Leave += new System.EventHandler(this.txt_pasword_Leave);
             // 
             // btn_ingresar
@@ -207,7 +219,7 @@ namespace Tecno_Pc
             this.btn_ingresar.OnHoverImage = null;
             this.btn_ingresar.OnPressedColor = System.Drawing.Color.Black;
             this.btn_ingresar.Size = new System.Drawing.Size(111, 30);
-            this.btn_ingresar.TabIndex = 12;
+            this.btn_ingresar.TabIndex = 4;
             this.btn_ingresar.Text = "INGRESAR";
             this.btn_ingresar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_ingresar.Click += new System.EventHandler(this.btn_ingresar_Click);
@@ -252,17 +264,6 @@ namespace Tecno_Pc
             this.elipseControl3.Size = new System.Drawing.Size(237, 39);
             this.elipseControl3.TabIndex = 4;
             this.elipseControl3.Text = "elipseControl3";
-            // 
-            // elipseControl1
-            // 
-            this.elipseControl1.BackColor = System.Drawing.Color.Teal;
-            this.elipseControl1.CornerRadius = 15;
-            this.elipseControl1.ForeColor = System.Drawing.Color.Teal;
-            this.elipseControl1.Location = new System.Drawing.Point(0, 29);
-            this.elipseControl1.Name = "elipseControl1";
-            this.elipseControl1.Size = new System.Drawing.Size(87, 70);
-            this.elipseControl1.TabIndex = 2;
-            this.elipseControl1.Text = "elipseControl1";
             // 
             // elipseComponent1
             // 

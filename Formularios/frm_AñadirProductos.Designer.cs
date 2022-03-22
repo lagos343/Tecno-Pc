@@ -77,6 +77,7 @@ namespace Tecno_Pc.Formularios
             this.erp6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp7 = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp8 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -195,7 +196,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.Size = new System.Drawing.Size(246, 33);
             this.btn_guardar.TabIndex = 25;
             this.btn_guardar.Text = "GUARDAR";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;            
+            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // txt_id
             // 
@@ -235,10 +236,10 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(317, 89);
-            this.txt_nombre.MaxLength = 50;
+            this.txt_nombre.MaxLength = 20;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
-            this.txt_nombre.TabIndex = 37;
+            this.txt_nombre.TabIndex = 1;
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaLabel1
@@ -270,7 +271,7 @@ namespace Tecno_Pc.Formularios
             this.txt_precio.Location = new System.Drawing.Point(317, 149);
             this.txt_precio.Name = "txt_precio";
             this.txt_precio.Size = new System.Drawing.Size(227, 16);
-            this.txt_precio.TabIndex = 43;
+            this.txt_precio.TabIndex = 3;
             this.txt_precio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_precio_KeyPress);
             // 
             // gunaLabel2
@@ -300,10 +301,10 @@ namespace Tecno_Pc.Formularios
             this.txt_modelo.CausesValidation = false;
             this.txt_modelo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_modelo.Location = new System.Drawing.Point(19, 149);
-            this.txt_modelo.MaxLength = 50;
+            this.txt_modelo.MaxLength = 15;
             this.txt_modelo.Name = "txt_modelo";
             this.txt_modelo.Size = new System.Drawing.Size(227, 16);
-            this.txt_modelo.TabIndex = 40;
+            this.txt_modelo.TabIndex = 2;
             this.txt_modelo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_modelo_KeyPress);
             // 
             // gunaLabel4
@@ -356,7 +357,7 @@ namespace Tecno_Pc.Formularios
             this.txt_stock.Location = new System.Drawing.Point(150, 211);
             this.txt_stock.Name = "txt_stock";
             this.txt_stock.Size = new System.Drawing.Size(96, 16);
-            this.txt_stock.TabIndex = 46;
+            this.txt_stock.TabIndex = 4;
             this.txt_stock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_stock_KeyPress);
             // 
             // gunaLabel6
@@ -452,7 +453,7 @@ namespace Tecno_Pc.Formularios
             this.swt_estado.Location = new System.Drawing.Point(46, 209);
             this.swt_estado.Name = "swt_estado";
             this.swt_estado.Size = new System.Drawing.Size(38, 20);
-            this.swt_estado.TabIndex = 60;
+            this.swt_estado.TabIndex = 20;
             // 
             // cbo_proveedor
             // 
@@ -469,7 +470,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_proveedor.Location = new System.Drawing.Point(316, 207);
             this.cbo_proveedor.Name = "cbo_proveedor";
             this.cbo_proveedor.Size = new System.Drawing.Size(228, 23);
-            this.cbo_proveedor.TabIndex = 82;
+            this.cbo_proveedor.TabIndex = 5;
             this.cbo_proveedor.SelectedIndexChanged += new System.EventHandler(this.cbo_proveedor_SelectedIndexChanged);
             // 
             // cbo_categoria
@@ -487,7 +488,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_categoria.Location = new System.Drawing.Point(316, 268);
             this.cbo_categoria.Name = "cbo_categoria";
             this.cbo_categoria.Size = new System.Drawing.Size(228, 23);
-            this.cbo_categoria.TabIndex = 82;
+            this.cbo_categoria.TabIndex = 7;
             this.cbo_categoria.SelectedIndexChanged += new System.EventHandler(this.cbo_categoria_SelectedIndexChanged);
             // 
             // cbo_marca
@@ -505,11 +506,12 @@ namespace Tecno_Pc.Formularios
             this.cbo_marca.Location = new System.Drawing.Point(19, 268);
             this.cbo_marca.Name = "cbo_marca";
             this.cbo_marca.Size = new System.Drawing.Size(227, 23);
-            this.cbo_marca.TabIndex = 82;
+            this.cbo_marca.TabIndex = 6;
             this.cbo_marca.SelectedIndexChanged += new System.EventHandler(this.cbo_marca_SelectedIndexChanged);
             // 
             // pic_CodBar
             // 
+            this.pic_CodBar.BackColor = System.Drawing.SystemColors.Window;
             this.pic_CodBar.Location = new System.Drawing.Point(310, 321);
             this.pic_CodBar.Name = "pic_CodBar";
             this.pic_CodBar.Size = new System.Drawing.Size(245, 101);
@@ -525,7 +527,7 @@ namespace Tecno_Pc.Formularios
             this.txt_codBarra.MaxLength = 12;
             this.txt_codBarra.Name = "txt_codBarra";
             this.txt_codBarra.Size = new System.Drawing.Size(227, 16);
-            this.txt_codBarra.TabIndex = 85;
+            this.txt_codBarra.TabIndex = 8;
             this.txt_codBarra.TextChanged += new System.EventHandler(this.txt_codBarra_TextChanged);
             this.txt_codBarra.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_codBarra_KeyPress);
             // 
@@ -582,6 +584,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp8.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(568, 437);
+            this.panel2.TabIndex = 114;
+            // 
             // frm_AñadirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -621,11 +632,12 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Añadir Productos";            
+            this.Text = "Añadir Productos";
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
@@ -702,5 +714,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp6;
         private System.Windows.Forms.ErrorProvider erp7;
         private System.Windows.Forms.ErrorProvider erp8;
+        private System.Windows.Forms.Panel panel2;
     }
 }

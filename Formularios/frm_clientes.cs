@@ -292,28 +292,26 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_imprimir_Click(object sender, EventArgs e)
         {
-            if (saveFileDialog1.ShowDialog() == DialogResult.OK)
-            {
-                frm_notificacion noti = new frm_notificacion("", 4);
-                noti.Show();
+            btn_imprimir.Enabled = false;
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
 
-                Task tar1 = new Task(excelClientes);
-                tar1.Start();
-                await tar1;
+            Task tar1 = new Task(excelClientes);
+            tar1.Start();
+            await tar1;
 
-                noti.Close();
-
-                
-            }
+            noti.Close();
+            btn_imprimir.Enabled = true;
         }
 
         public void excelClientes()
         {
             excel.Cadena_consulta = " select c.Nombre, c.Apellido,'-'+ c.Identidad+'-', c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
-            excel.Ruta = saveFileDialog1.FileName;
+            excel.Carpeta = "Clientes";
             excel.Cabecera = new string[7] { "Nombre", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
             excel.RangoCabecera = "C5 I5";
             excel.Titulo = "Reporte de Clientes";
+            excel.Fecha = DateTime.Now.ToShortDateString();
             excel.GenerarExcel();         
         }
 
@@ -387,5 +385,14 @@ namespace Tecno_Pc.Formularios
         }
 
         #endregion
+
+        private void txt_Direccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_guardar.PerformClick();
+            }
+        }
     }
 }

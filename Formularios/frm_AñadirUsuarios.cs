@@ -131,6 +131,7 @@ namespace Tecno_Pc.Formularios
             frm.carga();
 
         }
+
         public void limpiar()
         {
             txt_usuario.Clear();

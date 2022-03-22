@@ -18,8 +18,7 @@ namespace Tecno_Pc.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        //Variable de Resultado de Dialogo para revisar la confirmacion del ShowDialog
+        
         private static DialogResult dialogresul = new DialogResult();
         public DialogResult Dialogresul { get => dialogresul; set => dialogresul = value; }
 
@@ -56,6 +55,8 @@ namespace Tecno_Pc.Formularios
                 gunaCircleProgressBar1.Visible = true;
                 lbl_Mensaje.Visible = false;
             }
+
+            btn_confirmar.Focus();
         }
 
         public void barra()

@@ -28,18 +28,20 @@ namespace Tecno_Pc.Clases
 
         public void guardar()
         {
-            Sql_Querys("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+"', '"+Clave+"', "+ Convert.ToInt32(estado) + ")",
+            Sql_Querys("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+ "', ENCRYPTBYPASSPHRASE('TecnoPc', N'" + Clave+"'), "+ Convert.ToInt32(estado) + ")",
                 "Usuario añadido con exito", "Debe llenar todos los datos antes de añadir");
         }
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) as Empleado, " +
+            dgv.DataSource = Consulta("select [ID Usuario], [ID Rol], [ID Empleado], [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' , [Clave])), [Estado], (select Nombre from Empleados  " +
+                "where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) as Empleado, " +
                 "(select [Nombre Rol]  from Roles where Roles .IDRol = Usuarios .[ID Rol] ) as Rol  from Usuarios where Estado = 1 order by [Nombre Usuario] asc");
         }
 
         public void buscarDatos(DataGridView dgv)
         {
-            dgv.DataSource = Consulta("select *, (select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) " +
+            dgv.DataSource = Consulta("select [ID Usuario], [ID Rol], [ID Empleado], [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' ,[Clave])), [Estado], " +
+                "(select Nombre from Empleados  where Empleados .[ID Empleado] = Usuarios .[ID Empleado] ) " +
                 "as Empleado, (select [Nombre Rol]  from Roles where Roles .IDRol = Usuarios .[ID Rol] ) " +
                 "as Rol  from Usuarios where Estado = 1 and [Nombre Usuario] like '%"+nombre_usuario+"%' order by [Nombre Usuario] asc");
         }
@@ -47,7 +49,7 @@ namespace Tecno_Pc.Clases
         public void actualizarDatos()
         {
             Sql_Querys("update Usuarios set [ID Rol] = "+id_rol+", [ID Empleado] = "+Id_empleado+", " +
-                "[Nombre Usuario] = '"+nombre_usuario+"', Clave = '"+Clave+"' where [ID Usuario] = "+id_usuarios, 
+                "[Nombre Usuario] = '"+nombre_usuario+ "', Clave = ENCRYPTBYPASSPHRASE('TecnoPc', N'" + Clave+"') where [ID Usuario] = "+id_usuarios, 
                 "Usuario actualizado con exito", "Debe llenar todos los datos antes de añadir");
         }
 

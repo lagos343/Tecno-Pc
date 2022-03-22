@@ -57,6 +57,7 @@ namespace Tecno_Pc.Formularios
             this.erp_contra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_empleado = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_rol = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -186,7 +187,7 @@ namespace Tecno_Pc.Formularios
             this.txt_pass.MaxLength = 20;
             this.txt_pass.Name = "txt_pass";
             this.txt_pass.Size = new System.Drawing.Size(227, 16);
-            this.txt_pass.TabIndex = 66;
+            this.txt_pass.TabIndex = 2;
             this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
             // 
             // gunaLabel4
@@ -216,10 +217,10 @@ namespace Tecno_Pc.Formularios
             this.txt_usuario.CausesValidation = false;
             this.txt_usuario.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_usuario.Location = new System.Drawing.Point(317, 97);
-            this.txt_usuario.MaxLength = 50;
+            this.txt_usuario.MaxLength = 15;
             this.txt_usuario.Name = "txt_usuario";
             this.txt_usuario.Size = new System.Drawing.Size(227, 16);
-            this.txt_usuario.TabIndex = 63;
+            this.txt_usuario.TabIndex = 1;
             this.txt_usuario.TextChanged += new System.EventHandler(this.txt_usuario_TextChanged);
             // 
             // gunaLabel1
@@ -290,7 +291,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(543, 34);
-            this.btn_guardar.TabIndex = 57;
+            this.btn_guardar.TabIndex = 5;
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // pictureBox2
@@ -317,7 +318,7 @@ namespace Tecno_Pc.Formularios
             this.cboempleado.Location = new System.Drawing.Point(319, 167);
             this.cboempleado.Name = "cboempleado";
             this.cboempleado.Size = new System.Drawing.Size(227, 23);
-            this.cboempleado.TabIndex = 85;
+            this.cboempleado.TabIndex = 3;
             this.cboempleado.SelectedIndexChanged += new System.EventHandler(this.cboempleado_SelectedIndexChanged);
             // 
             // cborol
@@ -330,7 +331,7 @@ namespace Tecno_Pc.Formularios
             this.cborol.Location = new System.Drawing.Point(21, 241);
             this.cborol.Name = "cborol";
             this.cborol.Size = new System.Drawing.Size(227, 23);
-            this.cborol.TabIndex = 86;
+            this.cborol.TabIndex = 4;
             this.cborol.SelectedIndexChanged += new System.EventHandler(this.cborol_SelectedIndexChanged);
             // 
             // erp_usuario
@@ -348,6 +349,15 @@ namespace Tecno_Pc.Formularios
             // erp_rol
             // 
             this.erp_rol.ContainerControl = this;
+            // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, -68);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(568, 437);
+            this.panel2.TabIndex = 143;
             // 
             // frm_AñadirUsuarios
             // 
@@ -372,6 +382,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirUsuarios";
@@ -424,5 +435,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_contra;
         private System.Windows.Forms.ErrorProvider erp_empleado;
         private System.Windows.Forms.ErrorProvider erp_rol;
+        private System.Windows.Forms.Panel panel2;
     }
 }

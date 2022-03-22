@@ -54,6 +54,7 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -137,7 +138,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Location = new System.Drawing.Point(61, 69);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(451, 16);
-            this.txt_buscar.TabIndex = 17;
+            this.txt_buscar.TabIndex = 1;
             // 
             // dgv_datos
             // 
@@ -211,12 +212,13 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(583, 214);
-            this.txt_nombre.MaxLength = 50000;
+            this.txt_nombre.MaxLength = 20;
             this.txt_nombre.Multiline = true;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(271, 98);
-            this.txt_nombre.TabIndex = 32;
+            this.txt_nombre.TabIndex = 2;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
+            this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
             // gunaElipse1
             // 
@@ -271,7 +273,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(289, 32);
-            this.btn_guardar.TabIndex = 24;
+            this.btn_guardar.TabIndex = 3;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -300,7 +302,7 @@ namespace Tecno_Pc.Formularios
             this.btn_editar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_editar.Radius = 3;
             this.btn_editar.Size = new System.Drawing.Size(139, 32);
-            this.btn_editar.TabIndex = 20;
+            this.btn_editar.TabIndex = 4;
             this.btn_editar.Text = "EDITAR";
             this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -329,7 +331,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevo.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevo.Radius = 3;
             this.btn_nuevo.Size = new System.Drawing.Size(139, 32);
-            this.btn_nuevo.TabIndex = 19;
+            this.btn_nuevo.TabIndex = 5;
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
@@ -359,6 +361,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_nombre.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormCLi21;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(877, 437);
+            this.panel2.TabIndex = 68;
+            // 
             // frm_MarcasCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -380,6 +391,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -426,5 +438,6 @@ namespace Tecno_Pc.Formularios
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private Guna.UI.WinForms.GunaPictureBox btn_minimizar;
         private System.Windows.Forms.ErrorProvider erp_nombre;
+        private System.Windows.Forms.Panel panel2;
     }
 }

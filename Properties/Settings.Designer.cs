@@ -34,5 +34,65 @@ namespace Tecno_Pc.Properties {
                 this["CodBar"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Servidor {
+            get {
+                return ((string)(this["Servidor"]));
+            }
+            set {
+                this["Servidor"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string WindowsAuten {
+            get {
+                return ((string)(this["WindowsAuten"]));
+            }
+            set {
+                this["WindowsAuten"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Usuario {
+            get {
+                return ((string)(this["Usuario"]));
+            }
+            set {
+                this["Usuario"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Contraseña {
+            get {
+                return ((string)(this["Contraseña"]));
+            }
+            set {
+                this["Contraseña"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RutaReportes {
+            get {
+                return ((string)(this["RutaReportes"]));
+            }
+            set {
+                this["RutaReportes"] = value;
+            }
+        }
     }
 }

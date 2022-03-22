@@ -33,6 +33,7 @@ namespace Tecno_Pc.Formularios
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
@@ -53,6 +54,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.panel5.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.btn_imprimir);
             this.panel5.Controls.Add(this.txt_buscar);
             this.panel5.Controls.Add(this.pictureBox6);
             this.panel5.Controls.Add(this.pictureBox5);
@@ -60,10 +62,39 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.pictureBox7);
             this.panel5.Controls.Add(this.dgv_Facturas);
             this.panel5.Location = new System.Drawing.Point(0, 0);
-            this.panel5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.panel5.Name = "panel5";
-            this.panel5.Size = new System.Drawing.Size(1485, 868);
+            this.panel5.Size = new System.Drawing.Size(1114, 705);
             this.panel5.TabIndex = 5;
+            // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.AnimationHoverSpeed = 0.07F;
+            this.btn_imprimir.AnimationSpeed = 0.03F;
+            this.btn_imprimir.BackColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.BaseColor1 = System.Drawing.Color.Purple;
+            this.btn_imprimir.BaseColor2 = System.Drawing.Color.Purple;
+            this.btn_imprimir.BorderColor = System.Drawing.Color.Black;
+            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Image = null;
+            this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_imprimir.Location = new System.Drawing.Point(526, 41);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
+            this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
+            this.btn_imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.OnHoverImage = null;
+            this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.Radius = 5;
+            this.btn_imprimir.Size = new System.Drawing.Size(154, 31);
+            this.btn_imprimir.TabIndex = 2;
+            this.btn_imprimir.Text = "Reportes";
+            this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // txt_buscar
             // 
@@ -71,21 +102,19 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_buscar.CausesValidation = false;
             this.txt_buscar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_buscar.Location = new System.Drawing.Point(181, 60);
-            this.txt_buscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.txt_buscar.Location = new System.Drawing.Point(136, 49);
             this.txt_buscar.Name = "txt_buscar";
-            this.txt_buscar.Size = new System.Drawing.Size(413, 20);
-            this.txt_buscar.TabIndex = 61;
+            this.txt_buscar.Size = new System.Drawing.Size(310, 16);
+            this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged_1);
             // 
             // pictureBox6
             // 
             this.pictureBox6.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox6.Image = global::Tecno_Pc.Properties.Resources.Buscar;
-            this.pictureBox6.Location = new System.Drawing.Point(135, 52);
-            this.pictureBox6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox6.Location = new System.Drawing.Point(101, 42);
             this.pictureBox6.Name = "pictureBox6";
-            this.pictureBox6.Size = new System.Drawing.Size(40, 37);
+            this.pictureBox6.Size = new System.Drawing.Size(30, 30);
             this.pictureBox6.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox6.TabIndex = 60;
             this.pictureBox6.TabStop = false;
@@ -93,10 +122,9 @@ namespace Tecno_Pc.Formularios
             // pictureBox5
             // 
             this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(131, 49);
-            this.pictureBox5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox5.Location = new System.Drawing.Point(98, 40);
             this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(472, 42);
+            this.pictureBox5.Size = new System.Drawing.Size(354, 34);
             this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox5.TabIndex = 59;
             this.pictureBox5.TabStop = false;
@@ -116,21 +144,19 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro.Items.AddRange(new object[] {
             "ID Factura",
             "Cliente"});
-            this.cbo_filtro.Location = new System.Drawing.Point(1013, 55);
-            this.cbo_filtro.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cbo_filtro.Location = new System.Drawing.Point(760, 45);
             this.cbo_filtro.Name = "cbo_filtro";
             this.cbo_filtro.OnHoverItemBaseColor = System.Drawing.Color.Blue;
             this.cbo_filtro.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbo_filtro.Size = new System.Drawing.Size(305, 28);
-            this.cbo_filtro.TabIndex = 58;
+            this.cbo_filtro.Size = new System.Drawing.Size(230, 24);
+            this.cbo_filtro.TabIndex = 3;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox7.Location = new System.Drawing.Point(1003, 49);
-            this.pictureBox7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.pictureBox7.Location = new System.Drawing.Point(752, 40);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(327, 42);
+            this.pictureBox7.Size = new System.Drawing.Size(245, 34);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 57;
             this.pictureBox7.TabStop = false;
@@ -168,14 +194,13 @@ namespace Tecno_Pc.Formularios
             dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.dgv_Facturas.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_Facturas.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.dgv_Facturas.Location = new System.Drawing.Point(131, 154);
-            this.dgv_Facturas.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dgv_Facturas.Location = new System.Drawing.Point(98, 125);
             this.dgv_Facturas.Name = "dgv_Facturas";
             this.dgv_Facturas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_Facturas.RowHeadersVisible = false;
             this.dgv_Facturas.RowHeadersWidth = 51;
             this.dgv_Facturas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_Facturas.Size = new System.Drawing.Size(1199, 651);
+            this.dgv_Facturas.Size = new System.Drawing.Size(899, 529);
             this.dgv_Facturas.TabIndex = 11;
             this.dgv_Facturas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Facturas_CellContentClick);
             // 
@@ -190,19 +215,14 @@ namespace Tecno_Pc.Formularios
             this.Mostrar.ReadOnly = true;
             this.Mostrar.Width = 50;
             // 
-            // saveFileDialog1
-            // 
-            this.saveFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.saveFileDialog1_FileOk);
-            // 
             // frm_Facturas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
-            this.ClientSize = new System.Drawing.Size(1485, 868);
+            this.ClientSize = new System.Drawing.Size(1114, 705);
             this.Controls.Add(this.panel5);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "frm_Facturas";
             this.Text = "frm_Facturas";
             this.Load += new System.EventHandler(this.frm_Facturas_Load);
@@ -228,5 +248,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.SaveFileDialog saveFileDialog1;
         private System.Windows.Forms.DataGridViewImageColumn Mostrar;
         private System.Windows.Forms.ToolTip toolTip1;
+        private Guna.UI.WinForms.GunaGradientButton btn_imprimir;
     }
 }

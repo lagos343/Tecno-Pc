@@ -474,8 +474,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_tipoPago.Name = "cbo_tipoPago";
             this.cbo_tipoPago.Size = new System.Drawing.Size(233, 23);
             this.cbo_tipoPago.TabIndex = 81;
-            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);
-            this.cbo_tipoPago.TextChanged += new System.EventHandler(this.comboBox1_TextChanged);
+            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);            
             // 
             // pictureBox11
             // 
@@ -507,7 +506,6 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Size = new System.Drawing.Size(310, 18);
             this.txt_buscar.TabIndex = 76;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
-            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             // 
             // pictureBox6
             // 

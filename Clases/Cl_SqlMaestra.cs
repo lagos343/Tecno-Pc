@@ -1,10 +1,10 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data;
-using System.Data.Sql;
 using System.Data.SqlClient;
 using System.Windows.Forms;
 
@@ -13,7 +13,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra
     {
-        private string Servidor = "DESKTOP-8Q1Q950";
+        private string Servidor = Properties.Settings.Default.Servidor.ToString();
         private string DataBase = "TECNOPC";    
         private string cadena_coneccion;        
         SqlConnection connection = new SqlConnection();
@@ -24,14 +24,44 @@ namespace Tecno_Pc.Clases
 
         public Cl_SqlMaestra()
         {
-            cadena_coneccion = "Data Source=" +Servidor+"; Initial Catalog="+DataBase+"; Integrated Security=True";
-            connection.ConnectionString = cadena_coneccion;            
+            if (Properties.Settings.Default.WindowsAuten == "false")
+            {
+                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; User ID="+Properties.Settings.Default.Usuario.ToString()
+                    +"; Password="+Properties.Settings.Default.Contraseña;
+            }
+            else
+            {
+                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; Integrated Security=True";
+            }
+            connection.ConnectionString = cadena_coneccion;
         }
 
        
         public void Abrir()
         {
-            connection.Open();
+            try
+            {
+                connection.Open();
+            }
+            catch (Exception)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
+                noti.ShowDialog();
+
+                if (noti.Dialogresul == DialogResult.OK)
+                {   
+                    Formularios.frm_ConfigurarDB bd = new Formularios.frm_ConfigurarDB(true);
+                    bd.Show();
+
+                    Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Form1);
+                    if (frm != null)
+                    {
+                        frm.Hide();
+                    }
+                }
+                
+                noti.Close(); 
+            }            
         }
 
         public void Cerrar()
@@ -44,7 +74,11 @@ namespace Tecno_Pc.Clases
             Abrir();
             adapter = new SqlDataAdapter(cadena, cadena_coneccion);
             Tabla_Resultados = new DataTable();
-            adapter.Fill(Tabla_Resultados);
+            try
+            {
+                adapter.Fill(Tabla_Resultados);
+            }
+            catch (Exception){}            
             Cerrar();
 
             return Tabla_Resultados;
@@ -97,6 +131,6 @@ namespace Tecno_Pc.Clases
             cmd.ExecuteNonQuery();
 
             Cerrar();
-        }
+        }        
     }
 }
