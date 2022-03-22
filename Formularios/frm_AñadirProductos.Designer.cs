@@ -510,6 +510,7 @@ namespace Tecno_Pc.Formularios
             // 
             // pic_CodBar
             // 
+            this.pic_CodBar.BackColor = System.Drawing.SystemColors.Window;
             this.pic_CodBar.Location = new System.Drawing.Point(310, 321);
             this.pic_CodBar.Name = "pic_CodBar";
             this.pic_CodBar.Size = new System.Drawing.Size(245, 101);

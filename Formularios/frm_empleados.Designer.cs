@@ -147,7 +147,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoUsuario.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevoUsuario.Radius = 5;
             this.btn_nuevoUsuario.Size = new System.Drawing.Size(166, 32);
-            this.btn_nuevoUsuario.TabIndex = 22;
+            this.btn_nuevoUsuario.TabIndex = 3;
             this.btn_nuevoUsuario.Text = "Nuevo Empleado";
             this.btn_nuevoUsuario.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_nuevoUsuario.Click += new System.EventHandler(this.btn_nuevoUsuario_Click);
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Location = new System.Drawing.Point(152, 293);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
-            this.txt_buscar.TabIndex = 77;
+            this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
@@ -356,13 +356,10 @@ namespace Tecno_Pc.Formularios
             this.btn_reporte.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_reporte.Radius = 5;
             this.btn_reporte.Size = new System.Drawing.Size(136, 32);
-            this.btn_reporte.TabIndex = 92;
+            this.btn_reporte.TabIndex = 2;
             this.btn_reporte.Text = "Reportes";
             this.btn_reporte.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_reporte.Click += new System.EventHandler(this.btn_reporte_Click);
-            // 
-            // toolTip1
-            // 
             // 
             // frm_empleados
             // 

@@ -30,7 +30,7 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_contactos));
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.txt_email = new System.Windows.Forms.TextBox();
@@ -125,7 +125,7 @@ namespace Tecno_Pc.Formularios
             this.txt_email.MaxLength = 50;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(275, 16);
-            this.txt_email.TabIndex = 102;
+            this.txt_email.TabIndex = 8;
             this.txt_email.TextChanged += new System.EventHandler(this.txt_email_TextChanged);
             // 
             // pictureemail
@@ -158,7 +158,7 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.MaxLength = 20;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(126, 16);
-            this.txt_telefono.TabIndex = 99;
+            this.txt_telefono.TabIndex = 7;
             this.txt_telefono.TextChanged += new System.EventHandler(this.txt_telefono_TextChanged);
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
             // 
@@ -192,7 +192,7 @@ namespace Tecno_Pc.Formularios
             this.txt_apellido.MaxLength = 50;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(126, 16);
-            this.txt_apellido.TabIndex = 96;
+            this.txt_apellido.TabIndex = 6;
             this.txt_apellido.TextChanged += new System.EventHandler(this.txt_apellido_TextChanged);
             this.txt_apellido.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_apellido_KeyPress);
             // 
@@ -226,7 +226,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.MaxLength = 50;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(126, 16);
-            this.txt_nombre.TabIndex = 93;
+            this.txt_nombre.TabIndex = 5;
             this.txt_nombre.TextChanged += new System.EventHandler(this.txt_nombre_TextChanged);
             this.txt_nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_nombre_KeyPress);
             // 
@@ -298,12 +298,13 @@ namespace Tecno_Pc.Formularios
             this.txt_direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_direccion.CausesValidation = false;
             this.txt_direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_direccion.Location = new System.Drawing.Point(762, 347);
+            this.txt_direccion.Location = new System.Drawing.Point(762, 343);
             this.txt_direccion.Multiline = true;
             this.txt_direccion.Name = "txt_direccion";
-            this.txt_direccion.Size = new System.Drawing.Size(273, 80);
-            this.txt_direccion.TabIndex = 83;
+            this.txt_direccion.Size = new System.Drawing.Size(273, 90);
+            this.txt_direccion.TabIndex = 9;
             this.txt_direccion.TextChanged += new System.EventHandler(this.txt_direccion_TextChanged);
+            this.txt_direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_direccion_KeyPress);
             // 
             // pictureBox3
             // 
@@ -346,7 +347,7 @@ namespace Tecno_Pc.Formularios
             this.txt_id.Location = new System.Drawing.Point(760, 88);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(126, 16);
-            this.txt_id.TabIndex = 80;
+            this.txt_id.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -383,7 +384,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(204, 26);
-            this.btn_guardar.TabIndex = 78;
+            this.btn_guardar.TabIndex = 10;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click_1);
@@ -413,7 +414,7 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_imprimir.Radius = 3;
             this.btn_imprimir.Size = new System.Drawing.Size(220, 32);
-            this.btn_imprimir.TabIndex = 77;
+            this.btn_imprimir.TabIndex = 11;
             this.btn_imprimir.Text = "REPORTES";
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
@@ -522,15 +523,15 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_datos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_datos.Location = new System.Drawing.Point(25, 106);
             this.dgv_datos.Name = "dgv_datos";
@@ -548,7 +549,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Location = new System.Drawing.Point(63, 66);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(403, 16);
-            this.txt_buscar.TabIndex = 72;
+            this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged_1);
             // 
             // pictureBox6
@@ -649,7 +650,7 @@ namespace Tecno_Pc.Formularios
             this.cmb_depto.Location = new System.Drawing.Point(757, 149);
             this.cmb_depto.Name = "cmb_depto";
             this.cmb_depto.Size = new System.Drawing.Size(129, 23);
-            this.cmb_depto.TabIndex = 104;
+            this.cmb_depto.TabIndex = 4;
             this.cmb_depto.SelectedIndexChanged += new System.EventHandler(this.cmb_depto_SelectedIndexChanged);
             // 
             // cmb_proveedor
@@ -662,7 +663,7 @@ namespace Tecno_Pc.Formularios
             this.cmb_proveedor.Location = new System.Drawing.Point(905, 85);
             this.cmb_proveedor.Name = "cmb_proveedor";
             this.cmb_proveedor.Size = new System.Drawing.Size(130, 23);
-            this.cmb_proveedor.TabIndex = 105;
+            this.cmb_proveedor.TabIndex = 3;
             this.cmb_proveedor.SelectedIndexChanged += new System.EventHandler(this.cmb_proveedor_SelectedIndexChanged);
             // 
             // erp_porveedor

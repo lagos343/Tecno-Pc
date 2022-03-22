@@ -300,7 +300,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Location = new System.Drawing.Point(69, 78);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
-            this.txt_buscar.TabIndex = 14;
+            this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
@@ -407,7 +407,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevoProducto.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevoProducto.Radius = 5;
             this.btn_nuevoProducto.Size = new System.Drawing.Size(162, 32);
-            this.btn_nuevoProducto.TabIndex = 10;
+            this.btn_nuevoProducto.TabIndex = 2;
             this.btn_nuevoProducto.Text = "Nuevo Producto";
             this.btn_nuevoProducto.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_nuevoProducto.Click += new System.EventHandler(this.btn_nuevoProducto_Click);
@@ -437,7 +437,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Imprimir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_Imprimir.Radius = 5;
             this.btn_Imprimir.Size = new System.Drawing.Size(243, 32);
-            this.btn_Imprimir.TabIndex = 9;
+            this.btn_Imprimir.TabIndex = 5;
             this.btn_Imprimir.Text = "Reportes";
             this.btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
@@ -467,7 +467,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Marcas.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_Marcas.Radius = 5;
             this.btn_Marcas.Size = new System.Drawing.Size(106, 32);
-            this.btn_Marcas.TabIndex = 7;
+            this.btn_Marcas.TabIndex = 3;
             this.btn_Marcas.Text = "Marcas";
             this.btn_Marcas.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_Marcas.Click += new System.EventHandler(this.btn_Marcas_Click);
@@ -497,7 +497,7 @@ namespace Tecno_Pc.Formularios
             this.btn_categorias.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_categorias.Radius = 5;
             this.btn_categorias.Size = new System.Drawing.Size(106, 32);
-            this.btn_categorias.TabIndex = 7;
+            this.btn_categorias.TabIndex = 4;
             this.btn_categorias.Text = "Categorias";
             this.btn_categorias.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_categorias.Click += new System.EventHandler(this.btn_categorias_Click);

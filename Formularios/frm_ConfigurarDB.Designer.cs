@@ -155,7 +155,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_servers.Location = new System.Drawing.Point(29, 90);
             this.cbo_servers.Name = "cbo_servers";
             this.cbo_servers.Size = new System.Drawing.Size(339, 23);
-            this.cbo_servers.TabIndex = 117;
+            this.cbo_servers.TabIndex = 1;
             this.cbo_servers.SelectedIndexChanged += new System.EventHandler(this.cbo_servers_SelectedIndexChanged);
             this.cbo_servers.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.cbo_servers_KeyPress);
             // 
@@ -241,7 +241,7 @@ namespace Tecno_Pc.Formularios
             this.txt_password.Name = "txt_password";
             this.txt_password.PasswordChar = '*';
             this.txt_password.Size = new System.Drawing.Size(227, 16);
-            this.txt_password.TabIndex = 126;
+            this.txt_password.TabIndex = 4;
             this.txt_password.TextChanged += new System.EventHandler(this.txt_password_TextChanged);
             // 
             // gunaLabel3
@@ -289,7 +289,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_autenticaciones.Location = new System.Drawing.Point(128, 40);
             this.cbo_autenticaciones.Name = "cbo_autenticaciones";
             this.cbo_autenticaciones.Size = new System.Drawing.Size(328, 23);
-            this.cbo_autenticaciones.TabIndex = 122;
+            this.cbo_autenticaciones.TabIndex = 2;
             this.cbo_autenticaciones.SelectedIndexChanged += new System.EventHandler(this.cbo_autenticaciones_SelectedIndexChanged);
             // 
             // txt_user
@@ -302,7 +302,7 @@ namespace Tecno_Pc.Formularios
             this.txt_user.MaxLength = 50;
             this.txt_user.Name = "txt_user";
             this.txt_user.Size = new System.Drawing.Size(227, 16);
-            this.txt_user.TabIndex = 98;
+            this.txt_user.TabIndex = 3;
             this.txt_user.TextChanged += new System.EventHandler(this.txt_user_TextChanged);
             // 
             // pictureBox1
@@ -346,7 +346,7 @@ namespace Tecno_Pc.Formularios
             this.txt_ruta.MaxLength = 50;
             this.txt_ruta.Name = "txt_ruta";
             this.txt_ruta.Size = new System.Drawing.Size(339, 16);
-            this.txt_ruta.TabIndex = 128;
+            this.txt_ruta.TabIndex = 5;
             // 
             // pictureBox3
             // 
@@ -424,7 +424,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(482, 33);
-            this.btn_guardar.TabIndex = 131;
+            this.btn_guardar.TabIndex = 6;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
@@ -465,6 +465,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.ClientSize = new System.Drawing.Size(528, 502);
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.gunaLabel5);

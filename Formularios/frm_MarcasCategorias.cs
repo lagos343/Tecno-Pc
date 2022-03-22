@@ -108,7 +108,6 @@ namespace Tecno_Pc.Formularios
             txt_buscar.Clear();
             txt_buscar.Focus();
             editar = false;
-            erp_nombre.Clear();
         }                
                
         #endregion
@@ -292,6 +291,15 @@ namespace Tecno_Pc.Formularios
         private void txt_nombre_TextChanged(object sender, EventArgs e)
         {
             erp_nombre.Clear();
+        }
+
+        private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_guardar.PerformClick();                
+            }
         }
     }
 }

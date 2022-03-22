@@ -18,6 +18,8 @@ namespace Tecno_Pc.Clases
         private string rangocabecera;
         private string fecha;
 
+        Cl_Validacion vld = new Cl_Validacion();
+
         #region Encapsulamiento
         public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }        
         public string[] Cabecera { get => cabecera; set => cabecera = value; }
@@ -122,6 +124,7 @@ namespace Tecno_Pc.Clases
             
             try
             {
+                vld.ValidarCarpetas(carpeta);
                 objLibro.SaveAs(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + fecha.Replace("/", "-"));
             }
             catch (Exception)

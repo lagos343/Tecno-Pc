@@ -206,7 +206,16 @@ namespace Tecno_Pc.Formularios
             erp_departamento.Clear();
         }
 
+        private void txt_direccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_guardar.PerformClick();
+            }
+        }
+
         #endregion
-              
+
     }
 }

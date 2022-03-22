@@ -5,11 +5,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.IO;
 
 namespace Tecno_Pc.Clases
 {
-
-
     class Cl_Validacion
     {
         private static TextBox [] text;
@@ -72,7 +71,25 @@ namespace Tecno_Pc.Clases
             {
                 control = 0;
                 return true;                
-            }          
+            }         
         }  
+
+        public void ValidarCarpetas(string Carpeta)
+        {
+            string ruta = Properties.Settings.Default.RutaReportes.ToString();
+
+            if (!Directory.Exists(ruta + @"\Reportes Tecno Pc") || !Directory.Exists(ruta + @"\Reportes Tecno Pc\" + Carpeta))
+            {
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Clientes");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Contactos");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Empleados");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Proveedores");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Productos");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Usuarios");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Facturas");
+                Directory.CreateDirectory(ruta + @"\Reportes Tecno Pc\Ventas");
+            }            
+        }
     }
 }

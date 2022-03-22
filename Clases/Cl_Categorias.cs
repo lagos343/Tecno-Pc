@@ -23,7 +23,7 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Categorias values('" + nombreCategoria + "')";
-            Sql_Querys(cadena, "Categoria añadida con exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!");
         }
 
         public void consultarDatos(DataGridView dgv)

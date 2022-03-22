@@ -30,8 +30,8 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_clientes));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
@@ -151,7 +151,7 @@ namespace Tecno_Pc.Formularios
             this.txt_id.Location = new System.Drawing.Point(758, 88);
             this.txt_id.Name = "txt_id";
             this.txt_id.Size = new System.Drawing.Size(126, 16);
-            this.txt_id.TabIndex = 45;
+            this.txt_id.TabIndex = 2;
             // 
             // pictureBox1
             // 
@@ -188,7 +188,7 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_guardar.Radius = 3;
             this.btn_guardar.Size = new System.Drawing.Size(205, 28);
-            this.btn_guardar.TabIndex = 43;
+            this.btn_guardar.TabIndex = 10;
             this.btn_guardar.Text = "GUARDAR";
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
@@ -218,7 +218,7 @@ namespace Tecno_Pc.Formularios
             this.btn_eliminar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_eliminar.Radius = 3;
             this.btn_eliminar.Size = new System.Drawing.Size(120, 28);
-            this.btn_eliminar.TabIndex = 41;
+            this.btn_eliminar.TabIndex = 11;
             this.btn_eliminar.Text = "ELIMINAR";
             this.btn_eliminar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click);
@@ -248,7 +248,7 @@ namespace Tecno_Pc.Formularios
             this.btn_editar.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_editar.Radius = 3;
             this.btn_editar.Size = new System.Drawing.Size(120, 28);
-            this.btn_editar.TabIndex = 40;
+            this.btn_editar.TabIndex = 12;
             this.btn_editar.Text = "EDITAR";
             this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click);
@@ -278,7 +278,7 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevo.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_nuevo.Radius = 3;
             this.btn_nuevo.Size = new System.Drawing.Size(120, 28);
-            this.btn_nuevo.TabIndex = 39;
+            this.btn_nuevo.TabIndex = 13;
             this.btn_nuevo.Text = "NUEVO";
             this.btn_nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click);
@@ -295,25 +295,25 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_datos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_datos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgv_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgv_datos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgv_datos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_datos.ColumnHeadersVisible = false;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(5);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9F);
+            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(5);
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_datos.DefaultCellStyle = dataGridViewCellStyle2;
             this.dgv_datos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_datos.Location = new System.Drawing.Point(25, 107);
             this.dgv_datos.Name = "dgv_datos";
@@ -331,7 +331,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Location = new System.Drawing.Point(63, 66);
             this.txt_buscar.Name = "txt_buscar";
             this.txt_buscar.Size = new System.Drawing.Size(403, 16);
-            this.txt_buscar.TabIndex = 37;
+            this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged);
             // 
             // pictureBox6
@@ -423,12 +423,13 @@ namespace Tecno_Pc.Formularios
             this.txt_Direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Direccion.CausesValidation = false;
             this.txt_Direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_Direccion.Location = new System.Drawing.Point(760, 346);
+            this.txt_Direccion.Location = new System.Drawing.Point(760, 341);
             this.txt_Direccion.Multiline = true;
             this.txt_Direccion.Name = "txt_Direccion";
-            this.txt_Direccion.Size = new System.Drawing.Size(273, 78);
-            this.txt_Direccion.TabIndex = 48;
+            this.txt_Direccion.Size = new System.Drawing.Size(273, 89);
+            this.txt_Direccion.TabIndex = 9;
             this.txt_Direccion.TextChanged += new System.EventHandler(this.txt_Direccion_TextChanged);
+            this.txt_Direccion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Direccion_KeyPress);
             // 
             // gunaLabel1
             // 
@@ -482,7 +483,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Ident.MaxLength = 13;
             this.txt_Ident.Name = "txt_Ident";
             this.txt_Ident.Size = new System.Drawing.Size(126, 16);
-            this.txt_Ident.TabIndex = 55;
+            this.txt_Ident.TabIndex = 4;
             this.txt_Ident.TextChanged += new System.EventHandler(this.txt_Ident_TextChanged);
             this.txt_Ident.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Ident_KeyPress);
             // 
@@ -516,7 +517,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Nombre.MaxLength = 30;
             this.txt_Nombre.Name = "txt_Nombre";
             this.txt_Nombre.Size = new System.Drawing.Size(126, 16);
-            this.txt_Nombre.TabIndex = 58;
+            this.txt_Nombre.TabIndex = 5;
             this.txt_Nombre.TextChanged += new System.EventHandler(this.txt_Nombre_TextChanged);
             this.txt_Nombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Nombre_KeyPress);
             // 
@@ -550,7 +551,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Tel.MaxLength = 20;
             this.txt_Tel.Name = "txt_Tel";
             this.txt_Tel.Size = new System.Drawing.Size(126, 16);
-            this.txt_Tel.TabIndex = 64;
+            this.txt_Tel.TabIndex = 7;
             this.txt_Tel.TextChanged += new System.EventHandler(this.txt_Tel_TextChanged);
             this.txt_Tel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Tel_KeyPress);
             // 
@@ -584,7 +585,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Apell.MaxLength = 50;
             this.txt_Apell.Name = "txt_Apell";
             this.txt_Apell.Size = new System.Drawing.Size(126, 16);
-            this.txt_Apell.TabIndex = 61;
+            this.txt_Apell.TabIndex = 6;
             this.txt_Apell.TextChanged += new System.EventHandler(this.txt_Apell_TextChanged);
             this.txt_Apell.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_Apell_KeyPress);
             // 
@@ -618,7 +619,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Email.MaxLength = 50;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(275, 16);
-            this.txt_Email.TabIndex = 67;
+            this.txt_Email.TabIndex = 8;
             this.txt_Email.TextChanged += new System.EventHandler(this.txt_Email_TextChanged);
             // 
             // pictureBox10
@@ -656,7 +657,7 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
             this.btn_imprimir.Radius = 3;
             this.btn_imprimir.Size = new System.Drawing.Size(225, 31);
-            this.btn_imprimir.TabIndex = 42;
+            this.btn_imprimir.TabIndex = 14;
             this.btn_imprimir.Text = "REPORTES";
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
@@ -671,7 +672,7 @@ namespace Tecno_Pc.Formularios
             this.cmb_Depto.Location = new System.Drawing.Point(904, 85);
             this.cmb_Depto.Name = "cmb_Depto";
             this.cmb_Depto.Size = new System.Drawing.Size(129, 23);
-            this.cmb_Depto.TabIndex = 68;
+            this.cmb_Depto.TabIndex = 3;
             this.cmb_Depto.SelectedIndexChanged += new System.EventHandler(this.cmb_Depto_SelectedIndexChanged);
             // 
             // erp_depto

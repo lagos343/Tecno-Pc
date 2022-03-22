@@ -89,14 +89,14 @@ namespace Tecno_Pc.Formularios
             vld.Error = new ErrorProvider[5] {erp5, erp4, erp, erp2, erp3};
             vld.Minimo = new int[5] {12, 3, 4, 2, 1};
             vld.Regular = new string[5] {"[0-9]", "[A-Z, a-z, 0-9]", "[A-Z, a-z, 0-9]", "[0-9]{1,7}\\.[0-9]{1,4}", "[0-9]"};
-            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio: 0000000.00", "Solo digitos numericos" };
+            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio: 0000000.00", "Solo digitos numericos"};
         }
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1)
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1 )
             {
                 DataTable datos = new DataTable();
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
@@ -154,13 +154,31 @@ namespace Tecno_Pc.Formularios
                 erp8.Clear();
                 erp8.SetError(cbo_proveedor, "Seleccione algo valido");
             }
+
+            if (txt_stock.Text != string.Empty)
+            {
+                if (int.Parse(txt_stock.Text) <= 0)
+                {
+                    erp3.Clear();
+                    erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
+                }
+            }
+            
+            if (txt_precio.Text != string.Empty)
+            {
+                if (!(float.Parse(txt_precio.Text) >= 1))
+                {
+                    erp2.Clear();
+                    erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
+                }
+            }            
         }  
 
         private void btn_guardarActualizado_Click(object sender, EventArgs e)
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 )
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1)
             {
                 DataTable datos = new DataTable();
                 datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
@@ -177,7 +195,7 @@ namespace Tecno_Pc.Formularios
 
                     if (codbar == txt_codBarra.Text)
                     {
-                        actualizar();
+                        actualizar();                        
                     }
                     else
                     {
