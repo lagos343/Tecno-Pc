@@ -24,7 +24,7 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombreMarca + "')";
-            Sql_Querys(cadena, "Marca añadida con exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Marca añadida con exito", "¡Ya existe esta marca!");
         }
 
         public void consultarDatos(DataGridView dgv)

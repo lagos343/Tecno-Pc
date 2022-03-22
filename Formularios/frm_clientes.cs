@@ -385,5 +385,14 @@ namespace Tecno_Pc.Formularios
         }
 
         #endregion
+
+        private void txt_Direccion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_guardar.PerformClick();
+            }
+        }
     }
 }

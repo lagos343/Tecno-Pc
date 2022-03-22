@@ -37,7 +37,7 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
-            Sql_Querys(cadena, "Producto añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            Sql_Querys(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!");
         }
 
         public void consultarDatos(DataGridView dgv)

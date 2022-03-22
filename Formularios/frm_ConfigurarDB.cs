@@ -113,15 +113,23 @@ namespace Tecno_Pc.Formularios
 
         private void btn_salir_Click(object sender, EventArgs e)
         {
-            Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de configuracion inicial de Tecno Pc?", 2);
-            noti.ShowDialog();
-
-            if (noti.Dialogresul == DialogResult.OK)
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_principal);
+            if (frm != null)
             {
-                Application.Exit();
+                this.Close();
             }
+            else
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de configuracion inicial de Tecno Pc?", 2);
+                noti.ShowDialog();
 
-            noti.Close();
+                if (noti.Dialogresul == DialogResult.OK)
+                {
+                    Application.Exit();
+                }
+
+                noti.Close();
+            }            
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -180,7 +188,7 @@ namespace Tecno_Pc.Formularios
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Facturas");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Ventas");
 
-                        Properties.Settings.Default.Save();                                               
+                        Properties.Settings.Default.Save();                                                
 
                         noti.Close();
                         Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Configuracion guardada con exito", 1);

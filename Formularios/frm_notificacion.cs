@@ -55,6 +55,8 @@ namespace Tecno_Pc.Formularios
                 gunaCircleProgressBar1.Visible = true;
                 lbl_Mensaje.Visible = false;
             }
+
+            btn_confirmar.Focus();
         }
 
         public void barra()

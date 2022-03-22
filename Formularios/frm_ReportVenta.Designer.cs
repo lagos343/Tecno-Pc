@@ -34,27 +34,28 @@ namespace Tecno_Pc.Formularios
             this.panel2 = new System.Windows.Forms.Panel();
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.dtp_hasta = new Tecno_Pc.Clases.RJDatePicker();
+            this.dtp_desde = new Tecno_Pc.Clases.RJDatePicker();
+            this.radio_hoy = new System.Windows.Forms.RadioButton();
+            this.radio_fecha = new System.Windows.Forms.RadioButton();
+            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
+            this.panel1 = new System.Windows.Forms.Panel();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.salir = new Guna.UI.WinForms.GunaPictureBox();
             this.minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radio_fecha = new System.Windows.Forms.RadioButton();
-            this.radio_hoy = new System.Windows.Forms.RadioButton();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.dtp_hasta = new Tecno_Pc.Clases.RJDatePicker();
-            this.dtp_desde = new Tecno_Pc.Clases.RJDatePicker();
-            this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel2.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -83,6 +84,115 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.Size = new System.Drawing.Size(98, 15);
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "REPORTE VENTAS";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.label3);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.dtp_hasta);
+            this.groupBox1.Controls.Add(this.dtp_desde);
+            this.groupBox1.Controls.Add(this.radio_hoy);
+            this.groupBox1.Controls.Add(this.radio_fecha);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
+            this.groupBox1.Location = new System.Drawing.Point(12, 79);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 214);
+            this.groupBox1.TabIndex = 55;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "RANGO DE FECHAS";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(53, 167);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(43, 15);
+            this.label3.TabIndex = 60;
+            this.label3.Text = "HASTA";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(53, 126);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(41, 15);
+            this.label2.TabIndex = 59;
+            this.label2.Text = "DESDE";
+            // 
+            // dtp_hasta
+            // 
+            this.dtp_hasta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.dtp_hasta.BorderSize = 2;
+            this.dtp_hasta.CustomFormat = "yyyy-MM-dd";
+            this.dtp_hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtp_hasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_hasta.Location = new System.Drawing.Point(108, 162);
+            this.dtp_hasta.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtp_hasta.Name = "dtp_hasta";
+            this.dtp_hasta.Size = new System.Drawing.Size(189, 25);
+            this.dtp_hasta.SkinColor = System.Drawing.Color.White;
+            this.dtp_hasta.TabIndex = 57;
+            this.dtp_hasta.TextColor = System.Drawing.Color.Gray;
+            // 
+            // dtp_desde
+            // 
+            this.dtp_desde.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.dtp_desde.BorderSize = 2;
+            this.dtp_desde.CalendarTitleForeColor = System.Drawing.Color.Gray;
+            this.dtp_desde.CustomFormat = "yyyy-MM-dd";
+            this.dtp_desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
+            this.dtp_desde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtp_desde.Location = new System.Drawing.Point(108, 121);
+            this.dtp_desde.MinimumSize = new System.Drawing.Size(4, 25);
+            this.dtp_desde.Name = "dtp_desde";
+            this.dtp_desde.Size = new System.Drawing.Size(189, 25);
+            this.dtp_desde.SkinColor = System.Drawing.Color.White;
+            this.dtp_desde.TabIndex = 56;
+            this.dtp_desde.TextColor = System.Drawing.Color.Gray;
+            // 
+            // radio_hoy
+            // 
+            this.radio_hoy.AutoSize = true;
+            this.radio_hoy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_hoy.ForeColor = System.Drawing.Color.Gray;
+            this.radio_hoy.Location = new System.Drawing.Point(19, 36);
+            this.radio_hoy.Margin = new System.Windows.Forms.Padding(2);
+            this.radio_hoy.Name = "radio_hoy";
+            this.radio_hoy.Size = new System.Drawing.Size(50, 19);
+            this.radio_hoy.TabIndex = 50;
+            this.radio_hoy.TabStop = true;
+            this.radio_hoy.Text = "HOY";
+            this.radio_hoy.UseVisualStyleBackColor = true;
+            this.radio_hoy.CheckedChanged += new System.EventHandler(this.radio_hoy_CheckedChanged);
+            // 
+            // radio_fecha
+            // 
+            this.radio_fecha.AutoSize = true;
+            this.radio_fecha.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_fecha.ForeColor = System.Drawing.Color.Gray;
+            this.radio_fecha.Location = new System.Drawing.Point(19, 82);
+            this.radio_fecha.Margin = new System.Windows.Forms.Padding(2);
+            this.radio_fecha.Name = "radio_fecha";
+            this.radio_fecha.Size = new System.Drawing.Size(118, 19);
+            this.radio_fecha.TabIndex = 51;
+            this.radio_fecha.TabStop = true;
+            this.radio_fecha.Text = "PERSONALIZADO";
+            this.radio_fecha.UseVisualStyleBackColor = true;
+            this.radio_fecha.CheckedChanged += new System.EventHandler(this.radio_fecha_CheckedChanged);
+            // 
+            // gunaElipse1
+            // 
+            this.gunaElipse1.TargetControl = this;
+            // 
+            // panel1
+            // 
+            this.panel1.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormRep1;
+            this.panel1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel1.Location = new System.Drawing.Point(-2, -2);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(351, 358);
+            this.panel1.TabIndex = 61;
             // 
             // btn_imprimir
             // 
@@ -176,106 +286,6 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.dtp_hasta);
-            this.groupBox1.Controls.Add(this.dtp_desde);
-            this.groupBox1.Controls.Add(this.radio_hoy);
-            this.groupBox1.Controls.Add(this.radio_fecha);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(12, 79);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 214);
-            this.groupBox1.TabIndex = 55;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "RANGO DE FECHAS";
-            // 
-            // radio_fecha
-            // 
-            this.radio_fecha.AutoSize = true;
-            this.radio_fecha.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_fecha.ForeColor = System.Drawing.Color.Gray;
-            this.radio_fecha.Location = new System.Drawing.Point(19, 82);
-            this.radio_fecha.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_fecha.Name = "radio_fecha";
-            this.radio_fecha.Size = new System.Drawing.Size(118, 19);
-            this.radio_fecha.TabIndex = 51;
-            this.radio_fecha.TabStop = true;
-            this.radio_fecha.Text = "PERSONALIZADO";
-            this.radio_fecha.UseVisualStyleBackColor = true;
-            this.radio_fecha.CheckedChanged += new System.EventHandler(this.radio_fecha_CheckedChanged);
-            // 
-            // radio_hoy
-            // 
-            this.radio_hoy.AutoSize = true;
-            this.radio_hoy.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_hoy.ForeColor = System.Drawing.Color.Gray;
-            this.radio_hoy.Location = new System.Drawing.Point(19, 36);
-            this.radio_hoy.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_hoy.Name = "radio_hoy";
-            this.radio_hoy.Size = new System.Drawing.Size(50, 19);
-            this.radio_hoy.TabIndex = 50;
-            this.radio_hoy.TabStop = true;
-            this.radio_hoy.Text = "HOY";
-            this.radio_hoy.UseVisualStyleBackColor = true;
-            this.radio_hoy.CheckedChanged += new System.EventHandler(this.radio_hoy_CheckedChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(53, 126);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(41, 15);
-            this.label2.TabIndex = 59;
-            this.label2.Text = "DESDE";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(53, 167);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(43, 15);
-            this.label3.TabIndex = 60;
-            this.label3.Text = "HASTA";
-            // 
-            // dtp_hasta
-            // 
-            this.dtp_hasta.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.dtp_hasta.BorderSize = 2;
-            this.dtp_hasta.CustomFormat = "yyyy-MM-dd";
-            this.dtp_hasta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dtp_hasta.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_hasta.Location = new System.Drawing.Point(108, 162);
-            this.dtp_hasta.MinimumSize = new System.Drawing.Size(4, 25);
-            this.dtp_hasta.Name = "dtp_hasta";
-            this.dtp_hasta.Size = new System.Drawing.Size(189, 25);
-            this.dtp_hasta.SkinColor = System.Drawing.Color.White;
-            this.dtp_hasta.TabIndex = 57;
-            this.dtp_hasta.TextColor = System.Drawing.Color.Gray;
-            // 
-            // dtp_desde
-            // 
-            this.dtp_desde.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.dtp_desde.BorderSize = 2;
-            this.dtp_desde.CalendarTitleForeColor = System.Drawing.Color.Gray;
-            this.dtp_desde.CustomFormat = "yyyy-MM-dd";
-            this.dtp_desde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F);
-            this.dtp_desde.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.dtp_desde.Location = new System.Drawing.Point(108, 121);
-            this.dtp_desde.MinimumSize = new System.Drawing.Size(4, 25);
-            this.dtp_desde.Name = "dtp_desde";
-            this.dtp_desde.Size = new System.Drawing.Size(189, 25);
-            this.dtp_desde.SkinColor = System.Drawing.Color.White;
-            this.dtp_desde.TabIndex = 56;
-            this.dtp_desde.TextColor = System.Drawing.Color.Gray;
-            // 
-            // gunaElipse1
-            // 
-            this.gunaElipse1.TargetControl = this;
-            // 
             // frm_ReportVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -286,22 +296,23 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_imprimir);
             this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
             this.ForeColor = System.Drawing.SystemColors.ControlLight;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_ReportVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "frm_ReportVenta";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -325,5 +336,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.RadioButton radio_hoy;
         private System.Windows.Forms.RadioButton radio_fecha;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
+        private System.Windows.Forms.Panel panel1;
     }
 }

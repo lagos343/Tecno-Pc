@@ -94,6 +94,7 @@ namespace Tecno_Pc.Formularios
                 lbl_precio.Text = dgv_Productos.Rows[e.RowIndex].Cells[7].Value.ToString();
                 lbl_producto.Text = dgv_Productos.Rows[e.RowIndex].Cells[5].Value.ToString();
                 lbl_stock.Text = dgv_Productos.Rows[e.RowIndex].Cells[10].Value.ToString();
+                txt_cant.Focus();
             }
         }
 

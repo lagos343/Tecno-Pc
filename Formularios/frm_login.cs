@@ -119,5 +119,13 @@ namespace Tecno_Pc
         {
             error_contraseña.Clear();
         }
+
+        private void txt_pasword_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                btn_ingresar.PerformClick();
+            }
+        }
     }
 }
