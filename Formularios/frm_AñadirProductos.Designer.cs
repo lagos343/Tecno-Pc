@@ -77,6 +77,7 @@ namespace Tecno_Pc.Formularios
             this.erp6 = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp7 = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp8 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
@@ -583,6 +584,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp8.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, 3);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(568, 437);
+            this.panel2.TabIndex = 114;
+            // 
             // frm_AñadirProductos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -622,6 +632,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.btn_guardar);
             this.Controls.Add(this.pictureBox2);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirProductos";
@@ -703,5 +714,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp6;
         private System.Windows.Forms.ErrorProvider erp7;
         private System.Windows.Forms.ErrorProvider erp8;
+        private System.Windows.Forms.Panel panel2;
     }
 }

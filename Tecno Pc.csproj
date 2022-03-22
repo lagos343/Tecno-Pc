@@ -374,6 +374,15 @@
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
     <Content Include="Repuestos-Arias_rojo2.ico" />
+    <None Include="Resources\FondoFormRep1.png" />
+    <None Include="Resources\FondoFormRep.png" />
+    <None Include="Resources\FondoFormCLi21.png" />
+    <None Include="Resources\FondoFormCLi2.png" />
+    <None Include="Resources\FondoFormCLi.png" />
+    <None Include="Resources\FondoFormProd1.png" />
+    <None Include="Resources\FondoFormProd.png" />
+    <None Include="Resources\FondoFormNoti1.png" />
+    <None Include="Resources\FondoFormNoti.png" />
     <None Include="Resources\server.png" />
     <None Include="Resources\calendarDark.png" />
     <None Include="Resources\calendarWhite.png" />

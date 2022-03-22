@@ -81,6 +81,7 @@ namespace Tecno_Pc.Formularios
             this.erp_email = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.pictureemail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -694,6 +695,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_direccion.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormCLi21;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, -1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(1054, 451);
+            this.panel2.TabIndex = 102;
+            // 
             // frm_contactos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -734,6 +744,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_contactos";
@@ -819,5 +830,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_email;
         private System.Windows.Forms.ErrorProvider erp_direccion;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Panel panel2;
     }
 }

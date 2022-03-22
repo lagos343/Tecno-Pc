@@ -65,6 +65,7 @@ namespace Tecno_Pc.Formularios
             this.erp_contra = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_rutReports = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_bd = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -461,6 +462,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_bd.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, 1);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(529, 502);
+            this.panel2.TabIndex = 143;
+            // 
             // frm_ConfigurarDB
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -478,6 +488,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.cbo_servers);
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_ConfigurarDB";
@@ -543,5 +554,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_contra;
         private System.Windows.Forms.ErrorProvider erp_rutReports;
         private System.Windows.Forms.ErrorProvider erp_bd;
+        private System.Windows.Forms.Panel panel2;
     }
 }

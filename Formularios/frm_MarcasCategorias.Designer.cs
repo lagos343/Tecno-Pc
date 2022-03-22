@@ -54,6 +54,7 @@ namespace Tecno_Pc.Formularios
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.erp_nombre = new System.Windows.Forms.ErrorProvider(this.components);
+            this.panel2 = new System.Windows.Forms.Panel();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
@@ -360,6 +361,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_nombre.ContainerControl = this;
             // 
+            // panel2
+            // 
+            this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormCLi21;
+            this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel2.Location = new System.Drawing.Point(-1, 0);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(877, 437);
+            this.panel2.TabIndex = 68;
+            // 
             // frm_MarcasCategorias
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -381,6 +391,7 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.pictureBox6);
             this.Controls.Add(this.pictureBox5);
             this.Controls.Add(this.panel1);
+            this.Controls.Add(this.panel2);
             this.Cursor = System.Windows.Forms.Cursors.Default;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -427,5 +438,6 @@ namespace Tecno_Pc.Formularios
         private System.DirectoryServices.DirectoryEntry directoryEntry1;
         private Guna.UI.WinForms.GunaPictureBox btn_minimizar;
         private System.Windows.Forms.ErrorProvider erp_nombre;
+        private System.Windows.Forms.Panel panel2;
     }
 }
