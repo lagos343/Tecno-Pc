@@ -189,6 +189,7 @@ namespace Tecno_Pc.Formularios
             this.txt_pass.Size = new System.Drawing.Size(227, 16);
             this.txt_pass.TabIndex = 2;
             this.txt_pass.TextChanged += new System.EventHandler(this.txt_pass_TextChanged);
+            this.txt_pass.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_pass_KeyPress);
             // 
             // gunaLabel4
             // 
@@ -222,6 +223,7 @@ namespace Tecno_Pc.Formularios
             this.txt_usuario.Size = new System.Drawing.Size(227, 16);
             this.txt_usuario.TabIndex = 1;
             this.txt_usuario.TextChanged += new System.EventHandler(this.txt_usuario_TextChanged);
+            this.txt_usuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_usuario_KeyPress);
             // 
             // gunaLabel1
             // 

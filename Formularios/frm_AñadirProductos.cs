@@ -165,10 +165,7 @@ namespace Tecno_Pc.Formularios
                         erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
                     }
                 }
-                catch (Exception)
-                {
-                }
-                
+                catch (Exception){}                
             }
             
             if (txt_precio.Text != string.Empty)
@@ -181,10 +178,7 @@ namespace Tecno_Pc.Formularios
                         erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
                     }
                 }
-                catch (Exception)
-                {
-                }
-                
+                catch (Exception){}                
             }            
         }  
 

@@ -180,6 +180,24 @@ namespace Tecno_Pc.Formularios
             erp_rol.Clear();
         }
 
+        private void txt_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_pass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
         #endregion
+
+
     }
 }
