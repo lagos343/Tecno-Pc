@@ -157,20 +157,34 @@ namespace Tecno_Pc.Formularios
 
             if (txt_stock.Text != string.Empty)
             {
-                if (int.Parse(txt_stock.Text) <= 0)
+                try
                 {
-                    erp3.Clear();
-                    erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
+                    if (int.Parse(txt_stock.Text) <= 0)
+                    {
+                        erp3.Clear();
+                        erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
+                    }
                 }
+                catch (Exception)
+                {
+                }
+                
             }
             
             if (txt_precio.Text != string.Empty)
             {
-                if (!(float.Parse(txt_precio.Text) >= 1))
+                try
                 {
-                    erp2.Clear();
-                    erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
+                    if (!(float.Parse(txt_precio.Text) >= 1))
+                    {
+                        erp2.Clear();
+                        erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
+                    }
                 }
+                catch (Exception)
+                {
+                }
+                
             }            
         }  
 
