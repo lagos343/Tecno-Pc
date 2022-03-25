@@ -20,6 +20,7 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
         public frm_AñadirUsuarios(int estado, DataGridView dat)
         {
@@ -56,16 +57,20 @@ namespace Tecno_Pc.Formularios
             cborol.SelectedIndex = -1;
         }
 
+        public void definicionarrayuser()
+        {
+            vld.Text = new TextBox[2] { txt_usuario, txt_pass };
+            vld.Error = new ErrorProvider[2] {erp_usuario, erp_contra};
+            vld.Ctrl_user = new int[2] {1,2};
+            
+        }
+          
+
+
         private void guarda_click(object sender, EventArgs e)
         {
-            if(txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarrayuser();
+            if(vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Nombre_usuario = txt_usuario.Text;
                 user.Clave = txt_pass.Text;
@@ -75,6 +80,13 @@ namespace Tecno_Pc.Formularios
                 user.guardar();
                 limpiar();
             }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();     
+            }
 
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
             frm.carga();
@@ -82,17 +94,6 @@ namespace Tecno_Pc.Formularios
 
         private void escoger_erp() 
         {
-            if (txt_pass.Text == "")
-            {
-                erp_contra.Clear();
-                erp_contra.SetError(txt_pass, "No puede quedar vacio");
-            }   
-
-            if (txt_usuario.Text == "")
-            {
-                erp_usuario.Clear();
-                erp_usuario.SetError(txt_usuario, "No puede quedar vacio");
-            }
 
             if (cboempleado.SelectedIndex == -1)
             {
