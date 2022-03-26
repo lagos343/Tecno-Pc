@@ -129,17 +129,23 @@ namespace Tecno_Pc.Formularios
                 {
                     cate.IDCategoria = int.Parse(txt_id.Text);
                     cate.NombreCategoria = txt_nombre.Text;
-                    cate.actualizarDatos();
+                    if (cate.actualizarDatos())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        cate.consultarDatos(dgv_datos);
+                    }
                 }
                 else
                 {
                     cate.NombreCategoria = txt_nombre.Text;
-                    cate.guardar();
-                }
-
-                limpiarDatos();
-                btn_guardar.Text="Guardar";
-                cate.consultarDatos(dgv_datos);
+                    if (cate.guardar())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        cate.consultarDatos(dgv_datos);
+                    }
+                }                
             }           
         }
 
@@ -185,17 +191,23 @@ namespace Tecno_Pc.Formularios
                 {
                     mar.IDMarca = int.Parse(txt_id.Text);
                     mar.NombreMarca = txt_nombre.Text;
-                    mar.actualizarDatos();
+                    if (mar.actualizarDatos())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        mar.consultarDatos(dgv_datos);
+                    }
                 }
                 else
                 {
                     mar.NombreMarca = txt_nombre.Text;
-                    mar.guardar();
-                }
-
-                limpiarDatos();
-                btn_guardar.Text = "Guardar";
-                mar.consultarDatos(dgv_datos);
+                    if (mar.guardar())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        mar.consultarDatos(dgv_datos);
+                    }
+                }                
             }
         }
 

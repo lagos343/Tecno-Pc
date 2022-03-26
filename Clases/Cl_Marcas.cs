@@ -20,11 +20,11 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombreMarca + "')";
-            Sql_Querys(cadena, "Marca añadida con exito", "¡Ya existe esta marca!");
+            return Sql_Query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -37,11 +37,11 @@ namespace Tecno_Pc.Clases
             dgv.DataSource = Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
             string cadena;
             cadena = "Update Marcas set [Nombre Marca] = '"+nombreMarca+"' where [ID Marca] = "+iDMarca+"";
-            Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!");
         }       
     }
 }
