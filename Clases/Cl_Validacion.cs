@@ -184,15 +184,12 @@ namespace Tecno_Pc.Clases
                             error[i].SetError(text[i], "Debe contener por lo menos una Mayus, un numero y un caracter especial");
                             conteo = false;
                         }
-
                     }
-
                 }
                 if (conteo == false)
                 {
                     control += 1;
                 }
-
             }
 
             if (control > 0)
@@ -205,12 +202,6 @@ namespace Tecno_Pc.Clases
                 control = 0;
                 return true;
             }
-
-
-
-
         }
-
-
     }
 }
