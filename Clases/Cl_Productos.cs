@@ -33,11 +33,11 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
             string cadena;
             cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
-            Sql_Querys(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!");
+            return Sql_Query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -51,11 +51,11 @@ namespace Tecno_Pc.Clases
                 "Like '%" + nombreProducto + "%' order by [Nombre Producto] asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
-            Sql_Querys("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
+            return Sql_Query("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
                 "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + ", CodBarra = '"+codbarra+"' where [ID Producto] = " + iDProducto + "", 
-                "Producto actualizado con exito", "Error 504");
+                "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!");
         }
 
         public void eliminarDatos()

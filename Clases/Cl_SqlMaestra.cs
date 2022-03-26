@@ -121,6 +121,33 @@ namespace Tecno_Pc.Clases
             Cerrar();
         }
 
+        public bool Sql_Query(string cadena, string mensajeBueno, string mensajeMalo)
+        {
+            bool retorno;
+            Abrir();
+            cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = cadena;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeBueno, 1);
+                noti.ShowDialog();
+                noti.Close();
+                retorno = true;
+            }
+            catch (Exception ex)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeMalo, 3);
+                noti.ShowDialog();
+                noti.Close();
+                retorno = false;
+            }
+            Cerrar();
+            return retorno;
+        }
+
         public void Sql_Querys(string cadena)
         {
             Abrir();

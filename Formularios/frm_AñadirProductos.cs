@@ -98,29 +98,19 @@ namespace Tecno_Pc.Formularios
 
             if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1 )
             {
-                DataTable datos = new DataTable();
-                datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                    "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = Convert.ToBoolean(swt_estado.Checked);
+                prod.Codbarra = txt_codBarra.Text;
 
-                if (datos.Rows.Count == 0)
+                if (prod.guardar())
                 {
-                    prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                    prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                    prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                    prod.NombreProducto = txt_nombre.Text;
-                    prod.Modelo = txt_modelo.Text;
-                    prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                    prod.Estado = Convert.ToBoolean(swt_estado.Checked);
-                    prod.Codbarra = txt_codBarra.Text;
-                    prod.guardar();
                     sql.Sql_Querys("insert into Inventarios values((select top 1 [ID Producto] from Productos order by[ID Producto] desc), " + txt_stock.Text + ")");
                     Limnpiado();
-                }
-                else
-                {
-                    frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
-                    noti.ShowDialog();
-                    noti.Close();
                 }
             }
             else
@@ -188,30 +178,21 @@ namespace Tecno_Pc.Formularios
 
             if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1)
             {
-                DataTable datos = new DataTable();
-                datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                    "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
+                prod.IDProducto = int.Parse(txt_id.Text);
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = swt_estado.Checked;
+                prod.Codbarra = txt_codBarra.Text;
 
-                if (datos.Rows.Count == 0)
+                if (prod.actualizarDatos())
                 {
-                    actualizar();
-                }
-                else
-                {
-                    string codbar;
-                    codbar = sql.Consulta2("select CodBarra from Productos where [ID Producto] = " + txt_id.Text);
-
-                    if (codbar == txt_codBarra.Text)
-                    {
-                        actualizar();                        
-                    }
-                    else
-                    {
-                        frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
-                        noti.ShowDialog();
-                        noti.Close();
-                    }
-                }
+                    sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
+                    this.Close();
+                }                
             }
             else
             {
@@ -223,23 +204,7 @@ namespace Tecno_Pc.Formularios
 
             Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
             frm.Dashboard();
-        }
-
-        private void actualizar()
-        {
-            prod.IDProducto = int.Parse(txt_id.Text);
-            prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-            prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-            prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-            prod.NombreProducto = txt_nombre.Text;
-            prod.Modelo = txt_modelo.Text;
-            prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-            prod.Estado = swt_estado.Checked;
-            prod.Codbarra = txt_codBarra.Text;
-            prod.actualizarDatos();
-            sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
-            this.Close();
-        }
+        }        
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
