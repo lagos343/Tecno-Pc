@@ -29,10 +29,10 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
-            Sql_Querys("insert into Proveedores values ("+iDDepto+", '"+nombre+"', '"+telefono+"', '"+direccion+"', '"+correoElectronico+"', " + Convert.ToInt32(estado) + ")", 
-                "Proveedor añadid con exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query("insert into Proveedores values ("+iDDepto+", '"+nombre+"', '"+telefono+"', '"+direccion+"', '"+correoElectronico+"', " + Convert.ToInt32(estado) + ")", 
+                "Proveedor añadid con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -47,10 +47,10 @@ namespace Tecno_Pc.Clases
                 "where Estado = 1 and Nombre Like '%"+nombre+"%' order by Nombre asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
-            Sql_Querys("update Proveedores set [ID Depto] ="+iDDepto +", Nombre = '"+nombre+"', Telefono = '"+telefono+"', Direccion = '"+direccion+"', [Correo Electronico] = '"+correoElectronico+"' " +
-                "where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query("update Proveedores set [ID Depto] ="+iDDepto +", Nombre = '"+nombre+"', Telefono = '"+telefono+"', Direccion = '"+direccion+"', [Correo Electronico] = '"+correoElectronico+"' " +
+                "where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre");
         }
 
         public void eliminar()

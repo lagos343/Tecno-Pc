@@ -85,8 +85,11 @@ namespace Tecno_Pc.Formularios
                 proveedores.Direccion = txt_direccion.Text;
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 proveedores.Estado = Convert.ToBoolean(true);
-                proveedores.guardar();
-                limpiado();
+
+                if (proveedores.guardar())
+                {
+                    limpiado();
+                }
             }
             else
             {
@@ -112,8 +115,13 @@ namespace Tecno_Pc.Formularios
                 proveedores.CorreoElectronico = txt_email.Text;
                 proveedores.Direccion = txt_direccion.Text;
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
-                proveedores.actualizarDatos();
-                this.Close();
+
+                if (proveedores.actualizarDatos())
+                {
+                    limpiado();
+                    this.Close();
+                }
+                
             }
             else
             {

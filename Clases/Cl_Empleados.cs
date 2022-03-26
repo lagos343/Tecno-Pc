@@ -45,19 +45,19 @@ namespace Tecno_Pc.Clases
                 "as Departamento from Empleados where estado = 1 and Nombre like '%"+nombre+"%' order by Nombre asc");
         }
 
-        public void guardar() 
+        public bool guardar() 
         {
             string cadena;
             cadena = "insert into Empleados values ("+idpuesto +", "+iddepto +", '"+identidad +"', '"+nombre +"','"+apellido +"'," +
                 "'"+telefono+"','"+email +"', '"+direccion+"', "+ Convert.ToInt32(estado)+")";
-            Sql_Querys(cadena, "Empleado añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Empleado añadido con Exito", "Existen Datos Repetidos, Cambiar Identidad o Correo");
         }
 
-        public void update()
+        public bool update()
         {
-            Sql_Querys("update Empleados set [ID Puesto] ="+idpuesto+", [ID Depto] ="+iddepto+" ,[Identidad] ='"+identidad+"',[Nombre] ='"+nombre+"',[Apellido] ='"+apellido+"',[Telefono] ='"+telefono+"'," +
+            return Sql_Query("update Empleados set [ID Puesto] ="+idpuesto+", [ID Depto] ="+iddepto+" ,[Identidad] ='"+identidad+"',[Nombre] ='"+nombre+"',[Apellido] ='"+apellido+"',[Telefono] ='"+telefono+"'," +
                 "[Correo Electronico] ='"+email+"',[Direccion] ='"+direccion+"' WHERE [ID Empleado] ="+idempleado+ "",
-                "Empleado actualizado con exito", "Error 504");
+                "Empleado actualizado con exito", "Existen Datos Repetidos, Cambiar Identidad o Correo");
         }
 
         public void eliminar()

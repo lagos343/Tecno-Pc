@@ -111,8 +111,12 @@ namespace Tecno_Pc.Formularios
                 empleados.Iddepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
                 empleados.Estado = Convert.ToBoolean(true);
-                empleados.guardar();
-                limpiado();                
+
+                if (empleados.guardar())
+                {
+                    limpiado();
+                }
+                     
             }
             else  
             {                
@@ -140,8 +144,13 @@ namespace Tecno_Pc.Formularios
                 empleados.Email = txt_correo.Text;
                 empleados.Iddepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
-                empleados.update();
-                this.Close();
+
+                if (empleados.update())
+                {
+                    limpiado();
+                    this.Close();
+                }
+                
                 
             }
             else 
