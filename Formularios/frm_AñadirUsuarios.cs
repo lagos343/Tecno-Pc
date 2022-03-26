@@ -110,14 +110,8 @@ namespace Tecno_Pc.Formularios
 
         private void actualiza_click(object sender, EventArgs e)
         {
-            if (txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarrayuser();
+            if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Id_usuarios = int.Parse(txt_id.Text);
                 user.Nombre_usuario = txt_usuario.Text;
@@ -127,6 +121,14 @@ namespace Tecno_Pc.Formularios
                 user.Estado = Convert.ToBoolean(true);
                 user.actualizarDatos();
                 this.Close();
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();
+                
             }
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
             frm.carga();

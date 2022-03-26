@@ -109,7 +109,7 @@ namespace Tecno_Pc.Formularios
         {
             vld.Text = new TextBox [5] { txt_nombre, txt_apellido, txt_direccion,txt_telefono,txt_email };
             vld.Error = new ErrorProvider[5] {erp_nombre,erp_apellido, erp_direccion, erp_telefono, erp_email  };
-            vld.Minimo = new int[5] { 2, 2 , 10, 8, 10 };
+            vld.Minimo = new int[5] { 2, 2 , 3, 8, 10 };
             vld.Regular = new string[5] { "[A-Z, a-z]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*" };
             vld.Msj = new string[5] {"Solo caracteres",  "Solo caracteres", "Caracteres especiales no validos", "Solo digitos numericos y que empiecen por 2,3,8 y 9",  "solo emails validos: Example@dominio.algo" };
 

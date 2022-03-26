@@ -125,8 +125,16 @@ namespace Tecno_Pc.Formularios
 
             if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
             {
-                cant = int.Parse(txt_cant.Text);
-                cant += buscarRepetidos(lbl_Id.Text);
+                try
+                {
+                    cant = int.Parse(txt_cant.Text);
+                    cant += buscarRepetidos(lbl_Id.Text);
+
+                }
+                catch (Exception)
+                {
+                }
+                    
             }
 
             if (lbl_Id.Text == "")
@@ -145,20 +153,23 @@ namespace Tecno_Pc.Formularios
             }
             else if (int.Parse(txt_cant.Text) <= 0)
             {
-                frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "indique una cantidad positiva");
+                
+                    frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "indique una cantidad positiva");
+                
             }
             else if(cant > int.Parse(lbl_stock.Text))
             {
-                frm_notificacion noti = new frm_notificacion("Escogio vender " + cant.ToString() + " unidades de '" + lbl_producto.Text + 
+                    frm_notificacion noti = new frm_notificacion("Escogio vender " + cant.ToString() + " unidades de '" + lbl_producto.Text +
                     "' pero solo hay " + lbl_stock.Text + " unidades en existencia", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "indique una cantidad dentro del stock");
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "indique una cantidad dentro del stock");
+                
             }
             else
             {
