@@ -44,6 +44,7 @@ namespace Tecno_Pc.Formularios
                 txt_pass.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
             }
         }
+
         public void iniciar1()
         {
             cboempleado.DataSource = sql.Consulta("select * from Empleados where Estado = 1 order by Nombre asc");
@@ -64,9 +65,7 @@ namespace Tecno_Pc.Formularios
             vld.Ctrl_user = new int[2] {1,2};
             
         }
-          
-
-
+        
         private void guarda_click(object sender, EventArgs e)
         {
             definicionarrayuser();
@@ -77,12 +76,15 @@ namespace Tecno_Pc.Formularios
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
-                user.guardar();
-                limpiar();
+
+                if (user.guardar())
+                {
+                    limpiar();
+                }                
             }
             else
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();     
@@ -111,6 +113,7 @@ namespace Tecno_Pc.Formularios
         private void actualiza_click(object sender, EventArgs e)
         {
             definicionarrayuser();
+
             if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Id_usuarios = int.Parse(txt_id.Text);
@@ -119,20 +122,22 @@ namespace Tecno_Pc.Formularios
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
-                user.actualizarDatos();
-                this.Close();
+
+                if (user.actualizarDatos())
+                {
+                    this.Close();
+                }                
             }
             else
             {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();
-                
+                escoger_erp();                
             }
-            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
-            frm.carga();
 
+            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
+            frm.carga();  
         }
 
         public void limpiar()

@@ -31,11 +31,11 @@ namespace Tecno_Pc.Clases
         public bool Estadoo { get => estado; set => estado = value; }
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
             string cadena;
             cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "','" + Direccion + "', " + Convert.ToInt32(estado)+")" ;
-            Sql_Querys(cadena, "Contacto añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Contacto añadido con Exito", "El correo electronico ya esta en uso, ¡Cambielo!");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -51,15 +51,15 @@ namespace Tecno_Pc.Clases
                 "and Estado = 1  order by Nombre asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
-            Sql_Querys("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
+            return Sql_Query("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
                 "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Contactos set Estado = 0 where [ID Contacto ] = " + iDContacto, "Se ha elminado este Contacto", "Error al eliminar");
+            Sql_Querys("Update Contactos set Estado = 0 where [ID Contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
         }
     }
 

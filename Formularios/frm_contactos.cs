@@ -147,7 +147,14 @@ namespace Tecno_Pc.Formularios
                     con.Telefonoo = txt_telefono.Text;
                     con.CorreoElectronicoo = txt_email.Text;
                     con.Direccionn = txt_direccion.Text;
-                    con.actualizarDatos();
+
+                    if (con.actualizarDatos())
+                    {
+                        btn_guardar.Text = "Guardar";
+                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
+                        operacionesDataGrid();
+                        Limnpiado();
+                    }
                 }
                 else
                 {
@@ -159,14 +166,15 @@ namespace Tecno_Pc.Formularios
                     con.CorreoElectronicoo = txt_email.Text;
                     con.Direccionn = txt_direccion.Text;
                     con.Estadoo = Convert.ToBoolean(true);
-                    con.guardar();
 
-
-                }
-                btn_guardar.Text = "Guardar";
-                dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
-                operacionesDataGrid();
-                Limnpiado();
+                    if (con.guardar())
+                    {
+                        btn_guardar.Text = "Guardar";
+                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
+                        operacionesDataGrid();
+                        Limnpiado();
+                    }
+                }                
             }
             else
             {

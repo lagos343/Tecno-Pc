@@ -32,11 +32,11 @@ namespace Tecno_Pc.Clases
        // public bool Estado { get => estado; set => estado = value; }
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
             string cadena;
             cadena = "insert into Clientes values (" + iDDepto + ", " + Identidad + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '"+CorreoElectronico+"','"+Direccion+"', "+ 1 +"  )";
-            Sql_Querys(cadena, "Cliente añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Cliente añadido con Exito", "El numero de identidad ya esta en uso, ¡Cambielo!");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -50,15 +50,15 @@ namespace Tecno_Pc.Clases
             dgv.DataSource = Consulta("select * from Clientes where Estado=1 and Nombre LIKE '%"+Nombre+"%'");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
-            Sql_Querys("update Clientes set [ID Depto]="+iDDepto+",Identidad='"+Identidad+"',Nombre='"+Nombre+"',Apellido='"+Apellido+"',Telefono='"+Telefono+"',[Correo Electronico]='"
+            return Sql_Query("update Clientes set [ID Depto]="+iDDepto+",Identidad='"+Identidad+"',Nombre='"+Nombre+"',Apellido='"+Apellido+"',Telefono='"+Telefono+"',[Correo Electronico]='"
                 +CorreoElectronico+"',Direccion='"+Direccion+"' where  [ID Cliente]="+iDCliente+"", "Cliente actualizado con exito", "Error 504");
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Clientes set Estado = 0 where [ID Cliente] = " + iDCliente, "Se ha elminado este Cliente", "Error al eliminar");
+            Sql_Querys("Update Clientes set Estado = 0 where [ID Cliente] = " + iDCliente, "Se ha elminado este Cliente", "El numero de identidad ya esta en uso, ¡Cambielo!");
         }
     }
 }
