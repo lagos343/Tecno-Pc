@@ -19,11 +19,11 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void guardar()
+        public bool guardar()
         {
             string cadena;
             cadena = "Insert into Categorias values('" + nombreCategoria + "')";
-            Sql_Querys(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!");
+            return Sql_Query(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!");
         }
 
         public void consultarDatos(DataGridView dgv)
@@ -36,11 +36,11 @@ namespace Tecno_Pc.Clases
             dgv.DataSource = Consulta("select *from Categorias where [Nombre Categoria] Like '%"+nombreCategoria+"%' order by [Nombre Categoria] asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
             string cadena;
             cadena = "Update Categorias set [Nombre Categoria] = '"+nombreCategoria+"' where [ID Categoria] = "+iDCategoria+"";
-            Sql_Querys(cadena, "Categoria actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Categoria actulizada con exito", "¡Ya existe esta categoria!");
         }        
     }
 }
