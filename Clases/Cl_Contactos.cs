@@ -54,7 +54,8 @@ namespace Tecno_Pc.Clases
         public bool actualizarDatos()
         {
             return Sql_Query("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
-                "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", "Error 504");
+                "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", 
+                "El correo electronico ya esta en uso, ¡Cambielo!");
         }
 
         public void eliminarDatos()
