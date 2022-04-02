@@ -53,7 +53,7 @@ namespace Tecno_Pc.Clases
         public bool actualizarDatos()
         {
             return Sql_Query("update Clientes set [ID Depto]="+iDDepto+",Identidad='"+Identidad+"',Nombre='"+Nombre+"',Apellido='"+Apellido+"',Telefono='"+Telefono+"',[Correo Electronico]='"
-                +CorreoElectronico+"',Direccion='"+Direccion+"' where  [ID Cliente]="+iDCliente+"", "Cliente actualizado con exito", "Error 504");
+                +CorreoElectronico+"',Direccion='"+Direccion+"' where  [ID Cliente]="+iDCliente+"", "Cliente actualizado con exito", "El numero de identidad ya esta en uso, ¡Cambielo!");
         }
 
         public void eliminarDatos()
