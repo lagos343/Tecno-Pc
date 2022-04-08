@@ -21,5 +21,26 @@ Tecno Pc es sistema de facturación para gestionar las entradas y salidas de inf
 		Servidor SQl
 		Modo de Autenticacion
 		Ubicacion de la carpeta donde se guardaran todos los reportes
-		
+
 ![](http://drive.google.com/uc?export=view&id=1wjmiuHLPkiyUfZD8PxHPGuQi6aBb6bRf)
+
+### Vista previa de algunas pantallas
+
+#### 1- Login
+![](http://drive.google.com/uc?export=view&id=1JsyUoi6aBAY7GG3dI-rnI7ccc3m3yKte)
+
+#### 2- Ventas
+![](http://drive.google.com/uc?export=view&id=1RNFXDLKe8QZB6quUxRNjT3A8lixvNBgB)
+
+#### 3- Facturas
+![](http://drive.google.com/uc?export=view&id=1s42IzjeRGWs822SK6C5CID-_22Gyu9B7)
+
+#### 4- Productos
+![](http://drive.google.com/uc?export=view&id=1GTiaqho9lG2A8ZOOl_47r1XGZiyxVduC)
+
+#### 5- Proveedores
+![](http://drive.google.com/uc?export=view&id=1D5UwyafxllcUX1NdKSOwXmmegZFjwk04)
+
+#### 6- Notificaciones
+![](http://drive.google.com/uc?export=view&id=16fTeQoL3FLKYK4RjmcXqgLfGZBfwU8di)
+
