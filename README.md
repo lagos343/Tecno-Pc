@@ -5,9 +5,10 @@ Tecno Pc es sistema de facturación para gestionar las entradas y salidas de inf
 
 ### 1 Paso
 **1-** Dar click en Code y luego en Donwload zip
+
 **2-** Crear una carpeta, ingresar a git bash y ejecutar
 
-	[Repositorio github](https://github.com/lagos343/Tecno-Pc.git "Repositorio github")
+	https://github.com/lagos343/Tecno-Pc.git
 
 ### 2 Paso
 
