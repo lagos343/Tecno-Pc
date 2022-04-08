@@ -17,7 +17,9 @@ Tecno Pc es sistema de facturación para gestionar las entradas y salidas de inf
 
 - La primera vez el programa pedira configuración incial
 - Deberas indicarle 3 cosas:
+
 		Servidor SQl
 		Modo de Autenticacion
 		Ubicacion de la carpeta donde se guardaran todos los reportes
+		
 ![](http://drive.google.com/uc?export=view&id=1wjmiuHLPkiyUfZD8PxHPGuQi6aBb6bRf)
