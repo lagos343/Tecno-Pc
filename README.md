@@ -20,4 +20,4 @@ Tecno Pc es sistema de facturación para gestionar las entradas y salidas de inf
 		Servidor SQl
 		Modo de Autenticacion
 		Ubicacion de la carpeta donde se guardaran todos los reportes
-[![Config](https "Config")](http://https://github.com/lagos343/Tecno-Pc/blob/master/Resources/Config%20inicial.png "Config")
+![](http://drive.google.com/uc?export=view&id=1wjmiuHLPkiyUfZD8PxHPGuQi6aBb6bRf)
