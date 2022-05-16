@@ -18,8 +18,7 @@ namespace Tecno_Pc.Clases
         private static string[] msj;
         private static int control = 0;
         private static int [] ctrl_user;
-
-        
+                
 
         #region encapsulaimetno
         public TextBox[] Text { get => text; set => text = value; }
