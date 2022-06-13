@@ -15,6 +15,7 @@ namespace Tecno_Pc.Formularios
     public partial class frm_Facturas : Form
     {
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         DataGridView dgv = new DataGridView();        
 
         public frm_Facturas()
@@ -235,12 +236,14 @@ namespace Tecno_Pc.Formularios
             rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
             rango = objHoja.Columns[6];
             rango.Columns.AutoFit();
-
+            
             objAplicacion.Visible = true;
            
             try
             {
+                vld.ValidarCarpetas("Facturas");
                 objLibro.SaveAs(ruta);
+                objLibro.ChangeFileAccess(XlFileAccess.xlReadOnly, true);
             }
             catch (Exception ex)
             {

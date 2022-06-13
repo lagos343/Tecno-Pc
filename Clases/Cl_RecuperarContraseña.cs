@@ -27,9 +27,10 @@ namespace Tecno_Pc.Clases
         public void EnviarCorreo()
         {              
             mmsg.To.Add(user.Correo_);
-            mmsg.Subject = "Recuperacion de Datos";
+            mmsg.Subject = "Recuperacion de Contraseña Tecno Pc";
             mmsg.SubjectEncoding = Encoding.UTF8;
-            mmsg.Body = "Señor " +user.Propietario_ + ", su contraseña es: " + user.Contraseña_;
+            mmsg.Body = "<p><b>Hola " +user.Propietario_ + "</b><br><b>ha solicitado una recuperacion de contraseña</b><br><b>su contraseña actual es: " + user.Contraseña_ +
+            "</b><br><b>recomendamos solicite un cambio de contraseña al ingresar de nuevo al sistema por seguridad</b></p>";
             mmsg.BodyEncoding = Encoding.UTF8;
             mmsg.IsBodyHtml = true;
             mmsg.From = new MailAddress(Correo_recuperacion);
