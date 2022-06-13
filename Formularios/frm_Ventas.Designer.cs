@@ -42,8 +42,6 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.num_ISV = new Guna.UI.WinForms.GunaNumeric();
             this.dgv_Factura = new System.Windows.Forms.DataGridView();
             this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
             this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -89,7 +87,6 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel4 = new Guna.UI.WinForms.GunaLinePanel();
             this.btn_nuevaVenta = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.erp_cant = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_tipopagos = new System.Windows.Forms.ErrorProvider(this.components);
@@ -109,7 +106,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).BeginInit();
@@ -128,8 +124,6 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.gunaLabel14);
             this.panel5.Controls.Add(this.gunaLabel13);
             this.panel5.Controls.Add(this.gunaLabel10);
-            this.panel5.Controls.Add(this.gunaLabel2);
-            this.panel5.Controls.Add(this.num_ISV);
             this.panel5.Controls.Add(this.dgv_Factura);
             this.panel5.Controls.Add(this.dgv_Productos);
             this.panel5.Controls.Add(this.cbo_cliente);
@@ -166,7 +160,6 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.btn_nuevaVenta);
             this.panel5.Controls.Add(this.btn_guardar);
-            this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Location = new System.Drawing.Point(-1, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1114, 705);
@@ -262,35 +255,6 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel10.Size = new System.Drawing.Size(71, 19);
             this.gunaLabel10.TabIndex = 93;
             this.gunaLabel10.Text = "Producto";
-            // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.BackColor = System.Drawing.Color.White;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(831, 185);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(30, 19);
-            this.gunaLabel2.TabIndex = 87;
-            this.gunaLabel2.Text = "ISV";
-            // 
-            // num_ISV
-            // 
-            this.num_ISV.BaseColor = System.Drawing.Color.White;
-            this.num_ISV.BorderColor = System.Drawing.Color.Transparent;
-            this.num_ISV.ButtonColor = System.Drawing.Color.MediumBlue;
-            this.num_ISV.ButtonForeColor = System.Drawing.Color.WhiteSmoke;
-            this.num_ISV.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.num_ISV.ForeColor = System.Drawing.Color.Black;
-            this.num_ISV.Location = new System.Drawing.Point(835, 207);
-            this.num_ISV.Maximum = ((long)(100));
-            this.num_ISV.Minimum = ((long)(0));
-            this.num_ISV.Name = "num_ISV";
-            this.num_ISV.Size = new System.Drawing.Size(241, 30);
-            this.num_ISV.TabIndex = 85;
-            this.num_ISV.Value = ((long)(15));
-            this.num_ISV.ValueChanged += new System.EventHandler(this.num_ISV_ValueChanged);
             // 
             // dgv_Factura
             // 
@@ -474,7 +438,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_tipoPago.Name = "cbo_tipoPago";
             this.cbo_tipoPago.Size = new System.Drawing.Size(233, 23);
             this.cbo_tipoPago.TabIndex = 81;
-            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);            
+            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);
             // 
             // pictureBox11
             // 
@@ -916,16 +880,6 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox4.Location = new System.Drawing.Point(832, 206);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(244, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 86;
-            this.pictureBox4.TabStop = false;
-            // 
             // erp_cant
             // 
             this.erp_cant.ContainerControl = this;
@@ -968,7 +922,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).EndInit();
@@ -1021,9 +974,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.DataGridView dgv_Productos;
         private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridView dgv_Factura;
-        private Guna.UI.WinForms.GunaNumeric num_ISV;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;

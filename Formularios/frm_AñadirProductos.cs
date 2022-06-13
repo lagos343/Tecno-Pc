@@ -87,16 +87,16 @@ namespace Tecno_Pc.Formularios
         {
             vld.Text = new TextBox[5] {txt_codBarra, txt_modelo, txt_nombre, txt_precio, txt_stock};
             vld.Error = new ErrorProvider[5] {erp5, erp4, erp, erp2, erp3};
-            vld.Minimo = new int[5] {12, 3, 4, 2, 1};
+            vld.Minimo = new int[5] {12, 3, 4, 5, 1};
             vld.Regular = new string[5] {"[0-9]", "[A-Z, a-z, 0-9]", "[A-Z, a-z, 0-9]", "[0-9]{1,7}\\.[0-9]{1,4}", "[0-9]"};
-            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio: 0000000.00", "Solo digitos numericos"};
+            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio\nEjemplo: 1000000.00", "Solo digitos numericos"};
         }
 
         private void btn_guardarGuardado_Click(object sender, EventArgs e)
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1 )
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00 )
             {
                 prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
                 prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
@@ -162,10 +162,10 @@ namespace Tecno_Pc.Formularios
             {
                 try
                 {
-                    if (!(float.Parse(txt_precio.Text) >= 1))
+                    if (!(float.Parse(txt_precio.Text) >= 10.00))
                     {
                         erp2.Clear();
-                        erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
+                        erp2.SetError(txt_precio, "El precio debe ser mayor\no igual a 10.00");
                     }
                 }
                 catch (Exception){}                
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1)
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00)
             {
                 prod.IDProducto = int.Parse(txt_id.Text);
                 prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
