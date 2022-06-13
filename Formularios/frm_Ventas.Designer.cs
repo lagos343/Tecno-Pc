@@ -618,6 +618,7 @@ namespace Tecno_Pc.Formularios
             this.txt_cant.CausesValidation = false;
             this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txt_cant.Location = new System.Drawing.Point(197, 633);
+            this.txt_cant.MaxLength = 5;
             this.txt_cant.Name = "txt_cant";
             this.txt_cant.Size = new System.Drawing.Size(117, 17);
             this.txt_cant.TabIndex = 55;
