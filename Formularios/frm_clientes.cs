@@ -104,15 +104,17 @@ namespace Tecno_Pc.Formularios
             vld.Text = new TextBox [6] { txt_Ident, txt_Nombre, txt_Apell, txt_Tel, txt_Email, txt_Direccion };
             vld.Error = new ErrorProvider[6] { erp_identidad,erp_nombre, erp_apellido, erp_telefono, erp_email, erp_direccion  };
             vld.Minimo = new int[6] { 13,2, 2, 8, 10, 3};
-            vld.Regular = new string[6] { "[0-9]","[A-Z, a-z]", "[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", "[A-Z, a-z, 0-9,.,#]" };
-            vld.Msj = new string[6] { "Solo digitos numericos" ,"Solo caracteres", "Solo caracteres", "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: Example@dominio.algo", "Caracteres especiales no validos" };
+            vld.Regular = new string[6] { "(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[1900-2500]{4}[0-9]{5}","[A-Z, a-z]", "[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                "[A-Z, a-z, 0-9,.,#]" };
+            vld.Msj = new string[6] { "Solo digitos numericos, tomar\nen cuenta tambien el formato valido\n(depto + municipio) (año) (tomo+folio)" ,"Solo caracteres", "Solo caracteres", "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: example@dominio.algo", "Caracteres especiales no validos" };
             
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
             definicionarray();
-            if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 )
+            if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_Email, erp_email) == true && vld.buscarRepetidos(txt_Tel, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
@@ -158,7 +160,9 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
-            }
+                if (vld.ValidarLetrasCorreos(txt_Email, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_Tel, erp_telefono) == true) ;
+            }              
         }
 
         private void escoger_erp()

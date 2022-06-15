@@ -67,8 +67,10 @@ namespace Tecno_Pc.Formularios
             vld.Text = new TextBox[4] {txt_nombre, txt_telefono, txt_email, txt_direccion};
             vld.Error = new ErrorProvider[4] {erp_nombre, erp_telefono, erp_correo, erp_direccion };
             vld.Minimo = new int[4] {2,8,10,3};
-            vld.Regular = new string[4] {"[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", "[A-Z, a-z, 0-9, ., #]" };
-            vld.Msj = new string[4] { "Solo caracteres" , "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: Example@dominio.algo" , "Caracteres especiales no validos" };
+            vld.Regular = new string[4] {"[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", 
+                "[A-Z, a-z, 0-9, ., #]" };
+            vld.Msj = new string[4] { "Solo caracteres" , "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: example@dominio.algo" , "Caracteres especiales no validos" };
 
         }
 
@@ -77,7 +79,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayPro();
 
-            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1)
+            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
                 proveedores.Nombre = txt_nombre.Text;
                 proveedores.Telefono = txt_telefono.Text;
@@ -97,6 +99,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
+                if(vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
             }
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
@@ -107,7 +111,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayPro();
 
-            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1)
+            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
                 proveedores.IDProveedor = int.Parse(txt_id.Text);
                 proveedores.Nombre = txt_nombre.Text;
@@ -129,7 +133,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
-                
+                if (vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
 
             }
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();

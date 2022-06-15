@@ -192,7 +192,7 @@ namespace Tecno_Pc.Formularios
             this.txt_apellido.CausesValidation = false;
             this.txt_apellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_apellido.Location = new System.Drawing.Point(760, 216);
-            this.txt_apellido.MaxLength = 15;
+            this.txt_apellido.MaxLength = 30;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(126, 16);
             this.txt_apellido.TabIndex = 6;
@@ -226,7 +226,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(909, 152);
-            this.txt_nombre.MaxLength = 15;
+            this.txt_nombre.MaxLength = 30;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_nombre.TabIndex = 5;

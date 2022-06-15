@@ -166,9 +166,11 @@ namespace Tecno_Pc.Formularios
             rango = objHoja.Range["E2:F2"];
             rango.Columns.MergeCells = true;
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
-            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;          
+            rango.VerticalAlignment = objExcel.XlVAlign.xlVAlignCenter;
 
-           
+            objHoja.Cells[7, 5] = "RTN:";
+            objHoja.Cells[7, 5].Font.Bold = true;
+
             objHoja.Cells[8, 5] = "Transaccion:";                  
             objHoja.Cells[8, 5].Font.Bold = true;
 
@@ -180,7 +182,8 @@ namespace Tecno_Pc.Formularios
 
             rango = objHoja.Range["E7:E10"];
             rango.HorizontalAlignment = objExcel.XlHAlign.xlHAlignRight;
-
+            
+            objHoja.Cells[7, 6] = "'14011992000298";
             objHoja.Cells[8, 6] = transac;    
             objHoja.Cells[9, 6] = Fventa.Substring(0, 9).ToString();           
             objHoja.Cells[10, 6] = Fvenci.Substring(0, 9).ToString();

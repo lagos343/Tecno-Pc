@@ -49,7 +49,6 @@ namespace Tecno_Pc.Formularios
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cbo_cliente = new System.Windows.Forms.ComboBox();
             this.cbo_tipoPago = new System.Windows.Forms.ComboBox();
             this.pictureBox11 = new System.Windows.Forms.PictureBox();
@@ -92,6 +91,7 @@ namespace Tecno_Pc.Formularios
             this.erp_tipopagos = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_cliente = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_dgvfactura = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
@@ -398,15 +398,6 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.Size = new System.Drawing.Size(486, 357);
             this.dgv_Productos.TabIndex = 83;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick_1);
-            // 
-            // Editar
-            // 
-            this.Editar.FillWeight = 30F;
-            this.Editar.HeaderText = "";
-            this.Editar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
-            this.Editar.MinimumWidth = 6;
-            this.Editar.Name = "Editar";
-            this.Editar.ToolTipText = "Añadir el Producto a la orden";
             // 
             // cbo_cliente
             // 
@@ -897,6 +888,15 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_dgvfactura.ContainerControl = this;
             // 
+            // Editar
+            // 
+            this.Editar.FillWeight = 30F;
+            this.Editar.HeaderText = "";
+            this.Editar.Image = global::Tecno_Pc.Properties.Resources.añadir;
+            this.Editar.MinimumWidth = 6;
+            this.Editar.Name = "Editar";
+            this.Editar.ToolTipText = "Añadir el Producto a la orden";
+            // 
             // frm_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -973,7 +973,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ComboBox cbo_cliente;
         private System.Windows.Forms.ComboBox cbo_tipoPago;
         private System.Windows.Forms.DataGridView dgv_Productos;
-        private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridView dgv_Factura;
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
@@ -992,5 +991,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_tipopagos;
         private System.Windows.Forms.ErrorProvider erp_cliente;
         private System.Windows.Forms.ErrorProvider erp_dgvfactura;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
     }
 }

@@ -95,6 +95,80 @@ namespace Tecno_Pc.Clases
             }            
         }
 
+        public bool ValidarLetrasCorreos(TextBox txt, ErrorProvider erp)
+        {
+            int parte = 0; //variable que indica en que sector del correo estamos
+            int conteo1 = 0, conteo2 = 0, conteo3 = 0;
+
+            for (int i = 0; i < txt.Text.Length; i++)
+            {
+                if (Char.IsLetter(txt.Text, i) && parte == 0)
+                {
+                    conteo1 += 1;
+
+                }else if(Char.IsLetter(txt.Text, i) && parte == 1)
+                {
+                    conteo2 += 1;
+                }
+                else
+                {
+                    if (Char.IsLetter(txt.Text, i) && parte == 2)
+                    {
+                        conteo3 += 1;
+                    }
+                }
+                
+                if (txt.Text.Substring(i, 1) == "@")//saltamos a la parte despues de @
+                {
+                    parte = 1;
+                }
+
+                if (txt.Text.Substring(i, 1) == ".")//saltamos a la parte despues de '.'
+                {
+                    parte = 2;
+                }
+            }
+
+            if (conteo1 > 0 && conteo2 > 0 && conteo3 > 0)
+            {
+                return true;
+            }
+            else
+            {
+                if (erp.GetError(txt) == "")
+                {
+                    erp.Clear();
+                    erp.SetError(txt, "El correo debe contener letras\nantes y despues de @ y despues\ndel .");
+                }                
+                return false;
+            }
+        }
+
+        public bool ValidarLetras(TextBox txt, ErrorProvider erp)
+        {
+            int conteo = 0;
+            for (int i = 0; i < txt.Text.Length; i++)
+            {
+                if (Char.IsLetter(txt.Text, i))
+                {
+                    conteo += 1;
+                }
+            }
+
+            if (conteo > 0)
+            {
+                return true;
+            }
+            else
+            {
+                if (erp.GetError(txt) == "")
+                {
+                    erp.Clear();
+                    erp.SetError(txt, "Debe llevar letras o\nnumeros acompañados de letras");
+                }                
+                return false;
+            }                      
+        }
 
         public bool validarusuario()
         {
@@ -201,6 +275,38 @@ namespace Tecno_Pc.Clases
                 control = 0;
                 return true;
             }
+        }
+
+        public bool buscarRepetidos(TextBox txt, ErrorProvider erp)
+        {
+            if (txt.Text != "")
+            {
+                string letraInicial = "";
+
+                for (int i = 0; i < txt.Text.Length; i++)
+                {
+                    if (i == 0)
+                    {
+                        letraInicial = txt.Text.Substring(i, 1);
+                    }
+
+                    if (i > 0)
+                    {
+                        if (letraInicial != txt.Text.Substring(i, 1))
+                            return true;
+                    }
+                }
+
+                if (erp.GetError(txt) == "")
+                {
+                    erp.Clear();
+                    erp.SetError(txt, "No se puede repetir el mismo\ndigito 8 veces");
+                }
+
+                return false;
+            }
+
+            return true;
         }
     }
 }

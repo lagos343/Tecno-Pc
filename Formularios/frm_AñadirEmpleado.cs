@@ -78,10 +78,12 @@ namespace Tecno_Pc.Formularios
             vld.Text  =  new TextBox [6] {txt_nombre, txt_identidad, txt_apellido, txt_direccion, txt_correo, txt_telefono};
             vld.Error = new ErrorProvider[6] {erp_nom, erp_id, erp_ape, erp_dir, erp_email, erp_tel};
             vld.Minimo = new int[6] {2,13,2,3,10,8};
-            vld.Regular = new string[6] {"[A-Z, a-z]" ,"[0-9]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*", "(2|3|8|9)[ -]*([0-9]*)" };
+            vld.Regular = new string[6] {"[A-Z, a-z]" ,"(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[1900-2500]{4}[0-9]{5}", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", 
+                "(2|3|8|9)[ -]*([0-9]*)" };
             vld.Msj = new string [6] {"Solo caracteres", "Solo digitos numericos","Solo caracteres","Caracteres especiales no validos", "solo emails validos: example@dominio.algo", "Solo digitos numericos y que empiecen por 2,3,8 y 9"};
             
-        }
+        }       
 
         public void escoger_rp()
         {
@@ -100,7 +102,8 @@ namespace Tecno_Pc.Formularios
         private void guarda_click(object sender, EventArgs e)
         {
             definicionarray();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1)
+            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true 
+                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
             { 
                 empleados.Identidad = txt_identidad.Text;
                 empleados.Nombre = txt_nombre.Text;
@@ -124,6 +127,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_rp();
+                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
@@ -133,7 +138,8 @@ namespace Tecno_Pc.Formularios
         private void actualiza_click(object sender, EventArgs e) 
         {
             definicionarray();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1)
+            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true
+                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
             {
                 empleados.Idempleado = int.Parse(txt_id.Text);
                 empleados.Identidad = txt_identidad.Text;
@@ -149,9 +155,7 @@ namespace Tecno_Pc.Formularios
                 {
                     limpiado();
                     this.Close();
-                }
-                
-                
+                }                              
             }
             else 
             {
@@ -159,6 +163,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_rp();
+                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();

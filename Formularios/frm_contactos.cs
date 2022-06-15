@@ -88,6 +88,7 @@ namespace Tecno_Pc.Formularios
         {
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[1].Visible = false;
+            dgv_datos.Columns[2].Visible = false;
             dgv_datos.Columns[6].Visible = false;
             dgv_datos.Columns[8].Visible = false;
         }
@@ -110,21 +111,18 @@ namespace Tecno_Pc.Formularios
             vld.Text = new TextBox [5] { txt_nombre, txt_apellido, txt_direccion,txt_telefono,txt_email };
             vld.Error = new ErrorProvider[5] {erp_nombre,erp_apellido, erp_direccion, erp_telefono, erp_email  };
             vld.Minimo = new int[5] { 2, 2 , 3, 8, 10 };
-            vld.Regular = new string[5] { "[A-Z, a-z]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*" };
-            vld.Msj = new string[5] {"Solo caracteres",  "Solo caracteres", "Caracteres especiales no validos", "Solo digitos numericos y que empiecen por 2,3,8 y 9",  "solo emails validos: Example@dominio.algo" };
+            vld.Regular = new string[5] { "[A-Z, a-z]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "(2|3|8|9)[ -]*([0-9]*)",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" };
+            vld.Msj = new string[5] {"Solo caracteres",  "Solo caracteres", "Caracteres especiales no validos", "Solo digitos numericos y que empiecen por 2,3,8 y 9",  "solo emails validos: example@dominio.algo" };
 
         }
-
-        
+                
         private void frm_contactos_Load(object sender, EventArgs e)
         {
             dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
             operacionesDataGrid();
             InicializarCombobox();
         }
-
-
-
 
         private void btn_nuevo_Click_1(object sender, EventArgs e)
         {
@@ -135,7 +133,7 @@ namespace Tecno_Pc.Formularios
         private void btn_guardar_Click_1(object sender, EventArgs e)
         {
             definicionarray();
-            if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1)
+            if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_email) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
@@ -181,7 +179,9 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp(); 
+                escoger_erp();
+                if (vld.ValidarLetrasCorreos(txt_email, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
             }
         }
 
