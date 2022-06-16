@@ -1,8 +1,11 @@
-﻿using System;
+﻿
+using PdfiumViewer;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -35,19 +38,19 @@ namespace Tecno_Pc
 
         private void chk_paswordChar_CheckedChanged(object sender, EventArgs e)
         {
-            if (chk_paswordChar.Checked==true)
+            if (chk_paswordChar.Checked == true)
             {
-                txt_pasword.UseSystemPasswordChar = false;                
+                txt_pasword.UseSystemPasswordChar = false;
             }
             else
             {
-                txt_pasword.UseSystemPasswordChar = true;                
+                txt_pasword.UseSystemPasswordChar = true;
             }
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            txt_pasword.UseSystemPasswordChar = true;            
+            txt_pasword.UseSystemPasswordChar = true;
         }
 
         #region Eventos Enter y Leave de los textbox               
@@ -98,7 +101,7 @@ namespace Tecno_Pc
             user.Txt_usu = txt_userName;
             user.Usuario_ = txt_userName.Text;
 
-            if(user.ObtenerDatos(lnk_Re_usu_contra) == true)
+            if (user.ObtenerDatos(lnk_Re_usu_contra) == true)
             {
                 this.Hide();
                 txt_userName.Text = "Usuario";
@@ -127,6 +130,30 @@ namespace Tecno_Pc
             {
                 btn_ingresar.PerformClick();
             }
+        }
+
+        private void gunaButton1_Click(object sender, EventArgs e)
+        {
+            //using (var document = PdfDocument.Load(@"C:\Users\loren\Documents\UNICAH\2022\II Trimestre\Salud y Nutricion\I Parcial\Cuadro Comparativo.pdf"))
+            //{
+            //    var printerSettings = new PrinterSettings
+            //    {
+            //        PrinterName = "EPSON L380 Series",
+            //        Copies = (short)1,
+            //    };
+
+            //    using (var printDocument = document.CreatePrintDocument())
+            //    {
+            //        printDocument.PrinterSettings = printerSettings;
+            //        printDocument.PrintController = new StandardPrintController();
+            //        printDocument.Print();
+            //    }
+            //}
+
+            Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+            rep.Vertical = true;
+            rep.Carpeta = "Facturas";
+            rep.GenerarPdf();
         }
     }
 }

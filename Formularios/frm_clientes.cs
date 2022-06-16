@@ -24,8 +24,8 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_Clientes cli = new Clases.Cl_Clientes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
 
         public frm_clientes()
@@ -41,7 +41,7 @@ namespace Tecno_Pc.Formularios
             this.ttMensaje.SetToolTip(this.txt_Email, "Caja de texto del Correo del Cliente");
             this.ttMensaje.SetToolTip(this.txt_Direccion, "Caja de texto de la Direccion del Cliente");
             this.ttMensaje.SetToolTip(this.txt_buscar, "Caja de texto de busqueda filtrada por Nombre");
-            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes a Excel");
+            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes");
             this.ttMensaje.SetToolTip(this.btn_salir, "Salir");
             this.ttMensaje.SetToolTip(this.btn_minimizar, "Minimizar");
             this.ttMensaje.SetToolTip(this.btn_nuevo, "Boton para Limpiar las cajas de texto");
@@ -254,7 +254,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelClientes);
+            Task tar1 = new Task(ReporteClientes);
             tar1.Start();
             await tar1;
 
@@ -262,15 +262,17 @@ namespace Tecno_Pc.Formularios
             btn_imprimir.Enabled = true;
         }
 
-        public void excelClientes()
+        public void ReporteClientes()
         {
-            excel.Cadena_consulta = " select c.Nombre, c.Apellido,'-'+ c.Identidad+'-', c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
-            excel.Carpeta = "Clientes";
-            excel.Cabecera = new string[7] { "Nombre", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
-            excel.RangoCabecera = "C5 I5";
-            excel.Titulo = "Reporte de Clientes";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();         
+            rep.Cadena_consulta = " select (c.Nombre +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
+                "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
+            rep.Carpeta = "Clientes";
+            rep.Cabecera = new string[6] { "Nombre del Cliente", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
+            rep.Tamanios = new float[6] { 8, 4, 3, 8, 5, 3 };
+            rep.Titulo = "Reporte de Clientes";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();       
         }
 
         #region keypress              

@@ -463,6 +463,16 @@ namespace Tecno_Pc.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap LogoTecnoPcCompleto {
+            get {
+                object obj = ResourceManager.GetObject("LogoTecnoPcCompleto", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Marcas {
             get {
                 object obj = ResourceManager.GetObject("Marcas", resourceCulture);

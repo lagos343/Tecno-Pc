@@ -18,7 +18,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
         Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         public frm_Usuarios()
         {
             InitializeComponent();
@@ -153,7 +153,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelusuarios);
+            Task tar1 = new Task(ReporteUsuarios);
             tar1.Start();
             await tar1;
 
@@ -161,20 +161,21 @@ namespace Tecno_Pc.Formularios
             btn_reporte.Enabled = true;
         }
 
-        public void excelusuarios()
+        public void ReporteUsuarios()
         {
-            excel.Cadena_consulta = "Select Usuarios.[ID Usuario] [Id], Roles.[Nombre Rol] [Roles], " +
+            rep.Cadena_consulta = "Select Usuarios.[ID Usuario] [Id], Roles.[Nombre Rol] [Roles], " +
             "Empleados.Nombre + ' ' + Empleados.Apellido [Empleados], Usuarios.[Nombre Usuario] [Nombre] " +
             " from Usuarios " +
             " inner join Roles on Usuarios.[ID Rol] = Roles.IDRol inner join " +
             "Empleados on Usuarios.[ID Empleado] = Empleados.[ID Empleado] " +
             "WHERE Empleados.Estado = 1 ORDER BY Nombre ASC";
-            excel.Cabecera = new string[4] { "Id" , "Roles" , "Propietario", "Usuario" };
-            excel.RangoCabecera = "C5 F5";
-            excel.Titulo = "Reporte de Usuarios";
-            excel.Carpeta = "Usuarios";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();   
+            rep.Cabecera = new string[4] { "Id" , "Roles" , "Propietario", "Usuario" };
+            rep.Titulo = "Reporte de Usuarios";
+            rep.Tamanios = new float[4] { 4, 4, 8, 4 };
+            rep.Carpeta = "Usuarios";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = true;
+            rep.GenerarPdf();
         }
     }
 }
