@@ -14,6 +14,7 @@ namespace Tecno_Pc.Formularios
     {
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_Ventas()
         {
@@ -116,7 +117,6 @@ namespace Tecno_Pc.Formularios
             coin = coin + (coin * double.Parse(ISV));
             return coin;
         }
-
 
         private void btn_añadir_Click(object sender, EventArgs e)
         {
@@ -234,10 +234,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                //string ISV;
-                //ISV = 15.ToString();
-                //ISV = "0." + ISV;
-
+                
                 sql.Sql_Querys("insert into Facturas values("+cbo_cliente.SelectedValue.ToString()+", "+user.IdEmpleado_+", "+cbo_tipoPago.SelectedValue.ToString()+", " +
                     "GETDATE(), DATEADD(MONTH, 1, GETDATE()), 0.15)");
 
@@ -249,12 +246,29 @@ namespace Tecno_Pc.Formularios
                     sql.Sql_Querys("insert into DetalleFactura values ((select Top 1 [ID Factura] from Facturas order by [ID Factura] desc), "
                         +idprod+", "+precio+", "+cant+")");
                 }
-
-                frm_notificacion noti = new frm_notificacion("Venta realizada con Exito", 1);
-                noti.ShowDialog();
-                noti.Close();
+                             
+                GenerarFactura();    
                 btn_nuevaVenta.PerformClick();               
             }            
+        }
+
+        private async void GenerarFactura()
+        {
+            rep.Dgv = sql.Consulta("select Top 1 [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
+                    "f.[Fecha Vencimiento], f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner " +
+                    "join Transacciones t on t.[ID Transaccion] = f.[ID Transaccion] order by f.[ID Factura] desc");
+
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
+
+            Task tar1 = new Task(rep.PdfFacturas);
+            tar1.Start();
+            await tar1;
+
+            noti.Close();
+            noti = new frm_notificacion("Venta realizada con Exito", 1);
+            noti.ShowDialog();
+            noti.Close();
         }
 
         private void escoger_erp()

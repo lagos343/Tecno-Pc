@@ -8,8 +8,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 
 namespace Tecno_Pc.Formularios

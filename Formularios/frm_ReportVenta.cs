@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 using System.Runtime.InteropServices;
 
 
@@ -17,14 +15,13 @@ namespace Tecno_Pc.Formularios
 
     public partial class frm_ReportVenta : Form
     {
-        Clases.Cl_Excel ex = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        
 
         public frm_ReportVenta()
         {
@@ -66,33 +63,37 @@ namespace Tecno_Pc.Formularios
         private void excelVentas()
         {
             DateTime desde = new DateTime(), hasta = new DateTime();
+            string titulo = "";   
 
             if (radio_hoy.Checked)
             { 
-                ex.Fecha = DateTime.Now.ToShortDateString();
+                rep.Fecha = "";
                 desde = DateTime.Now;
                 hasta = DateTime.Now;
+                titulo = "Reporte de Ventas " + desde.ToString("dd-MM-yyyy");
             }
             else
             {
-                ex.Fecha = dtp_desde.Value.ToShortDateString() + " hasta " + dtp_hasta.Value.ToShortDateString();
+                rep.Fecha = "";
                 desde = dtp_desde.Value;
                 hasta = dtp_hasta.Value;
+                titulo = "Reporte de Ventas " + desde.ToString("dd-MM-yyyy") + " hasta " + hasta.ToString("dd-MM-yyyy");
             }    
             
-            ex.Cadena_consulta = "select f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido as Cliente, e.Nombre + ' ' + e.Apellido as Empleado, tr.[Tipo Transaccion]  ,f.ISV*100 [ISV]," +
+            rep.Cadena_consulta = "select f.[ID Factura], c.Nombre + ' ' + c.Apellido as Cliente, f.[Fecha Venta], e.Nombre + ' ' + e.Apellido as Empleado, tr.[Tipo Transaccion]  ,f.ISV*100 [ISV]," +
                     "sum((df.[Precio Historico] * df.Cantidad) + (df.[Precio Historico] * df.Cantidad * f.ISV)) as [Total Venta] from Facturas f " +
                     "inner join DetalleFactura df on df.[ID Factura] = f.[ID Factura] inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] " +
                     "inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones tr on tr.[ID Transaccion] = f.[ID Transaccion] where ((f.[Fecha Venta] <= '" + hasta.ToString("yyyy-MM-dd") +"') and (f.[Fecha Venta] >= '"
                     +desde.ToString("yyyy-MM-dd") +"')) " +
                     "group by f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido, e.Nombre + ' ' + e.Apellido, tr.[Tipo Transaccion]  ,f.ISV";
-            ex.Carpeta = "Ventas";
-            ex.Cabecera = new string[7] { "#Factura", "Fecha", "Cliente", "Empleado", "Transaccion", "ISV", "Total" };
-            ex.Titulo = "Reporte de Ventas";
-            ex.RangoCabecera = "C5 I5";
-            ex.GenerarExcel();
+            rep.Carpeta = "Ventas";
+            rep.Cabecera = new string[7] { "#Factura", "Cliente", "Fecha", "Vendedor", "Transaccion", "ISV", "Total" };
+            rep.Titulo = titulo;
+            rep.Tamanios = new float[] { 2, 6, 2, 6, 2, 1, 2};
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }
-
+   
         private void salir_Click(object sender, EventArgs e)
         {
             this.Close();

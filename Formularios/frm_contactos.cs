@@ -24,7 +24,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_Contactos con = new Clases.Cl_Contactos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_contactos()
@@ -333,7 +333,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelContactos);
+            Task tar1 = new Task(ReporteContactos);
             tar1.Start();
             await tar1;
 
@@ -341,16 +341,18 @@ namespace Tecno_Pc.Formularios
             btn_imprimir.Enabled = true;
         }
 
-        public void excelContactos()
+        public void ReporteContactos()
         {
-            excel.Cadena_consulta = "Select [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
+            rep.Cadena_consulta = "Select Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], " +
+                "Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
                 "Departamentos.[ID Depto] inner join Proveedores ON Contactos.[ID Proveedor] = Proveedores.[ID Proveedor] WHERE Contactos.Estado = 1 ORDER BY Contacto ASC";
-            excel.Cabecera = new string[6] { "Proveedor", "Departamento", "Nombre", "Telefono", "Correo Electrónico", "Dirección" };
-            excel.RangoCabecera = "C5 H5";
-            excel.Titulo = "Reporte de Contactos";
-            excel.Carpeta = "Contactos";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();
+            rep.Cabecera = new string[6] { "Contacto", "Proveedor", "Departamento", "Telefono", "Correo Electrónico", "Dirección" };
+            rep.Tamanios = new float[6] { 6, 5, 3, 2, 5, 8};
+            rep.Titulo = "Reporte de Contactos";
+            rep.Carpeta = "Contactos";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }
 
         private void txt_direccion_KeyPress(object sender, KeyPressEventArgs e)

@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Formularios
 {
@@ -17,8 +15,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_Productos prod = new Clases.Cl_Productos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes(); 
-        Clases.Cl_Excel ex = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_productos()
         {

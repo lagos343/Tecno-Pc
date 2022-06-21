@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Formularios
 {
@@ -17,7 +15,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         public frm_empleados()
         {
             InitializeComponent();
@@ -132,7 +130,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelEmpleados);
+            Task tar1 = new Task(ReporteEmpleados);
             tar1.Start();
             await tar1;
 
@@ -140,16 +138,17 @@ namespace Tecno_Pc.Formularios
             btn_reporte.Enabled = true;
         }
 
-        public void excelEmpleados()
+        public void ReporteEmpleados()
         {
-            excel.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], '-'+Empleados.Identidad+'-' [Identidad], Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
+            rep.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], Empleados.Identidad, Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
                 " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC";
-            excel.Cabecera = new string[6] { "Empleado" , "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
-            excel.RangoCabecera = "C5 H5";
-            excel.Titulo = "Reporte de Empleados";
-            excel.Carpeta = "Empleados";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();
+            rep.Cabecera = new string[6] { "Empleado" , "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
+            rep.Tamanios = new float[6] { 6, 4, 2, 5, 4, 8 };
+            rep.Titulo = "Reporte de Empleados";
+            rep.Carpeta = "Empleados";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }    
     }
 }

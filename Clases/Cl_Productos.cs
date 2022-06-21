@@ -8,7 +8,8 @@ using System.Windows.Forms;
 namespace Tecno_Pc.Clases
 {
     class Cl_Productos: Cl_SqlMaestra
-    {        
+    {
+        //variables que almacenan la columnas de la tabla de la DB
         private static int iDProducto;
         private static int iDCategoria;
         private static int iDMarca;
@@ -33,29 +34,30 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
+        //Procedimientos que se heredan de la clase sql para hacer CRUD 
         public bool guardar()
         {
             string cadena;
             cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
-            return Sql_Query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!");
+            return Sql_Query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
-        public void consultarDatos(DataGridView dgv)
+        public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
         {
             dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 order by [Nombre Producto] asc");
         }
 
-        public void buscarDatos(DataGridView dgv)
+        public void buscarDatos(DataGridView dgv) //busquedas filtradas 
         {
             dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 and [Nombre Producto] " +
                 "Like '%" + nombreProducto + "%' order by [Nombre Producto] asc");
         }
 
-        public bool actualizarDatos()
+        public bool actualizarDatos() 
         {
             return Sql_Query("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
                 "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + ", CodBarra = '"+codbarra+"' where [ID Producto] = " + iDProducto + "", 
-                "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!");
+                "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
         public void eliminarDatos()

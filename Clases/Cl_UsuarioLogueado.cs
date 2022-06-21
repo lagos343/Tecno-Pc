@@ -9,8 +9,9 @@ using Guna.UI.WinForms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_UsuarioLogueado: Cl_SqlMaestra
+    class Cl_UsuarioLogueado: Cl_SqlMaestra //esta clase sirve de cache para tene informacion de quien se logueo en el sistema
     {
+        //propiedades de la informacion guardada en cache
         DataTable datos;
         private ErrorProvider erp_usu;
         private ErrorProvider erp_contra;
@@ -45,9 +46,9 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public bool ObtenerDatos(Guna.UI.WinForms.GunaLinkLabel lbl_recu)
+        public bool ObtenerDatos(Guna.UI.WinForms.GunaLinkLabel lbl_recu) //prod para oobtener ls datos del usuario logueado
         {
-            bool ingresar = false;
+            bool ingresar = false; //indicara si ingresamos o no al sistema
             datos = new DataTable();
             string cadena;
             cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc', u.Clave)), (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
@@ -55,8 +56,9 @@ namespace Tecno_Pc.Clases
                 "[Nombre Usuario] = '" + usuario_+ "' and u.Estado = 1";
             datos = Consulta(cadena);
 
-            try
+            try//intentamos extraer la informacion si ha devuelto algun registro la consulta sql 
             {
+                //llenamos las variables
                 idUsuario_ = int.Parse(datos.Rows[0][0].ToString());
                 idRol_ = int.Parse(datos.Rows[0][1].ToString());
                 idEmpleado_ = int.Parse(datos.Rows[0][2].ToString());
@@ -67,11 +69,12 @@ namespace Tecno_Pc.Clases
                 telefono_ = datos.Rows[0][7].ToString();
                 rol_ = datos.Rows[0][8].ToString();
 
+                //comparamos si usuario y coontraseña son excatamente iguales a los del registro devuelto
                 if (txt_usu.Text == usuario_)
                 {
                     if (Txt_contra.Text == contraseña_)
                     {
-                        ingresar = true;
+                        ingresar = true;//si todo esta bien no perrmitira entra al sistema
                     }
                     else
                     {
@@ -89,7 +92,7 @@ namespace Tecno_Pc.Clases
                 erp_usu.SetError(txt_usu, "El usuario ingresado no existe");
             }
 
-            return ingresar;
+            return ingresar; 
         }
     }
 }
