@@ -34,7 +34,7 @@ namespace Tecno_Pc.Formularios
             Control.CheckForIllegalCrossThreadCalls = false;
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
             this.toolTip1.SetToolTip(this.cbo_filtro, "Seleccionar Filtro de Busqueda");
-            this.toolTip1.SetToolTip(this.cbo_filtro, "Reportes de Ventas");
+            this.toolTip1.SetToolTip(this.btn_imprimir, "Reportes de Ventas");
         }
 
         private void frm_Facturas_Load(object sender, EventArgs e)
@@ -61,9 +61,9 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Facturas.Rows[e.RowIndex].Cells["Mostrar"].Selected)
             {
-                rep.Dgv = sql.Consulta("select Top 1 [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
+                rep.Dgv = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
                     "f.[Fecha Vencimiento], f.ISV from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner " +
-                    "join Transacciones t on t.[ID Transaccion] = f.[ID Transaccion] order by f.[ID Factura] desc");
+                    "join Transacciones t on t.[ID Transaccion] = f.[ID Transaccion] where [ID Factura] = " + dgv_Facturas.Rows[e.RowIndex].Cells[1].Value.ToString() + " order by f.[ID Factura] desc");
 
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
@@ -73,6 +73,8 @@ namespace Tecno_Pc.Formularios
                 await tar1;
 
                 noti.Close();
+                Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+                frm.abrirPdfs(new frm_Facturas()); //abrimos el pdf
             }
         }
        

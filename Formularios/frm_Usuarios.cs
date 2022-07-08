@@ -46,14 +46,31 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
         {
-            frm_AñadirUsuarios a_usu = new frm_AñadirUsuarios(1, dgv_Productos);
-            a_usu.ShowDialog();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirUsuarios);
+
+            if (frm == null)
+            {
+                frm_AñadirUsuarios añausu = new frm_AñadirUsuarios(1, dgv_Productos);
+                añausu.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
 
         private void gunaGradientButton1_Click(object sender, EventArgs e)
         {
-            frm_clientes cli = new frm_clientes();
-            cli.ShowDialog();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_clientes);
+            if (frm == null)
+            {
+                frm_clientes cli = new frm_clientes();
+                cli.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
         private void operacionesdgv()
         {
@@ -157,6 +174,9 @@ namespace Tecno_Pc.Formularios
 
             noti.Close();
             btn_reporte.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
         }
 
         public void ReporteUsuarios()

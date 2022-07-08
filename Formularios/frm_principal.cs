@@ -109,6 +109,11 @@ namespace Tecno_Pc.Formularios
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
+        public void abrirPdfs(Form form)
+        {
+            AbrirFormulario(new Formularios.frm_pdfs(Properties.Settings.Default.ReporteActual, form));
+        } 
+
         private void SeleccionBoton(Guna.UI.WinForms.GunaGradientButton boton)
         {
             btn_ventas.ForeColor = Color.White; 
@@ -126,7 +131,7 @@ namespace Tecno_Pc.Formularios
             pic_flecha.Top = boton.Top + 242;
         }
 
-        private void AbrirFormulario(Form formHijo)
+        public void AbrirFormulario(Form formHijo)
         {
             if (formActivado != null)
                 formActivado.Close();

@@ -47,10 +47,8 @@ namespace Tecno_Pc.Formularios
                 txt_telefono.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
                 txt_direccion.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
                 txt_email.Text = dat.CurrentRow.Cells[5 + 2].Value.ToString();
-
-
+                this.Text = "Actualizar Proveedores";
             }
-
         }
 
 

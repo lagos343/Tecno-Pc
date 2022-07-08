@@ -295,6 +295,12 @@
     <Compile Include="Formularios\frm_notificacion.Designer.cs">
       <DependentUpon>frm_notificacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_pdfs.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_pdfs.Designer.cs">
+      <DependentUpon>frm_pdfs.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_principal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -371,6 +377,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_notificacion.resx">
       <DependentUpon>frm_notificacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_pdfs.resx">
+      <DependentUpon>frm_pdfs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_principal.resx">
       <DependentUpon>frm_principal.cs</DependentUpon>

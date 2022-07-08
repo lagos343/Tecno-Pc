@@ -49,6 +49,11 @@ namespace Tecno_Pc.Clases
 
         public void GenerarPdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdff
         {
+            //indicamos el reporte que se abrira el el formulario de PDFs
+            Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + fecha.Replace("/", "-") + ".pdf";
+            Properties.Settings.Default.Save();
+
+            //inicializamos las variables del PDF
             vld.ValidarCarpetas(carpeta);
             PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf");
             PdfDocument pdf = new PdfDocument(EscritorPdf);
@@ -130,11 +135,11 @@ namespace Tecno_Pc.Clases
             
             documento.Close();
             File.Delete(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf");
-            Process.Start(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + fecha.Replace("/", "-") + ".pdf");
         }
               
         public void PdfFacturas() // se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
         {
+            
             //Inializacion de las variables que almacenaran los datos            
             System.Data.DataTable registros = new System.Data.DataTable();
             string id, empleado, cliente, transac, Fventa, Fvenci;
@@ -158,6 +163,10 @@ namespace Tecno_Pc.Clases
 
             double subtot = double.Parse(Consulta2("select Sum([Precio Historico] * Cantidad) SubTotal from DetalleFactura where [ID Factura] = " + id));
 
+            //indicamos el reporte que se abrira el el formulario de PDFs
+            Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf";
+            Properties.Settings.Default.Save(); 
+            
             //Creacion del Pdf
             vld.ValidarCarpetas("Facturas");
             PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf");
@@ -216,7 +225,7 @@ namespace Tecno_Pc.Clases
             documento.Add(new Paragraph("TOTAL FACTURA: L " + ((isv * subtot) + subtot)).SetFont(FontColumnas).SetFontSize(13).SetTextAlignment(TextAlignment.RIGHT));
 
             documento.Close(); //cerramos el doc
-            Process.Start(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf");  //abrimos el pdf
+
         }
     }
 }

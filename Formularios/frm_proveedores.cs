@@ -154,6 +154,9 @@ namespace Tecno_Pc.Formularios
 
             noti.Close();
             btn_reporte.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
         }
 
 

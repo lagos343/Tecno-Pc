@@ -109,7 +109,7 @@ namespace Tecno_Pc.Formularios
 
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {                                
-                coin = coin + int.Parse(fila.Cells[4].Value.ToString());        
+                coin = coin + double.Parse(fila.Cells[4].Value.ToString());        
             }
 
             
@@ -269,6 +269,9 @@ namespace Tecno_Pc.Formularios
             noti = new frm_notificacion("Venta realizada con Exito", 1);
             noti.ShowDialog();
             noti.Close();
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_Ventas()); //abrimos el pdf
         }
 
         private void escoger_erp()

@@ -94,5 +94,17 @@ namespace Tecno_Pc.Properties {
                 this["RutaReportes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReporteActual {
+            get {
+                return ((string)(this["ReporteActual"]));
+            }
+            set {
+                this["ReporteActual"] = value;
+            }
+        }
     }
 }

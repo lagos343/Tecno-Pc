@@ -143,6 +143,9 @@ namespace Tecno_Pc.Formularios
 
             noti.Close();
             btn_Imprimir.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_productos()); //abrimos el pdf
         }
 
         private void ReporteProductos()

@@ -14,25 +14,25 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_AñadirEmpleado : Form
     {
-
+        //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-
+        //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
 
-        public frm_AñadirEmpleado(int estado, DataGridView dat)
-        {
+        public frm_AñadirEmpleado(int estado, DataGridView dat) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
+        {                                                       //el segundo recibe los datos del datagrid para llenar los campos en el modo actualizacion
             InitializeComponent();
             if (estado == 1)
             {
                 lbl_titulo.Text = "NUEVO EMPLEADO";
-                btn_guardar.Click += guarda_click;
+                btn_guardar.Click += guarda_click; //definimos el proceso subrogado para que el boton relice el proceso de guardar
                 iniciarcombobox();
             }
             else if (estado == 2)
@@ -40,7 +40,9 @@ namespace Tecno_Pc.Formularios
                 iniciarcombobox();
                 lbl_titulo.Text = "ACTUALIZAR EMPLEADO";
                 btn_guardar.Text = "ACTUALZIAR";
-                btn_guardar.Click += actualiza_click;
+                btn_guardar.Click += actualiza_click; //definimos el proceso subrogado para que el boton relice el proceso de actualizar
+
+                //llenado de los datos en cada control para luego hacer las modificaciones
                 txt_id .Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
                 cbo_puesto.SelectedValue  = dat.CurrentRow.Cells[1 + 2].Value.ToString();
                 cbo_depto .SelectedValue = dat.CurrentRow.Cells[2 + 2].Value.ToString();
@@ -50,6 +52,7 @@ namespace Tecno_Pc.Formularios
                 txt_telefono .Text = dat.CurrentRow.Cells[6 + 2].Value.ToString();
                 txt_correo .Text = dat.CurrentRow.Cells[7 + 2].Value.ToString();
                 txt_direccion .Text = dat.CurrentRow.Cells[8 + 2].Value.ToString();
+                this.Text = "Actualizar Empleado";
             }
         }
 
@@ -59,7 +62,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        public void iniciarcombobox()
+        public void iniciarcombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [Nombre Puesto] asc");
             cbo_puesto.DisplayMember = "Nombre Puesto";
@@ -73,7 +76,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        public void definicionarray()
+        public void definicionarray() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 
         {
             vld.Text  =  new TextBox [6] {txt_nombre, txt_identidad, txt_apellido, txt_direccion, txt_correo, txt_telefono};
             vld.Error = new ErrorProvider[6] {erp_nom, erp_id, erp_ape, erp_dir, erp_email, erp_tel};
@@ -85,13 +88,14 @@ namespace Tecno_Pc.Formularios
             
         }       
 
-        public void escoger_rp()
+        public void escoger_rp() //muestra los errores que puedan ocurrir en los combobox
         {
             if(cbo_depto.SelectedIndex == -1)
             {
                 erp_depto.Clear();
                 erp_depto.SetError(cbo_depto, "Seleccione algo valido");
             }
+
             if (cbo_puesto.SelectedIndex == -1)
             {
                 erp_puesto.Clear();
@@ -99,7 +103,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void guarda_click(object sender, EventArgs e)
+        private void guarda_click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos guardar 
         {
             definicionarray();
             if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true 
@@ -115,7 +119,7 @@ namespace Tecno_Pc.Formularios
                 empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
                 empleados.Estado = Convert.ToBoolean(true);
 
-                if (empleados.guardar())
+                if (empleados.guardar()) //verificamos que no devuelva error el comando sql
                 {
                     limpiado();
                 }
@@ -126,16 +130,16 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_rp();
+                escoger_rp(); 
                 if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
                 if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga();
+            frm.carga(); //recargamos el formulario
         }
 
-        private void actualiza_click(object sender, EventArgs e) 
+        private void actualiza_click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
         {
             definicionarray();
             if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true
@@ -151,7 +155,7 @@ namespace Tecno_Pc.Formularios
                 empleados.Iddepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
 
-                if (empleados.update())
+                if (empleados.update()) //verificamos que no devuelva error el comando sql
                 {
                     limpiado();
                     this.Close();
@@ -167,10 +171,10 @@ namespace Tecno_Pc.Formularios
                 if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga();
+            frm.carga();//revcargamos el formulario
         }
 
-        public void limpiado() 
+        public void limpiado()
         {
             txt_identidad.Clear();
             txt_nombre.Clear();
@@ -189,7 +193,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //usamos las librerias ddl para mover el formulario desde este panel
         }
 
         #region Keypress

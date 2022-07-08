@@ -760,7 +760,7 @@ namespace Tecno_Pc.Formularios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_clientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_clientes";
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frm_clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).EndInit();
             this.panel1.ResumeLayout(false);
