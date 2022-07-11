@@ -83,11 +83,11 @@
     <Reference Include="BouncyCastle.Crypto, Version=1.8.9.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.8.9\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI">
-      <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI.dll</HintPath>
+    <Reference Include="Guna.UI %281%29">
+      <HintPath>..\..\..\..\Downloads\Tecno-Pc-master\Tecno-Pc-master\bin\Debug\Guna.UI (1).dll</HintPath>
     </Reference>
-    <Reference Include="Guna.UI2">
-      <HintPath>..\..\..\Desktop\Programas con series mami\Proyecto-Grupo-1-Encarta\Encarta\bin\Debug\Guna.UI2.dll</HintPath>
+    <Reference Include="Guna.UI2 %281%29">
+      <HintPath>..\..\..\..\Downloads\Tecno-Pc-master\Tecno-Pc-master\bin\Debug\Guna.UI2 (1).dll</HintPath>
     </Reference>
     <Reference Include="itext.barcodes, Version=7.2.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>packages\itext7.7.2.2\lib\net461\itext.barcodes.dll</HintPath>
