@@ -8,8 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 using System.Text.RegularExpressions;
 
 namespace Tecno_Pc.Formularios
@@ -26,7 +24,9 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_Clientes cli = new Clases.Cl_Clientes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+
 
         public frm_clientes()
         {
@@ -41,7 +41,7 @@ namespace Tecno_Pc.Formularios
             this.ttMensaje.SetToolTip(this.txt_Email, "Caja de texto del Correo del Cliente");
             this.ttMensaje.SetToolTip(this.txt_Direccion, "Caja de texto de la Direccion del Cliente");
             this.ttMensaje.SetToolTip(this.txt_buscar, "Caja de texto de busqueda filtrada por Nombre");
-            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes a Excel");
+            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes");
             this.ttMensaje.SetToolTip(this.btn_salir, "Salir");
             this.ttMensaje.SetToolTip(this.btn_minimizar, "Minimizar");
             this.ttMensaje.SetToolTip(this.btn_nuevo, "Boton para Limpiar las cajas de texto");
@@ -99,17 +99,22 @@ namespace Tecno_Pc.Formularios
             cmb_Depto.SelectedIndex = -1;
         }
 
+        public void definicionarray()
+        {
+            vld.Text = new TextBox [6] { txt_Ident, txt_Nombre, txt_Apell, txt_Tel, txt_Email, txt_Direccion };
+            vld.Error = new ErrorProvider[6] { erp_identidad,erp_nombre, erp_apellido, erp_telefono, erp_email, erp_direccion  };
+            vld.Minimo = new int[6] { 13,2, 2, 8, 10, 3};
+            vld.Regular = new string[6] { "(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[1900-2500]{4}[0-9]{5}","[A-Z, a-z]", "[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                "[A-Z, a-z, 0-9,.,#]" };
+            vld.Msj = new string[6] { "Solo digitos numericos, tomar\nen cuenta tambien el formato valido\n(depto + municipio) (año) (tomo+folio)" ,"Solo caracteres", "Solo caracteres", "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: example@dominio.algo", "Caracteres especiales no validos" };
+            
+        }
+
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            if (cmb_Depto.SelectedIndex == -1 || txt_Ident.Text == "" || txt_Nombre.Text == "" || txt_Apell.Text == "" || txt_Tel.Text == "" || txt_Email.Text == "" ||
-                txt_Direccion.Text == "" || ValidarEmail(txt_Email.Text) == false)
-            {
-                frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarray();
+            if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_Email, erp_email) == true && vld.buscarRepetidos(txt_Tel, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
@@ -121,7 +126,14 @@ namespace Tecno_Pc.Formularios
                     cli.Telefonoo = txt_Tel.Text;
                     cli.CorreoElectronicoo = txt_Email.Text;
                     cli.Direccionn = txt_Direccion.Text;
-                    cli.actualizarDatos();
+
+                    if (cli.actualizarDatos())
+                    {
+                        btn_guardar.Text = "Guardar";
+                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                        operacionesDataGrid();
+                        Limnpiado();
+                    }
                 }
                 else
                 {
@@ -132,14 +144,25 @@ namespace Tecno_Pc.Formularios
                     cli.Telefonoo = txt_Tel.Text;
                     cli.CorreoElectronicoo = txt_Email.Text;
                     cli.Direccionn = txt_Direccion.Text;
-                    cli.guardar();
-                }
 
-                btn_guardar.Text = "Guardar";
-                dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
-                operacionesDataGrid();
-                Limnpiado();
+                    if (cli.guardar())
+                    {
+                        btn_guardar.Text = "Guardar";
+                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                        operacionesDataGrid();
+                        Limnpiado();
+                    }
+                }               
             }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();
+                if (vld.ValidarLetrasCorreos(txt_Email, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_Tel, erp_telefono) == true) ;
+            }              
         }
 
         private void escoger_erp()
@@ -148,71 +171,6 @@ namespace Tecno_Pc.Formularios
             {
                 erp_depto.Clear();
                 erp_depto.SetError(cmb_Depto, "No puede quedar vacio");
-            }
-
-            if (txt_Ident.Text == "")
-            {
-                erp_identidad.Clear();
-                erp_identidad.SetError(txt_Ident, "No puede quedar vacio");
-            }
-
-            if (txt_Nombre.Text == "")
-            {
-                erp_nombre.Clear();
-                erp_nombre.SetError(txt_Nombre, "No puede quedar vacio");
-            }
-
-            if (txt_Apell.Text == "")
-            {
-                erp_apellido.Clear();
-                erp_apellido.SetError(txt_Apell, "No puede quedar vacio");
-            }
-
-            if (txt_Tel.Text == "")
-            {
-                erp_telefono.Clear();
-                erp_telefono.SetError(txt_Tel, "No puede quedar vacio");
-            }
-
-            if (txt_Email.Text == "")
-            {
-                erp_email.Clear();
-                erp_email.SetError(txt_Email, "No puede quedar vacio");
-            }
-            else
-            {
-                if (ValidarEmail(txt_Email.Text) == false)
-                {
-                    erp_email.Clear();
-                    erp_email.SetError(txt_Email, "solo emails validos: Example@dominio.algo");
-                }
-            }
-
-            if (txt_Direccion.Text == "")
-            {
-                erp_direccion.Clear();
-                erp_direccion.SetError(txt_Direccion, "No puede quedar vacio");
-            }
-        }
-
-        public static bool ValidarEmail(string comprobarEmail)
-        {
-            string emailFormato;
-            emailFormato = "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*";
-            if (Regex.IsMatch(comprobarEmail, emailFormato))
-            {
-                if (Regex.Replace(comprobarEmail, emailFormato, String.Empty).Length == 0)
-                {
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return false;
             }
         }
 
@@ -296,23 +254,29 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelClientes);
+            Task tar1 = new Task(ReporteClientes);
             tar1.Start();
             await tar1;
 
             noti.Close();
             btn_imprimir.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
+            frm.BringToFront();
         }
 
-        public void excelClientes()
+        public void ReporteClientes()
         {
-            excel.Cadena_consulta = " select c.Nombre, c.Apellido,'-'+ c.Identidad+'-', c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
-            excel.Carpeta = "Clientes";
-            excel.Cabecera = new string[7] { "Nombre", "Apellido", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
-            excel.RangoCabecera = "C5 I5";
-            excel.Titulo = "Reporte de Clientes";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();         
+            rep.Cadena_consulta = " select (c.Nombre +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
+                "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
+            rep.Carpeta = "Clientes";
+            rep.Cabecera = new string[6] { "Nombre del Cliente", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
+            rep.Tamanios = new float[6] { 8, 4, 3, 8, 5, 3 };
+            rep.Titulo = "Reporte de Clientes";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();       
         }
 
         #region keypress              

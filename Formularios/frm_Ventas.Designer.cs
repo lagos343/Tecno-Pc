@@ -30,11 +30,19 @@ namespace Tecno_Pc.Formularios
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridViewImageColumn1 = new System.Windows.Forms.DataGridViewImageColumn();
+            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.gunaLabel18 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel17 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel16 = new Guna.UI.WinForms.GunaLabel();
@@ -42,14 +50,7 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel14 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel13 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
-            this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.num_ISV = new Guna.UI.WinForms.GunaNumeric();
             this.dgv_Factura = new System.Windows.Forms.DataGridView();
-            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
-            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
             this.Editar = new System.Windows.Forms.DataGridViewImageColumn();
             this.cbo_cliente = new System.Windows.Forms.ComboBox();
@@ -89,13 +90,22 @@ namespace Tecno_Pc.Formularios
             this.gunaLinePanel4 = new Guna.UI.WinForms.GunaLinePanel();
             this.btn_nuevaVenta = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.erp_cant = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_tipopagos = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_cliente = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_dgvfactura = new System.Windows.Forms.ErrorProvider(this.components);
+            this.chk_desc = new Guna.UI.WinForms.GunaCheckBox();
+            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.Num_Descv = new Guna.UI2.WinForms.Guna2NumericUpDown();
+            this.Eliminar = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Producto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Desc = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).BeginInit();
@@ -109,11 +119,12 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panel4.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_dgvfactura)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Num_Descv)).BeginInit();
             this.SuspendLayout();
             // 
             // panel5
@@ -121,6 +132,10 @@ namespace Tecno_Pc.Formularios
             this.panel5.BackColor = System.Drawing.Color.White;
             this.panel5.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.Num_Descv);
+            this.panel5.Controls.Add(this.pictureBox4);
+            this.panel5.Controls.Add(this.chk_desc);
+            this.panel5.Controls.Add(this.dataGridView1);
             this.panel5.Controls.Add(this.gunaLabel18);
             this.panel5.Controls.Add(this.gunaLabel17);
             this.panel5.Controls.Add(this.gunaLabel16);
@@ -128,8 +143,6 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.gunaLabel14);
             this.panel5.Controls.Add(this.gunaLabel13);
             this.panel5.Controls.Add(this.gunaLabel10);
-            this.panel5.Controls.Add(this.gunaLabel2);
-            this.panel5.Controls.Add(this.num_ISV);
             this.panel5.Controls.Add(this.dgv_Factura);
             this.panel5.Controls.Add(this.dgv_Productos);
             this.panel5.Controls.Add(this.cbo_cliente);
@@ -166,11 +179,108 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.panel4);
             this.panel5.Controls.Add(this.btn_nuevaVenta);
             this.panel5.Controls.Add(this.btn_guardar);
-            this.panel5.Controls.Add(this.pictureBox4);
             this.panel5.Location = new System.Drawing.Point(-1, 2);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1114, 705);
             this.panel5.TabIndex = 5;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
+            this.dataGridView1.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridView1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.dataGridView1.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.dataGridView1.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle19.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.ColumnHeadersVisible = false;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.dataGridViewImageColumn1,
+            this.dataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn2,
+            this.dataGridViewTextBoxColumn3,
+            this.dataGridViewTextBoxColumn4});
+            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle20.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle20.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridView1.DefaultCellStyle = dataGridViewCellStyle20;
+            this.dataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
+            this.dataGridView1.Location = new System.Drawing.Point(27, 661);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.RowHeadersWidth = 51;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(504, 24);
+            this.dataGridView1.TabIndex = 97;
+            // 
+            // dataGridViewImageColumn1
+            // 
+            this.dataGridViewImageColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewImageColumn1.FillWeight = 30F;
+            this.dataGridViewImageColumn1.Frozen = true;
+            this.dataGridViewImageColumn1.HeaderText = "";
+            this.dataGridViewImageColumn1.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
+            this.dataGridViewImageColumn1.MinimumWidth = 6;
+            this.dataGridViewImageColumn1.Name = "dataGridViewImageColumn1";
+            this.dataGridViewImageColumn1.Width = 45;
+            // 
+            // dataGridViewTextBoxColumn1
+            // 
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn1.Frozen = true;
+            this.dataGridViewTextBoxColumn1.HeaderText = "";
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
+            this.dataGridViewTextBoxColumn1.ReadOnly = true;
+            this.dataGridViewTextBoxColumn1.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn2
+            // 
+            this.dataGridViewTextBoxColumn2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn2.Frozen = true;
+            this.dataGridViewTextBoxColumn2.HeaderText = "";
+            this.dataGridViewTextBoxColumn2.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
+            this.dataGridViewTextBoxColumn2.ReadOnly = true;
+            this.dataGridViewTextBoxColumn2.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn3
+            // 
+            this.dataGridViewTextBoxColumn3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn3.Frozen = true;
+            this.dataGridViewTextBoxColumn3.HeaderText = "";
+            this.dataGridViewTextBoxColumn3.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
+            this.dataGridViewTextBoxColumn3.ReadOnly = true;
+            this.dataGridViewTextBoxColumn3.Width = 110;
+            // 
+            // dataGridViewTextBoxColumn4
+            // 
+            this.dataGridViewTextBoxColumn4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.dataGridViewTextBoxColumn4.Frozen = true;
+            this.dataGridViewTextBoxColumn4.HeaderText = "";
+            this.dataGridViewTextBoxColumn4.MinimumWidth = 6;
+            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
+            this.dataGridViewTextBoxColumn4.ReadOnly = true;
+            this.dataGridViewTextBoxColumn4.Width = 110;
             // 
             // gunaLabel18
             // 
@@ -263,35 +373,6 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel10.TabIndex = 93;
             this.gunaLabel10.Text = "Producto";
             // 
-            // gunaLabel2
-            // 
-            this.gunaLabel2.AutoSize = true;
-            this.gunaLabel2.BackColor = System.Drawing.Color.White;
-            this.gunaLabel2.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaLabel2.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel2.Location = new System.Drawing.Point(831, 185);
-            this.gunaLabel2.Name = "gunaLabel2";
-            this.gunaLabel2.Size = new System.Drawing.Size(30, 19);
-            this.gunaLabel2.TabIndex = 87;
-            this.gunaLabel2.Text = "ISV";
-            // 
-            // num_ISV
-            // 
-            this.num_ISV.BaseColor = System.Drawing.Color.White;
-            this.num_ISV.BorderColor = System.Drawing.Color.Transparent;
-            this.num_ISV.ButtonColor = System.Drawing.Color.MediumBlue;
-            this.num_ISV.ButtonForeColor = System.Drawing.Color.WhiteSmoke;
-            this.num_ISV.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.num_ISV.ForeColor = System.Drawing.Color.Black;
-            this.num_ISV.Location = new System.Drawing.Point(835, 207);
-            this.num_ISV.Maximum = ((long)(100));
-            this.num_ISV.Minimum = ((long)(0));
-            this.num_ISV.Name = "num_ISV";
-            this.num_ISV.Size = new System.Drawing.Size(241, 30);
-            this.num_ISV.TabIndex = 85;
-            this.num_ISV.Value = ((long)(15));
-            this.num_ISV.ValueChanged += new System.EventHandler(this.num_ISV_ValueChanged);
-            // 
             // dgv_Factura
             // 
             this.dgv_Factura.AllowUserToAddRows = false;
@@ -304,14 +385,14 @@ namespace Tecno_Pc.Formularios
             this.dgv_Factura.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Factura.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Factura.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Factura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Factura.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgv_Factura.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Factura.ColumnHeadersVisible = false;
             this.dgv_Factura.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -319,16 +400,17 @@ namespace Tecno_Pc.Formularios
             this.Id,
             this.Producto,
             this.Cant,
-            this.Total});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Factura.DefaultCellStyle = dataGridViewCellStyle2;
+            this.Total,
+            this.Desc});
+            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle22.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle22.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Factura.DefaultCellStyle = dataGridViewCellStyle22;
             this.dgv_Factura.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Factura.Location = new System.Drawing.Point(572, 301);
             this.dgv_Factura.Name = "dgv_Factura";
@@ -339,57 +421,6 @@ namespace Tecno_Pc.Formularios
             this.dgv_Factura.Size = new System.Drawing.Size(504, 354);
             this.dgv_Factura.TabIndex = 84;
             this.dgv_Factura.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Factura_CellContentClick_1);
-            // 
-            // Eliminar
-            // 
-            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Eliminar.FillWeight = 30F;
-            this.Eliminar.Frozen = true;
-            this.Eliminar.HeaderText = "";
-            this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
-            this.Eliminar.MinimumWidth = 6;
-            this.Eliminar.Name = "Eliminar";
-            this.Eliminar.Width = 45;
-            // 
-            // Id
-            // 
-            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Id.Frozen = true;
-            this.Id.HeaderText = "";
-            this.Id.MinimumWidth = 6;
-            this.Id.Name = "Id";
-            this.Id.ReadOnly = true;
-            this.Id.Width = 110;
-            // 
-            // Producto
-            // 
-            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Producto.Frozen = true;
-            this.Producto.HeaderText = "";
-            this.Producto.MinimumWidth = 6;
-            this.Producto.Name = "Producto";
-            this.Producto.ReadOnly = true;
-            this.Producto.Width = 110;
-            // 
-            // Cant
-            // 
-            this.Cant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Cant.Frozen = true;
-            this.Cant.HeaderText = "";
-            this.Cant.MinimumWidth = 6;
-            this.Cant.Name = "Cant";
-            this.Cant.ReadOnly = true;
-            this.Cant.Width = 110;
-            // 
-            // Total
-            // 
-            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.Total.Frozen = true;
-            this.Total.HeaderText = "";
-            this.Total.MinimumWidth = 6;
-            this.Total.Name = "Total";
-            this.Total.ReadOnly = true;
-            this.Total.Width = 110;
             // 
             // dgv_Productos
             // 
@@ -403,27 +434,27 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.dgv_Productos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.dgv_Productos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Purple;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle23.BackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle23.Font = new System.Drawing.Font("Segoe UI", 9.5F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.Purple;
+            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle23;
             this.dgv_Productos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgv_Productos.ColumnHeadersVisible = false;
             this.dgv_Productos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Editar});
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 9.5F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.Padding = new System.Windows.Forms.Padding(4);
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.White;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gray;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle24.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle24.Padding = new System.Windows.Forms.Padding(4);
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.White;
+            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv_Productos.DefaultCellStyle = dataGridViewCellStyle24;
             this.dgv_Productos.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.dgv_Productos.Location = new System.Drawing.Point(32, 116);
             this.dgv_Productos.Name = "dgv_Productos";
@@ -439,7 +470,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.Editar.FillWeight = 30F;
             this.Editar.HeaderText = "";
-            this.Editar.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
+            this.Editar.Image = global::Tecno_Pc.Properties.Resources.añadir;
             this.Editar.MinimumWidth = 6;
             this.Editar.Name = "Editar";
             this.Editar.ToolTipText = "Añadir el Producto a la orden";
@@ -474,7 +505,7 @@ namespace Tecno_Pc.Formularios
             this.cbo_tipoPago.Name = "cbo_tipoPago";
             this.cbo_tipoPago.Size = new System.Drawing.Size(233, 23);
             this.cbo_tipoPago.TabIndex = 81;
-            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);            
+            this.cbo_tipoPago.SelectedIndexChanged += new System.EventHandler(this.cbo_tipoPago_SelectedIndexChanged);
             // 
             // pictureBox11
             // 
@@ -650,10 +681,12 @@ namespace Tecno_Pc.Formularios
             // 
             // txt_cant
             // 
+            this.txt_cant.BackColor = System.Drawing.Color.White;
             this.txt_cant.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_cant.CausesValidation = false;
             this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txt_cant.Location = new System.Drawing.Point(197, 633);
+            this.txt_cant.MaxLength = 5;
             this.txt_cant.Name = "txt_cant";
             this.txt_cant.Size = new System.Drawing.Size(117, 17);
             this.txt_cant.TabIndex = 55;
@@ -916,16 +949,6 @@ namespace Tecno_Pc.Formularios
             this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
-            // pictureBox4
-            // 
-            this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox4.Location = new System.Drawing.Point(832, 206);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(244, 32);
-            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox4.TabIndex = 86;
-            this.pictureBox4.TabStop = false;
-            // 
             // erp_cant
             // 
             this.erp_cant.ContainerControl = this;
@@ -942,6 +965,117 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_dgvfactura.ContainerControl = this;
             // 
+            // chk_desc
+            // 
+            this.chk_desc.BaseColor = System.Drawing.Color.DarkGray;
+            this.chk_desc.CheckedOffColor = System.Drawing.Color.Gray;
+            this.chk_desc.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.chk_desc.FillColor = System.Drawing.Color.Transparent;
+            this.chk_desc.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chk_desc.ForeColor = System.Drawing.Color.Gray;
+            this.chk_desc.Location = new System.Drawing.Point(358, 604);
+            this.chk_desc.Name = "chk_desc";
+            this.chk_desc.Radius = 3;
+            this.chk_desc.Size = new System.Drawing.Size(94, 20);
+            this.chk_desc.TabIndex = 99;
+            this.chk_desc.Text = "Descuento";
+            this.chk_desc.CheckedChanged += new System.EventHandler(this.chk_desc_CheckedChanged);
+            // 
+            // pictureBox4
+            // 
+            this.pictureBox4.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox4.Location = new System.Drawing.Point(358, 626);
+            this.pictureBox4.Name = "pictureBox4";
+            this.pictureBox4.Size = new System.Drawing.Size(160, 29);
+            this.pictureBox4.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox4.TabIndex = 100;
+            this.pictureBox4.TabStop = false;
+            // 
+            // Num_Descv
+            // 
+            this.Num_Descv.BackColor = System.Drawing.Color.Transparent;
+            this.Num_Descv.BorderThickness = 0;
+            this.Num_Descv.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.Num_Descv.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.Num_Descv.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.Num_Descv.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.Num_Descv.DisabledState.Parent = this.Num_Descv;
+            this.Num_Descv.DisabledState.UpDownButtonFillColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.Num_Descv.DisabledState.UpDownButtonForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(203)))), ((int)(((byte)(203)))), ((int)(((byte)(203)))));
+            this.Num_Descv.Enabled = false;
+            this.Num_Descv.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.Num_Descv.FocusedState.Parent = this.Num_Descv;
+            this.Num_Descv.Font = new System.Drawing.Font("Segoe UI", 9.5F);
+            this.Num_Descv.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Num_Descv.Location = new System.Drawing.Point(366, 627);
+            this.Num_Descv.Name = "Num_Descv";
+            this.Num_Descv.ShadowDecoration.Parent = this.Num_Descv;
+            this.Num_Descv.Size = new System.Drawing.Size(152, 27);
+            this.Num_Descv.TabIndex = 101;
+            this.Num_Descv.Value = new decimal(new int[] {
+            10,
+            0,
+            0,
+            0});
+            // 
+            // Eliminar
+            // 
+            this.Eliminar.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Eliminar.FillWeight = 30F;
+            this.Eliminar.Frozen = true;
+            this.Eliminar.HeaderText = "";
+            this.Eliminar.Image = global::Tecno_Pc.Properties.Resources.EliminarProducto;
+            this.Eliminar.MinimumWidth = 6;
+            this.Eliminar.Name = "Eliminar";
+            this.Eliminar.Width = 45;
+            // 
+            // Id
+            // 
+            this.Id.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Id.Frozen = true;
+            this.Id.HeaderText = "";
+            this.Id.MinimumWidth = 6;
+            this.Id.Name = "Id";
+            this.Id.ReadOnly = true;
+            this.Id.Width = 110;
+            // 
+            // Producto
+            // 
+            this.Producto.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Producto.Frozen = true;
+            this.Producto.HeaderText = "";
+            this.Producto.MinimumWidth = 6;
+            this.Producto.Name = "Producto";
+            this.Producto.ReadOnly = true;
+            this.Producto.Width = 110;
+            // 
+            // Cant
+            // 
+            this.Cant.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Cant.Frozen = true;
+            this.Cant.HeaderText = "";
+            this.Cant.MinimumWidth = 6;
+            this.Cant.Name = "Cant";
+            this.Cant.ReadOnly = true;
+            this.Cant.Width = 110;
+            // 
+            // Total
+            // 
+            this.Total.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
+            this.Total.Frozen = true;
+            this.Total.HeaderText = "";
+            this.Total.MinimumWidth = 6;
+            this.Total.Name = "Total";
+            this.Total.ReadOnly = true;
+            this.Total.Width = 110;
+            // 
+            // Desc
+            // 
+            this.Desc.HeaderText = "";
+            this.Desc.Name = "Desc";
+            this.Desc.Visible = false;
+            this.Desc.Width = 5;
+            // 
             // frm_Ventas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -954,6 +1088,7 @@ namespace Tecno_Pc.Formularios
             this.Load += new System.EventHandler(this.frm_Ventas_Load);
             this.panel5.ResumeLayout(false);
             this.panel5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Factura)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_Productos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox11)).EndInit();
@@ -968,11 +1103,12 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cant)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tipopagos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_cliente)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_dgvfactura)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Num_Descv)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -1019,19 +1155,10 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ComboBox cbo_cliente;
         private System.Windows.Forms.ComboBox cbo_tipoPago;
         private System.Windows.Forms.DataGridView dgv_Productos;
-        private System.Windows.Forms.DataGridViewImageColumn Editar;
         private System.Windows.Forms.DataGridView dgv_Factura;
-        private Guna.UI.WinForms.GunaNumeric num_ISV;
-        private System.Windows.Forms.PictureBox pictureBox4;
-        private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private Guna.UI.WinForms.GunaLabel gunaLabel10;
         private Guna.UI.WinForms.GunaLabel gunaLabel13;
         private Guna.UI.WinForms.GunaLabel gunaLabel14;
-        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cant;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
         private Guna.UI.WinForms.GunaLabel gunaLabel18;
         private Guna.UI.WinForms.GunaLabel gunaLabel17;
         private Guna.UI.WinForms.GunaLabel gunaLabel16;
@@ -1041,5 +1168,21 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_tipopagos;
         private System.Windows.Forms.ErrorProvider erp_cliente;
         private System.Windows.Forms.ErrorProvider erp_dgvfactura;
+        private System.Windows.Forms.DataGridViewImageColumn Editar;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewImageColumn dataGridViewImageColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.PictureBox pictureBox4;
+        private Guna.UI.WinForms.GunaCheckBox chk_desc;
+        private Guna.UI2.WinForms.Guna2NumericUpDown Num_Descv;
+        private System.Windows.Forms.DataGridViewImageColumn Eliminar;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Producto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cant;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Total;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Desc;
     }
 }

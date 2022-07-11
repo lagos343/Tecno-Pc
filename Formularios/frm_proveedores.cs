@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Formularios
 {
@@ -17,7 +15,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
 
         public frm_proveedores()
@@ -150,26 +148,30 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelProveedores);
+            Task tar1 = new Task(ReporteProveedores);
             tar1.Start();
             await tar1;
 
             noti.Close();
             btn_reporte.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
         }
 
 
-        public void excelProveedores()
+        public void ReporteProveedores()
         {
-            excel.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
+            rep.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
                 " Proveedores INNER JOIN  Departamentos ON Proveedores.[ID Depto] = Departamentos.[ID Depto]" +
                 " WHERE Proveedores.Estado = 1 ORDER BY Nombre asc";
-            excel.Cabecera = new string[5] { "Proveedor", "Telefono", "Departamento", "Dirección", "Correo Electrónico" };
-            excel.RangoCabecera = "C5 G5";
-            excel.Titulo = "Reporte de Proveedores";
-            excel.Carpeta = "Proveedores";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();
+            rep.Cabecera = new string[5] { "Proveedor", "Telefono", "Departamento", "Direccion", "Email" };
+            rep.Titulo = "Reporte de Proveedores";
+            rep.Tamanios = new float[5] { 6, 3, 5, 9, 5 };
+            rep.Carpeta = "Proveedores";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }
     }
 }

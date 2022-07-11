@@ -82,6 +82,7 @@ namespace Tecno_Pc.Formularios
             this.erp_direccion = new System.Windows.Forms.ErrorProvider(this.components);
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
+            this.erp_id = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureemail)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
@@ -104,6 +105,7 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_email)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_id)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaLabel8
@@ -123,7 +125,7 @@ namespace Tecno_Pc.Formularios
             this.txt_email.CausesValidation = false;
             this.txt_email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_email.Location = new System.Drawing.Point(760, 281);
-            this.txt_email.MaxLength = 50;
+            this.txt_email.MaxLength = 30;
             this.txt_email.Name = "txt_email";
             this.txt_email.Size = new System.Drawing.Size(275, 16);
             this.txt_email.TabIndex = 8;
@@ -156,7 +158,7 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.CausesValidation = false;
             this.txt_telefono.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_telefono.Location = new System.Drawing.Point(909, 216);
-            this.txt_telefono.MaxLength = 20;
+            this.txt_telefono.MaxLength = 8;
             this.txt_telefono.Name = "txt_telefono";
             this.txt_telefono.Size = new System.Drawing.Size(126, 16);
             this.txt_telefono.TabIndex = 7;
@@ -190,7 +192,7 @@ namespace Tecno_Pc.Formularios
             this.txt_apellido.CausesValidation = false;
             this.txt_apellido.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_apellido.Location = new System.Drawing.Point(760, 216);
-            this.txt_apellido.MaxLength = 50;
+            this.txt_apellido.MaxLength = 30;
             this.txt_apellido.Name = "txt_apellido";
             this.txt_apellido.Size = new System.Drawing.Size(126, 16);
             this.txt_apellido.TabIndex = 6;
@@ -224,7 +226,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(909, 152);
-            this.txt_nombre.MaxLength = 50;
+            this.txt_nombre.MaxLength = 30;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(126, 16);
             this.txt_nombre.TabIndex = 5;
@@ -300,6 +302,7 @@ namespace Tecno_Pc.Formularios
             this.txt_direccion.CausesValidation = false;
             this.txt_direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_direccion.Location = new System.Drawing.Point(762, 343);
+            this.txt_direccion.MaxLength = 100;
             this.txt_direccion.Multiline = true;
             this.txt_direccion.Name = "txt_direccion";
             this.txt_direccion.Size = new System.Drawing.Size(273, 90);
@@ -538,6 +541,7 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.Name = "dgv_datos";
             this.dgv_datos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_datos.RowHeadersVisible = false;
+            this.dgv_datos.RowHeadersWidth = 51;
             this.dgv_datos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_datos.Size = new System.Drawing.Size(704, 290);
             this.dgv_datos.TabIndex = 73;
@@ -704,6 +708,10 @@ namespace Tecno_Pc.Formularios
             this.panel2.Size = new System.Drawing.Size(1054, 451);
             this.panel2.TabIndex = 102;
             // 
+            // erp_id
+            // 
+            this.erp_id.ContainerControl = this;
+            // 
             // frm_contactos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -774,6 +782,7 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.erp_telefono)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_email)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_direccion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.erp_id)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -831,5 +840,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ErrorProvider erp_direccion;
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.ErrorProvider erp_id;
     }
 }

@@ -14,6 +14,7 @@ namespace Tecno_Pc.Formularios
     {
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_Ventas()
         {
@@ -104,80 +105,90 @@ namespace Tecno_Pc.Formularios
         private double calcularTotaleventa()
         {
             double coin = 0;
-            string ISV;
 
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {                                
-                coin = coin + int.Parse(fila.Cells[4].Value.ToString());        
-            }
-
-            ISV = num_ISV.Value.ToString();
-            ISV = "0." + ISV;
-            coin = coin + (coin * double.Parse(ISV));
+                coin = coin + double.Parse(fila.Cells[4].Value.ToString());        
+            }                 
+            
             return coin;
         }
 
-
         private void btn_añadir_Click(object sender, EventArgs e)
         {
-            erp_dgvfactura.Clear();
-            int cant = 0; 
+            try
+            {
+                erp_dgvfactura.Clear();
+                int cant = 0;
 
-            if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
-            {
-                cant = int.Parse(txt_cant.Text);
-                cant += buscarRepetidos(lbl_Id.Text);
-            }
-
-            if (lbl_Id.Text == "")
-            {
-                frm_notificacion noti = new frm_notificacion("¡Debe Escoger un Producto antes!", 3);
-                noti.ShowDialog();
-                noti.Close();
-            }
-            else if (txt_cant.Text == string.Empty)
-            {
-                frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad vendida", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "indique la cantidad vendida");
-            }
-            else if (int.Parse(txt_cant.Text) <= 0)
-            {
-                frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "indique una cantidad positiva");
-            }
-            else if(cant > int.Parse(lbl_stock.Text))
-            {
-                frm_notificacion noti = new frm_notificacion("Escogio vender " + cant.ToString() + " unidades de '" + lbl_producto.Text + 
-                    "' pero solo hay " + lbl_stock.Text + " unidades en existencia", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "indique una cantidad dentro del stock");
-            }
-            else
-            {
-                double total;                         
-                
-                foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
                 {
-                    if (fila.Cells[1].Value.ToString() == lbl_Id.Text)
-                    {
-                        dgv_Factura.Rows.Remove(fila);
-                    }
+                    cant = int.Parse(txt_cant.Text);
+                    cant += buscarRepetidos(lbl_Id.Text);
                 }
 
-                total = cant * double.Parse(lbl_precio.Text);
-                dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
+                if (lbl_Id.Text == "")
+                {
+                    frm_notificacion noti = new frm_notificacion("¡Debe Escoger un Producto antes!", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                }
+                else if (txt_cant.Text == string.Empty)
+                {
+                    frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad vendida", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "indique la cantidad vendida");
+                }
+                else if (int.Parse(txt_cant.Text) <= 0)
+                {
+                    frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "indique una cantidad positiva");
+                }
+                else if(cant > int.Parse(lbl_stock.Text))
+                {
+                    frm_notificacion noti = new frm_notificacion("Escogio vender " + cant.ToString() + " unidades de '" + lbl_producto.Text + 
+                        "' pero solo hay " + lbl_stock.Text + " unidades en existencia", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "indique una cantidad dentro del stock");
+                }
+                else
+                {
+                    double total, desc = 0;                         
+                
+                    foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                    {
+                        if (fila.Cells[1].Value.ToString() == lbl_Id.Text)
+                        {
+                            dgv_Factura.Rows.Remove(fila);
+                        }
+                    }
 
-                lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-                Operacionesdatagrid2();
-                LimpiarProductoSeleccionado();
+                    total = cant * double.Parse(lbl_precio.Text);
+
+                    if (chk_desc.Checked)
+                    {
+                        desc = double.Parse("0." + Num_Descv.Value);
+                        total = total - (total * desc);
+                    }
+                        
+                    dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString(), desc.ToString());
+
+                    lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+                    Operacionesdatagrid2();
+                    LimpiarProductoSeleccionado();
+                }
+            }
+            catch (Exception)
+            {
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "Solo se permiten Numeros");
             }
         }
 
@@ -213,7 +224,6 @@ namespace Tecno_Pc.Formularios
             {                
                 dgv_Factura.Rows.Clear();
             }
-            num_ISV.Value = 15;
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
@@ -227,27 +237,56 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                string ISV;
-                ISV = num_ISV.Value.ToString();
-                ISV = "0." + ISV;
+                long id = long.Parse(sql.Consulta2("select top 1 [ID Factura] from Facturas order by [ID Factura] desc"));
+                DataTable Sar = sql.Consulta("select id_sar from Sar where fecha_limite >= GETDATE() and (("+id+") >= (ran_desde - 1) " +
+                    "and ("+id+") <= ran_hasta )");
 
-                sql.Sql_Querys("insert into Facturas values("+cbo_cliente.SelectedValue.ToString()+", "+user.IdEmpleado_+", "+cbo_tipoPago.SelectedValue.ToString()+", " +
-                    "GETDATE(), DATEADD(MONTH, 1, GETDATE()), "+ISV+")");
-
-                foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                if(Sar.Rows.Count > 0)
                 {
-                    int idprod = int.Parse(fila.Cells[1].Value.ToString());
-                    double precio = double.Parse(fila.Cells[4].Value.ToString()) / double.Parse(fila.Cells[3].Value.ToString());
-                    int cant = int.Parse(fila.Cells[3].Value.ToString());
-                    sql.Sql_Querys("insert into DetalleFactura values ((select Top 1 [ID Factura] from Facturas order by [ID Factura] desc), "
-                        +idprod+", "+precio+", "+cant+")");
-                }
+                    long IdSar = long.Parse(Sar.Rows[0][0].ToString());
+                    sql.Sql_Querys("insert into Facturas values(" + (id + 1) +", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() + 
+                        ", GETDATE(), 0.15, "+ IdSar + ")");
 
-                frm_notificacion noti = new frm_notificacion("Venta realizada con Exito", 1);
-                noti.ShowDialog();
-                noti.Close();
-                btn_nuevaVenta.PerformClick();
+                    foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                    {
+                        int cant = int.Parse(fila.Cells[3].Value.ToString());
+                        int idprod = int.Parse(fila.Cells[1].Value.ToString());
+                        sql.Sql_Querys("insert into DetalleFactura values (" + (id + 1) + ", "
+                            + idprod + ", (Select [Precio Unitario] from Productos where [ID Producto] = "+idprod+"), " + cant + ", " + fila.Cells[5].Value.ToString() + ")");
+                    }
+
+                    GenerarFactura();
+                    btn_nuevaVenta.PerformClick();
+                }
+                else
+                {
+                    frm_notificacion noti = new frm_notificacion("Error al guardar la Factura, Se ha quedado sin Facturas Disponibles", 3);
+                    noti.ShowDialog();
+                    noti.Close();                   
+                }                               
             }            
+        }
+         
+        private async void GenerarFactura()
+        {
+            rep.Dgv = sql.Consulta("select Top 1 [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
+                    "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner " +
+                    "join Transacciones t on t.[ID Transaccion] = f.[ID Transaccion] order by f.[ID Factura] desc");
+
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
+
+            Task tar1 = new Task(rep.PdfFacturas);
+            tar1.Start();
+            await tar1;
+
+            noti.Close();
+            noti = new frm_notificacion("Venta realizada con Exito", 1);
+            noti.ShowDialog();
+            noti.Close();
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_Ventas()); //abrimos el pdf
         }
 
         private void escoger_erp()
@@ -369,6 +408,12 @@ namespace Tecno_Pc.Formularios
         private void num_ISV_ValueChanged(object sender, EventArgs e)
         {
             lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-        }        
+        }
+
+        private void chk_desc_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chk_desc.Checked) Num_Descv.Enabled = true;
+            else Num_Descv.Enabled = false;
+        }
     }
 }

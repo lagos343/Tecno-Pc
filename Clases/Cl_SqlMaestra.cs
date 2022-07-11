@@ -11,8 +11,9 @@ using System.Windows.Forms;
 
 namespace Tecno_Pc.Clases
 {
-    class Cl_SqlMaestra
+    class Cl_SqlMaestra //clase que se encarga de todos los procedimientoos que tengan que ver con la DB 
     {
+        //propiedades usadas para brindar conecccion a la DB a todos los formularios 
         private string Servidor = Properties.Settings.Default.Servidor.ToString();
         private string DataBase = "TECNOPC";    
         private string cadena_coneccion;        
@@ -22,9 +23,9 @@ namespace Tecno_Pc.Clases
         DataTable Tabla_Resultados;       
 
 
-        public Cl_SqlMaestra()
+        public Cl_SqlMaestra() //constructor
         {
-            if (Properties.Settings.Default.WindowsAuten == "false")
+            if (Properties.Settings.Default.WindowsAuten == "false") //verificamos el tipo de autenticacion para crear la cadena de coonecion 
             {
                 cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; User ID="+Properties.Settings.Default.Usuario.ToString()
                     +"; Password="+Properties.Settings.Default.Contraseña;
@@ -33,22 +34,22 @@ namespace Tecno_Pc.Clases
             {
                 cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; Integrated Security=True";
             }
-            connection.ConnectionString = cadena_coneccion;
+            connection.ConnectionString = cadena_coneccion; //creamos la sql conection
         }
 
        
-        public void Abrir()
+        public void Abrir() //se encarga de abrrir la coneccion a sql
         {
             try
             {
-                connection.Open();
+                connection.Open(); //intentamos abrirrla
             }
-            catch (Exception)
+            catch (Exception) //de no abrirse notificamos el error y preguntamos si desea configurar el sevidor ya que ese es el error mas comun
             {
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
-                noti.ShowDialog();
+                noti.ShowDialog(); 
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.Dialogresul == DialogResult.OK) 
                 {   
                     Formularios.frm_ConfigurarDB bd = new Formularios.frm_ConfigurarDB(true);
                     bd.Show();
@@ -69,7 +70,7 @@ namespace Tecno_Pc.Clases
             connection.Close();
         }
 
-        public DataTable Consulta(String cadena)
+        public DataTable Consulta(String cadena) //se encarga dde consultas de muchos registros
         {
             Abrir();
             adapter = new SqlDataAdapter(cadena, cadena_coneccion);
@@ -84,7 +85,7 @@ namespace Tecno_Pc.Clases
             return Tabla_Resultados;
         }
 
-        public String Consulta2(String cadena)
+        public String Consulta2(String cadena) //se encarga de consultas que retornan un solo dato
         {
             string Resultado = "";
 
@@ -98,7 +99,7 @@ namespace Tecno_Pc.Clases
             return Resultado;
         }
 
-        public void Sql_Querys(string cadena, string mensajeBueno, string mensajeMalo)
+        public void Sql_Querys(string cadena, string mensajeBueno, string mensajeMalo) //se encarga de comandos transac sql que pueden mostrar errores
         {
             Abrir();
             cmd = new SqlCommand();
@@ -121,7 +122,34 @@ namespace Tecno_Pc.Clases
             Cerrar();
         }
 
-        public void Sql_Querys(string cadena)
+        public bool Sql_Query(string cadena, string mensajeBueno, string mensajeMalo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
+        {
+            bool retorno;
+            Abrir();
+            cmd = new SqlCommand();
+            cmd.Connection = connection;
+            cmd.CommandText = cadena;
+
+            try
+            {
+                cmd.ExecuteNonQuery();
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeBueno, 1);
+                noti.ShowDialog();
+                noti.Close();
+                retorno = true;
+            }
+            catch (Exception ex)
+            {
+                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeMalo, 3);
+                noti.ShowDialog();
+                noti.Close();
+                retorno = false;
+            }
+            Cerrar();
+            return retorno;
+        }
+
+        public void Sql_Querys(string cadena) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
         {
             Abrir();
 

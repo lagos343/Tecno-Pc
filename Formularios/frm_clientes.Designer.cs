@@ -40,7 +40,10 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos = new System.Windows.Forms.DataGridView();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
+            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.txt_Direccion = new System.Windows.Forms.TextBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -79,12 +82,12 @@ namespace Tecno_Pc.Formularios
             this.btn_nuevo = new Guna.UI.WinForms.GunaGradientButton();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
-            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_identidad)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).BeginInit();
@@ -102,9 +105,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // gunaElipse1
@@ -180,6 +180,7 @@ namespace Tecno_Pc.Formularios
             this.dgv_datos.Name = "dgv_datos";
             this.dgv_datos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             this.dgv_datos.RowHeadersVisible = false;
+            this.dgv_datos.RowHeadersWidth = 51;
             this.dgv_datos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgv_datos.Size = new System.Drawing.Size(705, 288);
             this.dgv_datos.TabIndex = 38;
@@ -209,6 +210,19 @@ namespace Tecno_Pc.Formularios
             this.panel1.TabIndex = 33;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
+            // btn_minimizar
+            // 
+            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
+            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
+            this.btn_minimizar.Location = new System.Drawing.Point(984, 1);
+            this.btn_minimizar.Name = "btn_minimizar";
+            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
+            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_minimizar.TabIndex = 4;
+            this.btn_minimizar.TabStop = false;
+            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            // 
             // lbl_titulo
             // 
             this.lbl_titulo.AutoSize = true;
@@ -220,12 +234,38 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "CLIENTES";
             // 
+            // btn_salir
+            // 
+            this.btn_salir.BaseColor = System.Drawing.Color.White;
+            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
+            this.btn_salir.Location = new System.Drawing.Point(1017, 2);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(31, 36);
+            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_salir.TabIndex = 3;
+            this.btn_salir.TabStop = false;
+            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox1.TabIndex = 2;
+            this.gunaPictureBox1.TabStop = false;
+            // 
             // txt_Direccion
             // 
             this.txt_Direccion.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txt_Direccion.CausesValidation = false;
             this.txt_Direccion.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Direccion.Location = new System.Drawing.Point(760, 341);
+            this.txt_Direccion.MaxLength = 100;
             this.txt_Direccion.Multiline = true;
             this.txt_Direccion.Name = "txt_Direccion";
             this.txt_Direccion.Size = new System.Drawing.Size(273, 89);
@@ -320,7 +360,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Tel.CausesValidation = false;
             this.txt_Tel.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Tel.Location = new System.Drawing.Point(907, 216);
-            this.txt_Tel.MaxLength = 20;
+            this.txt_Tel.MaxLength = 8;
             this.txt_Tel.Name = "txt_Tel";
             this.txt_Tel.Size = new System.Drawing.Size(126, 16);
             this.txt_Tel.TabIndex = 7;
@@ -344,7 +384,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Apell.CausesValidation = false;
             this.txt_Apell.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Apell.Location = new System.Drawing.Point(758, 216);
-            this.txt_Apell.MaxLength = 50;
+            this.txt_Apell.MaxLength = 30;
             this.txt_Apell.Name = "txt_Apell";
             this.txt_Apell.Size = new System.Drawing.Size(126, 16);
             this.txt_Apell.TabIndex = 6;
@@ -368,7 +408,7 @@ namespace Tecno_Pc.Formularios
             this.txt_Email.CausesValidation = false;
             this.txt_Email.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_Email.Location = new System.Drawing.Point(758, 281);
-            this.txt_Email.MaxLength = 50;
+            this.txt_Email.MaxLength = 30;
             this.txt_Email.Name = "txt_Email";
             this.txt_Email.Size = new System.Drawing.Size(275, 16);
             this.txt_Email.TabIndex = 8;
@@ -666,44 +706,6 @@ namespace Tecno_Pc.Formularios
             this.pictureBox5.TabIndex = 35;
             this.pictureBox5.TabStop = false;
             // 
-            // btn_minimizar
-            // 
-            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.btn_minimizar.Location = new System.Drawing.Point(984, 1);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
-            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_minimizar.TabIndex = 4;
-            this.btn_minimizar.TabStop = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
-            // 
-            // btn_salir
-            // 
-            this.btn_salir.BaseColor = System.Drawing.Color.White;
-            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.btn_salir.Location = new System.Drawing.Point(1017, 2);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(31, 36);
-            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_salir.TabIndex = 3;
-            this.btn_salir.TabStop = false;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 2;
-            this.gunaPictureBox1.TabStop = false;
-            // 
             // panel2
             // 
             this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormCLi21;
@@ -758,11 +760,14 @@ namespace Tecno_Pc.Formularios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_clientes";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_clientes";
+            this.Text = "Clientes";
             this.Load += new System.EventHandler(this.frm_clientes_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgv_datos)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_identidad)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_nombre)).EndInit();
@@ -780,9 +785,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

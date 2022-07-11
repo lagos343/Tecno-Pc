@@ -236,7 +236,7 @@ namespace Tecno_Pc.Formularios
             this.txt_nombre.CausesValidation = false;
             this.txt_nombre.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_nombre.Location = new System.Drawing.Point(317, 89);
-            this.txt_nombre.MaxLength = 20;
+            this.txt_nombre.MaxLength = 40;
             this.txt_nombre.Name = "txt_nombre";
             this.txt_nombre.Size = new System.Drawing.Size(227, 16);
             this.txt_nombre.TabIndex = 1;
@@ -249,9 +249,9 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel1.ForeColor = System.Drawing.Color.Gray;
             this.gunaLabel1.Location = new System.Drawing.Point(306, 60);
             this.gunaLabel1.Name = "gunaLabel1";
-            this.gunaLabel1.Size = new System.Drawing.Size(56, 15);
+            this.gunaLabel1.Size = new System.Drawing.Size(137, 15);
             this.gunaLabel1.TabIndex = 36;
-            this.gunaLabel1.Text = "NOMBRE";
+            this.gunaLabel1.Text = "NOMBRE DE PRODUCTO";
             // 
             // pictureBox1
             // 
@@ -301,7 +301,7 @@ namespace Tecno_Pc.Formularios
             this.txt_modelo.CausesValidation = false;
             this.txt_modelo.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_modelo.Location = new System.Drawing.Point(19, 149);
-            this.txt_modelo.MaxLength = 15;
+            this.txt_modelo.MaxLength = 40;
             this.txt_modelo.Name = "txt_modelo";
             this.txt_modelo.Size = new System.Drawing.Size(227, 16);
             this.txt_modelo.TabIndex = 2;
@@ -355,6 +355,7 @@ namespace Tecno_Pc.Formularios
             this.txt_stock.CausesValidation = false;
             this.txt_stock.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.txt_stock.Location = new System.Drawing.Point(150, 211);
+            this.txt_stock.MaxLength = 6;
             this.txt_stock.Name = "txt_stock";
             this.txt_stock.Size = new System.Drawing.Size(96, 16);
             this.txt_stock.TabIndex = 4;
@@ -447,6 +448,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.swt_estado.BackColor = System.Drawing.Color.White;
             this.swt_estado.BaseColor = System.Drawing.Color.Transparent;
+            this.swt_estado.Checked = true;
             this.swt_estado.CheckedOffColor = System.Drawing.Color.DarkGray;
             this.swt_estado.CheckedOnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
             this.swt_estado.FillColor = System.Drawing.Color.White;
@@ -637,7 +639,7 @@ namespace Tecno_Pc.Formularios
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "frm_AñadirProductos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Añadir Productos";
+            this.Text = "Añadir Producto";
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();

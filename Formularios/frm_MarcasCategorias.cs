@@ -8,8 +8,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 
 namespace Tecno_Pc.Formularios
@@ -117,11 +115,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayCategorias();
 
-            if (vld.comprobartxt() == false)
+            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
             {                
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();                
+                noti.Close();
+                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false);
             }
             else
             {
@@ -129,17 +128,23 @@ namespace Tecno_Pc.Formularios
                 {
                     cate.IDCategoria = int.Parse(txt_id.Text);
                     cate.NombreCategoria = txt_nombre.Text;
-                    cate.actualizarDatos();
+                    if (cate.actualizarDatos())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        cate.consultarDatos(dgv_datos);
+                    }
                 }
                 else
                 {
                     cate.NombreCategoria = txt_nombre.Text;
-                    cate.guardar();
-                }
-
-                limpiarDatos();
-                btn_guardar.Text="Guardar";
-                cate.consultarDatos(dgv_datos);
+                    if (cate.guardar())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        cate.consultarDatos(dgv_datos);
+                    }
+                }                
             }           
         }
 
@@ -173,11 +178,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayMarcas();
 
-            if (vld.comprobartxt() == false)
+            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
             {
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();                
+                noti.Close();
+                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false) ;
             }
             else
             {
@@ -185,17 +191,23 @@ namespace Tecno_Pc.Formularios
                 {
                     mar.IDMarca = int.Parse(txt_id.Text);
                     mar.NombreMarca = txt_nombre.Text;
-                    mar.actualizarDatos();
+                    if (mar.actualizarDatos())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        mar.consultarDatos(dgv_datos);
+                    }
                 }
                 else
                 {
                     mar.NombreMarca = txt_nombre.Text;
-                    mar.guardar();
-                }
-
-                limpiarDatos();
-                btn_guardar.Text = "Guardar";
-                mar.consultarDatos(dgv_datos);
+                    if (mar.guardar())
+                    {
+                        limpiarDatos();
+                        btn_guardar.Text = "Guardar";
+                        mar.consultarDatos(dgv_datos);
+                    }
+                }                
             }
         }
 

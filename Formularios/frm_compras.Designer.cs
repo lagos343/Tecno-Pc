@@ -70,12 +70,12 @@ namespace Tecno_Pc.Formularios
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.Añadir = new System.Windows.Forms.DataGridViewImageColumn();
             this.btn_nuevaCompra = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.erp_cant = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_dgvfactura = new System.Windows.Forms.ErrorProvider(this.components);
+            this.Añadir = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -276,6 +276,7 @@ namespace Tecno_Pc.Formularios
             this.txt_cant.CausesValidation = false;
             this.txt_cant.Font = new System.Drawing.Font("Segoe UI", 9.5F);
             this.txt_cant.Location = new System.Drawing.Point(196, 625);
+            this.txt_cant.MaxLength = 5;
             this.txt_cant.Name = "txt_cant";
             this.txt_cant.Size = new System.Drawing.Size(117, 17);
             this.txt_cant.TabIndex = 86;
@@ -612,13 +613,6 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
-            // Añadir
-            // 
-            this.Añadir.HeaderText = "";
-            this.Añadir.Image = global::Tecno_Pc.Properties.Resources.EditarProducto;
-            this.Añadir.MinimumWidth = 6;
-            this.Añadir.Name = "Añadir";
-            // 
             // btn_nuevaCompra
             // 
             this.btn_nuevaCompra.AnimationHoverSpeed = 0.07F;
@@ -687,6 +681,13 @@ namespace Tecno_Pc.Formularios
             // 
             this.erp_dgvfactura.ContainerControl = this;
             // 
+            // Añadir
+            // 
+            this.Añadir.HeaderText = "";
+            this.Añadir.Image = global::Tecno_Pc.Properties.Resources.añadir;
+            this.Añadir.MinimumWidth = 6;
+            this.Añadir.Name = "Añadir";
+            // 
             // frm_compras
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -721,7 +722,6 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private System.Windows.Forms.DataGridView dgv_Factura;
         private System.Windows.Forms.DataGridView dgv_Productos;
-        private System.Windows.Forms.DataGridViewImageColumn Añadir;
         private Guna.UI.WinForms.GunaGradientButton btn_nuevaCompra;
         private Guna.UI.WinForms.GunaGradientButton btn_guardar;
         private System.Windows.Forms.TextBox txt_buscar;
@@ -758,5 +758,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.ErrorProvider erp_cant;
         private System.Windows.Forms.ErrorProvider erp_dgvfactura;
+        private System.Windows.Forms.DataGridViewImageColumn Añadir;
     }
 }

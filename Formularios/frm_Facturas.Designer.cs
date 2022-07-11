@@ -107,6 +107,7 @@ namespace Tecno_Pc.Formularios
             this.txt_buscar.Size = new System.Drawing.Size(310, 16);
             this.txt_buscar.TabIndex = 1;
             this.txt_buscar.TextChanged += new System.EventHandler(this.txt_buscar_TextChanged_1);
+            this.txt_buscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_buscar_KeyPress);
             // 
             // pictureBox6
             // 

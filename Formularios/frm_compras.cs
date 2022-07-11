@@ -217,51 +217,59 @@ namespace Tecno_Pc.Formularios
 
         private void btn_añadir_Click(object sender, EventArgs e)
         {
-            int cant = 0;
-            erp_dgvfactura.Clear();
+            try
+            {
+                int cant = 0;
+                erp_dgvfactura.Clear();
 
-            if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
-            {
-                cant = int.Parse(txt_cant.Text);
-                cant += buscarRepetidos(lbl_Id.Text);
-            }
-
-            if (lbl_Id.Text == "")
-            {
-                frm_notificacion noti = new frm_notificacion("¡Debe Escoger un Producto antes!", 3);
-                noti.ShowDialog();
-                noti.Close();
-            }
-            else if (txt_cant.Text == string.Empty)
-            {
-                frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad comprada", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "Indique la cantidad");
-            }
-            else if (int.Parse(txt_cant.Text) <= 0)
-            {
-                frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
-                noti.ShowDialog();
-                noti.Close();
-                erp_cant.Clear();
-                erp_cant.SetError(txt_cant, "Indique una cantidad positiva");
-            }
-            else
-            {
-                foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
                 {
-                    if (fila.Cells[1].Value.ToString() == lbl_Id.Text)
-                    {
-                        dgv_Factura.Rows.Remove(fila);
-                    }
+                    cant = int.Parse(txt_cant.Text);
+                    cant += buscarRepetidos(lbl_Id.Text);
                 }
 
-                double total = cant * double.Parse(lbl_precio.Text);
-                dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
-                Operacionesdatagrid2();
-                LimpiarProductoSeleccionado();
+                if (lbl_Id.Text == "")
+                {
+                    frm_notificacion noti = new frm_notificacion("¡Debe Escoger un Producto antes!", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                }
+                else if (txt_cant.Text == string.Empty)
+                {
+                    frm_notificacion noti = new frm_notificacion("Debe indicar la cantidad comprada", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "Indique la cantidad");
+                }
+                else if (int.Parse(txt_cant.Text) <= 0)
+                {
+                    frm_notificacion noti = new frm_notificacion("Debe indicar una cantidad mayor a 0", 3);
+                    noti.ShowDialog();
+                    noti.Close();
+                    erp_cant.Clear();
+                    erp_cant.SetError(txt_cant, "Indique una cantidad positiva");
+                }
+                else
+                {
+                    foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                    {
+                        if (fila.Cells[1].Value.ToString() == lbl_Id.Text)
+                        {
+                            dgv_Factura.Rows.Remove(fila);
+                        }
+                    }
+
+                    double total = cant * double.Parse(lbl_precio.Text);
+                    dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString());
+                    Operacionesdatagrid2();
+                    LimpiarProductoSeleccionado();
+                }
+            }
+            catch (Exception)
+            {                
+                erp_cant.Clear();
+                erp_cant.SetError(txt_cant, "Solo se permiten Numeros");
             }
         }
 

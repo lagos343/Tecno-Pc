@@ -30,7 +30,7 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(btn_cerrar, "Salir");
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
             toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");
-            toolTip1.SetToolTip(btn_server, "Configurar DB");
+            toolTip1.SetToolTip(btn_server, "Configuracion inicial");
 
             if (Properties.Settings.Default.CodBar == "")
             {
@@ -109,6 +109,11 @@ namespace Tecno_Pc.Formularios
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
+        public void abrirPdfs(Form form)
+        {
+            AbrirFormulario(new Formularios.frm_pdfs(Properties.Settings.Default.ReporteActual, form));
+        } 
+
         private void SeleccionBoton(Guna.UI.WinForms.GunaGradientButton boton)
         {
             btn_ventas.ForeColor = Color.White; 
@@ -126,7 +131,7 @@ namespace Tecno_Pc.Formularios
             pic_flecha.Top = boton.Top + 242;
         }
 
-        private void AbrirFormulario(Form formHijo)
+        public void AbrirFormulario(Form formHijo)
         {
             if (formActivado != null)
                 formActivado.Close();
@@ -229,6 +234,7 @@ namespace Tecno_Pc.Formularios
         private void btn_server_Click(object sender, EventArgs e)
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ConfigurarDB);
+
             if (frm == null)
             {
                 frm_ConfigurarDB db = new frm_ConfigurarDB(true);
@@ -236,6 +242,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                frm.Show();   
                 frm.BringToFront();
             }
         }

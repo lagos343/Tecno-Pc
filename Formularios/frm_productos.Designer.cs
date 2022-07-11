@@ -438,7 +438,7 @@ namespace Tecno_Pc.Formularios
             this.btn_Imprimir.Radius = 5;
             this.btn_Imprimir.Size = new System.Drawing.Size(243, 32);
             this.btn_Imprimir.TabIndex = 5;
-            this.btn_Imprimir.Text = "Reportes";
+            this.btn_Imprimir.Text = "Crear reporte";
             this.btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_Imprimir.Click += new System.EventHandler(this.btn_Imprimir_Click);
             // 

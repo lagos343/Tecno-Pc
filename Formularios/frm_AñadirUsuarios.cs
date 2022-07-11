@@ -20,6 +20,7 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
         public frm_AñadirUsuarios(int estado, DataGridView dat)
         {
@@ -41,8 +42,10 @@ namespace Tecno_Pc.Formularios
                 cborol.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
                 txt_usuario.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
                 txt_pass.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
+                this.Text = "Actualizar Usuario";
             }
         }
+
         public void iniciar1()
         {
             cboempleado.DataSource = sql.Consulta("select * from Empleados where Estado = 1 order by Nombre asc");
@@ -56,24 +59,36 @@ namespace Tecno_Pc.Formularios
             cborol.SelectedIndex = -1;
         }
 
+        public void definicionarrayuser()
+        {
+            vld.Text = new TextBox[2] { txt_usuario, txt_pass };
+            vld.Error = new ErrorProvider[2] {erp_usuario, erp_contra};
+            vld.Ctrl_user = new int[2] {1,2};
+            
+        }
+        
         private void guarda_click(object sender, EventArgs e)
         {
-            if(txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarrayuser();
+            if(vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Nombre_usuario = txt_usuario.Text;
                 user.Clave = txt_pass.Text;
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
-                user.guardar();
-                limpiar();
+
+                if (user.guardar())
+                {
+                    limpiar();
+                }                
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();     
             }
 
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
@@ -82,17 +97,6 @@ namespace Tecno_Pc.Formularios
 
         private void escoger_erp() 
         {
-            if (txt_pass.Text == "")
-            {
-                erp_contra.Clear();
-                erp_contra.SetError(txt_pass, "No puede quedar vacio");
-            }   
-
-            if (txt_usuario.Text == "")
-            {
-                erp_usuario.Clear();
-                erp_usuario.SetError(txt_usuario, "No puede quedar vacio");
-            }
 
             if (cboempleado.SelectedIndex == -1)
             {
@@ -109,14 +113,9 @@ namespace Tecno_Pc.Formularios
 
         private void actualiza_click(object sender, EventArgs e)
         {
-            if (txt_usuario.Text == "" || txt_pass.Text == "" || cborol.SelectedIndex == -1 || cboempleado.SelectedIndex == -1)
-            {
-                frm_notificacion noti = new frm_notificacion("Llene todos los datos", 3);
-                noti.ShowDialog();
-                noti.Close();
-                escoger_erp();
-            }
-            else
+            definicionarrayuser();
+
+            if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Id_usuarios = int.Parse(txt_id.Text);
                 user.Nombre_usuario = txt_usuario.Text;
@@ -124,12 +123,22 @@ namespace Tecno_Pc.Formularios
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
-                user.actualizarDatos();
-                this.Close();
-            }
-            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
-            frm.carga();
 
+                if (user.actualizarDatos())
+                {
+                    this.Close();
+                }                
+            }
+            else
+            {
+                frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
+                noti.ShowDialog();
+                noti.Close();
+                escoger_erp();                
+            }
+
+            Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
+            frm.carga();  
         }
 
         public void limpiar()
@@ -180,6 +189,24 @@ namespace Tecno_Pc.Formularios
             erp_rol.Clear();
         }
 
+        private void txt_usuario_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_pass_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Space)
+            {
+                e.Handled = true;
+            }
+        }
+
         #endregion
+
+
     }
 }

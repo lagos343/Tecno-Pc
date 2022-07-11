@@ -9,6 +9,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_Marcas: Cl_SqlMaestra
     {
+        //variables que almacenan la columnas de la tabla de la DB
         private static int iDMarca;
         private static string nombreMarca;
 
@@ -20,28 +21,29 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void guardar()
+        //Procedimientos que se heredan de la clase sql para hacer CRUD 
+        public bool guardar()
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombreMarca + "')";
-            Sql_Querys(cadena, "Marca añadida con exito", "¡Ya existe esta marca!");
+            return Sql_Query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
-        public void consultarDatos(DataGridView dgv)
+        public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta("select *from Marcas order by [Nombre Marca] asc");
+            dgv.DataSource = Consulta("select *from Marcas order by [Nombre Marca] asc"); 
         }
 
-        public void buscarDatos(DataGridView dgv)
+        public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
         {
             dgv.DataSource = Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
             string cadena;
             cadena = "Update Marcas set [Nombre Marca] = '"+nombreMarca+"' where [ID Marca] = "+iDMarca+"";
-            Sql_Querys(cadena, "Marca actulizada con exito", "Debe llenar todos los datos antes de añadir");
+            return Sql_Query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }       
     }
 }

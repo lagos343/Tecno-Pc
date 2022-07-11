@@ -14,22 +14,25 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_AñadirProductos : Form
     {
+        //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        //definicion de objetos de las clases necesarias
         Clases.Cl_Productos prod = new Clases.Cl_Productos(); 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
-        public frm_AñadirProductos(int estado, DataGridView dat)
-        {
+        public frm_AñadirProductos(int estado, DataGridView dat) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
+        {                                                        //el segundo recibe los datos del datagrid para llenar los campos en el modo actualizacion
+        
             InitializeComponent();
             if (estado == 1)
             {
                 lbl_titulo.Text = "NUEVO PRODUCTO";
-                btn_guardar.Click += btn_guardarGuardado_Click;
+                btn_guardar.Click += btn_guardarGuardado_Click; //definimos el proceso subrogado para que el boton relice el proceso de guardar
                 InicializarCombobox();
             }
             else if (estado == 2)
@@ -37,7 +40,9 @@ namespace Tecno_Pc.Formularios
                 InicializarCombobox();
                 lbl_titulo.Text = "ACTUALIZAR PRODUCTO";
                 btn_guardar.Text = "ACTUALIZAR";
-                btn_guardar.Click += btn_guardarActualizado_Click;
+                btn_guardar.Click += btn_guardarActualizado_Click; //definimos el proceso subrogado para que el boton relice el proceso de actualizar
+
+                //llenado de los datos en cada control para luego hacer las modificaciones
                 txt_id.Text = dat.CurrentRow.Cells[0+2].Value.ToString();
                 cbo_marca.SelectedValue = dat.CurrentRow.Cells[2 + 2].Value.ToString();
                 cbo_categoria.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
@@ -48,6 +53,7 @@ namespace Tecno_Pc.Formularios
                 swt_estado.Checked = Convert.ToBoolean(dat.CurrentRow.Cells[7 + 2].Value.ToString());
                 txt_codBarra.Text = dat.CurrentRow.Cells[8 + 2].Value.ToString();
                 txt_stock.Text = sql.Consulta2("Select Stock from Inventarios where [ID Producto] = "+txt_id.Text);
+                this.Text = "Actualizar Producto";
             }
 
             this.cbo_proveedor.SelectedIndexChanged += new System.EventHandler(this.cbo_proveedor_SelectedIndexChanged);
@@ -65,7 +71,7 @@ namespace Tecno_Pc.Formularios
             this.Close();
         }        
 
-        public void InicializarCombobox()
+        public void InicializarCombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cbo_marca.DataSource = sql.Consulta("select *from Marcas order by [Nombre Marca] asc");
             cbo_marca.DisplayMember = "Nombre Marca";
@@ -83,44 +89,34 @@ namespace Tecno_Pc.Formularios
             cbo_proveedor.SelectedIndex = -1;
         }
 
-        public void definicionarray()
+        public void definicionarray() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 
         {
             vld.Text = new TextBox[5] {txt_codBarra, txt_modelo, txt_nombre, txt_precio, txt_stock};
             vld.Error = new ErrorProvider[5] {erp5, erp4, erp, erp2, erp3};
-            vld.Minimo = new int[5] {12, 3, 4, 2, 1};
+            vld.Minimo = new int[5] {12, 3, 4, 5, 1};
             vld.Regular = new string[5] {"[0-9]", "[A-Z, a-z, 0-9]", "[A-Z, a-z, 0-9]", "[0-9]{1,7}\\.[0-9]{1,4}", "[0-9]"};
-            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio: 0000000.00", "Solo digitos numericos"};
+            vld.Msj = new string[5] { "Solo digitos numericos", "Caracteres especiales no validos", "Solo caracteres", "Solo formatos de precio\nEjemplo: 1000000.00", "Solo digitos numericos"};
         }
 
-        private void btn_guardarGuardado_Click(object sender, EventArgs e)
+        private void btn_guardarGuardado_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos guardar
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1 )
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00 )
             {
-                DataTable datos = new DataTable();
-                datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                    "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = Convert.ToBoolean(swt_estado.Checked);
+                prod.Codbarra = txt_codBarra.Text;
 
-                if (datos.Rows.Count == 0)
+                if (prod.guardar()) //verificamos que no devuelva error el comando sql
                 {
-                    prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                    prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                    prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                    prod.NombreProducto = txt_nombre.Text;
-                    prod.Modelo = txt_modelo.Text;
-                    prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                    prod.Estado = Convert.ToBoolean(swt_estado.Checked);
-                    prod.Codbarra = txt_codBarra.Text;
-                    prod.guardar();
-                    sql.Sql_Querys("insert into Inventarios values((select top 1 [ID Producto] from Productos order by[ID Producto] desc), " + txt_stock.Text + ")");
+                    sql.Sql_Querys("insert into Inventarios values((select top 1 [ID Producto] from Productos order by[ID Producto] desc), " + txt_stock.Text + ")"); //actualizamos inventarios
                     Limnpiado();
-                }
-                else
-                {
-                    frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
-                    noti.ShowDialog();
-                    noti.Close();
                 }
             }
             else
@@ -135,7 +131,7 @@ namespace Tecno_Pc.Formularios
             frm.Dashboard();
         }
 
-        private void escoger_erp()
+        private void escoger_erp() //muestra los errores que puedan ocurrir en los combobox
         {           
             if (cbo_categoria.SelectedIndex == -1)
             {
@@ -157,53 +153,52 @@ namespace Tecno_Pc.Formularios
 
             if (txt_stock.Text != string.Empty)
             {
-                if (int.Parse(txt_stock.Text) <= 0)
+                try
                 {
-                    erp3.Clear();
-                    erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
+                    if (int.Parse(txt_stock.Text) <= 0)
+                    {
+                        erp3.Clear();
+                        erp3.SetError(txt_stock, "El stock debe ser mayor a 0");
+                    }
                 }
+                catch (Exception){}                
             }
             
             if (txt_precio.Text != string.Empty)
             {
-                if (!(float.Parse(txt_precio.Text) >= 1))
+                try
                 {
-                    erp2.Clear();
-                    erp2.SetError(txt_precio, "El precio debe ser mayor a 0");
+                    if (!(float.Parse(txt_precio.Text) >= 10.00))
+                    {
+                        erp2.Clear();
+                        erp2.SetError(txt_precio, "El precio debe ser mayor\no igual a 10.00");
+                    }
                 }
+                catch (Exception){}                
             }            
         }  
 
-        private void btn_guardarActualizado_Click(object sender, EventArgs e)
+        private void btn_guardarActualizado_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 1)
+            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00)
             {
-                DataTable datos = new DataTable();
-                datos = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                    "from Productos p where Estado = 1 and CodBarra = '" + txt_codBarra.Text + "' order by [Nombre Producto] asc");
+                prod.IDProducto = int.Parse(txt_id.Text);
+                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.NombreProducto = txt_nombre.Text;
+                prod.Modelo = txt_modelo.Text;
+                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado = swt_estado.Checked;
+                prod.Codbarra = txt_codBarra.Text;
 
-                if (datos.Rows.Count == 0)
+                if (prod.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
                 {
-                    actualizar();
-                }
-                else
-                {
-                    string codbar;
-                    codbar = sql.Consulta2("select CodBarra from Productos where [ID Producto] = " + txt_id.Text);
-
-                    if (codbar == txt_codBarra.Text)
-                    {
-                        actualizar();                        
-                    }
-                    else
-                    {
-                        frm_notificacion noti = new frm_notificacion("Ya existe un producto con el codigo de barra ingresado, ¡Modifiquelo!", 3);
-                        noti.ShowDialog();
-                        noti.Close();
-                    }
-                }
+                    sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text); //actulizamos inventarios
+                    this.Close();
+                }                
             }
             else
             {
@@ -214,29 +209,13 @@ namespace Tecno_Pc.Formularios
             }
 
             Formularios.frm_productos frm = Application.OpenForms.OfType<Formularios.frm_productos>().SingleOrDefault();
-            frm.Dashboard();
-        }
-
-        private void actualizar()
-        {
-            prod.IDProducto = int.Parse(txt_id.Text);
-            prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-            prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-            prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-            prod.NombreProducto = txt_nombre.Text;
-            prod.Modelo = txt_modelo.Text;
-            prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-            prod.Estado = swt_estado.Checked;
-            prod.Codbarra = txt_codBarra.Text;
-            prod.actualizarDatos();
-            sql.Sql_Querys("update Inventarios set Stock = " + txt_stock.Text + " where [ID Producto] = " + txt_id.Text);
-            this.Close();
-        }
+            frm.Dashboard(); //recargar el form
+        }        
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         private void Limnpiado()
@@ -339,7 +318,7 @@ namespace Tecno_Pc.Formularios
 
         private void txt_codBarra_TextChanged(object sender, EventArgs e)
         {
-            if (txt_codBarra.Text != "")
+            if (txt_codBarra.Text != "") //se encargara de generar el codigo de barras del producto
             {
                 BarcodeLib.Barcode cod = new BarcodeLib.Barcode();
                 cod.IncludeLabel = true;

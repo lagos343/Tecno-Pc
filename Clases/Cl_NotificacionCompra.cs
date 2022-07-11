@@ -9,6 +9,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_NotificacionCompra: Cl_SqlMaestra
     {
+        //variables que almacenan la columnas de la tabla de la DB
         private static int id_noti;
         private static string producto;
         private static string descripcion;
@@ -24,17 +25,18 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void consultarDatos(DataGridView dgv)
+        //Procedimientos que se heredan de la clase sql para hacer CRUD 
+        public void consultarDatos(DataGridView dgv) //prod que llena el datagrid con las ntificaciones recientes
         {
             dgv.DataSource = Consulta("select * from [Notificacion Compra] where Estado = 1 order by Producto asc");
         }
 
-        public void buscardatos(DataGridView dgv)
+        public void buscardatos(DataGridView dgv) //prod para las busquedas filtadas
         {
             dgv.DataSource = Consulta("select * from [Notificacion Compra] where Estado = 1 and Producto like '%"+producto+"%' order by Producto asc");
         }
 
-        public void eliminar()
+        public void eliminar() //quita la notificacion de la lista y actualiza el formulario
         {
             Sql_Querys("update [Notificacion Compra] set Estado = 0 where [ID NOTI]= "+id_noti, "Producto ya comprado", "Error al eliminar");
             Formularios.frm_MarcasCategorias  frm = Application.OpenForms.OfType<Formularios.frm_MarcasCategorias >().SingleOrDefault();

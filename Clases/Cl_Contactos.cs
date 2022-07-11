@@ -9,6 +9,7 @@ namespace Tecno_Pc.Clases
 { 
     class Cl_Contactos: Cl_SqlMaestra
     {
+        //variables que almacenan la columnas de la tabla de la DB
         private static int iDContacto;
         public static int iDProveedor;
         private static int iDDepto;
@@ -31,35 +32,38 @@ namespace Tecno_Pc.Clases
         public bool Estadoo { get => estado; set => estado = value; }
         #endregion
 
-        public void guardar()
+        //Procedimientos que se heredan de la clase sql para hacer CRUD 
+        public bool guardar()
         {
             string cadena;
-            cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "','" + Direccion + "', " + Convert.ToInt32(estado)+")" ;
-            Sql_Querys(cadena, "Contacto añadido con Exito", "Debe llenar todos los datos antes de añadir");
+            cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "'," +
+                "'" + Direccion + "', " + Convert.ToInt32(estado)+")" ;
+            return Sql_Query(cadena, "Contacto añadido con Exito", "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
         }
 
-        public void consultarDatos(DataGridView dgv)
+        public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
             dgv.DataSource = Consulta(" select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ,(select [Nombre] " +
                 "from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where Estado = 1 order by Nombre asc");
         }
 
-        public void buscarDatos(DataGridView dgv)
+        public void buscarDatos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas 
         {
             dgv.DataSource = Consulta("	 select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ," +
                 "(select [Nombre] from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where Nombre Like '%"+Nombre+"%'  " +
                 "and Estado = 1  order by Nombre asc");
         }
 
-        public void actualizarDatos()
+        public bool actualizarDatos()
         {
-            Sql_Querys("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
-                "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", "Error 504");
+            return Sql_Query("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
+                "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", 
+                "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Contactos set Estado = 0 where [ID Contacto ] = " + iDContacto, "Se ha elminado este Contacto", "Error al eliminar");
+            Sql_Querys("Update Contactos set Estado = 0 where [ID Contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
         }
     }
 

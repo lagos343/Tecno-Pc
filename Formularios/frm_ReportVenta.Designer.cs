@@ -32,7 +32,12 @@ namespace Tecno_Pc.Formularios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ReportVenta));
             this.panel2 = new System.Windows.Forms.Panel();
+            this.salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.minimizar = new Guna.UI.WinForms.GunaPictureBox();
+            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
+            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,18 +49,13 @@ namespace Tecno_Pc.Formularios
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1 = new System.Windows.Forms.Panel();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
-            this.salir = new Guna.UI.WinForms.GunaPictureBox();
-            this.minimizar = new Guna.UI.WinForms.GunaPictureBox();
-            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
-            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel2.SuspendLayout();
-            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel2
@@ -74,6 +74,44 @@ namespace Tecno_Pc.Formularios
             this.panel2.TabIndex = 1;
             this.panel2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel2_MouseDown);
             // 
+            // salir
+            // 
+            this.salir.BaseColor = System.Drawing.Color.White;
+            this.salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
+            this.salir.Location = new System.Drawing.Point(314, 2);
+            this.salir.Name = "salir";
+            this.salir.Size = new System.Drawing.Size(31, 36);
+            this.salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.salir.TabIndex = 6;
+            this.salir.TabStop = false;
+            this.salir.Click += new System.EventHandler(this.salir_Click);
+            // 
+            // minimizar
+            // 
+            this.minimizar.BaseColor = System.Drawing.Color.White;
+            this.minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
+            this.minimizar.Location = new System.Drawing.Point(280, 1);
+            this.minimizar.Name = "minimizar";
+            this.minimizar.Size = new System.Drawing.Size(28, 37);
+            this.minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.minimizar.TabIndex = 5;
+            this.minimizar.TabStop = false;
+            this.minimizar.Click += new System.EventHandler(this.minimizar_Click);
+            // 
+            // btn_minimizar
+            // 
+            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
+            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
+            this.btn_minimizar.Location = new System.Drawing.Point(808, 1);
+            this.btn_minimizar.Name = "btn_minimizar";
+            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
+            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_minimizar.TabIndex = 4;
+            this.btn_minimizar.TabStop = false;
+            // 
             // lbl_titulo
             // 
             this.lbl_titulo.AutoSize = true;
@@ -84,6 +122,30 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.Size = new System.Drawing.Size(98, 15);
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "REPORTE VENTAS";
+            // 
+            // btn_salir
+            // 
+            this.btn_salir.BaseColor = System.Drawing.Color.White;
+            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
+            this.btn_salir.Location = new System.Drawing.Point(841, 2);
+            this.btn_salir.Name = "btn_salir";
+            this.btn_salir.Size = new System.Drawing.Size(31, 36);
+            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_salir.TabIndex = 3;
+            this.btn_salir.TabStop = false;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox1.TabIndex = 2;
+            this.gunaPictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -224,68 +286,6 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
-            // salir
-            // 
-            this.salir.BaseColor = System.Drawing.Color.White;
-            this.salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.salir.Location = new System.Drawing.Point(314, 2);
-            this.salir.Name = "salir";
-            this.salir.Size = new System.Drawing.Size(31, 36);
-            this.salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.salir.TabIndex = 6;
-            this.salir.TabStop = false;
-            this.salir.Click += new System.EventHandler(this.salir_Click);
-            // 
-            // minimizar
-            // 
-            this.minimizar.BaseColor = System.Drawing.Color.White;
-            this.minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.minimizar.Location = new System.Drawing.Point(280, 1);
-            this.minimizar.Name = "minimizar";
-            this.minimizar.Size = new System.Drawing.Size(28, 37);
-            this.minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.minimizar.TabIndex = 5;
-            this.minimizar.TabStop = false;
-            this.minimizar.Click += new System.EventHandler(this.minimizar_Click);
-            // 
-            // btn_minimizar
-            // 
-            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.btn_minimizar.Location = new System.Drawing.Point(808, 1);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
-            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_minimizar.TabIndex = 4;
-            this.btn_minimizar.TabStop = false;
-            // 
-            // btn_salir
-            // 
-            this.btn_salir.BaseColor = System.Drawing.Color.White;
-            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.btn_salir.Location = new System.Drawing.Point(841, 2);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(31, 36);
-            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_salir.TabIndex = 3;
-            this.btn_salir.TabStop = false;
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 2;
-            this.gunaPictureBox1.TabStop = false;
-            // 
             // frm_ReportVenta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -303,16 +303,16 @@ namespace Tecno_Pc.Formularios
             this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frm_ReportVenta";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "frm_ReportVenta";
+            this.Text = "Reportes de Ventas";
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }
