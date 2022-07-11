@@ -9,6 +9,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_Proveedores: Cl_SqlMaestra
     {
+        //variables que almacenan la columnas de la tabla de la DB
         private static int iDProveedor;
         private static int iDDepto;
         private static string nombre;
@@ -29,19 +30,20 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
+        //Procedimientos que se heredan de la clase sql para hacer CRUD 
         public bool guardar()
         {
             return Sql_Query("insert into Proveedores values ("+iDDepto+", '"+nombre+"', '"+telefono+"', '"+direccion+"', '"+correoElectronico+"', " + Convert.ToInt32(estado) + ")", 
-                "Proveedor añadid con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre");
+                "Proveedor añadid con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
-        public void consultarDatos(DataGridView dgv)
+        public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
         {
             dgv.DataSource = Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores where " +
                 "Estado = 1 order by Nombre asc");
         }
 
-        public void buscarDatos(DataGridView dgv)
+        public void buscarDatos(DataGridView dgv) //busquedas filtradas
         {
             dgv.DataSource = Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores " +
                 "where Estado = 1 and Nombre Like '%"+nombre+"%' order by Nombre asc");
@@ -50,7 +52,7 @@ namespace Tecno_Pc.Clases
         public bool actualizarDatos()
         {
             return Sql_Query("update Proveedores set [ID Depto] ="+iDDepto +", Nombre = '"+nombre+"', Telefono = '"+telefono+"', Direccion = '"+direccion+"', [Correo Electronico] = '"+correoElectronico+"' " +
-                "where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre");
+                "where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
         public void eliminar()

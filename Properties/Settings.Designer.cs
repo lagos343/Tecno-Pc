@@ -94,5 +94,77 @@ namespace Tecno_Pc.Properties {
                 this["RutaReportes"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string ReporteActual {
+            get {
+                return ((string)(this["ReporteActual"]));
+            }
+            set {
+                this["ReporteActual"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Email {
+            get {
+                return ((string)(this["Email"]));
+            }
+            set {
+                this["Email"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Direccion {
+            get {
+                return ((string)(this["Direccion"]));
+            }
+            set {
+                this["Direccion"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string Telefono {
+            get {
+                return ((string)(this["Telefono"]));
+            }
+            set {
+                this["Telefono"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string RTN {
+            get {
+                return ((string)(this["RTN"]));
+            }
+            set {
+                this["RTN"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string CAI {
+            get {
+                return ((string)(this["CAI"]));
+            }
+            set {
+                this["CAI"] = value;
+            }
+        }
     }
 }

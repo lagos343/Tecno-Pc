@@ -24,7 +24,7 @@ namespace Tecno_Pc.Formularios
 
         Clases.Cl_Contactos con = new Clases.Cl_Contactos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Excel excel = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_contactos()
@@ -88,6 +88,7 @@ namespace Tecno_Pc.Formularios
         {
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[1].Visible = false;
+            dgv_datos.Columns[2].Visible = false;
             dgv_datos.Columns[6].Visible = false;
             dgv_datos.Columns[8].Visible = false;
         }
@@ -110,21 +111,18 @@ namespace Tecno_Pc.Formularios
             vld.Text = new TextBox [5] { txt_nombre, txt_apellido, txt_direccion,txt_telefono,txt_email };
             vld.Error = new ErrorProvider[5] {erp_nombre,erp_apellido, erp_direccion, erp_telefono, erp_email  };
             vld.Minimo = new int[5] { 2, 2 , 3, 8, 10 };
-            vld.Regular = new string[5] { "[A-Z, a-z]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "(2|3|8|9)[ -]*([0-9]*)", "\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*" };
-            vld.Msj = new string[5] {"Solo caracteres",  "Solo caracteres", "Caracteres especiales no validos", "Solo digitos numericos y que empiecen por 2,3,8 y 9",  "solo emails validos: Example@dominio.algo" };
+            vld.Regular = new string[5] { "[A-Z, a-z]", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]", "(2|3|8|9)[ -]*([0-9]*)",
+                "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$" };
+            vld.Msj = new string[5] {"Solo caracteres",  "Solo caracteres", "Caracteres especiales no validos", "Solo digitos numericos y que empiecen por 2,3,8 y 9",  "solo emails validos: example@dominio.algo" };
 
         }
-
-        
+                
         private void frm_contactos_Load(object sender, EventArgs e)
         {
             dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
             operacionesDataGrid();
             InicializarCombobox();
         }
-
-
-
 
         private void btn_nuevo_Click_1(object sender, EventArgs e)
         {
@@ -135,7 +133,7 @@ namespace Tecno_Pc.Formularios
         private void btn_guardar_Click_1(object sender, EventArgs e)
         {
             definicionarray();
-            if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1)
+            if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_email) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
@@ -181,7 +179,9 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp(); 
+                escoger_erp();
+                if (vld.ValidarLetrasCorreos(txt_email, erp_email) == true) ;
+                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
             }
         }
 
@@ -333,24 +333,30 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelContactos);
+            Task tar1 = new Task(ReporteContactos);
             tar1.Start();
             await tar1;
 
             noti.Close();
             btn_imprimir.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
+            frm.BringToFront();
         }
 
-        public void excelContactos()
+        public void ReporteContactos()
         {
-            excel.Cadena_consulta = "Select [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
+            rep.Cadena_consulta = "Select Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], " +
+                "Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
                 "Departamentos.[ID Depto] inner join Proveedores ON Contactos.[ID Proveedor] = Proveedores.[ID Proveedor] WHERE Contactos.Estado = 1 ORDER BY Contacto ASC";
-            excel.Cabecera = new string[6] { "Proveedor", "Departamento", "Nombre", "Telefono", "Correo Electrónico", "Dirección" };
-            excel.RangoCabecera = "C5 H5";
-            excel.Titulo = "Reporte de Contactos";
-            excel.Carpeta = "Contactos";
-            excel.Fecha = DateTime.Now.ToShortDateString();
-            excel.GenerarExcel();
+            rep.Cabecera = new string[6] { "Contacto", "Proveedor", "Departamento", "Telefono", "Correo Electrónico", "Dirección" };
+            rep.Tamanios = new float[6] { 6, 5, 3, 2, 5, 8};
+            rep.Titulo = "Reporte de Contactos";
+            rep.Carpeta = "Contactos";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }
 
         private void txt_direccion_KeyPress(object sender, KeyPressEventArgs e)

@@ -42,6 +42,7 @@ namespace Tecno_Pc.Formularios
                 cborol.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
                 txt_usuario.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
                 txt_pass.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
+                this.Text = "Actualizar Usuario";
             }
         }
 

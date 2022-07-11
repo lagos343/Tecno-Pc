@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 namespace Tecno_Pc.Formularios
 {
@@ -17,7 +15,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_Productos prod = new Clases.Cl_Productos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_Excel ex = new Clases.Cl_Excel();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_productos()
         {
@@ -139,26 +137,30 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(excelProductos);
+            Task tar1 = new Task(ReporteProductos);
             tar1.Start();
             await tar1;
 
             noti.Close();
             btn_Imprimir.Enabled = true;
+
+            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
+            frm.abrirPdfs(new frm_productos()); //abrimos el pdf
         }
 
-        private void excelProductos()
+        private void ReporteProductos()
         {
-            ex.Cadena_consulta = "select p.[Nombre Producto], p.Modelo, p.[Precio Unitario], c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
-                "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, '-'+CodBarra+'-' from Productos p " +
+            rep.Cadena_consulta = "select p.[Nombre Producto], p.Modelo, CAST(p.[Precio Unitario] AS decimal(9,2)), c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
+                "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, CodBarra from Productos p " +
                 "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
                 "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1";
-            ex.Cabecera =  new string[8] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras"};
-            ex.Titulo = "Reporte de inventarios de Productos";
-            ex.RangoCabecera = "C5 J5";
-            ex.Carpeta = "Productos";
-            ex.Fecha = DateTime.Now.ToShortDateString();
-            ex.GenerarExcel();
+            rep.Cabecera =  new string[8] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras"};
+            rep.Titulo = "Reporte de inventarios de Productos";
+            rep.Tamanios = new float[8] {6, 4, 3, 4, 4, 6, 2, 4};
+            rep.Carpeta = "Productos";
+            rep.Fecha = DateTime.Now.ToShortDateString();
+            rep.Vertical = false;
+            rep.GenerarPdf();
         }        
 
         private void usuario()

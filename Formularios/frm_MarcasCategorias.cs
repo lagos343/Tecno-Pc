@@ -8,8 +8,6 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Microsoft.Office.Interop.Excel;
-using objExcel = Microsoft.Office.Interop.Excel;
 
 
 namespace Tecno_Pc.Formularios
@@ -117,11 +115,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayCategorias();
 
-            if (vld.comprobartxt() == false)
+            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
             {                
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();                
+                noti.Close();
+                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false);
             }
             else
             {
@@ -179,11 +178,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayMarcas();
 
-            if (vld.comprobartxt() == false)
+            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
             {
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
-                noti.Close();                
+                noti.Close();
+                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false) ;
             }
             else
             {

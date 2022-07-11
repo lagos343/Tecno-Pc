@@ -23,6 +23,7 @@ namespace Tecno_Pc.Formularios
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_ConfigurarDB(bool modi)
         {
@@ -52,6 +53,11 @@ namespace Tecno_Pc.Formularios
                 }
 
                 txt_ruta.Text = Properties.Settings.Default.RutaReportes.ToString();
+                txt_rtn.Text = Properties.Settings.Default.RTN.ToString();
+                txt_cai.Text = Properties.Settings.Default.CAI.ToString();
+                txt_dir.Text = Properties.Settings.Default.Direccion.ToString();
+                txt_correo.Text = Properties.Settings.Default.Email.ToString();
+                txt_telefono.Text = Properties.Settings.Default.Telefono.ToString();
             }            
         }
 
@@ -147,8 +153,9 @@ namespace Tecno_Pc.Formularios
         }
 
         private void btn_guardar_Click(object sender, EventArgs e)
-        {                    
-            if (cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "")
+        {
+            definicionarray();
+            if (vld.comprobartxt() == true && cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "" && txt_cai.Text.Length == 37)
             { 
                 if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == ""))
                 {
@@ -188,6 +195,13 @@ namespace Tecno_Pc.Formularios
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Facturas");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Ventas");
 
+                        //Datos de Facturacion
+                        Properties.Settings.Default.RTN = txt_rtn.Text;
+                        Properties.Settings.Default.CAI = txt_cai.Text;
+                        Properties.Settings.Default.Direccion = txt_dir.Text;
+                        Properties.Settings.Default.Email = txt_correo.Text;
+                        Properties.Settings.Default.Telefono = txt_telefono.Text;
+
                         Properties.Settings.Default.Save();                                                
 
                         noti.Close();
@@ -206,7 +220,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                frm_notificacion noti3 = new frm_notificacion("Llene todos los datos", 3);
+                frm_notificacion noti3 = new frm_notificacion("Error al guardar, corrija las Advertencias", 3);
                 noti3.ShowDialog();
                 noti3.Close();
                 escoger_erp();
@@ -215,6 +229,12 @@ namespace Tecno_Pc.Formularios
 
         public void escoger_erp()
         {
+            if (txt_cai.Text.Length != 37)
+            {
+                erp_cai.Clear();
+                erp_cai.SetError(txt_cai, "Llene todo el campo");
+            }
+
             if (cbo_servers.Text == "")
             {
                 erp_servidor.Clear();
@@ -269,10 +289,21 @@ namespace Tecno_Pc.Formularios
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
-        }       
+        }
+
+        public void definicionarray() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 
+        {
+            vld.Text = new TextBox[] { txt_dir, txt_correo, txt_telefono, txt_rtn};
+            vld.Error = new ErrorProvider[] { erp_dir, erp_correo, erp_tel, erp_rtn };
+            vld.Minimo = new int[] { 3, 10, 8, 14 , 37};
+            vld.Regular = new string[] {"[A-Z, a-z, 0-9,.,#]", "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
+                "(2|3|8|9)[ -]*([0-9]*)", "[0-9]"};
+            vld.Msj = new string[] { "Caracteres especiales no validos", "solo emails validos: example@dominio.algo", "Solo digitos numericos y que empiecen por 2,3,8 y 9" , "Solo Carcateres Numericos"};
+
+        }
 
         #region limpiar_erps
-        
+
         private void cbo_servers_SelectedIndexChanged(object sender, EventArgs e)
         {
             erp_servidor.Clear();
@@ -290,10 +321,70 @@ namespace Tecno_Pc.Formularios
 
         #endregion
 
+        #region keypress
         private void cbo_servers_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (EscribirServer == false)
             e.Handled = true;
         }
+
+        private void txt_telefono_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            erp_tel.Clear();
+
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_rtn_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            erp_rtn.Clear();
+
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar))
+            {
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void txt_correo_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            erp_correo.Clear();
+        }
+
+        private void txt_cai_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            erp_cai.Clear();
+
+            if (Char.IsDigit(e.KeyChar) || Char.IsControl(e.KeyChar) || Char.IsLetter(e.KeyChar))
+            {
+                e.KeyChar = Char.ToUpper(e.KeyChar);
+                e.Handled = false;
+            }
+            else
+            {
+                e.Handled = true;
+            }            
+        }
+
+        private void txt_dir_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                e.Handled = true;
+                btn_guardar.PerformClick();
+            }
+        }
+
+        #endregion
     }
 }
