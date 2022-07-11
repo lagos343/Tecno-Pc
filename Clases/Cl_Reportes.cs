@@ -142,10 +142,10 @@ namespace Tecno_Pc.Clases
             
             //Inializacion de las variables que almacenaran los datos            
             System.Data.DataTable registros = new System.Data.DataTable();
-            string id, empleado, cliente, transac, Fventa, Fvenci;
+            string id, empleado, cliente, transac, Fventa, idsar;
             double isv;
-            string[] cabecera = new string[] { "Descripcion", "Precio Unitario", "Cant", "Total" };
-            float[] tamanios = new float[] { 8, 4, 3, 4 };
+            string[] cabecera = new string[] { "Descripcion", "Precio Unitario", "Cant", "Descuento", "Total" };
+            float[] tamanios = new float[] { 11, 2, 1, 2, 2 };
 
             //Extraccion de la Cabecera desde el DGV            
             id = Dgv.Rows[0][0].ToString();
@@ -153,15 +153,23 @@ namespace Tecno_Pc.Clases
             cliente = Dgv.Rows[0][1].ToString();
             transac = Dgv.Rows[0][3].ToString();
             Fventa = Dgv.Rows[0][4].ToString().Replace("00", "");
-            Fvenci = Dgv.Rows[0][5].ToString().Replace("00", "");
-            isv = double.Parse(Dgv.Rows[0][6].ToString());
+            isv = double.Parse(Dgv.Rows[0][5].ToString());
+            idsar = Dgv.Rows[0][6].ToString();
+
+            //Extraccion de Los datos de la SAR
+            System.Data.DataTable Sar = new System.Data.DataTable();
+            long desde, hasta;
+            string limite;
+
+            Sar = Consulta("select *from Sar where id_sar = "+idsar);
+            desde = long.Parse(Sar.Rows[0][1].ToString());
+            hasta = long.Parse(Sar.Rows[0][2].ToString());
+            limite = Sar.Rows[0][3].ToString().Replace("00", "");
 
             //Extraccion de los detalles de la Factura
-            registros = Consulta("select (p.[Nombre Producto] +' '+ p.[Modelo]), CAST(df.[Precio Historico] AS decimal(9,2)), df.Cantidad, " +
-                "CAST((df.[Precio Historico] * df.Cantidad) AS decimal(9, 2)) " +
-                "Total from DetalleFactura df inner join Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);
-
-            double subtot = double.Parse(Consulta2("select Sum([Precio Historico] * Cantidad) SubTotal from DetalleFactura where [ID Factura] = " + id));
+            registros = Consulta("select (p.[Nombre Producto] +' '+ p.[Modelo]), CAST(df.[Precio Historico] AS decimal(9,2)), df.Cantidad, CAST((df.[Precio Historico]) * Descuentos " +
+                "AS decimal(9, 2)), CAST(((df.[Precio Historico] * df.Cantidad) - (df.[Precio Historico] * df.Cantidad * Descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
+                "Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);            
 
             //indicamos el reporte que se abrira el el formulario de PDFs
             Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf";
@@ -173,31 +181,31 @@ namespace Tecno_Pc.Clases
             PdfDocument pdf = new PdfDocument(EscritorPdf);
             Document documento;
 
-            documento = new Document(pdf, PageSize.LETTER);
+
+            documento = new Document(pdf, new PageSize(612, 504));
 
             //Personalizacion
-            documento.SetMargins(40, 40, 40, 40);
+            documento.SetMargins(10, 10, 10, 10);
 
             //Creamos los tipos de fuentes
             PdfFont FontColumnas = PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD);
             PdfFont FontContenido = PdfFontFactory.CreateFont(StandardFonts.HELVETICA);
 
             //Creando el Encabezado 
-            documento.Add(new Paragraph("Tecno PC").SetFont(FontColumnas).SetFontSize(15));
-            documento.Add(new Paragraph("Tecno Edificio Plaza América Colonia Florencia Norte\npctecno536@gmail.com\n9875-2356").SetFont(FontContenido).SetFontSize(11));
-            documento.Add(new Paragraph("    ").SetFont(FontContenido).SetFontSize(11));
-            documento.Add(new Paragraph("Cliente:").SetFont(FontColumnas).SetFontSize(11));
-            documento.Add(new Paragraph(cliente).SetFont(FontContenido).SetFontSize(11));
-            documento.Add(new Paragraph("Vendedor:").SetFont(FontColumnas).SetFontSize(11));
-            documento.Add(new Paragraph(empleado).SetFont(FontContenido).SetFontSize(11));
+            documento.Add(new Paragraph("Tecno PC").SetFont(FontColumnas).SetFontSize(12));
+            documento.Add(new Paragraph(Properties.Settings.Default.Direccion.ToString()+"\nEmail: "+Properties.Settings.Default.Email.ToString()+"\nTel: (504) " + Properties.Settings.Default.Telefono.ToString() +
+                "\nRango Autorizado: 000-001-1-0-0" +desde.ToString("0000000")+" - 000-001-01-0-0"+ hasta.ToString("0000000") + "\nCliente: " + cliente + 
+                "\t\tVendedor: " + empleado).SetFont(FontContenido).SetFontSize(8));
 
-            float y = pdf.GetPage(1).GetPageSize().GetTop() - 40; //calculando la cordenada y para posicionar los parrafos de la derecha
-            float x = pdf.GetPage(1).GetPageSize().GetRight() - 40; //calculando la cordenada x para posicionar los parrafos de la derecha
-            documento.ShowTextAligned(new Paragraph("Factura N° " + id).SetFont(FontColumnas).SetFontSize(15), x, y - 5, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
-            documento.ShowTextAligned(new Paragraph("RTN: 14011992000298" + id).SetFont(FontContenido).SetFontSize(11), x, y - 37, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
-            documento.ShowTextAligned(new Paragraph("Transaccion: " + transac).SetFont(FontContenido).SetFontSize(11), x, y - 53, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
-            documento.ShowTextAligned(new Paragraph("Fecha Venta: " + Fventa.Replace(":", "")).SetFont(FontContenido).SetFontSize(11), x, y - 69, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
-            documento.ShowTextAligned(new Paragraph("Vencimiento: " + Fvenci.Replace(":", "")).SetFont(FontContenido).SetFontSize(11), x, y - 85, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            float y = pdf.GetPage(1).GetPageSize().GetTop() - 10; //calculando la cordenada y para posicionar los parrafos de la derecha
+            float x = pdf.GetPage(1).GetPageSize().GetRight() - 10; //calculando la cordenada x para posicionar los parrafos de la derecha
+            documento.ShowTextAligned(new Paragraph("Factura N° 000-001-01-0" + long.Parse(id).ToString("0000000")).SetFont(FontColumnas).SetFontSize(12), x, y - 6, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("").SetFont(FontContenido).SetFontSize(8), x, y - 37, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("Transaccion: " + transac).SetFont(FontContenido).SetFontSize(8), x, y - 31, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("Fecha Venta: " + Fventa.Replace(":", "")).SetFont(FontContenido).SetFontSize(8), x, y - 42, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("Fecha Limite: " + limite.Replace(":", "")).SetFont(FontContenido).SetFontSize(8), x, y - 54, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("RTN: "+ Properties.Settings.Default.RTN.ToString()).SetFont(FontContenido).SetFontSize(8), x, y - 67, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);
+            documento.ShowTextAligned(new Paragraph("C.A.I: "+ Properties.Settings.Default.CAI.ToString()).SetFont(FontContenido).SetFontSize(8), x, y - 80, 1, TextAlignment.RIGHT, VerticalAlignment.TOP, 0);            
 
             //Creando la Cabecera
             Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
@@ -205,7 +213,7 @@ namespace Tecno_Pc.Clases
 
             foreach (var columna in cabecera)
             {
-                tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(FontColumnas)).SetFontSize(11));
+                tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(FontColumnas)).SetFontSize(8));
             }
 
             //añadiendo los registros a la tabla
@@ -213,19 +221,51 @@ namespace Tecno_Pc.Clases
             {
                 for (int j = 0; j < registros.Columns.Count; j++)
                 {
-                    tabla.AddCell(new Cell().Add(new Paragraph(registros.Rows[i][j].ToString()).SetFontSize(11)));
+                    tabla.AddCell(new Cell().Add(new Paragraph(registros.Rows[i][j].ToString()).SetFontSize(8)));
+                }
+            }
+
+            if(tabla.GetNumberOfRows() < 17)
+            {
+                for (int i = tabla.GetNumberOfRows(); i <= 17; i++)
+                {                    
+                    tabla.AddCell(new Cell().Add(new Paragraph("\n").SetFontSize(8)));
+                    tabla.AddCell(new Cell().Add(new Paragraph("\n").SetFontSize(8)));
+                    tabla.AddCell(new Cell().Add(new Paragraph("\n").SetFontSize(8)));
+                    tabla.AddCell(new Cell().Add(new Paragraph("\n").SetFontSize(8)));
+                    tabla.AddCell(new Cell().Add(new Paragraph("\n").SetFontSize(8)));
                 }
             }
 
             documento.Add(tabla);
 
-            //Creando la parte calculada de la Factura
-            documento.Add(new Paragraph("Sub Total: L " + subtot + "\nISV: " + (isv * 100) + "%\nImpuesto: L " + (isv * subtot)).SetFont(FontContenido).SetFontSize(11).
-                SetTextAlignment(TextAlignment.RIGHT));
-            documento.Add(new Paragraph("TOTAL FACTURA: L " + ((isv * subtot) + subtot)).SetFont(FontColumnas).SetFontSize(13).SetTextAlignment(TextAlignment.RIGHT));
+            //Creando la parte calculada de la Factura        
+            double Descuentos, Gravado;
+
+            try
+            {
+                Descuentos = double.Parse(Consulta2("select Sum(CAST(([Precio Historico] * Cantidad * Descuentos) AS decimal(9, 2))) Descuento from " +
+                "DetalleFactura where [ID Factura] = " + id + " and Descuentos > 0.00"));
+            }
+            catch (Exception)
+            {Descuentos = 0.00;}
+
+            try
+            {
+                Gravado = double.Parse(Consulta2("select Sum(CAST((([Precio Historico] * Cantidad)) AS decimal(9, 2))) Excento from " +
+                "DetalleFactura where [ID Factura] = " + id));
+            }
+            catch (Exception)
+            {Gravado = 0.00;}
+            
+
+            documento.Add(new Paragraph("Descuentos Otorgados: L " + Descuentos + "\nImporte Gravado 15%: L " + (Gravado - (Gravado * isv)).ToString("0.00") + "\nISV 15%: L " + 
+                (isv * Gravado).ToString("0.00")).SetFontSize(8).SetTextAlignment(TextAlignment.RIGHT));
+            
+            documento.Add(new Paragraph("TOTAL A PAGAR L " + (Gravado - Descuentos)).SetFont(FontColumnas).SetFontSize(8).SetTextAlignment(TextAlignment.RIGHT));
 
             documento.Close(); //cerramos el doc
-
         }
     }
 }
+ 

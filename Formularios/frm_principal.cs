@@ -30,7 +30,7 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(btn_cerrar, "Salir");
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
             toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");
-            toolTip1.SetToolTip(btn_server, "Configurar DB");
+            toolTip1.SetToolTip(btn_server, "Configuracion inicial");
 
             if (Properties.Settings.Default.CodBar == "")
             {
