@@ -142,36 +142,19 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        private async void btn_reporte_Click(object sender, EventArgs e)
+        private void btn_reporte_Click(object sender, EventArgs e)
         {
-            btn_reporte.Enabled = false;
-            frm_notificacion noti = new frm_notificacion("", 4);
-            noti.Show();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Frm_ReportProveedores);
 
-            Task tar1 = new Task(ReporteProveedores);
-            tar1.Start();
-            await tar1;
-
-            noti.Close();
-            btn_reporte.Enabled = true;
-
-            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
-        }
-
-
-        public void ReporteProveedores()
-        {
-            rep.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
-                " Proveedores INNER JOIN  Departamentos ON Proveedores.[ID Depto] = Departamentos.[ID Depto]" +
-                " WHERE Proveedores.Estado = 1 ORDER BY Nombre asc";
-            rep.Cabecera = new string[5] { "Proveedor", "Telefono", "Departamento", "Direccion", "Email" };
-            rep.Titulo = "Reporte de Proveedores";
-            rep.Tamanios = new float[5] { 6, 3, 5, 9, 5 };
-            rep.Carpeta = "Proveedores";
-            rep.Fecha = DateTime.Now.ToShortDateString();
-            rep.Vertical = false;
-            rep.GenerarPdf();
-        }
+            if (frm == null)
+            {
+                Frm_ReportProveedores report = new Frm_ReportProveedores();
+                report.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
+        }        
     }
 }

@@ -124,34 +124,19 @@ namespace Tecno_Pc.Formularios
             catch(Exception ex){}            
         }
 
-        private async void btn_reporte_Click(object sender, EventArgs e)
+        private void btn_reporte_Click(object sender, EventArgs e)
         {
-            btn_reporte.Enabled = false;
-            frm_notificacion noti = new frm_notificacion("", 4);
-            noti.Show();
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
 
-            Task tar1 = new Task(ReporteEmpleados);
-            tar1.Start();
-            await tar1;
-
-            noti.Close();
-            btn_reporte.Enabled = true;
-
-            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.abrirPdfs(new frm_empleados()); //abrimos el pdf
+            if (frm == null)
+            {
+                frm_ReportVendedor report = new frm_ReportVendedor();
+                report.Show();
+            }
+            else
+            {
+                frm.BringToFront();
+            }
         }
-
-        public void ReporteEmpleados()
-        {
-            rep.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], Empleados.Identidad, Empleados.Telefono, Empleados.[Correo Electronico], Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
-                " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC";
-            rep.Cabecera = new string[6] { "Empleado" , "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
-            rep.Tamanios = new float[6] { 6, 4, 2, 5, 4, 8 };
-            rep.Titulo = "Reporte de Empleados";
-            rep.Carpeta = "Empleados";
-            rep.Fecha = DateTime.Now.ToShortDateString();
-            rep.Vertical = false;
-            rep.GenerarPdf();
-        }    
-    }
+    }         
 }
