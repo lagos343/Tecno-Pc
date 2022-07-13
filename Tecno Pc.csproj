@@ -319,6 +319,18 @@
     <Compile Include="Formularios\frm_proveedores.Designer.cs">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\Frm_ReportProveedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\Frm_ReportProveedores.Designer.cs">
+      <DependentUpon>Frm_ReportProveedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Formularios\frm_ReportVendedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_ReportVendedor.Designer.cs">
+      <DependentUpon>frm_ReportVendedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_ReportVenta.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -389,6 +401,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_proveedores.resx">
       <DependentUpon>frm_proveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\Frm_ReportProveedores.resx">
+      <DependentUpon>Frm_ReportProveedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_ReportVendedor.resx">
+      <DependentUpon>frm_ReportVendedor.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_ReportVenta.resx">
       <DependentUpon>frm_ReportVenta.cs</DependentUpon>
