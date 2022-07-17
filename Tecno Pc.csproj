@@ -337,6 +337,12 @@
     <Compile Include="Formularios\frm_ReportVenta.Designer.cs">
       <DependentUpon>frm_ReportVenta.cs</DependentUpon>
     </Compile>
+    <Compile Include="Formularios\frm_sar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Formularios\frm_sar.Designer.cs">
+      <DependentUpon>frm_sar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Formularios\frm_Usuarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -410,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_ReportVenta.resx">
       <DependentUpon>frm_ReportVenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Formularios\frm_sar.resx">
+      <DependentUpon>frm_sar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Formularios\frm_Usuarios.resx">
       <DependentUpon>frm_Usuarios.cs</DependentUpon>

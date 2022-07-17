@@ -234,7 +234,6 @@ namespace Tecno_Pc.Formularios
         private void btn_server_Click(object sender, EventArgs e)
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ConfigurarDB);
-
             if (frm == null)
             {
                 frm_ConfigurarDB db = new frm_ConfigurarDB(true);

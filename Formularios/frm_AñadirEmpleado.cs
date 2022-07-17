@@ -64,14 +64,14 @@ namespace Tecno_Pc.Formularios
 
         public void iniciarcombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
-            cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [Nombre Puesto] asc");
-            cbo_puesto.DisplayMember = "Nombre Puesto";
-            cbo_puesto.ValueMember = "ID Puesto";
+            cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [nombre_puesto] asc");
+            cbo_puesto.DisplayMember = "nombre_puesto";
+            cbo_puesto.ValueMember = "id_puesto";
             cbo_puesto.SelectedIndex = -1;
 
-            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [Nombre Depto] asc");
-            cbo_depto.DisplayMember = "Nombre Depto";
-            cbo_depto.ValueMember = "ID Depto";
+            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DisplayMember = "nombre_depto";
+            cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;           
         }
 
@@ -81,10 +81,11 @@ namespace Tecno_Pc.Formularios
             vld.Text  =  new TextBox [6] {txt_nombre, txt_identidad, txt_apellido, txt_direccion, txt_correo, txt_telefono};
             vld.Error = new ErrorProvider[6] {erp_nom, erp_id, erp_ape, erp_dir, erp_email, erp_tel};
             vld.Minimo = new int[6] {2,13,2,3,10,8};
-            vld.Regular = new string[6] {"[A-Z, a-z]" ,"(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[1900-2500]{4}[0-9]{5}", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]",
+            vld.Regular = new string[6] {"[A-Z, a-z]" ,"(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[0-9]{4}[0-9]{5}", "[A-Z, a-z]", "[A-Z, a-z, 0-9,.,#]",
                 "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$", 
                 "(2|3|8|9)[ -]*([0-9]*)" };
-            vld.Msj = new string [6] {"Solo caracteres", "Solo digitos numericos","Solo caracteres","Caracteres especiales no validos", "solo emails validos: example@dominio.algo", "Solo digitos numericos y que empiecen por 2,3,8 y 9"};
+            vld.Msj = new string [6] {"Solo caracteres", "Solo digitos numericos, tomar\nen cuenta tambien el formato valido\n(depto + municipio) (año) (tomo+folio)",
+                "Solo caracteres","Caracteres especiales no validos", "solo emails validos: example@dominio.algo", "Solo digitos numericos y que empiecen por 2,3,8 y 9"};
             
         }       
 
@@ -185,6 +186,7 @@ namespace Tecno_Pc.Formularios
             cbo_depto.SelectedIndex = -1;
             cbo_puesto.SelectedIndex = -1;                  
         }
+
         private void btn_salir_Click(object sender, EventArgs e)
         {
             this.Close();

@@ -95,7 +95,8 @@ namespace Tecno_Pc.Formularios
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            try {
+            try 
+            {
                 if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
                 {
                     frm_AñadirUsuarios añaem = new frm_AñadirUsuarios(2, dgv_Productos);
@@ -181,12 +182,12 @@ namespace Tecno_Pc.Formularios
 
         public void ReporteUsuarios()
         {
-            rep.Cadena_consulta = "Select Usuarios.[ID Usuario] [Id], Roles.[Nombre Rol] [Roles], " +
-            "Empleados.Nombre + ' ' + Empleados.Apellido [Empleados], Usuarios.[Nombre Usuario] [Nombre] " +
+            rep.Cadena_consulta = "Select Usuarios.[id_usuario] [Id], Roles.[nombre_rol] [Roles], " +
+            "Empleados.nombre_empleado + ' ' + Empleados.apellido_empleado [Empleados], Usuarios.[nombre_usuario] [Nombre] " +
             " from Usuarios " +
-            " inner join Roles on Usuarios.[ID Rol] = Roles.IDRol inner join " +
-            "Empleados on Usuarios.[ID Empleado] = Empleados.[ID Empleado] " +
-            "WHERE Empleados.Estado = 1 ORDER BY Nombre ASC";
+            " inner join Roles on Usuarios.[id_rol] = Roles.id_rol inner join " +
+            "Empleados on Usuarios.[id_empleado] = Empleados.[id_empleado] " +
+            "WHERE Empleados.estado_empleado = 1 ORDER BY nombre_empleado ASC";
             rep.Cabecera = new string[4] { "Id" , "Roles" , "Propietario", "Usuario" };
             rep.Titulo = "Reporte de Usuarios";
             rep.Tamanios = new float[4] { 4, 4, 8, 4 };

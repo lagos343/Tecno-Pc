@@ -57,9 +57,9 @@ namespace Tecno_Pc.Formularios
         {
             if (radio_gen.Checked)
             {
-                rep.Cadena_consulta = "SELECT Empleados.Nombre  +' ' + Empleados.Apellido [Empleado], Empleados.Identidad, Empleados.Telefono, Empleados.[Correo Electronico], " +
-                    "Departamentos.[Nombre Depto] [Departamento],Empleados.Direccion  FROM     Empleados INNER JOIN Departamentos ON Empleados.[ID Depto] =" +
-                    " Departamentos.[ID Depto] WHERE Empleados .Estado = 1 ORDER BY Empleado ASC";
+                rep.Cadena_consulta = "SELECT Empleados.nombre_empleado  +' ' + Empleados.apellido_empleado [Empleado], Empleados.identidad_empleado, Empleados.telefono_empleado, Empleados.[correo_electronico], " +
+                    "Departamentos.[nombre_depto] [Departamento],Empleados.direccion_empleado  FROM     Empleados INNER JOIN Departamentos ON Empleados.[id_depto] =" +
+                    " Departamentos.[id_depto] WHERE Empleados .estado_empleado = 1 ORDER BY Empleado ASC";
                 rep.Cabecera = new string[6] { "Empleado", "Identidad", "Telefono", "Correo Electronico", "Departamento", "Dirección" };
                 rep.Tamanios = new float[6] { 6, 4, 2, 5, 4, 8 };
                 rep.Titulo = "Reporte de Empleados";
@@ -70,9 +70,9 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                rep.Cadena_consulta = "select (e.Nombre + ' ' + e.Apellido), e.Identidad, Sum(df.[Precio Historico] * df.Cantidad - (df.[Precio Historico] * df.Cantidad * df.Descuentos)) " +
-                    "from Facturas f inner join DetalleFactura df on df.[ID Factura] = f.[ID Factura] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] group by(e.Nombre +' ' + e.Apellido), " +
-                    "e.Identidad";
+                rep.Cadena_consulta = "select (e.nombre_empleado + ' ' + e.apellido_empleado), e.identidad_empleado, Sum(df.[precio_historico] * df.cantidad - (df.[precio_historico] * df.cantidad * df.descuentos)) " +
+                    "from Facturas f inner join DetalleFactura df on df.[id_factura] = f.[id_factura] inner join Empleados e on e.[id_empleado] = f.[id_empleado] group by(e.nombre_empleado +' ' + e.apellido_empleado), " +
+                    "e.identidad_empleado";
                 rep.Cabecera = new string[] { "Empleado", "Identidad", "Total de Ventas" };
                 rep.Tamanios = new float[] { 6, 4, 4};
                 rep.Titulo = "Reporte de Ventas totales por Empleado";

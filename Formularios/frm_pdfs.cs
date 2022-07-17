@@ -32,7 +32,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_cerar_Click(object sender, EventArgs e)
         {
-            //Abrimos el Form anterior que mando a vizualizar el pdf
+            // Abrimos el Form anterior que mando a vizualizar el pdf
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
             frm.AbrirFormulario(FormAnterior);
         }       

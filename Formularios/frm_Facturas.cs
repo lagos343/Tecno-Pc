@@ -39,9 +39,9 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Facturas_Load(object sender, EventArgs e)
         {
-            dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
-                "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
-                "= f.[ID Transaccion] where [ID Factura] > 0 order by f.[ID Factura] desc");
+            dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
+                "= f.[id_transaccion] where [id_factura] > 0 order by f.[id_factura] desc");
             operacionesDatagrid();
             cbo_filtro.SelectedIndex = 1;
             txt_buscar.ShortcutsEnabled = false;
@@ -62,9 +62,9 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Facturas.Rows[e.RowIndex].Cells["Mostrar"].Selected)
             {
-                rep.Dgv = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
-                    "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner " +
-                    "join Transacciones t on t.[ID Transaccion] = f.[ID Transaccion] where [ID Factura] = " + dgv_Facturas.Rows[e.RowIndex].Cells[1].Value.ToString() + " order by f.[ID Factura] desc");
+                rep.Dgv = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                    "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
+                    "join Transacciones t on t.[id_transaccion] = f.[id_transaccion] where [id_factura] = " + dgv_Facturas.Rows[e.RowIndex].Cells[1].Value.ToString() + " order by f.[id_factura] desc");
 
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
@@ -83,22 +83,22 @@ namespace Tecno_Pc.Formularios
         {
             if (cbo_filtro.Text == "ID Factura" && txt_buscar.Text != "")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
-                "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
-                "= f.[ID Transaccion] where f.[ID Factura] = "+txt_buscar.Text+ " and [ID Factura] > 0 order by f.[ID Factura] desc");
+                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
+                "= f.[id_transaccion] where f.[id_factura] = "+txt_buscar.Text+ " and [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();
             }else if (cbo_filtro.Text == "Cliente")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
-                "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
-                "= f.[ID Transaccion] where (c.Nombre +' '+ c.Apellido) LIKE '%" + txt_buscar.Text + "%' and [ID Factura] > 0 order by f.[ID Factura] desc");
+                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
+                "= f.[id_transaccion] where (c.nombre_cliente +' '+ c.apellido_cliente) LIKE '%" + txt_buscar.Text + "%' and [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();
             }
             else if (txt_buscar.Text == "")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [ID Factura], (c.Nombre +' '+ c.Apellido) Cliente, (e.Nombre +' '+ e.Apellido) Empleado, t.[Tipo Transaccion] Transaccion, f.[Fecha Venta], " +
-               "f.ISV, f.[ID Sar] from Facturas f inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones t on t.[ID Transaccion] " +
-               "= f.[ID Transaccion] where [ID Factura] > 0 order by f.[ID Factura] desc");
+                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+               "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
+               "= f.[id_transaccion] where [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();                
             }
             else{}
@@ -124,6 +124,21 @@ namespace Tecno_Pc.Formularios
             if(cbo_filtro.Text == "ID Factura" && Char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        private void btn_sar_Click(object sender, EventArgs e)
+        {
+            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_sar);
+
+            if (frm == null)
+            {
+                frm_sar sar = new frm_sar();
+                sar.Show();
+            }
+            else
+            {
+                frm.BringToFront();
             }
         }
     }

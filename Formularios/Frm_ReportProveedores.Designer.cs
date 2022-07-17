@@ -32,29 +32,29 @@ namespace Tecno_Pc.Formularios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Frm_ReportProveedores));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
-            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel2 = new System.Windows.Forms.Panel();
             this.salir = new Guna.UI.WinForms.GunaPictureBox();
             this.minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
+            this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cbo_proveedor = new System.Windows.Forms.ComboBox();
+            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.radio_gen = new System.Windows.Forms.RadioButton();
             this.radio_filtrado = new System.Windows.Forms.RadioButton();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
-            this.cbo_proveedor = new System.Windows.Forms.ComboBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.SuspendLayout();
@@ -70,29 +70,6 @@ namespace Tecno_Pc.Formularios
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 358);
             this.panel1.TabIndex = 62;
-            // 
-            // lbl_titulo
-            // 
-            this.lbl_titulo.AutoSize = true;
-            this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.lbl_titulo.ForeColor = System.Drawing.Color.White;
-            this.lbl_titulo.Location = new System.Drawing.Point(37, 13);
-            this.lbl_titulo.Name = "lbl_titulo";
-            this.lbl_titulo.Size = new System.Drawing.Size(152, 15);
-            this.lbl_titulo.TabIndex = 1;
-            this.lbl_titulo.Text = "REPORTE DE PROVEEDORES";
-            // 
-            // gunaPictureBox1
-            // 
-            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
-            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
-            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
-            this.gunaPictureBox1.Name = "gunaPictureBox1";
-            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
-            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.gunaPictureBox1.TabIndex = 2;
-            this.gunaPictureBox1.TabStop = false;
             // 
             // panel2
             // 
@@ -148,6 +125,17 @@ namespace Tecno_Pc.Formularios
             this.btn_minimizar.TabIndex = 4;
             this.btn_minimizar.TabStop = false;
             // 
+            // lbl_titulo
+            // 
+            this.lbl_titulo.AutoSize = true;
+            this.lbl_titulo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_titulo.ForeColor = System.Drawing.Color.White;
+            this.lbl_titulo.Location = new System.Drawing.Point(37, 13);
+            this.lbl_titulo.Name = "lbl_titulo";
+            this.lbl_titulo.Size = new System.Drawing.Size(152, 15);
+            this.lbl_titulo.TabIndex = 1;
+            this.lbl_titulo.Text = "REPORTE DE PROVEEDORES";
+            // 
             // btn_salir
             // 
             this.btn_salir.BaseColor = System.Drawing.Color.White;
@@ -159,6 +147,18 @@ namespace Tecno_Pc.Formularios
             this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.btn_salir.TabIndex = 3;
             this.btn_salir.TabStop = false;
+            // 
+            // gunaPictureBox1
+            // 
+            this.gunaPictureBox1.BaseColor = System.Drawing.Color.White;
+            this.gunaPictureBox1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.gunaPictureBox1.Image = global::Tecno_Pc.Properties.Resources.LogoTecnoPc;
+            this.gunaPictureBox1.Location = new System.Drawing.Point(3, 5);
+            this.gunaPictureBox1.Name = "gunaPictureBox1";
+            this.gunaPictureBox1.Size = new System.Drawing.Size(28, 29);
+            this.gunaPictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.gunaPictureBox1.TabIndex = 2;
+            this.gunaPictureBox1.TabStop = false;
             // 
             // groupBox1
             // 
@@ -176,6 +176,29 @@ namespace Tecno_Pc.Formularios
             this.groupBox1.TabIndex = 58;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "TIPO DE REPORTE";
+            // 
+            // cbo_proveedor
+            // 
+            this.cbo_proveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
+            this.cbo_proveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.cbo_proveedor.Enabled = false;
+            this.cbo_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.cbo_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbo_proveedor.FormattingEnabled = true;
+            this.cbo_proveedor.Location = new System.Drawing.Point(65, 159);
+            this.cbo_proveedor.Name = "cbo_proveedor";
+            this.cbo_proveedor.Size = new System.Drawing.Size(227, 23);
+            this.cbo_proveedor.TabIndex = 97;
+            // 
+            // pictureBox3
+            // 
+            this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox3.Location = new System.Drawing.Point(56, 155);
+            this.pictureBox3.Name = "pictureBox3";
+            this.pictureBox3.Size = new System.Drawing.Size(245, 31);
+            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox3.TabIndex = 98;
+            this.pictureBox3.TabStop = false;
             // 
             // label2
             // 
@@ -246,28 +269,6 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
-            // cbo_proveedor
-            // 
-            this.cbo_proveedor.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.SuggestAppend;
-            this.cbo_proveedor.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
-            this.cbo_proveedor.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.cbo_proveedor.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbo_proveedor.FormattingEnabled = true;
-            this.cbo_proveedor.Location = new System.Drawing.Point(65, 159);
-            this.cbo_proveedor.Name = "cbo_proveedor";
-            this.cbo_proveedor.Size = new System.Drawing.Size(227, 23);
-            this.cbo_proveedor.TabIndex = 97;
-            // 
-            // pictureBox3
-            // 
-            this.pictureBox3.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox3.Location = new System.Drawing.Point(56, 155);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(245, 31);
-            this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox3.TabIndex = 98;
-            this.pictureBox3.TabStop = false;
-            // 
             // gunaElipse1
             // 
             this.gunaElipse1.TargetControl = this;
@@ -284,13 +285,13 @@ namespace Tecno_Pc.Formularios
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reportes de Proveedores";
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();

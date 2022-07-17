@@ -86,6 +86,8 @@ namespace Tecno_Pc.Formularios
 
             dgv_Productos.Columns[0].Width = 50;
             dgv_Productos.Columns[1].Width = 50;
+
+            dgv_Productos.Columns[4].HeaderText = "Nombre";
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
@@ -127,7 +129,7 @@ namespace Tecno_Pc.Formularios
 
                     noti.Close();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre"].Selected)
+                else if (dgv_Productos.Rows[e.RowIndex].Cells["nombre_proveedor"].Selected)
                 {
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
                     lbl_nombre.Text = dgv_Productos.CurrentRow.Cells[4].Value.ToString();

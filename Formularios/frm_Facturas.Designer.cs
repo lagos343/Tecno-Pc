@@ -33,6 +33,7 @@ namespace Tecno_Pc.Formularios
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.btn_sar = new Guna.UI.WinForms.GunaGradientButton();
             this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
@@ -54,6 +55,7 @@ namespace Tecno_Pc.Formularios
             // 
             this.panel5.BackgroundImage = global::Tecno_Pc.Properties.Resources.SombraPanelProductos;
             this.panel5.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.panel5.Controls.Add(this.btn_sar);
             this.panel5.Controls.Add(this.btn_imprimir);
             this.panel5.Controls.Add(this.txt_buscar);
             this.panel5.Controls.Add(this.pictureBox6);
@@ -65,6 +67,36 @@ namespace Tecno_Pc.Formularios
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1114, 705);
             this.panel5.TabIndex = 5;
+            // 
+            // btn_sar
+            // 
+            this.btn_sar.AnimationHoverSpeed = 0.07F;
+            this.btn_sar.AnimationSpeed = 0.03F;
+            this.btn_sar.BackColor = System.Drawing.Color.Transparent;
+            this.btn_sar.BaseColor1 = System.Drawing.Color.MediumBlue;
+            this.btn_sar.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.btn_sar.BorderColor = System.Drawing.Color.Black;
+            this.btn_sar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_sar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_sar.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_sar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_sar.ForeColor = System.Drawing.Color.White;
+            this.btn_sar.Image = null;
+            this.btn_sar.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_sar.Location = new System.Drawing.Point(914, 40);
+            this.btn_sar.Name = "btn_sar";
+            this.btn_sar.OnHoverBaseColor1 = System.Drawing.Color.Teal;
+            this.btn_sar.OnHoverBaseColor2 = System.Drawing.Color.Teal;
+            this.btn_sar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_sar.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_sar.OnHoverImage = null;
+            this.btn_sar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_sar.Radius = 5;
+            this.btn_sar.Size = new System.Drawing.Size(83, 32);
+            this.btn_sar.TabIndex = 61;
+            this.btn_sar.Text = "Sar";
+            this.btn_sar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_sar.Click += new System.EventHandler(this.btn_sar_Click);
             // 
             // btn_imprimir
             // 
@@ -81,7 +113,7 @@ namespace Tecno_Pc.Formularios
             this.btn_imprimir.ForeColor = System.Drawing.Color.White;
             this.btn_imprimir.Image = null;
             this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(526, 41);
+            this.btn_imprimir.Location = new System.Drawing.Point(743, 41);
             this.btn_imprimir.Name = "btn_imprimir";
             this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
             this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
@@ -145,19 +177,19 @@ namespace Tecno_Pc.Formularios
             this.cbo_filtro.Items.AddRange(new object[] {
             "ID Factura",
             "Cliente"});
-            this.cbo_filtro.Location = new System.Drawing.Point(760, 45);
+            this.cbo_filtro.Location = new System.Drawing.Point(468, 45);
             this.cbo_filtro.Name = "cbo_filtro";
             this.cbo_filtro.OnHoverItemBaseColor = System.Drawing.Color.Blue;
             this.cbo_filtro.OnHoverItemForeColor = System.Drawing.Color.White;
-            this.cbo_filtro.Size = new System.Drawing.Size(230, 24);
+            this.cbo_filtro.Size = new System.Drawing.Size(223, 24);
             this.cbo_filtro.TabIndex = 3;
             // 
             // pictureBox7
             // 
             this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox7.Location = new System.Drawing.Point(752, 40);
+            this.pictureBox7.Location = new System.Drawing.Point(465, 40);
             this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(245, 34);
+            this.pictureBox7.Size = new System.Drawing.Size(227, 34);
             this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox7.TabIndex = 57;
             this.pictureBox7.TabStop = false;
@@ -250,5 +282,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.DataGridViewImageColumn Mostrar;
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI.WinForms.GunaGradientButton btn_imprimir;
+        private Guna.UI.WinForms.GunaGradientButton btn_sar;
     }
 }
