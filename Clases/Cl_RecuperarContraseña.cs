@@ -19,7 +19,7 @@ namespace Tecno_Pc.Clases
         Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
 
         private string correo_recuperacion = "pctecno536@gmail.com";
-        private string contraseña_correo_recuperacion = "admonuser1";
+        private string contraseña_correo_recuperacion = "gbpuasibhhsjxcrp";
         private MailMessage mmsg = new MailMessage();
         SmtpClient cliente = new SmtpClient();
 
