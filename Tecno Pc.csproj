@@ -469,6 +469,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="LogoTecnoPc.ico" />
+    <None Include="Resources\info.png" />
     <None Include="Resources\LogoTecnoPcCompleto.png" />
     <None Include="Resources\añadir.png" />
     <None Include="Resources\FondoFormRep1.png" />

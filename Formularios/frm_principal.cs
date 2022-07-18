@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -31,6 +32,7 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
             toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");
             toolTip1.SetToolTip(btn_server, "Configuracion inicial");
+            toolTip1.SetToolTip(btn_info, "Ver la Ayuda");
 
             if (Properties.Settings.Default.CodBar == "")
             {
@@ -244,6 +246,11 @@ namespace Tecno_Pc.Formularios
                 frm.Show();   
                 frm.BringToFront();
             }
+        }
+
+        private void btn_info_Click(object sender, EventArgs e)
+        {
+            Process.Start("Ayuda al Usuario - Tecno Pc.chm");
         }
     }
 }
