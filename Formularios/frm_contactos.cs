@@ -48,8 +48,6 @@ namespace Tecno_Pc.Formularios
             this.toolTip1.SetToolTip(this.btn_editar, "Boton para Editar la informacion del Contacto");
             this.toolTip1.SetToolTip(this.btn_eliminar, "Boton para Eliminar la informacion del Contacto");
             this.toolTip1.SetToolTip(this.btn_guardar, "Boton para Guardar informacion del Contacto");
-
-
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -95,14 +93,14 @@ namespace Tecno_Pc.Formularios
 
         public void InicializarCombobox()
         {
-            cmb_depto.DataSource = sql.Consulta("select *from Departamentos order by [Nombre Depto] asc");
-            cmb_depto.DisplayMember = "Nombre Depto";
-            cmb_depto.ValueMember = "ID Depto";
+            cmb_depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
+            cmb_depto.DisplayMember = "nombre_depto";
+            cmb_depto.ValueMember = "id_depto";
             cmb_depto.SelectedIndex = -1;
 
-            cmb_proveedor.DataSource = sql.Consulta("select * from Proveedores order by [Nombre] asc");
-            cmb_proveedor.DisplayMember = "Nombre";
-            cmb_proveedor.ValueMember = "ID Proveedor";
+            cmb_proveedor.DataSource = sql.Consulta("select * from Proveedores order by [nombre_proveedor] asc");
+            cmb_proveedor.DisplayMember = "nombre_proveedor";
+            cmb_proveedor.ValueMember = "id_proveedor";
             cmb_proveedor.SelectedIndex = -1;
         }
 
@@ -119,7 +117,7 @@ namespace Tecno_Pc.Formularios
                 
         private void frm_contactos_Load(object sender, EventArgs e)
         {
-            dgv_datos.DataSource = sql.Consulta(" select * from Contactos where Estado=1");
+            dgv_datos.DataSource = sql.Consulta(" select * from Contactos where estado_contacto=1");
             operacionesDataGrid();
             InicializarCombobox();
         }
@@ -149,7 +147,7 @@ namespace Tecno_Pc.Formularios
                     if (con.actualizarDatos())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
+                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -168,7 +166,7 @@ namespace Tecno_Pc.Formularios
                     if (con.guardar())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where Estado=1");
+                        dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -237,7 +235,7 @@ namespace Tecno_Pc.Formularios
                 {
                     con.IDContacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
                     con.eliminarDatos();
-                    dgv_datos.DataSource = sql.Consulta(" select*from Contactos where Estado=1");
+                    dgv_datos.DataSource = sql.Consulta(" select*from Contactos where estado_contacto=1");
                     operacionesDataGrid();
                 }
             }
@@ -347,9 +345,9 @@ namespace Tecno_Pc.Formularios
 
         public void ReporteContactos()
         {
-            rep.Cadena_consulta = "Select Contactos.Nombre + ' ' + Contactos.Apellido[Contacto], [Proveedores].Nombre[Proveedores], Departamentos.[Nombre Depto][Departamento], " +
-                "Contactos.Telefono, Contactos.[Correo Electronico], Contactos.Direccion from Contactos INNER JOIN Departamentos ON Contactos.[ID Depto] =" +
-                "Departamentos.[ID Depto] inner join Proveedores ON Contactos.[ID Proveedor] = Proveedores.[ID Proveedor] WHERE Contactos.Estado = 1 ORDER BY Contacto ASC";
+            rep.Cadena_consulta = "Select Contactos.nombre_contacto + ' ' + Contactos.apellido_contacto[Contacto], [Proveedores].nombre_proveedor[Proveedores], Departamentos.[nombre_depto][Departamento], " +
+                "Contactos.telefono_contacto, Contactos.[correo_electronico], Contactos.direccion_contacto from Contactos INNER JOIN Departamentos ON Contactos.[id_depto] =" +
+                "Departamentos.[id_depto] inner join Proveedores ON Contactos.[id_proveedor] = Proveedores.[id_proveedor] WHERE Contactos.estado_contacto = 1 ORDER BY Contacto ASC";
             rep.Cabecera = new string[6] { "Contacto", "Proveedor", "Departamento", "Telefono", "Correo Electrónico", "Dirección" };
             rep.Tamanios = new float[6] { 6, 5, 3, 2, 5, 8};
             rep.Titulo = "Reporte de Contactos";

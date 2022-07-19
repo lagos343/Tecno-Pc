@@ -111,9 +111,10 @@ namespace Tecno_Pc.Formularios
         private void btn_nuevaCompra_Click(object sender, EventArgs e)
         {
             txt_buscar.Clear();
-            dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                "from Productos p where Estado = 1 order by [Nombre Producto] asc");
+            dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
             LimpiarProductoSeleccionado();
+
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
                 dgv_Factura.Rows.Clear();                
@@ -175,8 +176,8 @@ namespace Tecno_Pc.Formularios
             {
                 if (Properties.Settings.Default.CodBar == "true")
                 {
-                    dgv_Productos.DataSource = sql.Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock " +
-                    "from Productos p where Estado = 1 and CodBarra = '" + txt_buscar.Text + "' order by [Nombre Producto] asc");
+                    dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    "from Productos p where estado_producto = 1 and cod_barra = '" + txt_buscar.Text + "' order by [nombre_producto] asc");
                     Operacionesdatagrid1();
 
                     if (txt_buscar.Text.Length == 12)

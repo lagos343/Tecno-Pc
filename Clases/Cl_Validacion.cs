@@ -11,7 +11,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_Validacion //se encarga de las validaciones de los datos de entrada en los formularios 
     {
-        //propiedades que permiten validar todos los formualarios
+        // propiedades que permiten validar todos los formualarios
         private static TextBox [] text;
         private static ErrorProvider[] error;
         private static string[] regular;
@@ -20,7 +20,6 @@ namespace Tecno_Pc.Clases
         private static int control = 0;
         private static int [] ctrl_user;
                 
-
         #region encapsulaimetno
         public TextBox[] Text { get => text; set => text = value; }
         public ErrorProvider[] Error { get => error; set => error = value; }

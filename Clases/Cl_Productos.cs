@@ -44,25 +44,26 @@ namespace Tecno_Pc.Clases
 
         public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
         {
-            dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 order by [Nombre Producto] asc");
+            dgv.DataSource = Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
+                "order by [nombre_producto] asc");
         }
 
         public void buscarDatos(DataGridView dgv) //busquedas filtradas 
         {
-            dgv.DataSource = Consulta("select *, (select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock from Productos p where Estado = 1 and [Nombre Producto] " +
-                "Like '%" + nombreProducto + "%' order by [Nombre Producto] asc");
+            dgv.DataSource = Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
+                "and [nombre_producto] Like '%" + nombreProducto + "%' order by [nombre_producto] asc");
         }
 
         public bool actualizarDatos() 
         {
-            return Sql_Query("Update Productos set [ID Categoria] = " + iDCategoria + ", [ID Marca] = " + iDMarca + ", [ID Proveedor] = " + iDProveedor + ", [Nombre Producto] = '" + nombreProducto + "', " +
-                "Modelo = '" + modelo + "', [Precio Unitario] = " + precioUnitario + ", Estado = " + Convert.ToInt32(estado) + ", CodBarra = '"+codbarra+"' where [ID Producto] = " + iDProducto + "", 
+            return Sql_Query("Update Productos set [id_categoria] = " + iDCategoria + ", [id_marca] = " + iDMarca + ", [id_proveedor] = " + iDProveedor + ", [nombre_producto] = '" + nombreProducto + "', " +
+                "modelo_producto = '" + modelo + "', [precio_unitario] = " + precioUnitario + ", estado_producto = " + Convert.ToInt32(estado) + ", cod_barra = '"+codbarra+"' where [id_producto] = " + iDProducto + "", 
                 "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Productos set Estado = 0 where [ID Producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
+            Sql_Querys("Update Productos set estado_producto = 0 where [id_producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
         }
     }
 }

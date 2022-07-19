@@ -37,14 +37,14 @@ namespace Tecno_Pc.Clases
         //Procedimientos que se heredan de la clase sql para hacer CRUD
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = Consulta("select *, (select [Nombre Puesto]  from Puestos  where puestos.[ID Puesto] = Empleados .[ID Puesto] ) as Puesto,  (select [Nombre Depto]  from Departamentos where  [ID Depto] = Empleados .[ID Depto]) " +
-                "as Departamento from Empleados where estado = 1 order by Nombre asc"); //Procedimiento para llenar el datagrid con los rregistros
+            dgv.DataSource = Consulta("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
+                "as Departamento from Empleados where estado_empleado = 1 order by nombre_empleado asc"); //Procedimiento para llenar el datagrid con los registros
         }
 
         public void buscardatos(DataGridView dgv) //Busquedas filtradas
         {
-            dgv.DataSource = Consulta("select *, (select [Nombre Puesto]  from Puestos  where puestos.[ID Puesto] = Empleados .[ID Puesto] ) as Puesto,  (select [Nombre Depto]  from Departamentos where  [ID Depto] = Empleados .[ID Depto]) " +
-                "as Departamento from Empleados where estado = 1 and Nombre like '%"+nombre+"%' order by Nombre asc");
+            dgv.DataSource = Consulta("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
+                "as Departamento from Empleados where estado_empleado = 1 and nombre_empleado like '%" + nombre+ "%' order by nombre_empleado asc");
         }
 
         public bool guardar() 
@@ -57,14 +57,14 @@ namespace Tecno_Pc.Clases
 
         public bool update()
         {
-            return Sql_Query("update Empleados set [ID Puesto] ="+idpuesto+", [ID Depto] ="+iddepto+" ,[Identidad] ='"+identidad+"',[Nombre] ='"+nombre+"',[Apellido] ='"+apellido+"',[Telefono] ='"+telefono+"'," +
-                "[Correo Electronico] ='"+email+"',[Direccion] ='"+direccion+"' WHERE [ID Empleado] ="+idempleado+ "",
+            return Sql_Query("update Empleados set [id_puesto] ="+idpuesto+", [id_depto] ="+iddepto+ " ,[identidad_empleado] ='" + identidad+ "',[nombre_empleado] ='" + nombre+ "',[apellido_empleado] ='" + apellido+ "',[telefono_empleado] ='" + telefono+"'," +
+                "[correo_electronico] ='"+email+ "',[direccion_empleado] ='" + direccion+"' WHERE [id_empleado] ="+idempleado+ "",
                 "Empleado actualizado con exito", "Existen Datos Repetidos, Cambiar Identidad o Correo");//si retorna falso hay algunos datos repetido como identidad o email
         }
 
         public void eliminar()
         {
-            Sql_Querys("update Empleados set Estado = 0 where [ID Empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
+            Sql_Querys("update Empleados set estado_empleado = 0 where [id_empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();
         }

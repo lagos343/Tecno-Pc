@@ -22,6 +22,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
+
         public frm_AñadirUsuarios(int estado, DataGridView dat)
         {
             InitializeComponent();
@@ -48,14 +49,14 @@ namespace Tecno_Pc.Formularios
 
         public void iniciar1()
         {
-            cboempleado.DataSource = sql.Consulta("select * from Empleados where Estado = 1 order by Nombre asc");
-            cboempleado.DisplayMember = "Nombre";
-            cboempleado.ValueMember = "ID Empleado";
+            cboempleado.DataSource = sql.Consulta("select * from Empleados where estado_empleado = 1 order by nombre_empleado asc");
+            cboempleado.DisplayMember = "nombre_empleado";
+            cboempleado.ValueMember = "id_empleado";
             cboempleado.SelectedIndex = -1;
 
-            cborol.DataSource = sql.Consulta("select * from Roles order by [Nombre Rol] asc");
-            cborol.DisplayMember = "Nombre Rol";
-            cborol.ValueMember = "IDRol";
+            cborol.DataSource = sql.Consulta("select * from Roles order by [nombre_rol] asc");
+            cborol.DisplayMember = "nombre_rol";
+            cborol.ValueMember = "id_rol";
             cborol.SelectedIndex = -1;
         }
 

@@ -137,7 +137,7 @@ namespace Tecno_Pc.Clases
             File.Delete(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf");
         }
               
-        public void PdfFacturas() // se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
+        public void PdfFacturas() //se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
         {
             
             //Inializacion de las variables que almacenaran los datos            
@@ -167,9 +167,9 @@ namespace Tecno_Pc.Clases
             limite = Sar.Rows[0][3].ToString().Replace("00", "");
 
             //Extraccion de los detalles de la Factura
-            registros = Consulta("select (p.[Nombre Producto] +' '+ p.[Modelo]), CAST(df.[Precio Historico] AS decimal(9,2)), df.Cantidad, CAST((df.[Precio Historico]) * Descuentos " +
-                "AS decimal(9, 2)), CAST(((df.[Precio Historico] * df.Cantidad) - (df.[Precio Historico] * df.Cantidad * Descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
-                "Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);            
+            registros = Consulta("select (p.[nombre_producto] +' '+ p.[modelo_producto]), CAST(df.[precio_historico] AS decimal(9,2)), df.cantidad, CAST((df.[precio_historico]) * descuentos " +
+                "AS decimal(9, 2)), CAST(((df.[precio_historico] * df.cantidad) - (df.[precio_historico] * df.cantidad * descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
+                "Productos p on p.[id_producto] = df.[id_producto] where df.[id_factura] =" + id);            
 
             //indicamos el reporte que se abrira el el formulario de PDFs
             Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf";
@@ -244,16 +244,16 @@ namespace Tecno_Pc.Clases
 
             try
             {
-                Descuentos = double.Parse(Consulta2("select Sum(CAST(([Precio Historico] * Cantidad * Descuentos) AS decimal(9, 2))) Descuento from " +
-                "DetalleFactura where [ID Factura] = " + id + " and Descuentos > 0.00"));
+                Descuentos = double.Parse(Consulta2("select Sum(CAST(([precio_historico] * cantidad * descuentos) AS decimal(9, 2))) Descuento from " +
+                "DetalleFactura where [id_factura] = " + id + " and descuentos > 0.00"));
             }
             catch (Exception)
             {Descuentos = 0.00;}
 
             try
             {
-                Gravado = double.Parse(Consulta2("select Sum(CAST((([Precio Historico] * Cantidad)) AS decimal(9, 2))) Excento from " +
-                "DetalleFactura where [ID Factura] = " + id));
+                Gravado = double.Parse(Consulta2("select Sum(CAST((([precio_historico] * cantidad)) AS decimal(9, 2))) Excento from " +
+                "DetalleFactura where [id_factura] = " + id));
             }
             catch (Exception)
             {Gravado = 0.00;}

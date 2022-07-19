@@ -20,7 +20,6 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
                         
         bool editar = false;
-        //int reporte;
         Clases.Cl_Marcas mar = new Clases.Cl_Marcas();
         Clases.Cl_Categorias cate = new Clases.Cl_Categorias();
         Clases.Cl_NotificacionCompra  noti = new Clases.Cl_NotificacionCompra();

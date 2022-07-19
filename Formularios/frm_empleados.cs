@@ -16,6 +16,7 @@ namespace Tecno_Pc.Formularios
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+
         public frm_empleados()
         {
             InitializeComponent();
@@ -67,6 +68,10 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[13].Visible = false;
             dgv_Productos.Columns[0].Width = 50;
             dgv_Productos.Columns[1].Width = 50;
+
+            dgv_Productos.Columns[5].HeaderText = "Identidad";
+            dgv_Productos.Columns[6].HeaderText = "Nombre";
+            dgv_Productos.Columns[7].HeaderText = "Apellido";
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
@@ -109,7 +114,7 @@ namespace Tecno_Pc.Formularios
 
                     noti.Close();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["Identidad"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["Apellido"].Selected)
+                else if (dgv_Productos.Rows[e.RowIndex].Cells["nombre_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["identidad_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["apellido_empleado"].Selected)
                 {
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
                     lbl_depto.Text = dgv_Productos.CurrentRow.Cells[13].Value.ToString();
