@@ -13,7 +13,7 @@ namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra //clase que se encarga de todos los procedimientoos que tengan que ver con la DB 
     {
-        //propiedades usadas para brindar conecccion a la DB a todos los formularios 
+        //Propiedades usadas para brindar conecccion a la DB a todos los formularios 
         private string Servidor = Properties.Settings.Default.Servidor.ToString();
         private string DataBase = "TECNOPC";    
         private string cadena_coneccion;        

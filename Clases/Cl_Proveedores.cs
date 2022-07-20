@@ -39,25 +39,25 @@ namespace Tecno_Pc.Clases
 
         public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
         {
-            dgv.DataSource = Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores where " +
-                "Estado = 1 order by Nombre asc");
+            dgv.DataSource = Consulta("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores where " +
+                "estado_proveedor = 1 order by nombre_proveedor asc");
         }
 
         public void buscarDatos(DataGridView dgv) //busquedas filtradas
         {
-            dgv.DataSource = Consulta("select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = Proveedores .[ID Depto] ) as Departametno from Proveedores " +
-                "where Estado = 1 and Nombre Like '%"+nombre+"%' order by Nombre asc");
+            dgv.DataSource = Consulta("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores " +
+                "where estado_proveedor = 1 and nombre_proveedor Like '%" + nombre+ "%' order by nombre_proveedor asc");
         }
 
         public bool actualizarDatos()
         {
-            return Sql_Query("update Proveedores set [ID Depto] ="+iDDepto +", Nombre = '"+nombre+"', Telefono = '"+telefono+"', Direccion = '"+direccion+"', [Correo Electronico] = '"+correoElectronico+"' " +
-                "where[ID Proveedor] = "+iDProveedor, "Categoria actulizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
+            return Sql_Query("update Proveedores set [id_depto] ="+iDDepto + ", nombre_proveedor = '" + nombre+ "', telefono_proveedor = '" + telefono+ "', direccion_proveedor = '" + direccion+"', [correo_electronico] = '"+correoElectronico+"' " +
+                "where[id_proveedor] = "+iDProveedor, "Categoria actualizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
         public void eliminar()
         {
-            Sql_Querys("update Proveedores set Estado = 0 where [ID Proveedor] =" + iDProveedor,"Se ha elminado al proveedor", "Error al eliminar");
+            Sql_Querys("update Proveedores set estado_proveedor = 0 where [id_proveedor] =" + iDProveedor,"Se ha elminado al proveedor", "Error al eliminar");
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
             frm.carga();

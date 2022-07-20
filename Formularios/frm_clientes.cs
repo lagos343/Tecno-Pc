@@ -93,9 +93,9 @@ namespace Tecno_Pc.Formularios
 
         public void InicializarCombobox()
         {
-            cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [Nombre Depto] asc");
-            cmb_Depto.DisplayMember = "Nombre Depto";
-            cmb_Depto.ValueMember = "ID Depto";
+            cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
+            cmb_Depto.DisplayMember = "nombre_depto";
+            cmb_Depto.ValueMember = "id_depto";
             cmb_Depto.SelectedIndex = -1;
         }
 
@@ -104,7 +104,7 @@ namespace Tecno_Pc.Formularios
             vld.Text = new TextBox [6] { txt_Ident, txt_Nombre, txt_Apell, txt_Tel, txt_Email, txt_Direccion };
             vld.Error = new ErrorProvider[6] { erp_identidad,erp_nombre, erp_apellido, erp_telefono, erp_email, erp_direccion  };
             vld.Minimo = new int[6] { 13,2, 2, 8, 10, 3};
-            vld.Regular = new string[6] { "(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[1900-2500]{4}[0-9]{5}","[A-Z, a-z]", "[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)",
+            vld.Regular = new string[6] { "(0[1-9]|1[0-8])(0[1-9]|1[0-9]|2[0-8])[0-9]{4}[0-9]{5}","[A-Z, a-z]", "[A-Z, a-z]", "(2|3|8|9)[ -]*([0-9]*)",
                 "^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$",
                 "[A-Z, a-z, 0-9,.,#]" };
             vld.Msj = new string[6] { "Solo digitos numericos, tomar\nen cuenta tambien el formato valido\n(depto + municipio) (año) (tomo+folio)" ,"Solo caracteres", "Solo caracteres", "Solo digitos numericos y que empiecen por 2,3,8 y 9", "solo emails validos: example@dominio.algo", "Caracteres especiales no validos" };
@@ -130,7 +130,7 @@ namespace Tecno_Pc.Formularios
                     if (cli.actualizarDatos())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -148,7 +148,7 @@ namespace Tecno_Pc.Formularios
                     if (cli.guardar())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_clientes_Load(object sender, EventArgs e)
         {
-            dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+            dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
             operacionesDataGrid();
             InicializarCombobox();
         }
@@ -217,7 +217,7 @@ namespace Tecno_Pc.Formularios
                     noti.Close();
                     cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
                     cli.eliminarDatos();
-                    dgv_datos.DataSource = sql.Consulta("select * from Clientes where Estado=1");
+                    dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
                     operacionesDataGrid();
                 }                
             }
@@ -268,7 +268,7 @@ namespace Tecno_Pc.Formularios
 
         public void ReporteClientes()
         {
-            rep.Cadena_consulta = " select (c.Nombre +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
+            rep.Cadena_consulta = " select (c.nombre_cliente +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
                 "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
             rep.Carpeta = "Clientes";
             rep.Cabecera = new string[6] { "Nombre del Cliente", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};

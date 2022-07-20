@@ -43,27 +43,27 @@ namespace Tecno_Pc.Clases
 
         public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta(" select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ,(select [Nombre] " +
-                "from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where Estado = 1 order by Nombre asc");
+            dgv.DataSource = Consulta(" select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ,(select [nombre_proveedor] " +
+                "from [dbo].[Proveedores] where [dbo].[Proveedores].[id_proveedor]=[dbo].[Contactos].[id_proveedor]) as Proveedor from Contactos where estado_contacto = 1 order by nombre_contacto asc");
         }
 
         public void buscarDatos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas 
         {
-            dgv.DataSource = Consulta("	 select *, (select [Nombre Depto]  from Departamentos where Departamentos .[ID Depto] = [dbo].[Contactos].[ID Depto] ) as Departametno ," +
-                "(select [Nombre] from [dbo].[Proveedores] where [dbo].[Proveedores].[ID Proveedor]=[dbo].[Contactos].[ID Proveedor]) as Proveedor from Contactos where Nombre Like '%"+Nombre+"%'  " +
-                "and Estado = 1  order by Nombre asc");
+            dgv.DataSource = Consulta("	 select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ," +
+                "(select [nombre_proveedor] from [dbo].[Proveedores] where [dbo].[Proveedores].[id_proveedor]=[dbo].[Contactos].[id_proveedor]) as Proveedor from Contactos where nombre_contacto Like '%"+Nombre+"%'  " +
+                "and estado_contacto = 1  order by nombre_contacto asc");
         }
 
         public bool actualizarDatos()
         {
-            return Sql_Query("update Contactos set  [ID Proveedor]="+ iDProveedor+ ",[ID Depto]=" + iDDepto +  ",Nombre='" + Nombre + "',Apellido='" + Apellido + "',Telefono='" + Telefono + "'," +
-                "[Correo Electronico]='" + CorreoElectronico + "',Direccion='" + Direccion + "' where  [ID Contacto]=" + iDContacto + "", "Contacto actualizado con exito", 
+            return Sql_Query("update Contactos set  [id_proveedor]="+ iDProveedor+ ",[id_depto]=" + iDDepto +  ",nombre_contacto='" + Nombre + "',apellido_contacto='" + Apellido + "',telefono_contacto='" + Telefono + "'," +
+                "[correo_electronico]='" + CorreoElectronico + "',direccion_contacto='" + Direccion + "' where  [id_contacto]=" + iDContacto + "", "Contacto actualizado con exito", 
                 "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Contactos set Estado = 0 where [ID Contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
+            Sql_Querys("Update Contactos set estado_contacto = 0 where [id_contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
         }
     }
 

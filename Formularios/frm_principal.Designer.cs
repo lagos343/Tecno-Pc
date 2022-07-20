@@ -33,6 +33,7 @@ namespace Tecno_Pc.Formularios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_principal));
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.Panel_Slider = new Guna.UI.WinForms.GunaPanel();
+            this.btn_info = new System.Windows.Forms.PictureBox();
             this.btn_server = new System.Windows.Forms.PictureBox();
             this.btn_LogOut = new System.Windows.Forms.PictureBox();
             this.pic_flecha = new Guna.UI.WinForms.GunaPictureBox();
@@ -57,6 +58,7 @@ namespace Tecno_Pc.Formularios
             this.panel_container = new Guna.UI.WinForms.GunaPanel();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.Panel_Slider.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.btn_info)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_server)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).BeginInit();
@@ -76,6 +78,7 @@ namespace Tecno_Pc.Formularios
             // Panel_Slider
             // 
             this.Panel_Slider.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(33)))), ((int)(((byte)(33)))), ((int)(((byte)(32)))));
+            this.Panel_Slider.Controls.Add(this.btn_info);
             this.Panel_Slider.Controls.Add(this.btn_server);
             this.Panel_Slider.Controls.Add(this.btn_LogOut);
             this.Panel_Slider.Controls.Add(this.pic_flecha);
@@ -93,11 +96,23 @@ namespace Tecno_Pc.Formularios
             this.Panel_Slider.Size = new System.Drawing.Size(186, 740);
             this.Panel_Slider.TabIndex = 1;
             // 
+            // btn_info
+            // 
+            this.btn_info.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_info.Image = global::Tecno_Pc.Properties.Resources.info;
+            this.btn_info.Location = new System.Drawing.Point(105, 705);
+            this.btn_info.Name = "btn_info";
+            this.btn_info.Size = new System.Drawing.Size(28, 24);
+            this.btn_info.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.btn_info.TabIndex = 100;
+            this.btn_info.TabStop = false;
+            this.btn_info.Click += new System.EventHandler(this.btn_info_Click);
+            // 
             // btn_server
             // 
             this.btn_server.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btn_server.Image = global::Tecno_Pc.Properties.Resources.server;
-            this.btn_server.Location = new System.Drawing.Point(86, 705);
+            this.btn_server.Location = new System.Drawing.Point(61, 705);
             this.btn_server.Name = "btn_server";
             this.btn_server.Size = new System.Drawing.Size(28, 24);
             this.btn_server.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -467,6 +482,7 @@ namespace Tecno_Pc.Formularios
             this.Text = "Tecno Pc";
             this.Load += new System.EventHandler(this.frm_principal_Load);
             this.Panel_Slider.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.btn_info)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_server)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_LogOut)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pic_flecha)).EndInit();
@@ -507,5 +523,6 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.ToolTip toolTip1;
         private Guna.UI.WinForms.GunaGoogleSwitch swt_codbar;
         private System.Windows.Forms.PictureBox btn_server;
+        private System.Windows.Forms.PictureBox btn_info;
     }
 }

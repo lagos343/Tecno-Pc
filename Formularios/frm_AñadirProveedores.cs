@@ -54,9 +54,9 @@ namespace Tecno_Pc.Formularios
 
         public void iniciarcombobox()
         {
-            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [Nombre Depto] asc");
-            cbo_depto.DisplayMember = "Nombre Depto";
-            cbo_depto.ValueMember = "ID Depto";
+            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DisplayMember = "nombre_depto";
+            cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;
         }
 

@@ -149,7 +149,6 @@ namespace Tecno_Pc
             //        printDocument.Print();
             //    }
             //}
-
             Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
             rep.Vertical = true;
             rep.Carpeta = "Facturas";

@@ -84,12 +84,12 @@ namespace Tecno_Pc.Formularios
                 titulo = "Reporte de Ventas " + desde.ToString("dd-MM-yyyy") + " hasta " + hasta.ToString("dd-MM-yyyy");
             }    
             
-            rep.Cadena_consulta = "select f.[ID Factura], c.Nombre + ' ' + c.Apellido as Cliente, f.[Fecha Venta], e.Nombre + ' ' + e.Apellido as Empleado, tr.[Tipo Transaccion]  ,f.ISV*100 [ISV]," +
-                    "sum((df.[Precio Historico] * df.Cantidad) + (df.[Precio Historico] * df.Cantidad * f.ISV)) as [Total Venta] from Facturas f " +
-                    "inner join DetalleFactura df on df.[ID Factura] = f.[ID Factura] inner join Clientes c on c.[ID Cliente] = f.[ID Cliente] " +
-                    "inner join Empleados e on e.[ID Empleado] = f.[ID Empleado] inner join Transacciones tr on tr.[ID Transaccion] = f.[ID Transaccion] where ((f.[Fecha Venta] <= '" + hasta.ToString("yyyy-MM-dd") +"') and (f.[Fecha Venta] >= '"
+            rep.Cadena_consulta = "select f.[id_factura], c.nombre_cliente + ' ' + c.apellido_cliente as Cliente, f.[fecha_venta], e.nombre_empleado + ' ' + e.apellido_empleado as Empleado, tr.[tipo_transaccion]  ,f.isv*100 [ISV]," +
+                    "sum((df.[precio_historico] * df.cantidad) - (df.[precio_historico] * df.cantidad * df.descuentos)) as [total_venta] from Facturas f " +
+                    "inner join DetalleFactura df on df.[id_factura] = f.[id_factura] inner join Clientes c on c.[id_cliente] = f.[id_cliente] " +
+                    "inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones tr on tr.[id_transaccion] = f.[id_transaccion] where ((f.[fecha_venta] <= '" + hasta.ToString("yyyy-MM-dd") +"') and (f.[fecha_venta] >= '"
                     +desde.ToString("yyyy-MM-dd") +"')) " +
-                    "group by f.[ID Factura], f.[Fecha Venta], c.Nombre + ' ' + c.Apellido, e.Nombre + ' ' + e.Apellido, tr.[Tipo Transaccion]  ,f.ISV";
+                    "group by f.[id_factura], f.[fecha_venta], c.nombre_cliente + ' ' + c.apellido_cliente, e.nombre_empleado + ' ' + e.apellido_empleado, tr.[tipo_transaccion]  ,f.isv";
             rep.Carpeta = "Ventas";
             rep.Cabecera = new string[7] { "N° Factura", "Cliente", "Fecha", "Vendedor", "Transaccion", "ISV", "Total" };
             rep.Titulo = titulo;
