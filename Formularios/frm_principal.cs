@@ -248,9 +248,32 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_info_Click(object sender, EventArgs e)
+        private async void btn_info_Click(object sender, EventArgs e)
         {
-            Process.Start("Ayuda al Usuario - Tecno Pc.chm");
+            btn_info.Enabled = false;
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
+
+            Task tar1 = new Task(MostrarAyuda);
+            tar1.Start();
+            await tar1;
+
+            noti.Close();
+            btn_info.Enabled = true;
+        }
+
+        private void MostrarAyuda()
+        {
+            try
+            {
+                Process.Start("Ayuda al Usuario - Tecno Pc.chm");
+            }
+            catch (Exception)
+            {
+                frm_notificacion noti = new frm_notificacion("No se encuentra el Archivo de ayuda (Ayuda al Usuario - Tecno Pc.chm), revise la carpeta raiz", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }            
         }
     }
 }
