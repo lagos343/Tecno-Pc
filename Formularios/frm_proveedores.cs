@@ -65,7 +65,7 @@ namespace Tecno_Pc.Formularios
 
         public void carga()
         {
-            proveedores.consultarDatos(dgv_Productos);
+            proveedores.consultar_datos(dgv_Productos);
             operacionesdatarid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
@@ -93,7 +93,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
             proveedores.Nombre = txt_buscar.Text;
-            proveedores.buscarDatos(dgv_Productos);
+            proveedores.buscar_datos(dgv_Productos);
             operacionesdatarid();
         }
 
@@ -116,7 +116,7 @@ namespace Tecno_Pc.Formularios
                     if (noti.Dialogresul == DialogResult.OK)
                     {
                         proveedores.IDProveedor = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        proveedores.eliminar();
+                        proveedores.eliminar_datos();
                         #region Limpieza
                         lbl_id.Text = "";
                         lbl_nombre.Text = "";

@@ -66,7 +66,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Empleados";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = false;
-                rep.GenerarPdf();
+                rep.generar_pdf();
             }
             else
             {
@@ -79,7 +79,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Empleados";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = true;
-                rep.GenerarPdf();
+                rep.generar_pdf();
             }
         }
 

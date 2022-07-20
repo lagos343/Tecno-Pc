@@ -93,7 +93,7 @@ namespace Tecno_Pc.Formularios
 
         public void InicializarCombobox()
         {
-            cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
+            cmb_Depto.DataSource = sql.consulta_registro("select *from Departamentos order by [nombre_depto] asc");
             cmb_Depto.DisplayMember = "nombre_depto";
             cmb_Depto.ValueMember = "id_depto";
             cmb_Depto.SelectedIndex = -1;
@@ -130,7 +130,7 @@ namespace Tecno_Pc.Formularios
                     if (cli.actualizarDatos())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
+                        dgv_datos.DataSource = sql.consulta_registro("select * from Clientes where estado_cliente=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -148,7 +148,7 @@ namespace Tecno_Pc.Formularios
                     if (cli.guardar())
                     {
                         btn_guardar.Text = "Guardar";
-                        dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
+                        dgv_datos.DataSource = sql.consulta_registro("select * from Clientes where estado_cliente=1");
                         operacionesDataGrid();
                         Limnpiado();
                     }
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_clientes_Load(object sender, EventArgs e)
         {
-            dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
+            dgv_datos.DataSource = sql.consulta_registro("select * from Clientes where estado_cliente=1");
             operacionesDataGrid();
             InicializarCombobox();
         }
@@ -217,7 +217,7 @@ namespace Tecno_Pc.Formularios
                     noti.Close();
                     cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
                     cli.eliminarDatos();
-                    dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
+                    dgv_datos.DataSource = sql.consulta_registro("select * from Clientes where estado_cliente=1");
                     operacionesDataGrid();
                 }                
             }
@@ -276,7 +276,7 @@ namespace Tecno_Pc.Formularios
             rep.Titulo = "Reporte de Clientes";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = false;
-            rep.GenerarPdf();       
+            rep.generar_pdf();       
         }
 
         #region keypress              

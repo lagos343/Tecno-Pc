@@ -14,149 +14,149 @@ namespace Tecno_Pc.Clases
     class Cl_SqlMaestra //clase que se encarga de todos los procedimientoos que tengan que ver con la DB 
     {
         //Propiedades usadas para brindar conecccion a la DB a todos los formularios 
-        private string Servidor = Properties.Settings.Default.Servidor.ToString();
-        private string DataBase = "TECNOPC";    
+        private string servidor_sql = Properties.Settings.Default.Servidor.ToString();
+        private string data_base = "TECNOPC";    
         private string cadena_coneccion;        
-        SqlConnection connection = new SqlConnection();
-        SqlDataAdapter adapter = new SqlDataAdapter();
-        SqlCommand cmd = new SqlCommand();
-        DataTable Tabla_Resultados;       
+        SqlConnection connection_sql = new SqlConnection();
+        SqlDataAdapter adapter_sql = new SqlDataAdapter();
+        SqlCommand cmd_sql = new SqlCommand();
+        DataTable tabla_resultados;       
 
 
         public Cl_SqlMaestra() //constructor
         {
             if (Properties.Settings.Default.WindowsAuten == "false") //verificamos el tipo de autenticacion para crear la cadena de coonecion 
             {
-                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; User ID="+Properties.Settings.Default.Usuario.ToString()
+                cadena_coneccion = "Data Source=" + servidor_sql + "; Initial Catalog=" + data_base + "; User ID="+Properties.Settings.Default.Usuario.ToString()
                     +"; Password="+Properties.Settings.Default.Contraseña;
             }
             else
             {
-                cadena_coneccion = "Data Source=" + Servidor + "; Initial Catalog=" + DataBase + "; Integrated Security=True";
+                cadena_coneccion = "Data Source=" + servidor_sql + "; Initial Catalog=" + data_base + "; Integrated Security=True";
             }
-            connection.ConnectionString = cadena_coneccion; //creamos la sql conection
+            connection_sql.ConnectionString = cadena_coneccion; //creamos la sql conection
         }
 
        
-        public void Abrir() //se encarga de abrrir la coneccion a sql
+        public void abrir_coneccion() //se encarga de abrrir la coneccion a sql
         {
             try
             {
-                connection.Open(); //intentamos abrirrla
+                connection_sql.Open(); //intentamos abrirrla
             }
             catch (Exception) //de no abrirse notificamos el error y preguntamos si desea configurar el sevidor ya que ese es el error mas comun
             {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
-                noti.ShowDialog(); 
+                Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
+                noti_sql.ShowDialog(); 
 
-                if (noti.Dialogresul == DialogResult.OK) 
+                if (noti_sql.Dialogresul == DialogResult.OK) 
                 {   
                     Formularios.frm_ConfigurarDB bd = new Formularios.frm_ConfigurarDB(true);
                     bd.Show();
 
-                    Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Form1);
-                    if (frm != null)
+                    Form frm_sql = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Form1);
+                    if (frm_sql != null)
                     {
-                        frm.Hide();
+                        frm_sql.Hide();
                     }
                 }
                 
-                noti.Close(); 
+                noti_sql.Close(); 
             }            
         }
 
         public void Cerrar()
         {
-            connection.Close();
+            connection_sql.Close();
         }
 
-        public DataTable Consulta(String cadena) //se encarga dde consultas de muchos registros
+        public DataTable consulta_registro(String cadena_consulta) //se encarga dde consultas de muchos registros
         {
-            Abrir();
-            adapter = new SqlDataAdapter(cadena, cadena_coneccion);
-            Tabla_Resultados = new DataTable();
+            abrir_coneccion();
+            adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
+            tabla_resultados = new DataTable();
             try
             {
-                adapter.Fill(Tabla_Resultados);
+                adapter_sql.Fill(tabla_resultados);
             }
             catch (Exception){}            
             Cerrar();
 
-            return Tabla_Resultados;
+            return tabla_resultados;
         }
 
-        public String Consulta2(String cadena) //se encarga de consultas que retornan un solo dato
+        public String consulta2_registro(String cadena_consulta) //se encarga de consultas que retornan un solo dato
         {
-            string Resultado = "";
+            string resultado_consulta = "";
 
-            Abrir();
-            adapter = new SqlDataAdapter(cadena, cadena_coneccion);
-            Tabla_Resultados = new DataTable();
-            adapter.Fill(Tabla_Resultados);
-            Resultado = Tabla_Resultados.Rows[0][0].ToString();
+            abrir_coneccion();
+            adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
+            tabla_resultados = new DataTable();
+            adapter_sql.Fill(tabla_resultados);
+            resultado_consulta = tabla_resultados.Rows[0][0].ToString();
             Cerrar();
 
-            return Resultado;
+            return resultado_consulta;
         }
 
-        public void Sql_Querys(string cadena, string mensajeBueno, string mensajeMalo) //se encarga de comandos transac sql que pueden mostrar errores
+        public void sql_querys(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores
         {
-            Abrir();
-            cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = cadena;
+            abrir_coneccion();
+            cmd_sql = new SqlCommand();
+            cmd_sql.Connection = connection_sql;
+            cmd_sql.CommandText = cadena_sql;
 
             try
             {
-                cmd.ExecuteNonQuery();
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeBueno, 1);
-                noti.ShowDialog();
-                noti.Close();
+                cmd_sql.ExecuteNonQuery();
+                Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion(mensaje_bueno, 1);
+                noti_sql.ShowDialog();
+                noti_sql.Close();
             }
             catch (Exception ex)
             {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeMalo, 3);
-                noti.ShowDialog();
-                noti.Close();
+                Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion(mensaje_malo, 3);
+                noti_sql.ShowDialog();
+                noti_sql.Close();
             }
             Cerrar();
         }
 
-        public bool Sql_Query(string cadena, string mensajeBueno, string mensajeMalo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
+        public bool sql_query(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
         {
-            bool retorno;
-            Abrir();
-            cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = cadena;
+            bool retorno_sql;
+            abrir_coneccion();
+            cmd_sql = new SqlCommand();
+            cmd_sql.Connection = connection_sql;
+            cmd_sql.CommandText = cadena_sql;
 
             try
             {
-                cmd.ExecuteNonQuery();
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeBueno, 1);
-                noti.ShowDialog();
-                noti.Close();
-                retorno = true;
+                cmd_sql.ExecuteNonQuery();
+                Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion(mensaje_bueno, 1);
+                noti_sql.ShowDialog();
+                noti_sql.Close();
+                retorno_sql = true;
             }
             catch (Exception ex)
             {
-                Formularios.frm_notificacion noti = new Formularios.frm_notificacion(mensajeMalo, 3);
-                noti.ShowDialog();
-                noti.Close();
-                retorno = false;
+                Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion(mensaje_malo, 3);
+                noti_sql.ShowDialog();
+                noti_sql.Close();
+                retorno_sql = false;
             }
             Cerrar();
-            return retorno;
+            return retorno_sql;
         }
 
-        public void Sql_Querys(string cadena) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
+        public void sql_querys(string cadena_sql) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
         {
-            Abrir();
+            abrir_coneccion();
 
-            cmd = new SqlCommand();
-            cmd.Connection = connection;
-            cmd.CommandText = cadena;
-            cmd.ExecuteNonQuery();
+            cmd_sql = new SqlCommand();
+            cmd_sql.Connection = connection_sql;
+            cmd_sql.CommandText = cadena_sql;
+            cmd_sql.ExecuteNonQuery();
 
             Cerrar();
         }        

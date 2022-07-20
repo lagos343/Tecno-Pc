@@ -77,7 +77,7 @@ namespace Tecno_Pc.Clases
             }         
         }  
 
-        public void ValidarCarpetas(string Carpeta) //validamos que no se hayan borado las carpetas de los reportes
+        public void validar_carpetas(string Carpeta) //validamos que no se hayan borado las carpetas de los reportes
         {
             string ruta = Properties.Settings.Default.RutaReportes.ToString(); //extraemos la ruta definida por el user
 

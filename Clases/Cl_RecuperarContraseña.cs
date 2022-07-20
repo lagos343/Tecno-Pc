@@ -16,39 +16,39 @@ namespace Tecno_Pc.Clases
     public class Cl_RecuperarContraseña
     {
         //variables que serviran para la recuperacion de contraseña
-        Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
+        Cl_UsuarioLogueado user_log = new Cl_UsuarioLogueado();
 
         private string correo_recuperacion = "pctecno536@gmail.com";
         private string contraseña_correo_recuperacion = "gbpuasibhhsjxcrp";
-        private MailMessage mmsg = new MailMessage();
-        SmtpClient cliente = new SmtpClient();
+        private MailMessage mmsg_recuperacion = new MailMessage();
+        SmtpClient cliente_bd = new SmtpClient();
 
         public string Correo_recuperacion { get => correo_recuperacion; set => correo_recuperacion = value; }
         public string Contraseña_correo_recuperacion { get => contraseña_correo_recuperacion; set => contraseña_correo_recuperacion = value; }        
 
-        public void EnviarCorreo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
+        public void enviar_correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
         {  
             //creacion de el mensaje y su cuerpo 
-            mmsg.To.Add(user.Correo_);
-            mmsg.Subject = "Recuperacion de Contraseña Tecno Pc";
-            mmsg.SubjectEncoding = Encoding.UTF8;
-            mmsg.Body = "<p><b>Hola " +user.Propietario_ + "</b><br><b>ha solicitado una recuperacion de contraseña</b><br><b>su contraseña actual es: " + user.Contraseña_ +
+            mmsg_recuperacion.To.Add(user_log.Correo_);
+            mmsg_recuperacion.Subject = "Recuperacion de Contraseña Tecno Pc";
+            mmsg_recuperacion.SubjectEncoding = Encoding.UTF8;
+            mmsg_recuperacion.Body = "<p><b>Hola " +user_log.Propietario_ + "</b><br><b>ha solicitado una recuperacion de contraseña</b><br><b>su contraseña actual es: " + user_log.Contraseña_ +
             "</b><br><b>recomendamos solicite un cambio de contraseña al ingresar de nuevo al sistema por seguridad</b></p>";
-            mmsg.BodyEncoding = Encoding.UTF8;
-            mmsg.IsBodyHtml = true;
+            mmsg_recuperacion.BodyEncoding = Encoding.UTF8;
+            mmsg_recuperacion.IsBodyHtml = true;
 
             //extraemos el corrreo destinatario de el usuario que intento loguearse
-            mmsg.From = new MailAddress(Correo_recuperacion);
+            mmsg_recuperacion.From = new MailAddress(Correo_recuperacion);
             
             //configuramos el cliente stmp dependiendo del dominio de el email (Gmail en este caso)  
-            cliente.Credentials = new NetworkCredential(Correo_recuperacion, Contraseña_correo_recuperacion);
-            cliente.Port = 587;
-            cliente.EnableSsl = true;
-            cliente.Host = "smtp.gmail.com";
+            cliente_bd.Credentials = new NetworkCredential(Correo_recuperacion, Contraseña_correo_recuperacion);
+            cliente_bd.Port = 587;
+            cliente_bd.EnableSsl = true;
+            cliente_bd.Host = "smtp.gmail.com";
 
             try  //se intenta enviar el correo 
             {
-                cliente.Send(mmsg);
+                cliente_bd.Send(mmsg_recuperacion);
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Se ha enviado un Email con los datos de inicio de sesion",1);
                 noti.ShowDialog();
                 noti.Close();

@@ -194,7 +194,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Usuarios";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = true;
-            rep.GenerarPdf();
+            rep.generar_pdf();
         }
     }
 }

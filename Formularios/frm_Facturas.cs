@@ -39,7 +39,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Facturas_Load(object sender, EventArgs e)
         {
-            dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+            dgv_Facturas.DataSource = sql.consulta_registro("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                 "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
                 "= f.[id_transaccion] where [id_factura] > 0 order by f.[id_factura] desc");
             operacionesDatagrid();
@@ -62,14 +62,14 @@ namespace Tecno_Pc.Formularios
         {
             if (dgv_Facturas.Rows[e.RowIndex].Cells["Mostrar"].Selected)
             {
-                rep.Dgv = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                rep.Dgv = sql.consulta_registro("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                     "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
                     "join Transacciones t on t.[id_transaccion] = f.[id_transaccion] where [id_factura] = " + dgv_Facturas.Rows[e.RowIndex].Cells[1].Value.ToString() + " order by f.[id_factura] desc");
 
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(rep.PdfFacturas);
+                Task tar1 = new Task(rep.pdf_facturas);
                 tar1.Start();
                 await tar1;
 
@@ -83,20 +83,20 @@ namespace Tecno_Pc.Formularios
         {
             if (cbo_filtro.Text == "ID Factura" && txt_buscar.Text != "")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                dgv_Facturas.DataSource = sql.consulta_registro("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                 "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
                 "= f.[id_transaccion] where f.[id_factura] = "+txt_buscar.Text+ " and [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();
             }else if (cbo_filtro.Text == "Cliente")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                dgv_Facturas.DataSource = sql.consulta_registro("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                 "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
                 "= f.[id_transaccion] where (c.nombre_cliente +' '+ c.apellido_cliente) LIKE '%" + txt_buscar.Text + "%' and [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();
             }
             else if (txt_buscar.Text == "")
             {
-                dgv_Facturas.DataSource = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+                dgv_Facturas.DataSource = sql.consulta_registro("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner join Transacciones t on t.[id_transaccion] " +
                "= f.[id_transaccion] where [id_factura] > 0 order by f.[id_factura] desc");
                 operacionesDatagrid();                

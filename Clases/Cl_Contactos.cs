@@ -38,32 +38,32 @@ namespace Tecno_Pc.Clases
             string cadena;
             cadena = "insert into Contactos values (" + iDProveedor + ", " + iDDepto + ", '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '" + CorreoElectronico + "'," +
                 "'" + Direccion + "', " + Convert.ToInt32(estado)+")" ;
-            return Sql_Query(cadena, "Contacto añadido con Exito", "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
+            return sql_query(cadena, "Contacto añadido con Exito", "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
         }
 
         public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta(" select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ,(select [nombre_proveedor] " +
+            dgv.DataSource = consulta_registro(" select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ,(select [nombre_proveedor] " +
                 "from [dbo].[Proveedores] where [dbo].[Proveedores].[id_proveedor]=[dbo].[Contactos].[id_proveedor]) as Proveedor from Contactos where estado_contacto = 1 order by nombre_contacto asc");
         }
 
         public void buscarDatos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas 
         {
-            dgv.DataSource = Consulta("	 select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ," +
+            dgv.DataSource = consulta_registro("	 select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = [dbo].[Contactos].[id_depto] ) as Departamento ," +
                 "(select [nombre_proveedor] from [dbo].[Proveedores] where [dbo].[Proveedores].[id_proveedor]=[dbo].[Contactos].[id_proveedor]) as Proveedor from Contactos where nombre_contacto Like '%"+Nombre+"%'  " +
                 "and estado_contacto = 1  order by nombre_contacto asc");
         }
 
         public bool actualizarDatos()
         {
-            return Sql_Query("update Contactos set  [id_proveedor]="+ iDProveedor+ ",[id_depto]=" + iDDepto +  ",nombre_contacto='" + Nombre + "',apellido_contacto='" + Apellido + "',telefono_contacto='" + Telefono + "'," +
+            return sql_query("update Contactos set  [id_proveedor]="+ iDProveedor+ ",[id_depto]=" + iDDepto +  ",nombre_contacto='" + Nombre + "',apellido_contacto='" + Apellido + "',telefono_contacto='" + Telefono + "'," +
                 "[correo_electronico]='" + CorreoElectronico + "',direccion_contacto='" + Direccion + "' where  [id_contacto]=" + iDContacto + "", "Contacto actualizado con exito", 
                 "El correo electronico ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false, se ingreo un correo que ya fue registrado
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Contactos set estado_contacto = 0 where [id_contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
+            sql_querys("Update Contactos set estado_contacto = 0 where [id_contacto ] = " + iDContacto, "Se ha elminado este Contacto", "El correo electronico ya esta en uso, ¡Cambielo!");
         }
     }
 

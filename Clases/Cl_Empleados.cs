@@ -37,13 +37,13 @@ namespace Tecno_Pc.Clases
         //Procedimientos que se heredan de la clase sql para hacer CRUD
         public void consultarDatos(DataGridView dgv)
         {
-            dgv.DataSource = Consulta("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
+            dgv.DataSource = consulta_registro("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
                 "as Departamento from Empleados where estado_empleado = 1 order by nombre_empleado asc"); //Procedimiento para llenar el datagrid con los registros
         }
 
         public void buscardatos(DataGridView dgv) //Busquedas filtradas
         {
-            dgv.DataSource = Consulta("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
+            dgv.DataSource = consulta_registro("select *, (select [nombre_puesto]  from Puestos  where puestos.[id_puesto] = Empleados .[id_puesto] ) as Puesto,  (select [nombre_depto]  from Departamentos where  [id_depto] = Empleados .[id_depto]) " +
                 "as Departamento from Empleados where estado_empleado = 1 and nombre_empleado like '%" + nombre+ "%' order by nombre_empleado asc");
         }
 
@@ -52,19 +52,19 @@ namespace Tecno_Pc.Clases
             string cadena;
             cadena = "insert into Empleados values ("+idpuesto +", "+iddepto +", '"+identidad +"', '"+nombre +"','"+apellido +"'," +
                 "'"+telefono+"','"+email +"', '"+direccion+"', "+ Convert.ToInt32(estado)+")";
-            return Sql_Query(cadena, "Empleado añadido con Exito", "Existen Datos Repetidos, Cambiar Identidad o Correo"); //si retorna falso hay algunos datos repetido como identidad o email
+            return sql_query(cadena, "Empleado añadido con Exito", "Existen Datos Repetidos, Cambiar Identidad o Correo"); //si retorna falso hay algunos datos repetido como identidad o email
         }
 
         public bool update()
         {
-            return Sql_Query("update Empleados set [id_puesto] ="+idpuesto+", [id_depto] ="+iddepto+ " ,[identidad_empleado] ='" + identidad+ "',[nombre_empleado] ='" + nombre+ "',[apellido_empleado] ='" + apellido+ "',[telefono_empleado] ='" + telefono+"'," +
+            return sql_query("update Empleados set [id_puesto] ="+idpuesto+", [id_depto] ="+iddepto+ " ,[identidad_empleado] ='" + identidad+ "',[nombre_empleado] ='" + nombre+ "',[apellido_empleado] ='" + apellido+ "',[telefono_empleado] ='" + telefono+"'," +
                 "[correo_electronico] ='"+email+ "',[direccion_empleado] ='" + direccion+"' WHERE [id_empleado] ="+idempleado+ "",
                 "Empleado actualizado con exito", "Existen Datos Repetidos, Cambiar Identidad o Correo");//si retorna falso hay algunos datos repetido como identidad o email
         }
 
         public void eliminar()
         {
-            Sql_Querys("update Empleados set estado_empleado = 0 where [id_empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
+            sql_querys("update Empleados set estado_empleado = 0 where [id_empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();
         }

@@ -28,7 +28,7 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();
             this.toolTip1.SetToolTip(this.btn_imprimir, "Crear Reporte");
 
-            cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
+            cbo_proveedor.DataSource = sql.consulta_registro("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
             cbo_proveedor.DisplayMember = "nombre_proveedor";
             cbo_proveedor.ValueMember = "id_proveedor";
             cbo_proveedor.SelectedIndex = -1;
@@ -78,7 +78,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Proveedores";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = false;
-                rep.GenerarPdf();
+                rep.generar_pdf();
                 ReporteGenerado = true;
             }
             else
@@ -95,7 +95,7 @@ namespace Tecno_Pc.Formularios
                     rep.Carpeta = "Productos";
                     rep.Fecha = DateTime.Now.ToShortDateString();
                     rep.Vertical = false;
-                    rep.GenerarPdf();
+                    rep.generar_pdf();
                     ReporteGenerado = true;
                 }
                 else

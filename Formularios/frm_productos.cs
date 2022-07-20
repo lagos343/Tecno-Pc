@@ -37,10 +37,10 @@ namespace Tecno_Pc.Formularios
 
         public void Dashboard()
         {
-            lbl_totalProductos.Text = sql.Consulta("select *from Productos where estado_producto = 1").Rows.Count.ToString();
-            lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
-            lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
-            lbl_ProductosTotales.Text = sql.Consulta2("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
+            lbl_totalProductos.Text = sql.consulta_registro("select *from Productos where estado_producto = 1").Rows.Count.ToString();
+            lbl_totalMarcas.Text = sql.consulta_registro("select *from Marcas").Rows.Count.ToString();
+            lbl_TotalCategorias.Text = sql.consulta_registro("select *from Categorias").Rows.Count.ToString();
+            lbl_ProductosTotales.Text = sql.consulta2_registro("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
 
             prod.consultarDatos(dgv_Productos);
 
@@ -166,7 +166,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Productos";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = false;
-            rep.GenerarPdf();
+            rep.generar_pdf();
         }        
 
         private void usuario()

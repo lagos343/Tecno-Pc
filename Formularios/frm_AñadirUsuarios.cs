@@ -49,12 +49,12 @@ namespace Tecno_Pc.Formularios
 
         public void iniciar1()
         {
-            cboempleado.DataSource = sql.Consulta("select * from Empleados where estado_empleado = 1 order by nombre_empleado asc");
+            cboempleado.DataSource = sql.consulta_registro("select * from Empleados where estado_empleado = 1 order by nombre_empleado asc");
             cboempleado.DisplayMember = "nombre_empleado";
             cboempleado.ValueMember = "id_empleado";
             cboempleado.SelectedIndex = -1;
 
-            cborol.DataSource = sql.Consulta("select * from Roles order by [nombre_rol] asc");
+            cborol.DataSource = sql.consulta_registro("select * from Roles order by [nombre_rol] asc");
             cborol.DisplayMember = "nombre_rol";
             cborol.ValueMember = "id_rol";
             cborol.SelectedIndex = -1;

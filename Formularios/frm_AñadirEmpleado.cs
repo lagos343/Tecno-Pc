@@ -64,12 +64,12 @@ namespace Tecno_Pc.Formularios
 
         public void iniciarcombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
-            cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [nombre_puesto] asc");
+            cbo_puesto.DataSource = sql.consulta_registro("select * from Puestos order by [nombre_puesto] asc");
             cbo_puesto.DisplayMember = "nombre_puesto";
             cbo_puesto.ValueMember = "id_puesto";
             cbo_puesto.SelectedIndex = -1;
 
-            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DataSource = sql.consulta_registro("select * from Departamentos order by [nombre_depto] asc");
             cbo_depto.DisplayMember = "nombre_depto";
             cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;           
