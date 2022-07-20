@@ -11,17 +11,17 @@ namespace Tecno_Pc.Clases
     {
         //variables que almacenan la columnas de la tabla de la DB
         private static int id_noti;
-        private static string producto;
-        private static string descripcion;
-        private static string fecha;
-        private static bool estado;
+        private static string producto_compra;
+        private static string descripcion_compra;
+        private static string fecha_compra;
+        private static bool estado_compra;
 
         #region Encapsulamiento
         public int Id_noti { get => id_noti; set => id_noti = value; }
-        public string Producto { get => producto; set => producto = value; }
-        public string Descripcion { get => descripcion; set => descripcion = value; }
-        public  string Fecha { get => fecha; set => fecha = value; }
-        public  bool Estado { get => estado; set => estado = value; }
+        public string Producto { get => producto_compra; set => producto_compra = value; }
+        public string Descripcion { get => descripcion_compra; set => descripcion_compra = value; }
+        public  string Fecha { get => fecha_compra; set => fecha_compra = value; }
+        public  bool Estado { get => estado_compra; set => estado_compra = value; }
 
         #endregion
 
@@ -33,7 +33,7 @@ namespace Tecno_Pc.Clases
 
         public void buscardatos(DataGridView dgv) //prod para las busquedas filtadas
         {
-            dgv.DataSource = Consulta("select * from [Notificacion] where estado_noti = 1 and producto like '%"+producto+"%' order by producto asc");
+            dgv.DataSource = Consulta("select * from [Notificacion] where estado_noti = 1 and producto like '%"+producto_compra+"%' order by producto asc");
         }
 
         public void eliminar() //quita la notificacion de la lista y actualiza el formulario

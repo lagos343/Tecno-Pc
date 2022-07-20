@@ -10,13 +10,13 @@ namespace Tecno_Pc.Clases
     class Cl_Marcas: Cl_SqlMaestra
     {
         //variables que almacenan la columnas de la tabla de la DB
-        private static int iDMarca;
-        private static string nombreMarca;
+        private static int id_marca;
+        private static string nombre_marca;
 
         #region Encapsulamiento
 
-        public int IDMarca { get => iDMarca; set => iDMarca = value; }
-        public string NombreMarca { get => nombreMarca; set => nombreMarca = value; }
+        public int IDMarca { get => id_marca; set => id_marca = value; }
+        public string NombreMarca { get => nombre_marca; set => nombre_marca = value; }
 
 
         #endregion
@@ -25,7 +25,7 @@ namespace Tecno_Pc.Clases
         public bool guardar()
         {
             string cadena;
-            cadena = "Insert into Marcas values('" + nombreMarca + "')";
+            cadena = "Insert into Marcas values('" + nombre_marca + "')";
             return Sql_Query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
@@ -36,13 +36,13 @@ namespace Tecno_Pc.Clases
 
         public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
         {
-            dgv.DataSource = Consulta("select *from Marcas where [nombre_marca] Like '%"+nombreMarca+"%' order by [nombre_marca] asc");
+            dgv.DataSource = Consulta("select *from Marcas where [nombre_marca] Like '%"+nombre_marca+"%' order by [nombre_marca] asc");
         }
 
         public bool actualizarDatos()
         {
             string cadena;
-            cadena = "Update Marcas set [nombre_marca] = '"+nombreMarca+"' where [id_marca] = "+iDMarca+"";
+            cadena = "Update Marcas set [nombre_marca] = '"+nombre_marca+"' where [id_marca] = "+id_marca+"";
             return Sql_Query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }       
     }

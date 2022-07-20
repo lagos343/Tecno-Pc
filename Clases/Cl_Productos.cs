@@ -10,27 +10,27 @@ namespace Tecno_Pc.Clases
     class Cl_Productos: Cl_SqlMaestra
     {
         //variables que almacenan la columnas de la tabla de la DB
-        private static int iDProducto;
-        private static int iDCategoria;
-        private static int iDMarca;
-        private static int iDProveedor;
-        private static string nombreProducto; 
-        private static string modelo;
-        private static double precioUnitario;
-        private static bool estado;
-        private static string codbarra;
+        private static int id_producto;
+        private static int id_categoria;
+        private static int id_marca;
+        private static int id_proveedor;
+        private static string nombre_producto; 
+        private static string modelo_producto;
+        private static double precio_unitario;
+        private static bool estado_producto;
+        private static string cod_barra;
 
         #region Encapsulamiento
 
-        public int IDProducto { get => iDProducto; set => iDProducto = value; }
-        public int IDCategoria { get => iDCategoria; set => iDCategoria = value; }
-        public int IDMarca { get => iDMarca; set => iDMarca = value; }
-        public int IDProveedor { get => iDProveedor; set => iDProveedor = value; }
-        public string NombreProducto { get => nombreProducto; set => nombreProducto = value; }
-        public string Modelo { get => modelo; set => modelo = value; }
-        public double PrecioUnitario { get => precioUnitario; set => precioUnitario = value; }
-        public bool Estado { get => estado; set => estado = value; }
-        public string Codbarra { get => codbarra; set => codbarra = value; }
+        public int IDProducto { get => id_producto; set => id_producto = value; }
+        public int IDCategoria { get => id_categoria; set => id_categoria = value; }
+        public int IDMarca { get => id_marca; set => id_marca = value; }
+        public int IDProveedor { get => id_proveedor; set => id_proveedor = value; }
+        public string NombreProducto { get => nombre_producto; set => nombre_producto = value; }
+        public string Modelo { get => modelo_producto; set => modelo_producto = value; }
+        public double PrecioUnitario { get => precio_unitario; set => precio_unitario = value; }
+        public bool Estado { get => estado_producto; set => estado_producto = value; }
+        public string Codbarra { get => cod_barra; set => cod_barra = value; }
 
         #endregion
 
@@ -38,7 +38,7 @@ namespace Tecno_Pc.Clases
         public bool guardar()
         {
             string cadena;
-            cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
+            cadena = "insert into Productos values ("+id_categoria+", "+id_marca+", "+id_proveedor+", '"+nombre_producto+"', '"+modelo_producto+"', "+precio_unitario+", "+Convert.ToInt32(estado_producto)+", '"+cod_barra+"')";
             return Sql_Query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
@@ -51,19 +51,19 @@ namespace Tecno_Pc.Clases
         public void buscarDatos(DataGridView dgv) //busquedas filtradas 
         {
             dgv.DataSource = Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
-                "and [nombre_producto] Like '%" + nombreProducto + "%' order by [nombre_producto] asc");
+                "and [nombre_producto] Like '%" + nombre_producto + "%' order by [nombre_producto] asc");
         }
 
         public bool actualizarDatos() 
         {
-            return Sql_Query("Update Productos set [id_categoria] = " + iDCategoria + ", [id_marca] = " + iDMarca + ", [id_proveedor] = " + iDProveedor + ", [nombre_producto] = '" + nombreProducto + "', " +
-                "modelo_producto = '" + modelo + "', [precio_unitario] = " + precioUnitario + ", estado_producto = " + Convert.ToInt32(estado) + ", cod_barra = '"+codbarra+"' where [id_producto] = " + iDProducto + "", 
+            return Sql_Query("Update Productos set [id_categoria] = " + id_categoria + ", [id_marca] = " + id_marca + ", [id_proveedor] = " + id_proveedor + ", [nombre_producto] = '" + nombre_producto + "', " +
+                "modelo_producto = '" + modelo_producto + "', [precio_unitario] = " + precio_unitario + ", estado_producto = " + Convert.ToInt32(estado_producto) + ", cod_barra = '"+cod_barra+"' where [id_producto] = " + id_producto + "", 
                 "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
         public void eliminarDatos()
         {
-            Sql_Querys("Update Productos set estado_producto = 0 where [id_producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
+            Sql_Querys("Update Productos set estado_producto = 0 where [id_producto] = " + id_producto, "Se ha elminado este producto", "Error al eliminar");            
         }
     }
 }
