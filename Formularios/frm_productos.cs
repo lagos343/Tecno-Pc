@@ -20,6 +20,7 @@ namespace Tecno_Pc.Formularios
         public frm_productos()
         {
             InitializeComponent();
+
             Control.CheckForIllegalCrossThreadCalls = false;
             this.toolTip1.SetToolTip(this.btn_nuevoProducto, "Agregar Producto");
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
@@ -36,10 +37,10 @@ namespace Tecno_Pc.Formularios
 
         public void Dashboard()
         {
-            lbl_totalProductos.Text = sql.Consulta("select *from Productos where Estado = 1").Rows.Count.ToString();
+            lbl_totalProductos.Text = sql.Consulta("select *from Productos where estado_producto = 1").Rows.Count.ToString();
             lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
             lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
-            lbl_ProductosTotales.Text = sql.Consulta2("select sum(Stock) as Stock from Inventarios i inner join Productos p on p.[ID Producto] = i.[ID Producto] where p.Estado = 1");
+            lbl_ProductosTotales.Text = sql.Consulta2("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
 
             prod.consultarDatos(dgv_Productos);
 
@@ -60,7 +61,12 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[9].Visible = false;
             dgv_Productos.Columns[10].Visible = false;
             dgv_Productos.Columns[0].Width = 50;
-            dgv_Productos.Columns[1].Width = 50;            
+            dgv_Productos.Columns[1].Width = 50;
+
+            dgv_Productos.Columns[6].HeaderText = "Producto";
+            dgv_Productos.Columns[7].HeaderText = "Modelo";
+            dgv_Productos.Columns[8].HeaderText = "Precio";
+            dgv_Productos.Columns[11].HeaderText = "Stock";
         }
 
         private void btn_categorias_Click(object sender, EventArgs e)
@@ -150,10 +156,10 @@ namespace Tecno_Pc.Formularios
 
         private void ReporteProductos()
         {
-            rep.Cadena_consulta = "select p.[Nombre Producto], p.Modelo, CAST(p.[Precio Unitario] AS decimal(9,2)), c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
-                "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, CodBarra from Productos p " +
-                "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
-                "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1";
+            rep.Cadena_consulta = "select p.[nombre_producto], p.modelo_producto, CAST(p.[precio_unitario] AS decimal(9,2)), c.[nombre_categoria], m.[nombre_marca], pr.nombre_proveedor, " +
+                "(select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock, cod_barra from Productos p " +
+                "inner join Categorias c on c.[id_categoria] = p.[id_categoria] inner join Marcas m on m.[id_marca] = p.[id_marca] inner join Proveedores pr on " +
+                "pr.[id_proveedor] = p.[id_proveedor] where p.estado_producto = 1";
             rep.Cabecera =  new string[8] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras"};
             rep.Titulo = "Reporte de inventarios de Productos";
             rep.Tamanios = new float[8] {6, 4, 3, 4, 4, 6, 2, 4};

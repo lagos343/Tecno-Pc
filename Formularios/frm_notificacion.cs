@@ -63,7 +63,7 @@ namespace Tecno_Pc.Formularios
         {
             for (int i = 0; i <= 100; i+= 1)
             {
-                Thread.Sleep(1);
+                Thread.Sleep(2);
                 gunaCircleProgressBar1.Value = i;
                 gunaCircleProgressBar1.Update();
 

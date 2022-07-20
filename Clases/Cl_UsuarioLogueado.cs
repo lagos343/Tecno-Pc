@@ -51,9 +51,10 @@ namespace Tecno_Pc.Clases
             bool ingresar = false; //indicara si ingresamos o no al sistema
             datos = new DataTable();
             string cadena;
-            cadena = "Select u.[ID Usuario], u.[ID Rol], u.[ID Empleado], u.[Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc', u.Clave)), (e.Nombre + ' ' + e.Apellido) Propietario, e.[Correo Electronico], e.Telefono, " +
-                "r.[Nombre Rol], u.Estado from Usuarios u inner join Roles r on u.[ID Rol] = r.IDRol inner join Empleados e on u.[ID Empleado] = e.[ID Empleado] where " +
-                "[Nombre Usuario] = '" + usuario_+ "' and u.Estado = 1";
+            cadena = "Select u.[id_usuario], u.[id_rol], u.[id_empleado], u.[nombre_usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc', u.clave_usuario)), " +
+                "(e.nombre_empleado + ' ' + e.apellido_empleado) Propietario, e.[correo_electronico], e.telefono_empleado, " +
+                "r.[nombre_rol], u.estado_usuario from Usuarios u inner join Roles r on u.[id_rol] = r.id_rol inner join Empleados e on u.[id_empleado] = e.[id_empleado] where " +
+                "[nombre_usuario] = '" + usuario_+ "' and u.estado_usuario = 1";
             datos = Consulta(cadena);
 
             try//intentamos extraer la informacion si ha devuelto algun registro la consulta sql 

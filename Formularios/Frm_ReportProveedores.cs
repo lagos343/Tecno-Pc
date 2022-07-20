@@ -28,9 +28,9 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();
             this.toolTip1.SetToolTip(this.btn_imprimir, "Crear Reporte");
 
-            cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where Estado = 1 order by Nombre asc");
-            cbo_proveedor.DisplayMember = "Nombre";
-            cbo_proveedor.ValueMember = "ID Proveedor";
+            cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
+            cbo_proveedor.DisplayMember = "nombre_proveedor";
+            cbo_proveedor.ValueMember = "id_proveedor";
             cbo_proveedor.SelectedIndex = -1;
         }
 
@@ -69,12 +69,12 @@ namespace Tecno_Pc.Formularios
         {
             if (radio_gen.Checked)
             {
-                rep.Cadena_consulta = "SELECT Proveedores.Nombre, Proveedores.Telefono,Departamentos.[Nombre Depto] [Departamento], Proveedores.Direccion, Proveedores.[Correo Electronico] FROM    " +
-                " Proveedores INNER JOIN  Departamentos ON Proveedores.[ID Depto] = Departamentos.[ID Depto]" +
-                " WHERE Proveedores.Estado = 1 ORDER BY Nombre asc";
-                rep.Cabecera = new string[5] { "Proveedor", "Telefono", "Departamento", "Direccion", "Email" };
+                rep.Cadena_consulta = "SELECT Proveedores.nombre_proveedor, Proveedores.telefono_proveedor,Departamentos.[nombre_depto] [Departamento], Proveedores.direccion_proveedor, Proveedores.[correo_electronico] FROM    " +
+                " Proveedores INNER JOIN  Departamentos ON Proveedores.[id_depto] = Departamentos.[id_depto]" +
+                " WHERE Proveedores.estado_proveedor = 1 ORDER BY nombre_proveedor asc";
+                rep.Cabecera = new string[] { "Proveedor", "Telefono", "Departamento", "Direccion", "Email" };
                 rep.Titulo = "Reporte de Proveedores";
-                rep.Tamanios = new float[5] { 6, 3, 5, 9, 5 };
+                rep.Tamanios = new float[] { 6, 3, 5, 9, 5 };
                 rep.Carpeta = "Proveedores";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = false;
@@ -85,13 +85,13 @@ namespace Tecno_Pc.Formularios
             {
                 if (cbo_proveedor.SelectedIndex != -1)
                 {
-                    rep.Cadena_consulta = "select p.[Nombre Producto], p.Modelo, CAST(p.[Precio Unitario] AS decimal(9,2)), c.[Nombre Categoria], m.[Nombre Marca], pr.Nombre, " +
-                    "(select Stock from Inventarios Where [ID Producto] = p.[ID Producto]) as Stock, CodBarra from Productos p " +
-                    "inner join Categorias c on c.[ID Categoria] = p.[ID Categoria] inner join Marcas m on m.[ID Marca] = p.[ID Marca] inner join Proveedores pr on " +
-                    "pr.[ID Proveedor] = p.[ID Proveedor] where p.Estado = 1 and p.[ID Proveedor] = " + cbo_proveedor.SelectedValue;
-                    rep.Cabecera = new string[8] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras" };
+                    rep.Cadena_consulta = "select p.[nombre_producto], p.modelo_producto, CAST(p.[precio_unitario] AS decimal(9,2)), c.[nombre_categoria], m.[nombre_marca], pr.nombre_proveedor, " +
+                    "(select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock, cod_barra from Productos p " +
+                    "inner join Categorias c on c.[id_categoria] = p.[id_categoria] inner join Marcas m on m.[id_marca] = p.[id_marca] inner join Proveedores pr on " +
+                    "pr.[id_proveedor] = p.[id_proveedor] where p.estado_producto = 1 and p.[id_proveedor] = " + cbo_proveedor.SelectedValue;
+                    rep.Cabecera = new string[] { "Producto", "Modelo", "Precio", "Categoria", "Marca", "Proveedor", "Stock", "Codigo de Barras" };
                     rep.Titulo = "Reporte de Productos de " + cbo_proveedor.Text;
-                    rep.Tamanios = new float[8] { 6, 4, 3, 4, 4, 6, 2, 4 };
+                    rep.Tamanios = new float[] { 6, 4, 3, 4, 4, 6, 2, 4 };
                     rep.Carpeta = "Productos";
                     rep.Fecha = DateTime.Now.ToShortDateString();
                     rep.Vertical = false;

@@ -19,7 +19,7 @@ namespace Tecno_Pc.Clases
         Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
 
         private string correo_recuperacion = "pctecno536@gmail.com";
-        private string contraseña_correo_recuperacion = "admonuser1";
+        private string contraseña_correo_recuperacion = "gbpuasibhhsjxcrp";
         private MailMessage mmsg = new MailMessage();
         SmtpClient cliente = new SmtpClient();
 
@@ -46,7 +46,7 @@ namespace Tecno_Pc.Clases
             cliente.EnableSsl = true;
             cliente.Host = "smtp.gmail.com";
 
-            try //se intenta enviar el correo 
+            try  //se intenta enviar el correo 
             {
                 cliente.Send(mmsg);
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("Se ha enviado un Email con los datos de inicio de sesion",1);

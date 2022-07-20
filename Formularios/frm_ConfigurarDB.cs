@@ -47,7 +47,6 @@ namespace Tecno_Pc.Formularios
                 else
                 {
                     cbo_autenticaciones.SelectedIndex = 1;
-
                     txt_user.Text = Properties.Settings.Default.Usuario.ToString();
                     txt_password.Text = Properties.Settings.Default.Contraseña.ToString();
                 }

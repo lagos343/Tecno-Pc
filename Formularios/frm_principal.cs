@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.InteropServices;
@@ -31,6 +32,7 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(gunaPictureBox3, "Minimizar");
             toolTip1.SetToolTip(swt_codbar, "Activar/Desactivar Scanner de Barras");
             toolTip1.SetToolTip(btn_server, "Configuracion inicial");
+            toolTip1.SetToolTip(btn_info, "Ver la Ayuda");
 
             if (Properties.Settings.Default.CodBar == "")
             {
@@ -234,7 +236,6 @@ namespace Tecno_Pc.Formularios
         private void btn_server_Click(object sender, EventArgs e)
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ConfigurarDB);
-
             if (frm == null)
             {
                 frm_ConfigurarDB db = new frm_ConfigurarDB(true);
@@ -245,6 +246,34 @@ namespace Tecno_Pc.Formularios
                 frm.Show();   
                 frm.BringToFront();
             }
+        }
+
+        private async void btn_info_Click(object sender, EventArgs e)
+        {
+            btn_info.Enabled = false;
+            frm_notificacion noti = new frm_notificacion("", 4);
+            noti.Show();
+
+            Task tar1 = new Task(MostrarAyuda);
+            tar1.Start();
+            await tar1;
+
+            noti.Close();
+            btn_info.Enabled = true;
+        }
+
+        private void MostrarAyuda()
+        {
+            try
+            {
+                Process.Start("Ayuda al Usuario - Tecno Pc.chm");
+            }
+            catch (Exception)
+            {
+                frm_notificacion noti = new frm_notificacion("No se encuentra el Archivo de ayuda (Ayuda al Usuario - Tecno Pc.chm), revise la carpeta raiz", 3);
+                noti.ShowDialog();
+                noti.Close();
+            }            
         }
     }
 }

@@ -24,8 +24,8 @@ namespace Tecno_Pc.Clases
     {
         //propiedades para crear reportes de manera general
         private string cadena_consulta;
-        private string carpeta;
-        private string[] cabecera;
+        private string carpeta_reporte;
+        private string[] cabecera_reporte;
         private string titulo;
         private string fecha;
         private bool vertical;
@@ -37,9 +37,9 @@ namespace Tecno_Pc.Clases
 
         #region Encapsulamiento
         public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }
-        public string[] Cabecera { get => cabecera; set => cabecera = value; }
+        public string[] Cabecera { get => cabecera_reporte; set => cabecera_reporte = value; }
         public string Titulo { get => titulo; set => titulo = value; }
-        public string Carpeta { get => carpeta; set => carpeta = value; }
+        public string Carpeta { get => carpeta_reporte; set => carpeta_reporte = value; }
         public string Fecha { get => fecha; set => fecha = value; }
         public bool Vertical { get => vertical; set => vertical = value; }
         public float[] Tamanios { get => tamanios; set => tamanios = value; }
@@ -50,12 +50,12 @@ namespace Tecno_Pc.Clases
         public void GenerarPdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdff
         {
             //indicamos el reporte que se abrira el el formulario de PDFs
-            Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + fecha.Replace("/", "-") + ".pdf";
+            Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\" + titulo + " " + fecha.Replace("/", "-") + ".pdf";
             Properties.Settings.Default.Save();
 
             //inicializamos las variables del PDF
-            vld.ValidarCarpetas(carpeta);
-            PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf");
+            vld.ValidarCarpetas(carpeta_reporte);
+            PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
             PdfDocument pdf = new PdfDocument(EscritorPdf);
             Document documento;
 
@@ -79,7 +79,7 @@ namespace Tecno_Pc.Clases
             Table tabla = new Table(UnitValue.CreatePercentArray(tamanios));
             tabla.SetWidth(UnitValue.CreatePercentValue(100));
 
-            foreach (var columna in cabecera)
+            foreach (var columna in cabecera_reporte)
             {
                 tabla.AddHeaderCell(new Cell().Add(new Paragraph(columna).SetFont(FontColumnas)).SetFontSize(11));
             }
@@ -111,8 +111,8 @@ namespace Tecno_Pc.Clases
             var Fecha = new Paragraph("Fecha: " + DateTime.Now.ToShortDateString() + "\nHora: " + DateTime.Now.ToShortTimeString());
             Fecha.SetFontSize(12);
 
-            pdf = new PdfDocument(new PdfReader(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf"), 
-                new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\" + titulo + " " + fecha.Replace("/", "-")+".pdf"));
+            pdf = new PdfDocument(new PdfReader(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf"), 
+                new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\" + titulo + " " + fecha.Replace("/", "-")+".pdf"));
             documento = new Document(pdf);
 
             //obtenemos el numero de paginas del documetno
@@ -134,10 +134,10 @@ namespace Tecno_Pc.Clases
 
             
             documento.Close();
-            File.Delete(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta + @"\Reporte.pdf");
+            File.Delete(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
         }
               
-        public void PdfFacturas() // se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
+        public void PdfFacturas() //se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
         {
             
             //Inializacion de las variables que almacenaran los datos            
@@ -167,9 +167,9 @@ namespace Tecno_Pc.Clases
             limite = Sar.Rows[0][3].ToString().Replace("00", "");
 
             //Extraccion de los detalles de la Factura
-            registros = Consulta("select (p.[Nombre Producto] +' '+ p.[Modelo]), CAST(df.[Precio Historico] AS decimal(9,2)), df.Cantidad, CAST((df.[Precio Historico]) * Descuentos " +
-                "AS decimal(9, 2)), CAST(((df.[Precio Historico] * df.Cantidad) - (df.[Precio Historico] * df.Cantidad * Descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
-                "Productos p on p.[ID Producto] = df.[ID Producto] where df.[ID Factura] =" + id);            
+            registros = Consulta("select (p.[nombre_producto] +' '+ p.[modelo_producto]), CAST(df.[precio_historico] AS decimal(9,2)), df.cantidad, CAST((df.[precio_historico]) * descuentos " +
+                "AS decimal(9, 2)), CAST(((df.[precio_historico] * df.cantidad) - (df.[precio_historico] * df.cantidad * descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
+                "Productos p on p.[id_producto] = df.[id_producto] where df.[id_factura] =" + id);            
 
             //indicamos el reporte que se abrira el el formulario de PDFs
             Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf";
@@ -244,16 +244,16 @@ namespace Tecno_Pc.Clases
 
             try
             {
-                Descuentos = double.Parse(Consulta2("select Sum(CAST(([Precio Historico] * Cantidad * Descuentos) AS decimal(9, 2))) Descuento from " +
-                "DetalleFactura where [ID Factura] = " + id + " and Descuentos > 0.00"));
+                Descuentos = double.Parse(Consulta2("select Sum(CAST(([precio_historico] * cantidad * descuentos) AS decimal(9, 2))) Descuento from " +
+                "DetalleFactura where [id_factura] = " + id + " and descuentos > 0.00"));
             }
             catch (Exception)
             {Descuentos = 0.00;}
 
             try
             {
-                Gravado = double.Parse(Consulta2("select Sum(CAST((([Precio Historico] * Cantidad)) AS decimal(9, 2))) Excento from " +
-                "DetalleFactura where [ID Factura] = " + id));
+                Gravado = double.Parse(Consulta2("select Sum(CAST((([precio_historico] * cantidad)) AS decimal(9, 2))) Excento from " +
+                "DetalleFactura where [id_factura] = " + id));
             }
             catch (Exception)
             {Gravado = 0.00;}

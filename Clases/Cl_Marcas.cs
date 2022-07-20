@@ -31,18 +31,18 @@ namespace Tecno_Pc.Clases
 
         public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta("select *from Marcas order by [Nombre Marca] asc"); 
+            dgv.DataSource = Consulta("select *from Marcas order by [nombre_marca] asc"); 
         }
 
         public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
         {
-            dgv.DataSource = Consulta("select *from Marcas where [Nombre Marca] Like '%"+nombreMarca+"%' order by [Nombre Marca] asc");
+            dgv.DataSource = Consulta("select *from Marcas where [nombre_marca] Like '%"+nombreMarca+"%' order by [nombre_marca] asc");
         }
 
         public bool actualizarDatos()
         {
             string cadena;
-            cadena = "Update Marcas set [Nombre Marca] = '"+nombreMarca+"' where [ID Marca] = "+iDMarca+"";
+            cadena = "Update Marcas set [nombre_marca] = '"+nombreMarca+"' where [id_marca] = "+iDMarca+"";
             return Sql_Query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }       
     }
