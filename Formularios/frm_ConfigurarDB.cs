@@ -29,11 +29,11 @@ namespace Tecno_Pc.Formularios
         {
             InitializeComponent();
             Control.CheckForIllegalCrossThreadCalls = false;
-            toolTip1.SetToolTip(this.btn_guardar, "Guardar la configuracion inicial");
-            toolTip1.SetToolTip(this.btn_minimizar, "Minimizar");
-            toolTip1.SetToolTip(this.btn_ruta, "Escoge la ruta donde se guardaran los reportes");
-            toolTip1.SetToolTip(this.btn_salir, "Salir");
-            toolTip1.SetToolTip(this.btn_servers, "Refrescar la lista de Servidores");
+            toolTip1.SetToolTip(this.Btn_Guardar, "Guardar la configuracion inicial");
+            toolTip1.SetToolTip(this.Btn_Minimizar, "Minimizar");
+            toolTip1.SetToolTip(this.Btn_Ruta, "Escoge la ruta donde se guardaran los reportes");
+            toolTip1.SetToolTip(this.Btn_Salir, "Salir");
+            toolTip1.SetToolTip(this.Btn_Servers, "Refrescar la lista de Servidores");
             toolTip1.SetToolTip(this.cbo_autenticaciones, "Autenticacion de logueo al server");
 
             if (modi == true)
@@ -65,7 +65,7 @@ namespace Tecno_Pc.Formularios
             txt_password.UseSystemPasswordChar = true;
         }
 
-        private void CargarServers()
+        private void Cargar_Servers()
         {
             DataTable sqls = new DataTable(); 
             sqls = SqlDataSourceEnumerator.Instance.GetDataSources();
@@ -90,11 +90,11 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_actualizar_Click(object sender, EventArgs e)
         {
-            btn_servers.Enabled = false;
+            Btn_Servers.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar = new Task(CargarServers);
+            Task tar = new Task(Cargar_Servers);
             tar.Start();
             await tar;
             noti.Close();
@@ -113,7 +113,7 @@ namespace Tecno_Pc.Formularios
                 noti2.Close();
                 EscribirServer = true;
             }
-            btn_servers.Enabled = true;
+            Btn_Servers.Enabled = true;
         }
 
         private void btn_salir_Click(object sender, EventArgs e)
@@ -153,7 +153,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            definicionarray();
+            Definicion_Array();
             if (vld.comprobartxt() == true && cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "" && txt_cai.Text.Length == 37)
             { 
                 if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == ""))
@@ -161,7 +161,7 @@ namespace Tecno_Pc.Formularios
                     frm_notificacion noti3 = new frm_notificacion("Indique las credenciales de Sql server", 3);
                     noti3.ShowDialog();
                     noti3.Close();
-                    escoger_erp();
+                    Escoger_Erp();
                 }
                 else
                 {
@@ -222,11 +222,11 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti3 = new frm_notificacion("Error al guardar, corrija las Advertencias", 3);
                 noti3.ShowDialog();
                 noti3.Close();
-                escoger_erp();
+                Escoger_Erp();
             }         
         }
 
-        public void escoger_erp()
+        public void Escoger_Erp()
         {
             if (txt_cai.Text.Length != 37)
             {
@@ -290,7 +290,7 @@ namespace Tecno_Pc.Formularios
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        public void definicionarray() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 
+        public void Definicion_Array() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 
         {
             vld.Text = new TextBox[] { txt_dir, txt_correo, txt_telefono, txt_rtn};
             vld.Error = new ErrorProvider[] { erp_dir, erp_correo, erp_tel, erp_rtn };
@@ -380,7 +380,7 @@ namespace Tecno_Pc.Formularios
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                btn_guardar.PerformClick();
+                Btn_Guardar.PerformClick();
             }
         }
 

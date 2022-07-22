@@ -32,14 +32,14 @@ namespace Tecno_Pc.Formularios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ConfigurarDB));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
+            this.Btn_Minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
-            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.Btn_Salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.cbo_servers = new System.Windows.Forms.ComboBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.gunaLabel1 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_servers = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Servers = new Guna.UI.WinForms.GunaGradientButton();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txt_password = new System.Windows.Forms.TextBox();
             this.gunaLabel3 = new Guna.UI.WinForms.GunaLabel();
@@ -52,9 +52,9 @@ namespace Tecno_Pc.Formularios
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.txt_ruta = new System.Windows.Forms.TextBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btn_ruta = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Ruta = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaLabel5 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
@@ -67,29 +67,29 @@ namespace Tecno_Pc.Formularios
             this.erp_bd = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel2 = new System.Windows.Forms.Panel();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txt_correo = new System.Windows.Forms.TextBox();
-            this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
-            this.pictureBox7 = new System.Windows.Forms.PictureBox();
-            this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
-            this.pictureBox5 = new System.Windows.Forms.PictureBox();
-            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
-            this.txt_rtn = new System.Windows.Forms.TextBox();
-            this.pictureBox9 = new System.Windows.Forms.PictureBox();
-            this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
+            this.txt_cai = new System.Windows.Forms.MaskedTextBox();
             this.txt_dir = new System.Windows.Forms.TextBox();
             this.gunaLabel10 = new Guna.UI.WinForms.GunaLabel();
             this.pictureBox10 = new System.Windows.Forms.PictureBox();
-            this.txt_cai = new System.Windows.Forms.MaskedTextBox();
+            this.gunaLabel9 = new Guna.UI.WinForms.GunaLabel();
+            this.txt_correo = new System.Windows.Forms.TextBox();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
+            this.gunaLabel7 = new Guna.UI.WinForms.GunaLabel();
+            this.txt_rtn = new System.Windows.Forms.TextBox();
+            this.pictureBox7 = new System.Windows.Forms.PictureBox();
+            this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.txt_telefono = new System.Windows.Forms.TextBox();
+            this.pictureBox5 = new System.Windows.Forms.PictureBox();
+            this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.erp_tel = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_correo = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_rtn = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_cai = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_dir = new System.Windows.Forms.ErrorProvider(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -105,11 +105,11 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.erp_bd)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tel)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_correo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_rtn)).BeginInit();
@@ -120,9 +120,9 @@ namespace Tecno_Pc.Formularios
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.panel1.Controls.Add(this.btn_minimizar);
+            this.panel1.Controls.Add(this.Btn_Minimizar);
             this.panel1.Controls.Add(this.lbl_titulo);
-            this.panel1.Controls.Add(this.btn_salir);
+            this.panel1.Controls.Add(this.Btn_Salir);
             this.panel1.Controls.Add(this.gunaPictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -131,18 +131,18 @@ namespace Tecno_Pc.Formularios
             this.panel1.TabIndex = 1;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown);
             // 
-            // btn_minimizar
+            // Btn_Minimizar
             // 
-            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.btn_minimizar.Location = new System.Drawing.Point(480, 1);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
-            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_minimizar.TabIndex = 4;
-            this.btn_minimizar.TabStop = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            this.Btn_Minimizar.BaseColor = System.Drawing.Color.White;
+            this.Btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
+            this.Btn_Minimizar.Location = new System.Drawing.Point(480, 1);
+            this.Btn_Minimizar.Name = "Btn_Minimizar";
+            this.Btn_Minimizar.Size = new System.Drawing.Size(28, 37);
+            this.Btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Minimizar.TabIndex = 4;
+            this.Btn_Minimizar.TabStop = false;
+            this.Btn_Minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
             // 
             // lbl_titulo
             // 
@@ -155,18 +155,18 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "CONFIGURACION INICIAL";
             // 
-            // btn_salir
+            // Btn_Salir
             // 
-            this.btn_salir.BaseColor = System.Drawing.Color.White;
-            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.btn_salir.Location = new System.Drawing.Point(513, 2);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(31, 36);
-            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_salir.TabIndex = 3;
-            this.btn_salir.TabStop = false;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.Btn_Salir.BaseColor = System.Drawing.Color.White;
+            this.Btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
+            this.Btn_Salir.Location = new System.Drawing.Point(513, 2);
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Size = new System.Drawing.Size(31, 36);
+            this.Btn_Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Salir.TabIndex = 3;
+            this.Btn_Salir.TabStop = false;
+            this.Btn_Salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // gunaPictureBox1
             // 
@@ -214,35 +214,35 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel1.TabIndex = 118;
             this.gunaLabel1.Text = "SERVIDOR";
             // 
-            // btn_servers
+            // Btn_Servers
             // 
-            this.btn_servers.AnimationHoverSpeed = 0.07F;
-            this.btn_servers.AnimationSpeed = 0.03F;
-            this.btn_servers.BackColor = System.Drawing.Color.Transparent;
-            this.btn_servers.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_servers.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_servers.BorderColor = System.Drawing.Color.Black;
-            this.btn_servers.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_servers.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_servers.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_servers.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btn_servers.ForeColor = System.Drawing.Color.White;
-            this.btn_servers.Image = null;
-            this.btn_servers.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_servers.Location = new System.Drawing.Point(436, 68);
-            this.btn_servers.Name = "btn_servers";
-            this.btn_servers.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_servers.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_servers.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_servers.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_servers.OnHoverImage = null;
-            this.btn_servers.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_servers.Radius = 3;
-            this.btn_servers.Size = new System.Drawing.Size(95, 31);
-            this.btn_servers.TabIndex = 119;
-            this.btn_servers.Text = "ACTUALIZAR";
-            this.btn_servers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_servers.Click += new System.EventHandler(this.btn_actualizar_Click);
+            this.Btn_Servers.AnimationHoverSpeed = 0.07F;
+            this.Btn_Servers.AnimationSpeed = 0.03F;
+            this.Btn_Servers.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Servers.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Servers.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Servers.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Servers.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Servers.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Servers.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Servers.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Btn_Servers.ForeColor = System.Drawing.Color.White;
+            this.Btn_Servers.Image = null;
+            this.Btn_Servers.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Servers.Location = new System.Drawing.Point(436, 68);
+            this.Btn_Servers.Name = "Btn_Servers";
+            this.Btn_Servers.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Servers.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Servers.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Servers.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Servers.OnHoverImage = null;
+            this.Btn_Servers.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Servers.Radius = 3;
+            this.Btn_Servers.Size = new System.Drawing.Size(95, 31);
+            this.Btn_Servers.TabIndex = 119;
+            this.Btn_Servers.Text = "ACTUALIZAR";
+            this.Btn_Servers.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Servers.Click += new System.EventHandler(this.btn_actualizar_Click);
             // 
             // groupBox1
             // 
@@ -392,35 +392,35 @@ namespace Tecno_Pc.Formularios
             this.pictureBox3.TabIndex = 127;
             this.pictureBox3.TabStop = false;
             // 
-            // btn_ruta
+            // Btn_Ruta
             // 
-            this.btn_ruta.AnimationHoverSpeed = 0.07F;
-            this.btn_ruta.AnimationSpeed = 0.03F;
-            this.btn_ruta.BackColor = System.Drawing.Color.Transparent;
-            this.btn_ruta.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_ruta.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_ruta.BorderColor = System.Drawing.Color.Black;
-            this.btn_ruta.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_ruta.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_ruta.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_ruta.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btn_ruta.ForeColor = System.Drawing.Color.White;
-            this.btn_ruta.Image = null;
-            this.btn_ruta.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_ruta.Location = new System.Drawing.Point(436, 290);
-            this.btn_ruta.Name = "btn_ruta";
-            this.btn_ruta.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_ruta.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_ruta.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_ruta.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_ruta.OnHoverImage = null;
-            this.btn_ruta.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_ruta.Radius = 3;
-            this.btn_ruta.Size = new System.Drawing.Size(95, 31);
-            this.btn_ruta.TabIndex = 129;
-            this.btn_ruta.Text = "ESCOGER";
-            this.btn_ruta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_ruta.Click += new System.EventHandler(this.gunaGradientButton1_Click);
+            this.Btn_Ruta.AnimationHoverSpeed = 0.07F;
+            this.Btn_Ruta.AnimationSpeed = 0.03F;
+            this.Btn_Ruta.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Ruta.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Ruta.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Ruta.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Ruta.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Ruta.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Ruta.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Ruta.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Btn_Ruta.ForeColor = System.Drawing.Color.White;
+            this.Btn_Ruta.Image = null;
+            this.Btn_Ruta.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Ruta.Location = new System.Drawing.Point(436, 290);
+            this.Btn_Ruta.Name = "Btn_Ruta";
+            this.Btn_Ruta.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Ruta.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Ruta.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Ruta.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Ruta.OnHoverImage = null;
+            this.Btn_Ruta.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Ruta.Radius = 3;
+            this.Btn_Ruta.Size = new System.Drawing.Size(95, 31);
+            this.Btn_Ruta.TabIndex = 129;
+            this.Btn_Ruta.Text = "ESCOGER";
+            this.Btn_Ruta.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Ruta.Click += new System.EventHandler(this.gunaGradientButton1_Click);
             // 
             // gunaLabel5
             // 
@@ -433,35 +433,35 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel5.TabIndex = 130;
             this.gunaLabel5.Text = "RUTA DE REPORTES";
             // 
-            // btn_guardar
+            // Btn_Guardar
             // 
-            this.btn_guardar.AnimationHoverSpeed = 0.07F;
-            this.btn_guardar.AnimationSpeed = 0.03F;
-            this.btn_guardar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_guardar.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_guardar.BorderColor = System.Drawing.Color.Black;
-            this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_guardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 10F);
-            this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
-            this.btn_guardar.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_guardar.Location = new System.Drawing.Point(23, 516);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_guardar.OnHoverImage = null;
-            this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(508, 33);
-            this.btn_guardar.TabIndex = 6;
-            this.btn_guardar.Text = "GUARDAR";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.Btn_Guardar.AnimationHoverSpeed = 0.07F;
+            this.Btn_Guardar.AnimationSpeed = 0.03F;
+            this.Btn_Guardar.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Guardar.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Guardar.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Guardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Guardar.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Guardar.Font = new System.Drawing.Font("Segoe UI", 10F);
+            this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
+            this.Btn_Guardar.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Guardar.Location = new System.Drawing.Point(23, 516);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.OnHoverImage = null;
+            this.Btn_Guardar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.Radius = 3;
+            this.Btn_Guardar.Size = new System.Drawing.Size(508, 33);
+            this.Btn_Guardar.TabIndex = 6;
+            this.Btn_Guardar.Text = "GUARDAR";
+            this.Btn_Guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // gunaElipse1
             // 
@@ -500,9 +500,9 @@ namespace Tecno_Pc.Formularios
             this.panel2.BackgroundImage = global::Tecno_Pc.Properties.Resources.FondoFormProd1;
             this.panel2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.panel2.Controls.Add(this.groupBox2);
-            this.panel2.Controls.Add(this.btn_ruta);
-            this.panel2.Controls.Add(this.btn_guardar);
-            this.panel2.Controls.Add(this.btn_servers);
+            this.panel2.Controls.Add(this.Btn_Ruta);
+            this.panel2.Controls.Add(this.Btn_Guardar);
+            this.panel2.Controls.Add(this.Btn_Servers);
             this.panel2.Location = new System.Drawing.Point(-1, 1);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(549, 562);
@@ -534,115 +534,16 @@ namespace Tecno_Pc.Formularios
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "DATOS DE LA EMPRESA";
             // 
-            // txt_correo
+            // txt_cai
             // 
-            this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_correo.CausesValidation = false;
-            this.txt_correo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_correo.Location = new System.Drawing.Point(203, 50);
-            this.txt_correo.MaxLength = 50;
-            this.txt_correo.Name = "txt_correo";
-            this.txt_correo.ShortcutsEnabled = false;
-            this.txt_correo.Size = new System.Drawing.Size(291, 16);
-            this.txt_correo.TabIndex = 127;
-            this.txt_correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_correo_KeyPress);
-            // 
-            // gunaLabel7
-            // 
-            this.gunaLabel7.AutoSize = true;
-            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel7.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel7.Location = new System.Drawing.Point(196, 24);
-            this.gunaLabel7.Name = "gunaLabel7";
-            this.gunaLabel7.Size = new System.Drawing.Size(53, 15);
-            this.gunaLabel7.TabIndex = 131;
-            this.gunaLabel7.Text = "CORREO";
-            // 
-            // pictureBox7
-            // 
-            this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox7.Location = new System.Drawing.Point(199, 42);
-            this.pictureBox7.Name = "pictureBox7";
-            this.pictureBox7.Size = new System.Drawing.Size(298, 31);
-            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox7.TabIndex = 130;
-            this.pictureBox7.TabStop = false;
-            // 
-            // gunaLabel8
-            // 
-            this.gunaLabel8.AutoSize = true;
-            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel8.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel8.Location = new System.Drawing.Point(25, 23);
-            this.gunaLabel8.Name = "gunaLabel8";
-            this.gunaLabel8.Size = new System.Drawing.Size(64, 15);
-            this.gunaLabel8.TabIndex = 129;
-            this.gunaLabel8.Text = "TELEFONO";
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox8.Location = new System.Drawing.Point(28, 42);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(141, 31);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 128;
-            this.pictureBox8.TabStop = false;
-            // 
-            // pictureBox5
-            // 
-            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox5.Location = new System.Drawing.Point(28, 94);
-            this.pictureBox5.Name = "pictureBox5";
-            this.pictureBox5.Size = new System.Drawing.Size(141, 31);
-            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox5.TabIndex = 128;
-            this.pictureBox5.TabStop = false;
-            // 
-            // gunaLabel6
-            // 
-            this.gunaLabel6.AutoSize = true;
-            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel6.Location = new System.Drawing.Point(25, 75);
-            this.gunaLabel6.Name = "gunaLabel6";
-            this.gunaLabel6.Size = new System.Drawing.Size(31, 15);
-            this.gunaLabel6.TabIndex = 129;
-            this.gunaLabel6.Text = "RTN ";
-            // 
-            // txt_rtn
-            // 
-            this.txt_rtn.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_rtn.CausesValidation = false;
-            this.txt_rtn.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.txt_rtn.Location = new System.Drawing.Point(35, 101);
-            this.txt_rtn.MaxLength = 14;
-            this.txt_rtn.Name = "txt_rtn";
-            this.txt_rtn.ShortcutsEnabled = false;
-            this.txt_rtn.Size = new System.Drawing.Size(122, 16);
-            this.txt_rtn.TabIndex = 128;
-            this.txt_rtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_rtn_KeyPress);
-            // 
-            // pictureBox9
-            // 
-            this.pictureBox9.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
-            this.pictureBox9.Location = new System.Drawing.Point(199, 94);
-            this.pictureBox9.Name = "pictureBox9";
-            this.pictureBox9.Size = new System.Drawing.Size(298, 31);
-            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox9.TabIndex = 130;
-            this.pictureBox9.TabStop = false;
-            // 
-            // gunaLabel9
-            // 
-            this.gunaLabel9.AutoSize = true;
-            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
-            this.gunaLabel9.Location = new System.Drawing.Point(196, 76);
-            this.gunaLabel9.Name = "gunaLabel9";
-            this.gunaLabel9.Size = new System.Drawing.Size(32, 15);
-            this.gunaLabel9.TabIndex = 131;
-            this.gunaLabel9.Text = "C.A.I";
+            this.txt_cai.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_cai.Location = new System.Drawing.Point(203, 101);
+            this.txt_cai.Mask = "aaaaaa-aaaaaa-aaaaaa-aaaaaa-aaaaaa-aa";
+            this.txt_cai.Name = "txt_cai";
+            this.txt_cai.ShortcutsEnabled = false;
+            this.txt_cai.Size = new System.Drawing.Size(291, 16);
+            this.txt_cai.TabIndex = 129;
+            this.txt_cai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cai_KeyPress);
             // 
             // txt_dir
             // 
@@ -678,16 +579,84 @@ namespace Tecno_Pc.Formularios
             this.pictureBox10.TabIndex = 133;
             this.pictureBox10.TabStop = false;
             // 
-            // txt_cai
+            // gunaLabel9
             // 
-            this.txt_cai.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txt_cai.Location = new System.Drawing.Point(203, 101);
-            this.txt_cai.Mask = "aaaaaa-aaaaaa-aaaaaa-aaaaaa-aaaaaa-aa";
-            this.txt_cai.Name = "txt_cai";
-            this.txt_cai.ShortcutsEnabled = false;
-            this.txt_cai.Size = new System.Drawing.Size(291, 16);
-            this.txt_cai.TabIndex = 129;
-            this.txt_cai.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_cai_KeyPress);
+            this.gunaLabel9.AutoSize = true;
+            this.gunaLabel9.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel9.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel9.Location = new System.Drawing.Point(196, 76);
+            this.gunaLabel9.Name = "gunaLabel9";
+            this.gunaLabel9.Size = new System.Drawing.Size(32, 15);
+            this.gunaLabel9.TabIndex = 131;
+            this.gunaLabel9.Text = "C.A.I";
+            // 
+            // txt_correo
+            // 
+            this.txt_correo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_correo.CausesValidation = false;
+            this.txt_correo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_correo.Location = new System.Drawing.Point(203, 50);
+            this.txt_correo.MaxLength = 50;
+            this.txt_correo.Name = "txt_correo";
+            this.txt_correo.ShortcutsEnabled = false;
+            this.txt_correo.Size = new System.Drawing.Size(291, 16);
+            this.txt_correo.TabIndex = 127;
+            this.txt_correo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_correo_KeyPress);
+            // 
+            // pictureBox9
+            // 
+            this.pictureBox9.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox9.Location = new System.Drawing.Point(199, 94);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(298, 31);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 130;
+            this.pictureBox9.TabStop = false;
+            // 
+            // gunaLabel7
+            // 
+            this.gunaLabel7.AutoSize = true;
+            this.gunaLabel7.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel7.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel7.Location = new System.Drawing.Point(196, 24);
+            this.gunaLabel7.Name = "gunaLabel7";
+            this.gunaLabel7.Size = new System.Drawing.Size(53, 15);
+            this.gunaLabel7.TabIndex = 131;
+            this.gunaLabel7.Text = "CORREO";
+            // 
+            // txt_rtn
+            // 
+            this.txt_rtn.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txt_rtn.CausesValidation = false;
+            this.txt_rtn.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.txt_rtn.Location = new System.Drawing.Point(35, 101);
+            this.txt_rtn.MaxLength = 14;
+            this.txt_rtn.Name = "txt_rtn";
+            this.txt_rtn.ShortcutsEnabled = false;
+            this.txt_rtn.Size = new System.Drawing.Size(122, 16);
+            this.txt_rtn.TabIndex = 128;
+            this.txt_rtn.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_rtn_KeyPress);
+            // 
+            // pictureBox7
+            // 
+            this.pictureBox7.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox7.Location = new System.Drawing.Point(199, 42);
+            this.pictureBox7.Name = "pictureBox7";
+            this.pictureBox7.Size = new System.Drawing.Size(298, 31);
+            this.pictureBox7.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox7.TabIndex = 130;
+            this.pictureBox7.TabStop = false;
+            // 
+            // gunaLabel6
+            // 
+            this.gunaLabel6.AutoSize = true;
+            this.gunaLabel6.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel6.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel6.Location = new System.Drawing.Point(25, 75);
+            this.gunaLabel6.Name = "gunaLabel6";
+            this.gunaLabel6.Size = new System.Drawing.Size(31, 15);
+            this.gunaLabel6.TabIndex = 129;
+            this.gunaLabel6.Text = "RTN ";
             // 
             // txt_telefono
             // 
@@ -701,6 +670,37 @@ namespace Tecno_Pc.Formularios
             this.txt_telefono.Size = new System.Drawing.Size(122, 16);
             this.txt_telefono.TabIndex = 126;
             this.txt_telefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txt_telefono_KeyPress);
+            // 
+            // pictureBox5
+            // 
+            this.pictureBox5.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox5.Location = new System.Drawing.Point(28, 94);
+            this.pictureBox5.Name = "pictureBox5";
+            this.pictureBox5.Size = new System.Drawing.Size(141, 31);
+            this.pictureBox5.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox5.TabIndex = 128;
+            this.pictureBox5.TabStop = false;
+            // 
+            // gunaLabel8
+            // 
+            this.gunaLabel8.AutoSize = true;
+            this.gunaLabel8.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.gunaLabel8.ForeColor = System.Drawing.Color.Gray;
+            this.gunaLabel8.Location = new System.Drawing.Point(25, 23);
+            this.gunaLabel8.Name = "gunaLabel8";
+            this.gunaLabel8.Size = new System.Drawing.Size(64, 15);
+            this.gunaLabel8.TabIndex = 129;
+            this.gunaLabel8.Text = "TELEFONO";
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = global::Tecno_Pc.Properties.Resources.CajaTexto;
+            this.pictureBox8.Location = new System.Drawing.Point(28, 42);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(141, 31);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 128;
+            this.pictureBox8.TabStop = false;
             // 
             // erp_tel
             // 
@@ -745,8 +745,8 @@ namespace Tecno_Pc.Formularios
             this.Load += new System.EventHandler(this.frm_ConfigurarDB_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).EndInit();
             this.groupBox1.ResumeLayout(false);
@@ -764,11 +764,11 @@ namespace Tecno_Pc.Formularios
             this.panel2.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox10)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_tel)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_correo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_rtn)).EndInit();
@@ -782,14 +782,14 @@ namespace Tecno_Pc.Formularios
         #endregion
 
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaPictureBox btn_minimizar;
+        private Guna.UI.WinForms.GunaPictureBox Btn_Minimizar;
         private Guna.UI.WinForms.GunaLabel lbl_titulo;
-        private Guna.UI.WinForms.GunaPictureBox btn_salir;
+        private Guna.UI.WinForms.GunaPictureBox Btn_Salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private System.Windows.Forms.ComboBox cbo_servers;
         private System.Windows.Forms.PictureBox pictureBox6;
         private Guna.UI.WinForms.GunaLabel gunaLabel1;
-        private Guna.UI.WinForms.GunaGradientButton btn_servers;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Servers;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox txt_user;
         private Guna.UI.WinForms.GunaLabel gunaLabel4;
@@ -802,9 +802,9 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txt_ruta;
         private System.Windows.Forms.PictureBox pictureBox3;
-        private Guna.UI.WinForms.GunaGradientButton btn_ruta;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Ruta;
         private Guna.UI.WinForms.GunaLabel gunaLabel5;
-        private Guna.UI.WinForms.GunaGradientButton btn_guardar;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Guardar;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.OpenFileDialog openFileDialog1;

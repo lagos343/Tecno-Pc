@@ -41,8 +41,8 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel6 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel8 = new Guna.UI.WinForms.GunaLabel();
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
-            this.btn_notificacion = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_añadir = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Notificacion = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Añadir = new Guna.UI.WinForms.GunaGradientButton();
             this.txt_cant = new System.Windows.Forms.TextBox();
             this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.lbl_cantVenta = new Guna.UI.WinForms.GunaLabel();
@@ -70,12 +70,12 @@ namespace Tecno_Pc.Formularios
             this.Cant = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dgv_Productos = new System.Windows.Forms.DataGridView();
-            this.btn_nuevaCompra = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
+            this.Añadir = new System.Windows.Forms.DataGridViewImageColumn();
+            this.Btn_Nuevacompra = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.erp_cant = new System.Windows.Forms.ErrorProvider(this.components);
             this.erp_dgvfactura = new System.Windows.Forms.ErrorProvider(this.components);
-            this.Añadir = new System.Windows.Forms.DataGridViewImageColumn();
             this.panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox7)).BeginInit();
@@ -101,8 +101,8 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.gunaLabel6);
             this.panel5.Controls.Add(this.gunaLabel8);
             this.panel5.Controls.Add(this.gunaLabel2);
-            this.panel5.Controls.Add(this.btn_notificacion);
-            this.panel5.Controls.Add(this.btn_añadir);
+            this.panel5.Controls.Add(this.Btn_Notificacion);
+            this.panel5.Controls.Add(this.Btn_Añadir);
             this.panel5.Controls.Add(this.txt_cant);
             this.panel5.Controls.Add(this.pictureBox9);
             this.panel5.Controls.Add(this.lbl_cantVenta);
@@ -125,8 +125,8 @@ namespace Tecno_Pc.Formularios
             this.panel5.Controls.Add(this.gunaLinePanel1);
             this.panel5.Controls.Add(this.dgv_Factura);
             this.panel5.Controls.Add(this.dgv_Productos);
-            this.panel5.Controls.Add(this.btn_nuevaCompra);
-            this.panel5.Controls.Add(this.btn_guardar);
+            this.panel5.Controls.Add(this.Btn_Nuevacompra);
+            this.panel5.Controls.Add(this.Btn_Guardar);
             this.panel5.Location = new System.Drawing.Point(0, 0);
             this.panel5.Name = "panel5";
             this.panel5.Size = new System.Drawing.Size(1114, 705);
@@ -210,65 +210,65 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel2.TabIndex = 92;
             this.gunaLabel2.Text = "Producto";
             // 
-            // btn_notificacion
+            // Btn_Notificacion
             // 
-            this.btn_notificacion.AnimationHoverSpeed = 0.07F;
-            this.btn_notificacion.AnimationSpeed = 0.03F;
-            this.btn_notificacion.BackColor = System.Drawing.Color.Transparent;
-            this.btn_notificacion.BaseColor1 = System.Drawing.Color.MediumBlue;
-            this.btn_notificacion.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_notificacion.BorderColor = System.Drawing.Color.Black;
-            this.btn_notificacion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_notificacion.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_notificacion.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_notificacion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_notificacion.ForeColor = System.Drawing.Color.White;
-            this.btn_notificacion.Image = null;
-            this.btn_notificacion.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_notificacion.Location = new System.Drawing.Point(414, 36);
-            this.btn_notificacion.Name = "btn_notificacion";
-            this.btn_notificacion.OnHoverBaseColor1 = System.Drawing.Color.Teal;
-            this.btn_notificacion.OnHoverBaseColor2 = System.Drawing.Color.Teal;
-            this.btn_notificacion.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_notificacion.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_notificacion.OnHoverImage = null;
-            this.btn_notificacion.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_notificacion.Radius = 5;
-            this.btn_notificacion.Size = new System.Drawing.Size(106, 32);
-            this.btn_notificacion.TabIndex = 88;
-            this.btn_notificacion.Text = "Notificaciones";
-            this.btn_notificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_notificacion.Click += new System.EventHandler(this.btn_notificacion_Click);
+            this.Btn_Notificacion.AnimationHoverSpeed = 0.07F;
+            this.Btn_Notificacion.AnimationSpeed = 0.03F;
+            this.Btn_Notificacion.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Notificacion.BaseColor1 = System.Drawing.Color.MediumBlue;
+            this.Btn_Notificacion.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Notificacion.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Notificacion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Notificacion.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Notificacion.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Notificacion.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Btn_Notificacion.ForeColor = System.Drawing.Color.White;
+            this.Btn_Notificacion.Image = null;
+            this.Btn_Notificacion.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Notificacion.Location = new System.Drawing.Point(414, 36);
+            this.Btn_Notificacion.Name = "Btn_Notificacion";
+            this.Btn_Notificacion.OnHoverBaseColor1 = System.Drawing.Color.Teal;
+            this.Btn_Notificacion.OnHoverBaseColor2 = System.Drawing.Color.Teal;
+            this.Btn_Notificacion.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Notificacion.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Notificacion.OnHoverImage = null;
+            this.Btn_Notificacion.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Notificacion.Radius = 5;
+            this.Btn_Notificacion.Size = new System.Drawing.Size(106, 32);
+            this.Btn_Notificacion.TabIndex = 88;
+            this.Btn_Notificacion.Text = "Notificaciones";
+            this.Btn_Notificacion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Notificacion.Click += new System.EventHandler(this.btn_notificacion_Click);
             // 
-            // btn_añadir
+            // Btn_Añadir
             // 
-            this.btn_añadir.AnimationHoverSpeed = 0.07F;
-            this.btn_añadir.AnimationSpeed = 0.03F;
-            this.btn_añadir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_añadir.BaseColor1 = System.Drawing.Color.MediumBlue;
-            this.btn_añadir.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_añadir.BorderColor = System.Drawing.Color.Black;
-            this.btn_añadir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_añadir.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_añadir.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_añadir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_añadir.ForeColor = System.Drawing.Color.White;
-            this.btn_añadir.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
-            this.btn_añadir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_añadir.Location = new System.Drawing.Point(31, 618);
-            this.btn_añadir.Name = "btn_añadir";
-            this.btn_añadir.OnHoverBaseColor1 = System.Drawing.Color.Teal;
-            this.btn_añadir.OnHoverBaseColor2 = System.Drawing.Color.Teal;
-            this.btn_añadir.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_añadir.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_añadir.OnHoverImage = null;
-            this.btn_añadir.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_añadir.Radius = 5;
-            this.btn_añadir.Size = new System.Drawing.Size(132, 29);
-            this.btn_añadir.TabIndex = 87;
-            this.btn_añadir.Text = "Añadir";
-            this.btn_añadir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_añadir.Click += new System.EventHandler(this.btn_añadir_Click);
+            this.Btn_Añadir.AnimationHoverSpeed = 0.07F;
+            this.Btn_Añadir.AnimationSpeed = 0.03F;
+            this.Btn_Añadir.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Añadir.BaseColor1 = System.Drawing.Color.MediumBlue;
+            this.Btn_Añadir.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Añadir.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Añadir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Añadir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Añadir.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Añadir.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Btn_Añadir.ForeColor = System.Drawing.Color.White;
+            this.Btn_Añadir.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
+            this.Btn_Añadir.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Añadir.Location = new System.Drawing.Point(31, 618);
+            this.Btn_Añadir.Name = "Btn_Añadir";
+            this.Btn_Añadir.OnHoverBaseColor1 = System.Drawing.Color.Teal;
+            this.Btn_Añadir.OnHoverBaseColor2 = System.Drawing.Color.Teal;
+            this.Btn_Añadir.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Añadir.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Añadir.OnHoverImage = null;
+            this.Btn_Añadir.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Añadir.Radius = 5;
+            this.Btn_Añadir.Size = new System.Drawing.Size(132, 29);
+            this.Btn_Añadir.TabIndex = 87;
+            this.Btn_Añadir.Text = "Añadir";
+            this.Btn_Añadir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Añadir.Click += new System.EventHandler(this.btn_añadir_Click);
             // 
             // txt_cant
             // 
@@ -613,65 +613,72 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.TabIndex = 11;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 
-            // btn_nuevaCompra
+            // Añadir
             // 
-            this.btn_nuevaCompra.AnimationHoverSpeed = 0.07F;
-            this.btn_nuevaCompra.AnimationSpeed = 0.03F;
-            this.btn_nuevaCompra.BackColor = System.Drawing.Color.Transparent;
-            this.btn_nuevaCompra.BaseColor1 = System.Drawing.Color.MediumBlue;
-            this.btn_nuevaCompra.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_nuevaCompra.BorderColor = System.Drawing.Color.Black;
-            this.btn_nuevaCompra.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_nuevaCompra.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_nuevaCompra.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_nuevaCompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_nuevaCompra.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevaCompra.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
-            this.btn_nuevaCompra.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_nuevaCompra.Location = new System.Drawing.Point(31, 85);
-            this.btn_nuevaCompra.Name = "btn_nuevaCompra";
-            this.btn_nuevaCompra.OnHoverBaseColor1 = System.Drawing.Color.Teal;
-            this.btn_nuevaCompra.OnHoverBaseColor2 = System.Drawing.Color.Teal;
-            this.btn_nuevaCompra.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_nuevaCompra.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_nuevaCompra.OnHoverImage = null;
-            this.btn_nuevaCompra.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_nuevaCompra.Radius = 5;
-            this.btn_nuevaCompra.Size = new System.Drawing.Size(203, 32);
-            this.btn_nuevaCompra.TabIndex = 10;
-            this.btn_nuevaCompra.Text = "Nueva Compra";
-            this.btn_nuevaCompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_nuevaCompra.Click += new System.EventHandler(this.btn_nuevaCompra_Click);
+            this.Añadir.HeaderText = "";
+            this.Añadir.Image = global::Tecno_Pc.Properties.Resources.añadir;
+            this.Añadir.MinimumWidth = 6;
+            this.Añadir.Name = "Añadir";
             // 
-            // btn_guardar
+            // Btn_Nuevacompra
             // 
-            this.btn_guardar.AnimationHoverSpeed = 0.07F;
-            this.btn_guardar.AnimationSpeed = 0.03F;
-            this.btn_guardar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.BaseColor1 = System.Drawing.Color.Purple;
-            this.btn_guardar.BaseColor2 = System.Drawing.Color.Purple;
-            this.btn_guardar.BorderColor = System.Drawing.Color.Black;
-            this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_guardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
-            this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
-            this.btn_guardar.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_guardar.Location = new System.Drawing.Point(256, 85);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
-            this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
-            this.btn_guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_guardar.OnHoverImage = null;
-            this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.Radius = 5;
-            this.btn_guardar.Size = new System.Drawing.Size(131, 32);
-            this.btn_guardar.TabIndex = 9;
-            this.btn_guardar.Text = "Guardar";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click);
+            this.Btn_Nuevacompra.AnimationHoverSpeed = 0.07F;
+            this.Btn_Nuevacompra.AnimationSpeed = 0.03F;
+            this.Btn_Nuevacompra.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevacompra.BaseColor1 = System.Drawing.Color.MediumBlue;
+            this.Btn_Nuevacompra.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Nuevacompra.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Nuevacompra.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Nuevacompra.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Nuevacompra.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Nuevacompra.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Btn_Nuevacompra.ForeColor = System.Drawing.Color.White;
+            this.Btn_Nuevacompra.Image = global::Tecno_Pc.Properties.Resources.Nuevo1;
+            this.Btn_Nuevacompra.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Nuevacompra.Location = new System.Drawing.Point(31, 85);
+            this.Btn_Nuevacompra.Name = "Btn_Nuevacompra";
+            this.Btn_Nuevacompra.OnHoverBaseColor1 = System.Drawing.Color.Teal;
+            this.Btn_Nuevacompra.OnHoverBaseColor2 = System.Drawing.Color.Teal;
+            this.Btn_Nuevacompra.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevacompra.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Nuevacompra.OnHoverImage = null;
+            this.Btn_Nuevacompra.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevacompra.Radius = 5;
+            this.Btn_Nuevacompra.Size = new System.Drawing.Size(203, 32);
+            this.Btn_Nuevacompra.TabIndex = 10;
+            this.Btn_Nuevacompra.Text = "Nueva Compra";
+            this.Btn_Nuevacompra.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Nuevacompra.Click += new System.EventHandler(this.btn_nuevaCompra_Click);
+            // 
+            // Btn_Guardar
+            // 
+            this.Btn_Guardar.AnimationHoverSpeed = 0.07F;
+            this.Btn_Guardar.AnimationSpeed = 0.03F;
+            this.Btn_Guardar.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.BaseColor1 = System.Drawing.Color.Purple;
+            this.Btn_Guardar.BaseColor2 = System.Drawing.Color.Purple;
+            this.Btn_Guardar.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Guardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Guardar.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Guardar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
+            this.Btn_Guardar.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Guardar.Location = new System.Drawing.Point(256, 85);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.OnHoverBaseColor1 = System.Drawing.Color.Magenta;
+            this.Btn_Guardar.OnHoverBaseColor2 = System.Drawing.Color.Magenta;
+            this.Btn_Guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.OnHoverImage = null;
+            this.Btn_Guardar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.Radius = 5;
+            this.Btn_Guardar.Size = new System.Drawing.Size(131, 32);
+            this.Btn_Guardar.TabIndex = 9;
+            this.Btn_Guardar.Text = "Guardar";
+            this.Btn_Guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Guardar.Click += new System.EventHandler(this.btn_guardar_Click);
             // 
             // erp_cant
             // 
@@ -680,13 +687,6 @@ namespace Tecno_Pc.Formularios
             // erp_dgvfactura
             // 
             this.erp_dgvfactura.ContainerControl = this;
-            // 
-            // Añadir
-            // 
-            this.Añadir.HeaderText = "";
-            this.Añadir.Image = global::Tecno_Pc.Properties.Resources.añadir;
-            this.Añadir.MinimumWidth = 6;
-            this.Añadir.Name = "Añadir";
             // 
             // frm_compras
             // 
@@ -722,12 +722,12 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLinePanel gunaLinePanel1;
         private System.Windows.Forms.DataGridView dgv_Factura;
         private System.Windows.Forms.DataGridView dgv_Productos;
-        private Guna.UI.WinForms.GunaGradientButton btn_nuevaCompra;
-        private Guna.UI.WinForms.GunaGradientButton btn_guardar;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Nuevacompra;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Guardar;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
-        private Guna.UI.WinForms.GunaGradientButton btn_añadir;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Añadir;
         private System.Windows.Forms.TextBox txt_cant;
         private System.Windows.Forms.PictureBox pictureBox9;
         private Guna.UI.WinForms.GunaLabel lbl_cantVenta;
@@ -743,7 +743,7 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.PictureBox pictureBox1;
         private Guna.UI.WinForms.GunaLabel gunaLabel3;
         private System.Windows.Forms.PictureBox pictureBox2;
-        private Guna.UI.WinForms.GunaGradientButton btn_notificacion;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Notificacion;
         private System.Windows.Forms.DataGridViewImageColumn Eliminar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Producto;

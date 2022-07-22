@@ -55,19 +55,19 @@ namespace Tecno_Pc.Formularios
             this.gunaLabel2 = new Guna.UI.WinForms.GunaLabel();
             this.txt_id = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_eliminar = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_editar = new Guna.UI.WinForms.GunaGradientButton();
-            this.btn_nuevo = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Guardar = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Imprimir = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Eliminar = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Editar = new Guna.UI.WinForms.GunaGradientButton();
+            this.Btn_Nuevo = new Guna.UI.WinForms.GunaGradientButton();
             this.dgv_datos = new System.Windows.Forms.DataGridView();
             this.txt_buscar = new System.Windows.Forms.TextBox();
             this.pictureBox6 = new System.Windows.Forms.PictureBox();
             this.pictureBox5 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.btn_minimizar = new Guna.UI.WinForms.GunaPictureBox();
+            this.Btn_Minimizar = new Guna.UI.WinForms.GunaPictureBox();
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
-            this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
+            this.Btn_Salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.cmb_depto = new System.Windows.Forms.ComboBox();
@@ -95,8 +95,8 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox6)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Minimizar)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_porveedor)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).BeginInit();
@@ -363,155 +363,155 @@ namespace Tecno_Pc.Formularios
             this.pictureBox1.TabIndex = 79;
             this.pictureBox1.TabStop = false;
             // 
-            // btn_guardar
+            // Btn_Guardar
             // 
-            this.btn_guardar.AnimationHoverSpeed = 0.07F;
-            this.btn_guardar.AnimationSpeed = 0.03F;
-            this.btn_guardar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_guardar.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_guardar.BorderColor = System.Drawing.Color.Black;
-            this.btn_guardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_guardar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_guardar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_guardar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_guardar.ForeColor = System.Drawing.Color.White;
-            this.btn_guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
-            this.btn_guardar.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_guardar.Location = new System.Drawing.Point(525, 412);
-            this.btn_guardar.Name = "btn_guardar";
-            this.btn_guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_guardar.OnHoverImage = null;
-            this.btn_guardar.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_guardar.Radius = 3;
-            this.btn_guardar.Size = new System.Drawing.Size(204, 26);
-            this.btn_guardar.TabIndex = 10;
-            this.btn_guardar.Text = "GUARDAR";
-            this.btn_guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_guardar.Click += new System.EventHandler(this.btn_guardar_Click_1);
+            this.Btn_Guardar.AnimationHoverSpeed = 0.07F;
+            this.Btn_Guardar.AnimationSpeed = 0.03F;
+            this.Btn_Guardar.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Guardar.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Guardar.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Guardar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Guardar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Guardar.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Guardar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_Guardar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.Image = global::Tecno_Pc.Properties.Resources.Guardar;
+            this.Btn_Guardar.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Guardar.Location = new System.Drawing.Point(525, 412);
+            this.Btn_Guardar.Name = "Btn_Guardar";
+            this.Btn_Guardar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Guardar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Guardar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Guardar.OnHoverImage = null;
+            this.Btn_Guardar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Guardar.Radius = 3;
+            this.Btn_Guardar.Size = new System.Drawing.Size(204, 26);
+            this.Btn_Guardar.TabIndex = 10;
+            this.Btn_Guardar.Text = "GUARDAR";
+            this.Btn_Guardar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Guardar.Click += new System.EventHandler(this.btn_guardar_Click_1);
             // 
-            // btn_imprimir
+            // Btn_Imprimir
             // 
-            this.btn_imprimir.AnimationHoverSpeed = 0.07F;
-            this.btn_imprimir.AnimationSpeed = 0.03F;
-            this.btn_imprimir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.BorderColor = System.Drawing.Color.Black;
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = null;
-            this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(509, 58);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.OnHoverImage = null;
-            this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.Radius = 3;
-            this.btn_imprimir.Size = new System.Drawing.Size(220, 32);
-            this.btn_imprimir.TabIndex = 11;
-            this.btn_imprimir.Text = "REPORTES";
-            this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            this.Btn_Imprimir.AnimationHoverSpeed = 0.07F;
+            this.Btn_Imprimir.AnimationSpeed = 0.03F;
+            this.Btn_Imprimir.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Imprimir.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Imprimir.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Imprimir.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Imprimir.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_Imprimir.ForeColor = System.Drawing.Color.White;
+            this.Btn_Imprimir.Image = null;
+            this.Btn_Imprimir.ImageSize = new System.Drawing.Size(20, 20);
+            this.Btn_Imprimir.Location = new System.Drawing.Point(509, 58);
+            this.Btn_Imprimir.Name = "Btn_Imprimir";
+            this.Btn_Imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Imprimir.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Imprimir.OnHoverImage = null;
+            this.Btn_Imprimir.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Imprimir.Radius = 3;
+            this.Btn_Imprimir.Size = new System.Drawing.Size(220, 32);
+            this.Btn_Imprimir.TabIndex = 11;
+            this.Btn_Imprimir.Text = "REPORTES";
+            this.Btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
-            // btn_eliminar
+            // Btn_Eliminar
             // 
-            this.btn_eliminar.AnimationHoverSpeed = 0.07F;
-            this.btn_eliminar.AnimationSpeed = 0.03F;
-            this.btn_eliminar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_eliminar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_eliminar.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_eliminar.BorderColor = System.Drawing.Color.Black;
-            this.btn_eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_eliminar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_eliminar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_eliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_eliminar.ForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.Image = global::Tecno_Pc.Properties.Resources.Eliminar;
-            this.btn_eliminar.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_eliminar.Location = new System.Drawing.Point(336, 412);
-            this.btn_eliminar.Name = "btn_eliminar";
-            this.btn_eliminar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_eliminar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_eliminar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_eliminar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_eliminar.OnHoverImage = null;
-            this.btn_eliminar.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_eliminar.Radius = 3;
-            this.btn_eliminar.Size = new System.Drawing.Size(119, 26);
-            this.btn_eliminar.TabIndex = 76;
-            this.btn_eliminar.Text = "ELIMINAR";
-            this.btn_eliminar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_eliminar.Click += new System.EventHandler(this.btn_eliminar_Click_1);
+            this.Btn_Eliminar.AnimationHoverSpeed = 0.07F;
+            this.Btn_Eliminar.AnimationSpeed = 0.03F;
+            this.Btn_Eliminar.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Eliminar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Eliminar.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Eliminar.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Eliminar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Eliminar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Eliminar.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Eliminar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_Eliminar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Eliminar.Image = global::Tecno_Pc.Properties.Resources.Eliminar;
+            this.Btn_Eliminar.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Eliminar.Location = new System.Drawing.Point(336, 412);
+            this.Btn_Eliminar.Name = "Btn_Eliminar";
+            this.Btn_Eliminar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Eliminar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Eliminar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Eliminar.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Eliminar.OnHoverImage = null;
+            this.Btn_Eliminar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Eliminar.Radius = 3;
+            this.Btn_Eliminar.Size = new System.Drawing.Size(119, 26);
+            this.Btn_Eliminar.TabIndex = 76;
+            this.Btn_Eliminar.Text = "ELIMINAR";
+            this.Btn_Eliminar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Eliminar.Click += new System.EventHandler(this.btn_eliminar_Click_1);
             // 
-            // btn_editar
+            // Btn_Editar
             // 
-            this.btn_editar.AnimationHoverSpeed = 0.07F;
-            this.btn_editar.AnimationSpeed = 0.03F;
-            this.btn_editar.BackColor = System.Drawing.Color.Transparent;
-            this.btn_editar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_editar.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_editar.BorderColor = System.Drawing.Color.Black;
-            this.btn_editar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_editar.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_editar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_editar.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_editar.ForeColor = System.Drawing.Color.White;
-            this.btn_editar.Image = global::Tecno_Pc.Properties.Resources.Editar;
-            this.btn_editar.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_editar.Location = new System.Drawing.Point(179, 412);
-            this.btn_editar.Name = "btn_editar";
-            this.btn_editar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_editar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_editar.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_editar.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_editar.OnHoverImage = null;
-            this.btn_editar.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_editar.Radius = 3;
-            this.btn_editar.Size = new System.Drawing.Size(119, 26);
-            this.btn_editar.TabIndex = 75;
-            this.btn_editar.Text = "EDITAR";
-            this.btn_editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_editar.Click += new System.EventHandler(this.btn_editar_Click_1);
+            this.Btn_Editar.AnimationHoverSpeed = 0.07F;
+            this.Btn_Editar.AnimationSpeed = 0.03F;
+            this.Btn_Editar.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Editar.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Editar.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Editar.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Editar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Editar.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Editar.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Editar.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_Editar.ForeColor = System.Drawing.Color.White;
+            this.Btn_Editar.Image = global::Tecno_Pc.Properties.Resources.Editar;
+            this.Btn_Editar.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Editar.Location = new System.Drawing.Point(179, 412);
+            this.Btn_Editar.Name = "Btn_Editar";
+            this.Btn_Editar.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Editar.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Editar.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Editar.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Editar.OnHoverImage = null;
+            this.Btn_Editar.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Editar.Radius = 3;
+            this.Btn_Editar.Size = new System.Drawing.Size(119, 26);
+            this.Btn_Editar.TabIndex = 75;
+            this.Btn_Editar.Text = "EDITAR";
+            this.Btn_Editar.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Editar.Click += new System.EventHandler(this.btn_editar_Click_1);
             // 
-            // btn_nuevo
+            // Btn_Nuevo
             // 
-            this.btn_nuevo.AnimationHoverSpeed = 0.07F;
-            this.btn_nuevo.AnimationSpeed = 0.03F;
-            this.btn_nuevo.BackColor = System.Drawing.Color.Transparent;
-            this.btn_nuevo.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_nuevo.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_nuevo.BorderColor = System.Drawing.Color.Black;
-            this.btn_nuevo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_nuevo.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_nuevo.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_nuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_nuevo.ForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.Image = global::Tecno_Pc.Properties.Resources.Nuevo;
-            this.btn_nuevo.ImageSize = new System.Drawing.Size(15, 15);
-            this.btn_nuevo.Location = new System.Drawing.Point(25, 412);
-            this.btn_nuevo.Name = "btn_nuevo";
-            this.btn_nuevo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_nuevo.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_nuevo.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_nuevo.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_nuevo.OnHoverImage = null;
-            this.btn_nuevo.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_nuevo.Radius = 3;
-            this.btn_nuevo.Size = new System.Drawing.Size(119, 26);
-            this.btn_nuevo.TabIndex = 74;
-            this.btn_nuevo.Text = "NUEVO";
-            this.btn_nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_nuevo.Click += new System.EventHandler(this.btn_nuevo_Click_1);
+            this.Btn_Nuevo.AnimationHoverSpeed = 0.07F;
+            this.Btn_Nuevo.AnimationSpeed = 0.03F;
+            this.Btn_Nuevo.BackColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevo.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Nuevo.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Nuevo.BorderColor = System.Drawing.Color.Black;
+            this.Btn_Nuevo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Nuevo.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.Btn_Nuevo.FocusedColor = System.Drawing.Color.Empty;
+            this.Btn_Nuevo.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.Btn_Nuevo.ForeColor = System.Drawing.Color.White;
+            this.Btn_Nuevo.Image = global::Tecno_Pc.Properties.Resources.Nuevo;
+            this.Btn_Nuevo.ImageSize = new System.Drawing.Size(15, 15);
+            this.Btn_Nuevo.Location = new System.Drawing.Point(25, 412);
+            this.Btn_Nuevo.Name = "Btn_Nuevo";
+            this.Btn_Nuevo.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.Btn_Nuevo.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.Btn_Nuevo.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevo.OnHoverForeColor = System.Drawing.Color.White;
+            this.Btn_Nuevo.OnHoverImage = null;
+            this.Btn_Nuevo.OnPressedColor = System.Drawing.Color.Transparent;
+            this.Btn_Nuevo.Radius = 3;
+            this.Btn_Nuevo.Size = new System.Drawing.Size(119, 26);
+            this.Btn_Nuevo.TabIndex = 74;
+            this.Btn_Nuevo.Text = "NUEVO";
+            this.Btn_Nuevo.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.Btn_Nuevo.Click += new System.EventHandler(this.btn_nuevo_Click_1);
             // 
             // dgv_datos
             // 
@@ -581,9 +581,9 @@ namespace Tecno_Pc.Formularios
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.panel1.Controls.Add(this.btn_minimizar);
+            this.panel1.Controls.Add(this.Btn_Minimizar);
             this.panel1.Controls.Add(this.lbl_titulo);
-            this.panel1.Controls.Add(this.btn_salir);
+            this.panel1.Controls.Add(this.Btn_Salir);
             this.panel1.Controls.Add(this.gunaPictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -592,18 +592,18 @@ namespace Tecno_Pc.Formularios
             this.panel1.TabIndex = 68;
             this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.panel1_MouseDown_1);
             // 
-            // btn_minimizar
+            // Btn_Minimizar
             // 
-            this.btn_minimizar.BaseColor = System.Drawing.Color.White;
-            this.btn_minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
-            this.btn_minimizar.Location = new System.Drawing.Point(985, 1);
-            this.btn_minimizar.Name = "btn_minimizar";
-            this.btn_minimizar.Size = new System.Drawing.Size(28, 37);
-            this.btn_minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_minimizar.TabIndex = 4;
-            this.btn_minimizar.TabStop = false;
-            this.btn_minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
+            this.Btn_Minimizar.BaseColor = System.Drawing.Color.White;
+            this.Btn_Minimizar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Minimizar.Image = global::Tecno_Pc.Properties.Resources.minimizar;
+            this.Btn_Minimizar.Location = new System.Drawing.Point(985, 1);
+            this.Btn_Minimizar.Name = "Btn_Minimizar";
+            this.Btn_Minimizar.Size = new System.Drawing.Size(28, 37);
+            this.Btn_Minimizar.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Minimizar.TabIndex = 4;
+            this.Btn_Minimizar.TabStop = false;
+            this.Btn_Minimizar.Click += new System.EventHandler(this.btn_minimizar_Click);
             // 
             // lbl_titulo
             // 
@@ -616,18 +616,18 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo.TabIndex = 1;
             this.lbl_titulo.Text = "CONTACTOS";
             // 
-            // btn_salir
+            // Btn_Salir
             // 
-            this.btn_salir.BaseColor = System.Drawing.Color.White;
-            this.btn_salir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
-            this.btn_salir.Location = new System.Drawing.Point(1019, 2);
-            this.btn_salir.Name = "btn_salir";
-            this.btn_salir.Size = new System.Drawing.Size(31, 36);
-            this.btn_salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.btn_salir.TabIndex = 3;
-            this.btn_salir.TabStop = false;
-            this.btn_salir.Click += new System.EventHandler(this.btn_salir_Click);
+            this.Btn_Salir.BaseColor = System.Drawing.Color.White;
+            this.Btn_Salir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.Btn_Salir.Image = global::Tecno_Pc.Properties.Resources.CerrarForm;
+            this.Btn_Salir.Location = new System.Drawing.Point(1019, 2);
+            this.Btn_Salir.Name = "Btn_Salir";
+            this.Btn_Salir.Size = new System.Drawing.Size(31, 36);
+            this.Btn_Salir.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.Btn_Salir.TabIndex = 3;
+            this.Btn_Salir.TabStop = false;
+            this.Btn_Salir.Click += new System.EventHandler(this.btn_salir_Click);
             // 
             // gunaPictureBox1
             // 
@@ -742,11 +742,11 @@ namespace Tecno_Pc.Formularios
             this.Controls.Add(this.gunaLabel2);
             this.Controls.Add(this.txt_id);
             this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.btn_guardar);
-            this.Controls.Add(this.btn_imprimir);
-            this.Controls.Add(this.btn_eliminar);
-            this.Controls.Add(this.btn_editar);
-            this.Controls.Add(this.btn_nuevo);
+            this.Controls.Add(this.Btn_Guardar);
+            this.Controls.Add(this.Btn_Imprimir);
+            this.Controls.Add(this.Btn_Eliminar);
+            this.Controls.Add(this.Btn_Editar);
+            this.Controls.Add(this.Btn_Nuevo);
             this.Controls.Add(this.dgv_datos);
             this.Controls.Add(this.txt_buscar);
             this.Controls.Add(this.pictureBox6);
@@ -772,8 +772,8 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Minimizar)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Btn_Salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_porveedor)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.erp_depto)).EndInit();
@@ -813,19 +813,19 @@ namespace Tecno_Pc.Formularios
         private Guna.UI.WinForms.GunaLabel gunaLabel2;
         private System.Windows.Forms.TextBox txt_id;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Guna.UI.WinForms.GunaGradientButton btn_guardar;
-        private Guna.UI.WinForms.GunaGradientButton btn_imprimir;
-        private Guna.UI.WinForms.GunaGradientButton btn_eliminar;
-        private Guna.UI.WinForms.GunaGradientButton btn_editar;
-        private Guna.UI.WinForms.GunaGradientButton btn_nuevo;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Guardar;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Imprimir;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Eliminar;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Editar;
+        private Guna.UI.WinForms.GunaGradientButton Btn_Nuevo;
         private System.Windows.Forms.DataGridView dgv_datos;
         private System.Windows.Forms.TextBox txt_buscar;
         private System.Windows.Forms.PictureBox pictureBox6;
         private System.Windows.Forms.PictureBox pictureBox5;
         private System.Windows.Forms.Panel panel1;
-        private Guna.UI.WinForms.GunaPictureBox btn_minimizar;
+        private Guna.UI.WinForms.GunaPictureBox Btn_Minimizar;
         private Guna.UI.WinForms.GunaLabel lbl_titulo;
-        private Guna.UI.WinForms.GunaPictureBox btn_salir;
+        private Guna.UI.WinForms.GunaPictureBox Btn_Salir;
         private Guna.UI.WinForms.GunaPictureBox gunaPictureBox1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.ComboBox cmb_proveedor;

@@ -31,7 +31,7 @@ namespace Tecno_Pc.Formularios
         public frm_clientes()
         {
             InitializeComponent();
-            InicializarCombobox();
+            Inicializar_Combobox();
             
             this.ttMensaje.SetToolTip(this.cmb_Depto, "Combobox de departamento");
             this.ttMensaje.SetToolTip(this.txt_Ident, "Caja de texto del No. de Identidad del Cliente");
@@ -41,13 +41,13 @@ namespace Tecno_Pc.Formularios
             this.ttMensaje.SetToolTip(this.txt_Email, "Caja de texto del Correo del Cliente");
             this.ttMensaje.SetToolTip(this.txt_Direccion, "Caja de texto de la Direccion del Cliente");
             this.ttMensaje.SetToolTip(this.txt_buscar, "Caja de texto de busqueda filtrada por Nombre");
-            this.ttMensaje.SetToolTip(this.btn_imprimir, "Boton para exportar reporte de Clientes");
-            this.ttMensaje.SetToolTip(this.btn_salir, "Salir");
-            this.ttMensaje.SetToolTip(this.btn_minimizar, "Minimizar");
-            this.ttMensaje.SetToolTip(this.btn_nuevo, "Boton para Limpiar las cajas de texto");
-            this.ttMensaje.SetToolTip(this.btn_editar, "Boton para Editar la informacion del Cliente");
-            this.ttMensaje.SetToolTip(this.btn_eliminar, "Boton para Eliminar la informacion del Cliente");
-            this.ttMensaje.SetToolTip(this.btn_guardar, "Boton para Guardar informacion del Cliente");
+            this.ttMensaje.SetToolTip(this.Btn_Imprimir, "Boton para exportar reporte de Clientes");
+            this.ttMensaje.SetToolTip(this.Btn_Salir, "Salir");
+            this.ttMensaje.SetToolTip(this.Btn_Minimizar, "Minimizar");
+            this.ttMensaje.SetToolTip(this.Btn_Nuevo, "Boton para Limpiar las cajas de texto");
+            this.ttMensaje.SetToolTip(this.Btn_Editar, "Boton para Editar la informacion del Cliente");
+            this.ttMensaje.SetToolTip(this.Btn_Eliminar, "Boton para Eliminar la informacion del Cliente");
+            this.ttMensaje.SetToolTip(this.Btn_Guardar, "Boton para Guardar informacion del Cliente");
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)
@@ -60,7 +60,7 @@ namespace Tecno_Pc.Formularios
             this.Close();
         }
         
-        private void Limnpiado()
+        private void Limpiado_Clientes()
         {
             cmb_Depto.SelectedIndex = -1;
             txt_Ident.Clear();
@@ -80,7 +80,7 @@ namespace Tecno_Pc.Formularios
             erp_telefono.Clear();            
         }
 
-        public void operacionesDataGrid()
+        public void Operaciones_Datagrid()
         {
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[1].Visible = false;
@@ -91,7 +91,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        public void InicializarCombobox()
+        public void Inicializar_Combobox()
         {
             cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
             cmb_Depto.DisplayMember = "nombre_depto";
@@ -99,7 +99,7 @@ namespace Tecno_Pc.Formularios
             cmb_Depto.SelectedIndex = -1;
         }
 
-        public void definicionarray()
+        public void Definicion_Array()
         {
             vld.Text = new TextBox [6] { txt_Ident, txt_Nombre, txt_Apell, txt_Tel, txt_Email, txt_Direccion };
             vld.Error = new ErrorProvider[6] { erp_identidad,erp_nombre, erp_apellido, erp_telefono, erp_email, erp_direccion  };
@@ -113,7 +113,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_guardar_Click(object sender, EventArgs e)
         {
-            definicionarray();
+            Definicion_Array();
             if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_Email, erp_email) == true && vld.buscarRepetidos(txt_Tel, erp_telefono) == true)
             {
                 if (actualizar == true)
@@ -129,10 +129,10 @@ namespace Tecno_Pc.Formularios
 
                     if (cli.actualizarDatos())
                     {
-                        btn_guardar.Text = "Guardar";
+                        Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
-                        operacionesDataGrid();
-                        Limnpiado();
+                        Operaciones_Datagrid();
+                        Limpiado_Clientes();
                     }
                 }
                 else
@@ -147,10 +147,10 @@ namespace Tecno_Pc.Formularios
 
                     if (cli.guardar())
                     {
-                        btn_guardar.Text = "Guardar";
+                        Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
-                        operacionesDataGrid();
-                        Limnpiado();
+                        Operaciones_Datagrid();
+                        Limpiado_Clientes();
                     }
                 }               
             }
@@ -159,13 +159,13 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();
+                Escoger_Erp();
                 if (vld.ValidarLetrasCorreos(txt_Email, erp_email) == true) ;
                 if (vld.buscarRepetidos(txt_Tel, erp_telefono) == true) ;
             }              
         }
 
-        private void escoger_erp()
+        private void Escoger_Erp()
         {
             if (cmb_Depto.SelectedIndex == -1)
             {
@@ -177,8 +177,8 @@ namespace Tecno_Pc.Formularios
         private void frm_clientes_Load(object sender, EventArgs e)
         {
             dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
-            operacionesDataGrid();
-            InicializarCombobox();
+            Operaciones_Datagrid();
+            Inicializar_Combobox();
         }
 
         private void btn_editar_Click(object sender, EventArgs e)
@@ -191,7 +191,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                InicializarCombobox();
+                Inicializar_Combobox();
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
                 cmb_Depto.SelectedValue = dgv_datos.CurrentRow.Cells[1].Value.ToString();
                 txt_Ident.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
@@ -201,7 +201,7 @@ namespace Tecno_Pc.Formularios
                 txt_Email.Text = dgv_datos.CurrentRow.Cells[6].Value.ToString();
                 txt_Direccion.Text = dgv_datos.CurrentRow.Cells[7].Value.ToString();
                 actualizar = true;
-                btn_guardar.Text = "Actualizar";
+                Btn_Guardar.Text = "Actualizar";
             }
         }
 
@@ -218,7 +218,7 @@ namespace Tecno_Pc.Formularios
                     cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
                     cli.eliminarDatos();
                     dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
-                    operacionesDataGrid();
+                    Operaciones_Datagrid();
                 }                
             }
             else
@@ -231,15 +231,15 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevo_Click(object sender, EventArgs e)
         {
-            Limnpiado();
-            btn_guardar.Text = "Guardar";
+            Limpiado_Clientes();
+            Btn_Guardar.Text = "Guardar";
         }
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
             cli.Nombree = txt_buscar.Text;
             cli.buscarDatos(dgv_datos);
-            operacionesDataGrid();
+            Operaciones_Datagrid();
         }
 
         private void panel1_MouseDown(object sender, MouseEventArgs e)
@@ -250,23 +250,23 @@ namespace Tecno_Pc.Formularios
 
         private async void btn_imprimir_Click(object sender, EventArgs e)
         {
-            btn_imprimir.Enabled = false;
+            Btn_Imprimir.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(ReporteClientes);
+            Task tar1 = new Task(Reporte_Clientes);
             tar1.Start();
             await tar1;
 
             noti.Close();
-            btn_imprimir.Enabled = true;
+            Btn_Imprimir.Enabled = true;
 
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
             frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
             frm.BringToFront();
         }
 
-        public void ReporteClientes()
+        public void Reporte_Clientes()
         {
             rep.Cadena_consulta = " select (c.nombre_cliente +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
                 "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
@@ -355,7 +355,7 @@ namespace Tecno_Pc.Formularios
             if (e.KeyChar == (char)Keys.Enter)
             {
                 e.Handled = true;
-                btn_guardar.PerformClick();
+                Btn_Guardar.PerformClick();
             }
         }
     }
