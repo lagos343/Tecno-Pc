@@ -17,11 +17,11 @@ namespace Tecno_Pc.Clases
         private static bool estado_compra;
 
         #region Encapsulamiento
-        public int Id_noti { get => id_noti; set => id_noti = value; }
-        public string Producto { get => producto_compra; set => producto_compra = value; }
-        public string Descripcion { get => descripcion_compra; set => descripcion_compra = value; }
-        public  string Fecha { get => fecha_compra; set => fecha_compra = value; }
-        public  bool Estado { get => estado_compra; set => estado_compra = value; }
+        public int Id_Noti { get => id_noti; set => id_noti = value; }
+        public string Producto_Compra { get => producto_compra; set => producto_compra = value; }
+        public string Descripcion_Compra { get => descripcion_compra; set => descripcion_compra = value; }
+        public  string Fecha_Compra { get => fecha_compra; set => fecha_compra = value; }
+        public  bool Estado_Compra { get => estado_compra; set => estado_compra = value; }
 
         #endregion
 

@@ -188,8 +188,8 @@ namespace Tecno_Pc.Formularios
             {
                 if (editar == true)
                 {
-                    mar.IDMarca = int.Parse(txt_id.Text);
-                    mar.NombreMarca = txt_nombre.Text;
+                    mar.Id_Marca = int.Parse(txt_id.Text);
+                    mar.Nombre_Marca = txt_nombre.Text;
                     if (mar.actualizarDatos())
                     {
                         limpiarDatos();
@@ -199,7 +199,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    mar.NombreMarca = txt_nombre.Text;
+                    mar.Nombre_Marca = txt_nombre.Text;
                     if (mar.guardar())
                     {
                         limpiarDatos();
@@ -212,7 +212,7 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarMarcas_TextChanged(object sender, EventArgs e)
         {
-            mar.NombreMarca = txt_buscar.Text;
+            mar.Nombre_Marca = txt_buscar.Text;
             mar.buscarDatos(dgv_datos);
         }
 
@@ -241,7 +241,7 @@ namespace Tecno_Pc.Formularios
         {
             if (editar == true)
             {
-                noti.Id_noti = int.Parse(txt_id.Text);
+                noti.Id_Noti = int.Parse(txt_id.Text);
                 noti.eliminar();
             }
             else if (editar == false)
@@ -255,7 +255,7 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarNotificacion_TextChanged(object sender, EventArgs e)
         {
-            noti.Producto = txt_buscar.Text;
+            noti.Producto_Compra = txt_buscar.Text;
             noti.buscardatos(dgv_datos);
         }
 

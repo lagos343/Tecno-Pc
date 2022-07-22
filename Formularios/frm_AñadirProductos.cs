@@ -104,14 +104,14 @@ namespace Tecno_Pc.Formularios
 
             if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00 )
             {
-                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                prod.NombreProducto = txt_nombre.Text;
-                prod.Modelo = txt_modelo.Text;
-                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                prod.Estado = Convert.ToBoolean(swt_estado.Checked);
-                prod.Codbarra = txt_codBarra.Text;
+                prod.Id_Marca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.Id_Categoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.Id_Proveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.Nombre_Producto = txt_nombre.Text;
+                prod.Modelo_Producto = txt_modelo.Text;
+                prod.Precio_Unitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado_Producto = Convert.ToBoolean(swt_estado.Checked);
+                prod.Cod_Barra = txt_codBarra.Text;
 
                 if (prod.guardar()) //verificamos que no devuelva error el comando sql
                 {
@@ -185,14 +185,14 @@ namespace Tecno_Pc.Formularios
             if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00)
             {
                 prod.IDProducto = int.Parse(txt_id.Text);
-                prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
-                prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
-                prod.IDProveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
-                prod.NombreProducto = txt_nombre.Text;
-                prod.Modelo = txt_modelo.Text;
-                prod.PrecioUnitario = Convert.ToDouble(txt_precio.Text);
-                prod.Estado = swt_estado.Checked;
-                prod.Codbarra = txt_codBarra.Text;
+                prod.Id_Marca = int.Parse(cbo_marca.SelectedValue.ToString());
+                prod.Id_Categoria = int.Parse(cbo_categoria.SelectedValue.ToString());
+                prod.Id_Proveedor = int.Parse(cbo_proveedor.SelectedValue.ToString());
+                prod.Nombre_Producto = txt_nombre.Text;
+                prod.Modelo_Producto = txt_modelo.Text;
+                prod.Precio_Unitario = Convert.ToDouble(txt_precio.Text);
+                prod.Estado_Producto = swt_estado.Checked;
+                prod.Cod_Barra = txt_codBarra.Text;
 
                 if (prod.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
                 {

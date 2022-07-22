@@ -15,8 +15,8 @@ namespace Tecno_Pc.Clases
 
         #region Encapsulamiento
 
-        public int IDMarca { get => id_marca; set => id_marca = value; }
-        public string NombreMarca { get => nombre_marca; set => nombre_marca = value; }
+        public int Id_Marca { get => id_marca; set => id_marca = value; }
+        public string Nombre_Marca { get => nombre_marca; set => nombre_marca = value; }
 
 
         #endregion

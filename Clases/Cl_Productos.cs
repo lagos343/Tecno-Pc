@@ -23,14 +23,14 @@ namespace Tecno_Pc.Clases
         #region Encapsulamiento
 
         public int IDProducto { get => id_producto; set => id_producto = value; }
-        public int IDCategoria { get => id_categoria; set => id_categoria = value; }
-        public int IDMarca { get => id_marca; set => id_marca = value; }
-        public int IDProveedor { get => id_proveedor; set => id_proveedor = value; }
-        public string NombreProducto { get => nombre_producto; set => nombre_producto = value; }
-        public string Modelo { get => modelo_producto; set => modelo_producto = value; }
-        public double PrecioUnitario { get => precio_unitario; set => precio_unitario = value; }
-        public bool Estado { get => estado_producto; set => estado_producto = value; }
-        public string Codbarra { get => cod_barra; set => cod_barra = value; }
+        public int Id_Categoria { get => id_categoria; set => id_categoria = value; }
+        public int Id_Marca { get => id_marca; set => id_marca = value; }
+        public int Id_Proveedor { get => id_proveedor; set => id_proveedor = value; }
+        public string Nombre_Producto { get => nombre_producto; set => nombre_producto = value; }
+        public string Modelo_Producto { get => modelo_producto; set => modelo_producto = value; }
+        public double Precio_Unitario { get => precio_unitario; set => precio_unitario = value; }
+        public bool Estado_Producto { get => estado_producto; set => estado_producto = value; }
+        public string Cod_Barra { get => cod_barra; set => cod_barra = value; }
 
         #endregion
 

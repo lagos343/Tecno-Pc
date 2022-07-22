@@ -99,7 +99,7 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            prod.NombreProducto = txt_buscar.Text;
+            prod.Nombre_Producto = txt_buscar.Text;
             prod.buscarDatos(dgv_Productos);
             operacionesDataGrid();
         }

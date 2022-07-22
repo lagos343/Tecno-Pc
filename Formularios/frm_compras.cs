@@ -202,14 +202,14 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    productos.NombreProducto = txt_buscar.Text;
+                    productos.Nombre_Producto = txt_buscar.Text;
                     productos.buscarDatos(dgv_Productos);
                     Operacionesdatagrid1();
                 }
             }
             else
             {
-                productos.NombreProducto = txt_buscar.Text;
+                productos.Nombre_Producto = txt_buscar.Text;
                 productos.buscarDatos(dgv_Productos);
                 Operacionesdatagrid1();
             }
