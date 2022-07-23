@@ -95,13 +95,13 @@ namespace Tecno_Pc
 
         private void btn_ingresar_Click(object sender, EventArgs e)
         {
-            user.Erp_contra = error_contraseña;
-            user.Erp_usu = error_usuario;
-            user.Txt_contra = txt_pasword;
-            user.Txt_usu = txt_userName;
-            user.Usuario_ = txt_userName.Text;
+            user.Erp_Contra = error_contraseña;
+            user.Erp_Usu = error_usuario;
+            user.Txt_Contra = txt_pasword;
+            user.Txt_Usu = txt_userName;
+            user.Usuario = txt_userName.Text;
 
-            if (user.ObtenerDatos(lnk_Re_usu_contra) == true)
+            if (user.Obtener_Datos(lnk_Re_usu_contra) == true)
             {
                 this.Hide();
                 txt_userName.Text = "Usuario";

@@ -154,7 +154,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_principal_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_Principal();
 
             if (Properties.Settings.Default.CodBar == "true")
             {
@@ -166,24 +166,24 @@ namespace Tecno_Pc.Formularios
             }
         }                
 
-        private void carga()
+        private void Carga_Principal()
         {
-            lbl_nombreUsuario.Text = user.Propietario_;
+            lbl_nombreUsuario.Text = user.Propietario_Usuario;
 
-            if (user.IdRol_ == 2)    //Rol Vendedor
+            if (user.Id_Rol == 2)    //Rol Vendedor
             {
                 btn_compras.Hide();
                 btn_proveedores.Hide();
                 btn_empleados.Hide();
             }
-            else if (user.IdRol_ == 3)  //Rol Jefe de Compras
+            else if (user.Id_Rol == 3)  //Rol Jefe de Compras
             {
                 btn_ventas.Hide();
                 btn_Facturas.Hide();
                 btn_empleados.Hide();
                 
             }
-            else if (user.IdRol_ == 4)  //Rol Empleador
+            else if (user.Id_Rol == 4)  //Rol Empleador
             {
                 btn_Facturas.Hide();
                 btn_ventas.Hide();
@@ -254,7 +254,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(MostrarAyuda);
+            Task tar1 = new Task(Mostrar_Ayuda);
             tar1.Start();
             await tar1;
 
@@ -262,7 +262,7 @@ namespace Tecno_Pc.Formularios
             btn_info.Enabled = true;
         }
 
-        private void MostrarAyuda()
+        private void Mostrar_Ayuda()
         {
             try
             {

@@ -77,7 +77,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayPro();
 
-            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
+            if (vld.Comprobar_Txt() == true && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_email, erp_correo) == true && vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true)
             {
                 proveedores.Nombre = txt_nombre.Text;
                 proveedores.Telefono = txt_telefono.Text;
@@ -97,19 +97,19 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
-                if(vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
+                if(vld.Validar_Letrascorreos(txt_email, erp_correo) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true) ;
             }
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
-            frm.carga();
+            frm.Carga_Proveedores();
         }
 
         private void actualiza_click(object sender, EventArgs e)
         {
             definicionarrayPro();
 
-            if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
+            if (vld.Comprobar_Txt() == true && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_email, erp_correo) == true && vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true)
             {
                 proveedores.IDProveedor = int.Parse(txt_id.Text);
                 proveedores.Nombre = txt_nombre.Text;
@@ -131,12 +131,12 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
-                if (vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
+                if (vld.Validar_Letrascorreos(txt_email, erp_correo) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true) ;
 
             }
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
-            frm.carga();
+            frm.Carga_Proveedores();
         }
 
         private void escoger_erp()  

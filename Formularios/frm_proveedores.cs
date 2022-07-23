@@ -60,13 +60,13 @@ namespace Tecno_Pc.Formularios
 
         private void frm_proveedores_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_Proveedores();
         }
 
-        public void carga()
+        public void Carga_Proveedores()
         {
             proveedores.consultarDatos(dgv_Productos);
-            operacionesdatarid();
+            Operaciones_Datarid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
                 columna.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -74,7 +74,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void operacionesdatarid()
+        private void Operaciones_Datarid()
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -94,7 +94,7 @@ namespace Tecno_Pc.Formularios
         {
             proveedores.Nombre = txt_buscar.Text;
             proveedores.buscarDatos(dgv_Productos);
-            operacionesdatarid();
+            Operaciones_Datarid();
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)

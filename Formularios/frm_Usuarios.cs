@@ -28,7 +28,7 @@ namespace Tecno_Pc.Formularios
 
         public void carga()
         {
-            user.consultarDatos(dgv_Productos);
+            user.Consultar_Datos(dgv_Productos);
             operacionesdgv();
             usuarios();
 
@@ -89,7 +89,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
             user.Nombre_usuario = txt_buscar.Text;
-            user.buscarDatos(dgv_Productos);
+            user.Buscar_Datos(dgv_Productos);
             operacionesdgv();
         }
 
@@ -112,7 +112,7 @@ namespace Tecno_Pc.Formularios
                     if (noti.Dialogresul == DialogResult.OK)
                     {
                         user.Id_usuarios = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        user.eliminar();
+                        user.Eliminar_Datos();
 
                         #region limpieza
                         lbl_id.Text = "";
@@ -142,21 +142,21 @@ namespace Tecno_Pc.Formularios
 
         private void usuarios()
         {
-            if (login.IdRol_ == 3 || login.IdRol_ == 2)
+            if (login.Id_Rol == 3 || login.Id_Rol == 2)
             {
                 btn_nuevoUsuario.Hide();
                 dgv_Productos.Hide();
                 txt_buscar.Hide();
                 pictureBox5.Hide();
                 pictureBox6.Hide();
-                lbl_id.Text = login.IdRol_.ToString();
-                lbl_user.Text = login.Usuario_;
-                lbl_contra.Text = login.Contraseña_.Substring(0, 2)+"**********";
-                lbl_propietario.Text = login.Propietario_;
-                lbl_tipo.Text = login.Rol_;
+                lbl_id.Text = login.Id_Rol.ToString();
+                lbl_user.Text = login.Usuario;
+                lbl_contra.Text = login.Contraseña_Usuario.Substring(0, 2)+"**********";
+                lbl_propietario.Text = login.Propietario_Usuario;
+                lbl_tipo.Text = login.Rol_Usuario;
                 btn_reporte.Hide();
             }
-            if (login.IdRol_ == 3 || login.IdRol_ == 4)
+            if (login.Id_Rol == 3 || login.Id_Rol == 4)
             {
                 gunaGradientButton1.Hide();
             }

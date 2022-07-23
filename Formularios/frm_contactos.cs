@@ -132,19 +132,21 @@ namespace Tecno_Pc.Formularios
         {
             Definicion_Array();
             if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_email) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
+            definicionarray();
+            if (vld.Comprobar_Txt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_email, erp_email) == true && vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
-                    con.IDContacto = int.Parse(txt_id.Text.ToString());
-                    con.IDProveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
-                    con.IDDepto = int.Parse(cmb_depto.SelectedValue.ToString());
-                    con.Nombree = txt_nombre.Text;
-                    con.Apellidoo = txt_apellido.Text;
-                    con.Telefonoo = txt_telefono.Text;
-                    con.CorreoElectronicoo = txt_email.Text;
-                    con.Direccionn = txt_direccion.Text;
+                    con.Id_Contacto = int.Parse(txt_id.Text.ToString());
+                    con.Id_Proveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
+                    con.Id_Depto = int.Parse(cmb_depto.SelectedValue.ToString());
+                    con.Nombre_Contacto = txt_nombre.Text;
+                    con.Apellido_Contacto = txt_apellido.Text;
+                    con.Telefono_Contacto = txt_telefono.Text;
+                    con.Correo_Electronico = txt_email.Text;
+                    con.Direccion_Contacto = txt_direccion.Text;
 
-                    if (con.actualizarDatos())
+                    if (con.Actualizar_Datos())
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -154,16 +156,16 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    con.IDProveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
-                    con.IDDepto = int.Parse(cmb_depto.SelectedValue.ToString());
-                    con.Nombree = txt_nombre.Text;
-                    con.Apellidoo = txt_apellido.Text;
-                    con.Telefonoo = txt_telefono.Text;
-                    con.CorreoElectronicoo = txt_email.Text;
-                    con.Direccionn = txt_direccion.Text;
-                    con.Estadoo = Convert.ToBoolean(true);
+                    con.Id_Proveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
+                    con.Id_Depto = int.Parse(cmb_depto.SelectedValue.ToString());
+                    con.Nombre_Contacto = txt_nombre.Text;
+                    con.Apellido_Contacto = txt_apellido.Text;
+                    con.Telefono_Contacto = txt_telefono.Text;
+                    con.Correo_Electronico = txt_email.Text;
+                    con.Direccion_Contacto = txt_direccion.Text;
+                    con.Estado_Contacto = Convert.ToBoolean(true);
 
-                    if (con.guardar())
+                    if (con.Guardar_Contacto())
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -180,6 +182,9 @@ namespace Tecno_Pc.Formularios
                 Escoger_Erp();
                 if (vld.ValidarLetrasCorreos(txt_email, erp_email) == true) ;
                 if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
+                escoger_erp();
+                if (vld.Validar_Letrascorreos(txt_email, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true) ;
             }
         }
 
@@ -233,8 +238,8 @@ namespace Tecno_Pc.Formularios
 
                 if (noti.Dialogresul == DialogResult.OK)
                 {
-                    con.IDContacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-                    con.eliminarDatos();
+                    con.Id_Contacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
+                    con.Eliminar_Datos();
                     dgv_datos.DataSource = sql.Consulta(" select*from Contactos where estado_contacto=1");
                     Operaciones_Datagrid();
                 }
@@ -253,6 +258,9 @@ namespace Tecno_Pc.Formularios
             con.Nombree = txt_buscar.Text;
             con.buscarDatos(dgv_datos);
             Operaciones_Datagrid();
+            con.Nombre_Contacto = txt_buscar.Text;
+            con.Buscar_Datos(dgv_datos);
+            operacionesDataGrid();
         }
 
         private void panel1_MouseDown_1(object sender, MouseEventArgs e)

@@ -54,7 +54,7 @@ namespace Tecno_Pc.Clases
             Properties.Settings.Default.Save();
 
             //inicializamos las variables del PDF
-            vld.ValidarCarpetas(carpeta_reporte);
+            vld.Validar_Carpetas(carpeta_reporte);
             PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
             PdfDocument pdf = new PdfDocument(EscritorPdf);
             Document documento;
@@ -124,7 +124,7 @@ namespace Tecno_Pc.Clases
                 documento.ShowTextAligned(Partitulo.SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento.ShowTextAligned(new Paragraph("Tecno Pc").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 15, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento.ShowTextAligned(new Paragraph("Solicitado por: ").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
-                documento.ShowTextAligned(new Paragraph(user.Propietario_), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                documento.ShowTextAligned(new Paragraph(user.Propietario_Usuario), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento.ShowTextAligned(new Paragraph("Este Reporte fue Generado"), pdf.GetPage(i).GetPageSize().GetRight() - 91, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
                 documento.ShowTextAligned(Fecha, pdf.GetPage(i).GetPageSize().GetRight() - 91, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
 
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Clases
             Properties.Settings.Default.Save(); 
             
             //Creacion del Pdf
-            vld.ValidarCarpetas("Facturas");
+            vld.Validar_Carpetas("Facturas");
             PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf");
             PdfDocument pdf = new PdfDocument(EscritorPdf);
             Document documento;
