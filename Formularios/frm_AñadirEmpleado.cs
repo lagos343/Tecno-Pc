@@ -107,8 +107,8 @@ namespace Tecno_Pc.Formularios
         private void guarda_click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos guardar 
         {
             definicionarray();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true 
-                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
+            if (vld.Comprobar_Txt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_correo, erp_email) == true 
+                && vld.Buscar_Repetidos(txt_telefono, erp_tel) == true)
             { 
                 empleados.Identidad = txt_identidad.Text;
                 empleados.Nombre = txt_nombre.Text;
@@ -132,8 +132,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_rp(); 
-                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
+                if (vld.Validar_Letrascorreos(txt_correo, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_tel) == true) ;
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
@@ -143,8 +143,8 @@ namespace Tecno_Pc.Formularios
         private void actualiza_click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
         {
             definicionarray();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true
-                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
+            if (vld.Comprobar_Txt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_correo, erp_email) == true
+                && vld.Buscar_Repetidos(txt_telefono, erp_tel) == true)
             {
                 empleados.Idempleado = int.Parse(txt_id.Text);
                 empleados.Identidad = txt_identidad.Text;
@@ -168,8 +168,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_rp();
-                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
+                if (vld.Validar_Letrascorreos(txt_correo, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_tel) == true) ;
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();//revcargamos el formulario

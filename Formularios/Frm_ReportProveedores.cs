@@ -48,7 +48,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(ReporteProveedor);
+                Task tar1 = new Task(Reporte_Proveedor);
                 tar1.Start();
                 await tar1;
 
@@ -65,7 +65,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void ReporteProveedor()
+        private void Reporte_Proveedor()
         {
             if (radio_gen.Checked)
             {

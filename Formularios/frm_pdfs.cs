@@ -13,13 +13,13 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_pdfs : Form
     {
-        Form FormAnterior;
+        Form Form_Anterior;
         public frm_pdfs(string filepath, Form frm)
         {
             InitializeComponent();
             toolTip1.SetToolTip(this.btn_cerar, "Cerrar Vista");
             vizulizarPdf(filepath);
-            FormAnterior = frm;
+            Form_Anterior = frm;
         }
 
         private void vizulizarPdf(string filepath)
@@ -34,7 +34,7 @@ namespace Tecno_Pc.Formularios
         {
             // Abrimos el Form anterior que mando a vizualizar el pdf
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.AbrirFormulario(FormAnterior);
+            frm.AbrirFormulario(Form_Anterior);
         }       
 
         private void btn_cerar_MouseLeave(object sender, EventArgs e)

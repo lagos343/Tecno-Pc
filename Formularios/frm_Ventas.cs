@@ -248,7 +248,7 @@ namespace Tecno_Pc.Formularios
 
                     if(IdSar == ultimasar)
                     {
-                        sql.Sql_Querys("insert into Facturas values(" + (id + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
+                        sql.Sql_Querys("insert into Facturas values(" + (id + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.Id_Empleado + ", " + cbo_tipoPago.SelectedValue.ToString() +
                         ", GETDATE(), 0.15, " + IdSar + ")");
 
                         foreach (DataGridViewRow fila in dgv_Factura.Rows)

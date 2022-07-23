@@ -131,7 +131,7 @@ namespace Tecno_Pc.Formularios
         private void btn_guardar_Click_1(object sender, EventArgs e)
         {
             definicionarray();
-            if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_email) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
+            if (vld.Comprobar_Txt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_email, erp_email) == true && vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true)
             {
                 if (actualizar == true)
                 {
@@ -178,8 +178,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 escoger_erp();
-                if (vld.ValidarLetrasCorreos(txt_email, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
+                if (vld.Validar_Letrascorreos(txt_email, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_telefono) == true) ;
             }
         }
 

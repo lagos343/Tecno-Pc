@@ -71,15 +71,15 @@ namespace Tecno_Pc.Formularios
         private void guarda_click(object sender, EventArgs e)
         {
             definicionarrayuser();
-            if(vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
+            if(vld.Validar_Usuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Nombre_usuario = txt_usuario.Text;
-                user.Clave = txt_pass.Text;
+                user.Clave_Usuario = txt_pass.Text;
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
-                user.Estado = Convert.ToBoolean(true);
+                user.Estado_Usuario = Convert.ToBoolean(true);
 
-                if (user.guardar())
+                if (user.Guardar_Usuario())
                 {
                     limpiar();
                 }                
@@ -116,16 +116,16 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayuser();
 
-            if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
+            if (vld.Validar_Usuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Id_usuarios = int.Parse(txt_id.Text);
                 user.Nombre_usuario = txt_usuario.Text;
-                user.Clave = txt_pass.Text;
+                user.Clave_Usuario = txt_pass.Text;
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
-                user.Estado = Convert.ToBoolean(true);
+                user.Estado_Usuario = Convert.ToBoolean(true);
 
-                if (user.actualizarDatos())
+                if (user.Actualizar_Datos())
                 {
                     this.Close();
                 }                

@@ -102,7 +102,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00 )
+            if (vld.Comprobar_Txt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00 )
             {
                 prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());
                 prod.IDCategoria = int.Parse(cbo_categoria.SelectedValue.ToString());
@@ -182,7 +182,7 @@ namespace Tecno_Pc.Formularios
         {
             definicionarray();
 
-            if (vld.comprobartxt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00)
+            if (vld.Comprobar_Txt() == true && cbo_categoria.SelectedIndex != -1 && cbo_marca.SelectedIndex != -1 && cbo_proveedor.SelectedIndex != -1 && int.Parse(txt_stock.Text) != 0 && float.Parse(txt_precio.Text) >= 10.00)
             {
                 prod.IDProducto = int.Parse(txt_id.Text);
                 prod.IDMarca = int.Parse(cbo_marca.SelectedValue.ToString());

@@ -114,12 +114,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayCategorias();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld.Comprobar_Txt() == false || vld.Validar_Letras(txt_nombre, erp_nombre) == false)
             {                
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false);
+                if (vld.Validar_Letras(txt_nombre, erp_nombre) == false);
             }
             else
             {
@@ -177,12 +177,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayMarcas();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld.Comprobar_Txt() == false || vld.Validar_Letras(txt_nombre, erp_nombre) == false)
             {
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false) ;
+                if (vld.Validar_Letras(txt_nombre, erp_nombre) == false) ;
             }
             else
             {
