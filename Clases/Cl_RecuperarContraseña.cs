@@ -29,10 +29,10 @@ namespace Tecno_Pc.Clases
         public void Enviar_correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
         {
             //creacion de el mensaje y su cuerpo 
-            mmsg_recuperacion.To.Add(user.Correo_Usuario);
+            mmsg_recuperacion.To.Add(user_log.Correo_Usuario);
             mmsg_recuperacion.Subject = "Recuperacion de Contraseña Tecno Pc";
             mmsg_recuperacion.SubjectEncoding = Encoding.UTF8;
-            mmsg_recuperacion.Body = "<p><b>Hola " +user.Propietario_Usuario + "</b><br><b>ha solicitado una recuperacion de contraseña</b><br><b>su contraseña actual es: " + user.Contraseña_Usuario +
+            mmsg_recuperacion.Body = "<p><b>Hola " +user_log.Propietario_Usuario + "</b><br><b>ha solicitado una recuperacion de contraseña</b><br><b>su contraseña actual es: " + user_log.Contraseña_Usuario +
             "</b><br><b>recomendamos solicite un cambio de contraseña al ingresar de nuevo al sistema por seguridad</b></p>";
             mmsg_recuperacion.BodyEncoding = Encoding.UTF8;
             mmsg_recuperacion.IsBodyHtml = true;

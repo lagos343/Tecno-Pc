@@ -49,7 +49,6 @@ namespace Tecno_Pc
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
             this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
             this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
-            this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_CerrarLogin)).BeginInit();
@@ -271,34 +270,6 @@ namespace Tecno_Pc
             this.elipseComponent1.CornerRadius = 15;
             this.elipseComponent1.TargetControl = this;
             // 
-            // gunaButton1
-            // 
-            this.gunaButton1.AnimationHoverSpeed = 0.07F;
-            this.gunaButton1.AnimationSpeed = 0.03F;
-            this.gunaButton1.BackColor = System.Drawing.Color.Transparent;
-            this.gunaButton1.BaseColor = System.Drawing.Color.Teal;
-            this.gunaButton1.BorderColor = System.Drawing.Color.Teal;
-            this.gunaButton1.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.gunaButton1.FocusedColor = System.Drawing.Color.Empty;
-            this.gunaButton1.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.gunaButton1.ForeColor = System.Drawing.Color.White;
-            this.gunaButton1.Image = null;
-            this.gunaButton1.ImageSize = new System.Drawing.Size(20, 20);
-            this.gunaButton1.Location = new System.Drawing.Point(12, 445);
-            this.gunaButton1.Name = "gunaButton1";
-            this.gunaButton1.OnHoverBaseColor = System.Drawing.Color.FromArgb(((int)(((byte)(151)))), ((int)(((byte)(143)))), ((int)(((byte)(255)))));
-            this.gunaButton1.OnHoverBorderColor = System.Drawing.Color.Black;
-            this.gunaButton1.OnHoverForeColor = System.Drawing.Color.White;
-            this.gunaButton1.OnHoverImage = null;
-            this.gunaButton1.OnPressedColor = System.Drawing.Color.Black;
-            this.gunaButton1.Radius = 5;
-            this.gunaButton1.Size = new System.Drawing.Size(111, 30);
-            this.gunaButton1.TabIndex = 14;
-            this.gunaButton1.Text = "IMPRIMIR";
-            this.gunaButton1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.gunaButton1.Visible = false;
-            this.gunaButton1.Click += new System.EventHandler(this.gunaButton1_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -306,7 +277,6 @@ namespace Tecno_Pc
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(324, 487);
             this.ControlBox = false;
-            this.Controls.Add(this.gunaButton1);
             this.Controls.Add(this.lnk_Re_usu_contra);
             this.Controls.Add(this.btn_ingresar);
             this.Controls.Add(this.txt_pasword);
@@ -353,7 +323,6 @@ namespace Tecno_Pc
         private Guna.UI2.WinForms.Guna2PictureBox guna2PictureBox1;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;
         private System.Windows.Forms.ToolTip ttMensaje;
-        private Guna.UI.WinForms.GunaButton gunaButton1;
     }
 }
 

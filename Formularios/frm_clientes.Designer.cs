@@ -594,7 +594,6 @@ namespace Tecno_Pc.Formularios
             this.Btn_Imprimir.Text = "REPORTES";
             this.Btn_Imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.Btn_Imprimir.Visible = false;
-            this.Btn_Imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
             // 
             // Btn_Eliminar
             // 

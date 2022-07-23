@@ -202,17 +202,7 @@ namespace Tecno_Pc.Formularios
                 erp_cant.Clear();
                 erp_cant.SetError(txt_cant, "Solo se permiten Numeros");
             }
-        }
-
-        private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si estamos tocando el boton de eliminar del datagrid de factura
-        {
-            if (dgv_Factura.Rows[e.RowIndex].Cells["Eliminar"].Selected)
-            {
-                dgv_Factura.Rows.RemoveAt(e.RowIndex);
-            }
-
-            lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
-        }
+        }        
 
         private void btn_nuevaVenta_Click(object sender, EventArgs e) //prod que limpia los datagrid y la info de una venta para realizar una nueva
         {
@@ -431,12 +421,7 @@ namespace Tecno_Pc.Formularios
             }
 
             lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
-        }
-
-        private void num_ISV_ValueChanged(object sender, EventArgs e)
-        {
-            lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
-        }
+        }        
 
         private void chk_desc_CheckedChanged(object sender, EventArgs e) //dependiendo de su estado podremos usar el Nmeric para indicar el descuento
         {

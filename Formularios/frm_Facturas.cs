@@ -132,7 +132,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_sar_Click(object sender_sar, EventArgs index_e)) //abre el formulario de la SAR
+        private void btn_sar_Click(object sender_sar, EventArgs index_e) //abre el formulario de la SAR
         {
             Form frm_sar = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_sar);
 

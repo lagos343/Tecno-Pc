@@ -252,37 +252,6 @@ namespace Tecno_Pc.Formularios
             SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
-        private async void btn_imprimir_Click(object sender, EventArgs e)
-        {
-            Btn_Imprimir.Enabled = false;
-            frm_notificacion noti = new frm_notificacion("", 4);
-            noti.Show();
-
-            Task tar1 = new Task(Reporte_Clientes); //llamaos el subproceso en base a el prod que abre el reporte
-            tar1.Start();
-            await tar1;
-
-            noti.Close();
-            Btn_Imprimir.Enabled = true;
-
-            Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
-            frm.BringToFront();
-        }
-
-        public void Reporte_Clientes() //prod que genera el reporte 
-        {
-            rep.Cadena_consulta = " select (c.nombre_cliente +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
-                "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";
-            rep.Carpeta = "Clientes";
-            rep.Cabecera = new string[6] { "Nombre del Cliente", "Identidad", "Telefono", "Direccion", "Correo Electronico","Departamento"};
-            rep.Tamanios = new float[6] { 8, 4, 3, 8, 5, 3 };
-            rep.Titulo = "Reporte de Clientes";
-            rep.Fecha = DateTime.Now.ToShortDateString();
-            rep.Vertical = false;
-            rep.Generar_pdf();       
-        }
-
         #region keypress              
 
         private void txt_Ident_KeyPress(object sender, KeyPressEventArgs e)

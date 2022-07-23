@@ -99,11 +99,11 @@ namespace Tecno_Pc
 
         private void btn_ingresar_Click(object sender_ingresar, EventArgs index_e) //se encarga de verificar si se ingresa la sistema o no
         {
-            user_login.Erp_contra = error_contraseña;
-            user_login.Erp_usu = error_usuario;
-            user_login.Txt_contra = txt_pasword;
+            user_login.Erp_Contra = error_contraseña;
+            user_login.Erp_Usu = error_usuario;
+            user_login.Txt_Contra = txt_pasword;
             user_login.Txt_Usu = txt_userName;
-            user_login.Usuario_ = txt_userName.Text;
+            user_login.Usuario = txt_userName.Text;
 
             if (user_login.Obtener_Datos(lnk_Re_usu_contra) == true) //si la obtencion de datos es correcta, podremos entrar al sistema
             {            
@@ -134,29 +134,6 @@ namespace Tecno_Pc
             {
                 btn_ingresar.PerformClick();
             }
-        }
-
-        private void gunaButton1_Click(object sender_guna, EventArgs index_e)
-        {
-            //using (var document = PdfDocument.Load(@"C:\Users\loren\Documents\UNICAH\2022\II Trimestre\Salud y Nutricion\I Parcial\Cuadro Comparativo.pdf"))
-            //{
-            //    var printerSettings = new PrinterSettings
-            //    {
-            //        PrinterName = "EPSON L380 Series",
-            //        Copies = (short)1,
-            //    };
-
-            //    using (var printDocument = document.CreatePrintDocument())
-            //    {
-            //        printDocument.PrinterSettings = printerSettings;
-            //        printDocument.PrintController = new StandardPrintController();
-            //        printDocument.Print();
-            //    }
-            //}
-            Clases.Cl_Reportes rep_form = new Clases.Cl_Reportes();
-            rep_form.Vertical = true;
-            rep_form.Carpeta = "Facturas";
-            rep_form.Generar_pdf();
-        }
+        }        
     }
 }

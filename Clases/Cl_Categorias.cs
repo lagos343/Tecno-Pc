@@ -24,7 +24,7 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Categorias values('" + nombre_categoria + "')";
-            return Sql_Query(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_query(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
         public void Consultar_Datos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario 
@@ -41,7 +41,7 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Update Categorias set [nombre_categoria] = '"+nombre_categoria+"' where [id_categoria] = "+id_categoria+"";
-            return Sql_Query(cadena, "Categoria actulizada con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false la infformacion actulizada repite un registro ya existente
+            return Sql_query(cadena, "Categoria actulizada con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false la infformacion actulizada repite un registro ya existente
         }        
     }
 }

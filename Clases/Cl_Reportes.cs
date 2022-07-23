@@ -56,8 +56,8 @@ namespace Tecno_Pc.Clases
             //inicializamos las variables del PDF
             vld_ci.Validar_Carpetas(carpeta_reporte);
             PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
-            PdfDocument pdf = new PdfDocument(EscritorPdf);
-            Document documento;
+            PdfDocument pdf_reporte = new PdfDocument(EscritorPdf);
+            Document documento_reporte;
 
             if (vertical_reporte != true)
             {
@@ -118,15 +118,15 @@ namespace Tecno_Pc.Clases
             //obtenemos el numero de paginas del documetno
             for (int i = 1; i <= pdf_reporte.GetNumberOfPages(); i++)
             {
-                PdfPage page = pdf.GetPage(i);//obtenemos la pagina para añadir el emcabezado
-                float y = pdf.GetPage(i).GetPageSize().GetTop() - 15;
-                documento_reporte.ShowTextAligned(plogo, 36, y + 5, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-                documento_reporte.ShowTextAligned(Partitulo.SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                PdfPage page = pdf_reporte.GetPage(i);//obtenemos la pagina para añadir el emcabezado
+                float y = pdf_reporte.GetPage(i).GetPageSize().GetTop() - 15;
+                documento_reporte.ShowTextAligned(plogo_reporte, 36, y + 5, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                documento_reporte.ShowTextAligned(Partitulo_reporte.SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(new Paragraph("Tecno Pc").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 15, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(new Paragraph("Solicitado por: ").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
-                documento_reporte.ShowTextAligned(new Paragraph(user.Propietario_Usuario), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
-                documento_reporte.ShowTextAligned(new Paragraph("Este Reporte fue Generado"), pdf.GetPage(i).GetPageSize().GetRight() - 91, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
-                documento_reporte.ShowTextAligned(Fecha, pdf.GetPage(i).GetPageSize().GetRight() - 91, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                documento_reporte.ShowTextAligned(new Paragraph(user_log.Propietario_Usuario), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                documento_reporte.ShowTextAligned(new Paragraph("Este Reporte fue Generado"), pdf_reporte.GetPage(i).GetPageSize().GetRight() - 91, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
+                documento_reporte.ShowTextAligned(fechal_reporte, pdf_reporte.GetPage(i).GetPageSize().GetRight() - 91, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
 
                 documento_reporte.ShowTextAligned(new Paragraph("Pagina " + i + " de " + pdf_reporte.GetNumberOfPages()), pdf_reporte.GetPage(i).GetPageSize().GetWidth() / 2
                     ,pdf_reporte.GetPage(i).GetPageSize().GetBottom() + 30, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
@@ -177,9 +177,9 @@ namespace Tecno_Pc.Clases
 
             //Creacion del Pdf
             vld_ci.Validar_Carpetas("Facturas");
-            PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id + ".pdf");
-            PdfDocument pdf = new PdfDocument(EscritorPdf);
-            Document documento;
+            PdfWriter EscritorPdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id_factura + ".pdf");
+            PdfDocument pdf_factura = new PdfDocument(EscritorPdf);
+            Document documento_factura;
 
 
             documento_factura = new Document(pdf_factura, new PageSize(612, 504));

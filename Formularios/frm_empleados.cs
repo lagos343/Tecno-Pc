@@ -77,12 +77,12 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged(object sender_buscar, EventArgs e)//se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
-            empleados_formularios.Nombre = txt_buscar.Text;
-            empleados_formularios.buscardatos(dgv_Productos);
+            empleados_formularios.Nombre_Empleado = txt_buscar.Text;
+            empleados_formularios.Buscar_Datos(dgv_Productos);
             Operaciones_data_rid();
-            empleados.Nombre_Empleado = txt_buscar.Text;
-            empleados.Buscar_Datos(dgv_Productos);
-            operacionesdatarid();
+            empleados_formularios.Nombre_Empleado = txt_buscar.Text;
+            empleados_formularios.Buscar_Datos(dgv_Productos);
+            Operaciones_data_rid();
             
         }
 
@@ -136,8 +136,7 @@ namespace Tecno_Pc.Formularios
             catch(Exception ex_catch){}            
         }
 
-        private void btn_reporte_Click(object sender_reporte, EventArgs e)
-        private void btn_reporte_Click(object sender, EventArgs e) //abre el form de reportes de esta pantalla
+        private void btn_reporte_Click(object sender_reporte, EventArgs e) //abre el form de reportes de esta pantalla
         {
             Form frm_reporte = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
 
