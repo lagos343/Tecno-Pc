@@ -128,7 +128,7 @@ namespace Tecno_Pc.Formularios
                 if (editar == true) //verificamos si estamos editando o guardando
                 {
                     cate.Id_Categoria = int.Parse(txt_id.Text);
-                    cate.NombreCategoria = txt_nombre.Text;
+                    cate.Nombre_Categoria = txt_nombre.Text;
                     if (cate.Actualizar_Datos()) //verificamos que no devuelva error el comando sql
                     {
                         limpiarDatos();
@@ -138,7 +138,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    cate.NombreCategoria = txt_nombre.Text;
+                    cate.Nombre_Categoria = txt_nombre.Text;
                     if (cate.Guardar_Categoria()) //verificamos que no devuelva error el comando sql
                     {
                         limpiarDatos();
@@ -151,7 +151,7 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarCategorias_TextChanged(object sender, EventArgs e) //se encarga de buscar los registros filtrados
         {
-            cate.NombreCategoria = txt_buscar.Text;
+            cate.Nombre_Categoria = txt_buscar.Text;
             cate.Buscar_Datos(dgv_datos);
         }
 

@@ -264,7 +264,7 @@ namespace Tecno_Pc.Formularios
                     if(id_sar == ultima_sar) //verificamos que la ultima SAR registrada sea la seleccionada
                     {
                         //creamos el registro de la factura
-                        sql.Sql_Querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
+                        sql.Sql_Querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.Id_Empleado + ", " + cbo_tipoPago.SelectedValue.ToString() +
                         ", GETDATE(), 0.15, " + id_sar + ")");
                         
                         //recorremos la lista de ventas para ir añadiendo a la BD esos registros del Detalle
