@@ -32,8 +32,8 @@ namespace Tecno_Pc.Clases
         private float[] tamanios_reporte;
         private DataTable dgv_reporte;
 
-        Cl_Validacion vld = new Cl_Validacion();
-        Cl_UsuarioLogueado user = new Cl_UsuarioLogueado();
+        Cl_Validacion vld_ci = new Cl_Validacion();
+        Cl_UsuarioLogueado user_log = new Cl_UsuarioLogueado();
 
         #region Encapsulamiento
         public string Cadena_consulta { get => cadena_consulta; set => cadena_consulta = value; }
@@ -54,7 +54,7 @@ namespace Tecno_Pc.Clases
             Properties.Settings.Default.Save();
 
             //inicializamos las variables del PDF
-            vld.validar_carpetas(carpeta_reporte);
+            vld_ci.validar_carpetas(carpeta_reporte);
             PdfWriter escritor_pdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
             PdfDocument pdf_reporte = new PdfDocument(escritor_pdf);
             Document documento_reporte;
@@ -124,7 +124,7 @@ namespace Tecno_Pc.Clases
                 documento_reporte.ShowTextAligned(Partitulo_reporte.SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(new Paragraph("Tecno Pc").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 15, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(new Paragraph("Solicitado por: ").SetFont(PdfFontFactory.CreateFont(StandardFonts.HELVETICA_BOLD)), 70, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
-                documento_reporte.ShowTextAligned(new Paragraph(user.Propietario_), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
+                documento_reporte.ShowTextAligned(new Paragraph(user_log.Propietario_), 160, y - 30, i, TextAlignment.LEFT, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(new Paragraph("Este Reporte fue Generado"), pdf_reporte.GetPage(i).GetPageSize().GetRight() - 91, y, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
                 documento_reporte.ShowTextAligned(fechal_reporte, pdf_reporte.GetPage(i).GetPageSize().GetRight() - 91, y - 15, i, TextAlignment.CENTER, VerticalAlignment.TOP, 0);
 
@@ -176,7 +176,7 @@ namespace Tecno_Pc.Clases
             Properties.Settings.Default.Save(); 
             
             //Creacion del Pdf
-            vld.validar_carpetas("Facturas");
+            vld_ci.validar_carpetas("Facturas");
             PdfWriter escritor_pdf = new PdfWriter(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\Facturas\Factura N° " + id_factura + ".pdf");
             PdfDocument pdf_factura = new PdfDocument(escritor_pdf);
             Document documento_factura;
