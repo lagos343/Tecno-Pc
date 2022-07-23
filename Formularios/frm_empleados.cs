@@ -46,7 +46,7 @@ namespace Tecno_Pc.Formularios
 
         public void carga() 
         {
-            empleados.consultarDatos(dgv_Productos);
+            empleados.consultar_Datos(dgv_Productos);
             operacionesdatarid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
@@ -76,8 +76,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e)
         {
-            empleados.Nombre = txt_buscar.Text;
-            empleados.buscardatos(dgv_Productos);
+            empleados.Nombre_Empleado = txt_buscar.Text;
+            empleados.Buscar_Datos(dgv_Productos);
             operacionesdatarid();
             
         }
@@ -99,8 +99,8 @@ namespace Tecno_Pc.Formularios
 
                     if (noti.Dialogresul == DialogResult.OK)
                     {
-                        empleados.Idempleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        empleados.eliminar();
+                        empleados.Id_Empleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        empleados.Eliminar_Empleado();
                         #region Limpieza
                         lbl_id.Text = lbl_email.Text = "";
                         lbl_depto.Text = lbl_email.Text = "";

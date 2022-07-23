@@ -36,7 +36,7 @@ namespace Tecno_Pc.Formularios
                 txt_buscar.TextChanged += txt_buscarCategorias_TextChanged;
                 btn_editar.Click += btn_editarCategorias_Click;                            
                 this.Text = "Categorias";
-                cate.consultarDatos(dgv_datos);                
+                cate.Consultar_Datos(dgv_datos);                
             }
             else if (valor == 2)
             {
@@ -125,23 +125,23 @@ namespace Tecno_Pc.Formularios
             {
                 if (editar == true)
                 {
-                    cate.IDCategoria = int.Parse(txt_id.Text);
+                    cate.Id_Categoria = int.Parse(txt_id.Text);
                     cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.actualizarDatos())
+                    if (cate.Actualizar_Datos())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate.Consultar_Datos(dgv_datos);
                     }
                 }
                 else
                 {
                     cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.guardar())
+                    if (cate.Guardar_Categoria())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate.Consultar_Datos(dgv_datos);
                     }
                 }                
             }           
@@ -150,7 +150,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscarCategorias_TextChanged(object sender, EventArgs e)
         {
             cate.NombreCategoria = txt_buscar.Text;
-            cate.buscarDatos(dgv_datos);
+            cate.Buscar_Datos(dgv_datos);
         }
 
         private void btn_editarCategorias_Click(object sender, EventArgs e)

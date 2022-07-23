@@ -135,16 +135,16 @@ namespace Tecno_Pc.Formularios
             {
                 if (actualizar == true)
                 {
-                    con.IDContacto = int.Parse(txt_id.Text.ToString());
-                    con.IDProveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
-                    con.IDDepto = int.Parse(cmb_depto.SelectedValue.ToString());
-                    con.Nombree = txt_nombre.Text;
-                    con.Apellidoo = txt_apellido.Text;
-                    con.Telefonoo = txt_telefono.Text;
-                    con.CorreoElectronicoo = txt_email.Text;
-                    con.Direccionn = txt_direccion.Text;
+                    con.Id_Contacto = int.Parse(txt_id.Text.ToString());
+                    con.Id_Proveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
+                    con.Id_Depto = int.Parse(cmb_depto.SelectedValue.ToString());
+                    con.Nombre_Contacto = txt_nombre.Text;
+                    con.Apellido_Contacto = txt_apellido.Text;
+                    con.Telefono_Contacto = txt_telefono.Text;
+                    con.Correo_Electronico = txt_email.Text;
+                    con.Direccion_Contacto = txt_direccion.Text;
 
-                    if (con.actualizarDatos())
+                    if (con.Actualizar_Datos())
                     {
                         btn_guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -154,16 +154,16 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    con.IDProveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
-                    con.IDDepto = int.Parse(cmb_depto.SelectedValue.ToString());
-                    con.Nombree = txt_nombre.Text;
-                    con.Apellidoo = txt_apellido.Text;
-                    con.Telefonoo = txt_telefono.Text;
-                    con.CorreoElectronicoo = txt_email.Text;
-                    con.Direccionn = txt_direccion.Text;
-                    con.Estadoo = Convert.ToBoolean(true);
+                    con.Id_Proveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
+                    con.Id_Depto = int.Parse(cmb_depto.SelectedValue.ToString());
+                    con.Nombre_Contacto = txt_nombre.Text;
+                    con.Apellido_Contacto = txt_apellido.Text;
+                    con.Telefono_Contacto = txt_telefono.Text;
+                    con.Correo_Electronico = txt_email.Text;
+                    con.Direccion_Contacto = txt_direccion.Text;
+                    con.Estado_Contacto = Convert.ToBoolean(true);
 
-                    if (con.guardar())
+                    if (con.Guardar_Contacto())
                     {
                         btn_guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -233,8 +233,8 @@ namespace Tecno_Pc.Formularios
 
                 if (noti.Dialogresul == DialogResult.OK)
                 {
-                    con.IDContacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-                    con.eliminarDatos();
+                    con.Id_Contacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
+                    con.Eliminar_Datos();
                     dgv_datos.DataSource = sql.Consulta(" select*from Contactos where estado_contacto=1");
                     operacionesDataGrid();
                 }
@@ -250,8 +250,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged_1(object sender, EventArgs e)
         {
-            con.Nombree = txt_buscar.Text;
-            con.buscarDatos(dgv_datos);
+            con.Nombre_Contacto = txt_buscar.Text;
+            con.Buscar_Datos(dgv_datos);
             operacionesDataGrid();
         }
 

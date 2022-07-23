@@ -10,58 +10,58 @@ namespace Tecno_Pc.Clases
     class Cl_Clientes: Cl_SqlMaestra
     {
         //variables que almacenan la columnas de la tabla de la DB
-        private static int iDCliente;
-        public static int iDDepto;
-        private static string Identidad;
-        private static string Nombre;
-        private static string Apellido;
-        private static string Telefono;
-        private static string CorreoElectronico;
-        private static string Direccion;
-        private static bool estado;
+        private static int id_cliente;
+        public static int id_depto;
+        private static string identidad_cliente;
+        private static string nombre_cliente;
+        private static string apellido_cliente;
+        private static string telefono_cliente;
+        private static string correo_electronico;
+        private static string direccion_cliente;
+        private static bool estado_cliente;
 
         #region Encapsulamiento
 
-        public int IDCliente { get => iDCliente; set => iDCliente = value; }
-        public int IDDepto { get => iDDepto; set => iDDepto = value; }
-        public string identidad { get => Identidad; set => Identidad = value; }
-        public string Nombree { get => Nombre; set => Nombre = value; }
-        public string Apellidoo { get => Apellido; set => Apellido = value; }
-        public string Telefonoo { get => Telefono; set => Telefono = value; }
-        public string CorreoElectronicoo { get => CorreoElectronico; set => CorreoElectronico = value; }
-        public string Direccionn { get => Direccion; set => Direccion = value; }
+        public int Id_Cliente { get => id_cliente; set => id_cliente = value; }
+        public int Id_Depto { get => id_depto; set => id_depto = value; }
+        public string identidad_Cliente { get => identidad_cliente; set => identidad_cliente = value; }
+        public string Nombre_Cliente { get => nombre_cliente; set => nombre_cliente = value; }
+        public string Apellido_Cliente { get => apellido_cliente; set => apellido_cliente = value; }
+        public string Telefono_Cliente { get => telefono_cliente; set => telefono_cliente = value; }
+        public string Correo_Electronico { get => correo_electronico; set => correo_electronico = value; }
+        public string Direccion_Cliente { get => direccion_cliente; set => direccion_cliente = value; }
         // public bool Estado { get => estado; set => estado = value; }
         #endregion
 
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
-        public bool guardar()
+        public bool Guardar_Cliente()
         {
             string cadena;
-            cadena = "insert into Clientes values (" + iDDepto + ", '" + Identidad + "', '" + Nombre + "', '" + Apellido + "', '" + Telefono + "', '"+CorreoElectronico+"','"+Direccion+"', "+ 1 +"  )";
+            cadena = "insert into Clientes values (" + id_depto + ", '" + identidad_cliente + "', '" + nombre_cliente + "', '" + apellido_cliente + "', '" + telefono_cliente + "', '"+correo_electronico+"','"+direccion_cliente+"', "+ 1 +"  )";
             return Sql_Query(cadena, "Cliente añadido con Exito", "El numero de identidad ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false se repitio el numero de identidad
         }
 
-        public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
+        public void Consultar_Datos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
             dgv.DataSource = Consulta(" select c.[id_cliente] as ID,c.nombre_cliente ,c.apellido_cliente,c.identidad_cliente,c.telefono_cliente,c.direccion_cliente,c.[correo_electronico]," +
                 "d.[nombre_depto] from Clientes as c inner join Departamentos as d  on d.[id_depto] = c.[id_depto] Where estado_cliente = 1");       
         }
 
-        public void buscarDatos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas
+        public void Buscar_Datos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas
         {
-            dgv.DataSource = Consulta("select * from Clientes where estado_cliente=1 and nombre_cliente LIKE '%"+Nombre+"%'");
+            dgv.DataSource = Consulta("select * from Clientes where estado_cliente=1 and nombre_cliente LIKE '%"+nombre_cliente+"%'");
         }
 
-        public bool actualizarDatos() 
+        public bool Actualizar_Datos() 
         {
-            return Sql_Query("update Clientes set [id_depto]="+iDDepto+",identidad_cliente='"+Identidad+ "',nombre_cliente='" + Nombre+ "',apellido_cliente='" + Apellido+ "',telefono_cliente='" + Telefono+"',[correo_electronico]='"
-                +CorreoElectronico+ "',direccion_cliente='" + Direccion+"' where  [id_cliente]="+iDCliente+"", "Cliente actualizado con exito", "El numero de identidad ya esta en uso, ¡Cambielo!");
+            return Sql_Query("update Clientes set [id_depto]="+id_depto+",identidad_cliente='"+identidad_cliente+ "',nombre_cliente='" + nombre_cliente+ "',apellido_cliente='" + apellido_cliente+ "',telefono_cliente='" + telefono_cliente+"',[correo_electronico]='"
+                +correo_electronico+ "',direccion_cliente='" + direccion_cliente+"' where  [id_cliente]="+id_cliente+"", "Cliente actualizado con exito", "El numero de identidad ya esta en uso, ¡Cambielo!");
             //si la sentencia sql devuelve false se repitio el numero de identidad
         }
 
-        public void eliminarDatos()
+        public void Eliminar_Datos()
         {
-            Sql_Querys("Update Clientes set estado_cliente = 0 where [id_cliente] = " + iDCliente, "Se ha elminado este Cliente", "El numero de identidad ya esta en uso, ¡Cambielo!");
+            Sql_Querys("Update Clientes set estado_cliente = 0 where [id_cliente] = " + id_cliente, "Se ha elminado este Cliente", "El numero de identidad ya esta en uso, ¡Cambielo!");
         }
     }
 }
