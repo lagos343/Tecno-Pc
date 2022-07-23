@@ -13,9 +13,9 @@ namespace Tecno_Pc.Formularios
     public partial class frm_empleados : Form
     {
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Empleados empleados_formularios = new clases_formularios.Cl_Empleados();
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Empleados empleados_formularios = new Clases.Cl_Empleados();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_empleados()
         {

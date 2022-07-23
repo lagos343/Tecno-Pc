@@ -22,10 +22,10 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        clases_formularios.Cl_Contactos con = new clases_formularios.Cl_Contactos();
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
+        Clases.Cl_Contactos con = new Clases.Cl_Contactos();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_contactos()
         {

@@ -47,8 +47,8 @@ namespace Tecno_Pc.Formularios
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.dtp_hasta = new Tecno_Pc.clases_formularios.RJDatePicker();
-            this.dtp_desde = new Tecno_Pc.clases_formularios.RJDatePicker();
+            this.dtp_hasta = new Tecno_Pc.Clases.RJDatePicker();
+            this.dtp_desde = new Tecno_Pc.Clases.RJDatePicker();
             this.panel2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
@@ -331,8 +331,8 @@ namespace Tecno_Pc.Formularios
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private clases_formularios.RJDatePicker dtp_hasta;
-        private clases_formularios.RJDatePicker dtp_desde;
+        private Clases.RJDatePicker dtp_hasta;
+        private Clases.RJDatePicker dtp_desde;
         private System.Windows.Forms.RadioButton radio_hoy;
         private System.Windows.Forms.RadioButton radio_fecha;
         private Guna.UI.WinForms.GunaElipse gunaElipse1;

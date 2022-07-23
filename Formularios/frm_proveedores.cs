@@ -13,9 +13,9 @@ namespace Tecno_Pc.Formularios
     public partial class frm_proveedores : Form
     {
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Proveedores proveedores = new clases_formularios.Cl_Proveedores();
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
 
         public frm_proveedores()

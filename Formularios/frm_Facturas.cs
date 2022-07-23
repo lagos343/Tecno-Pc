@@ -23,9 +23,9 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_Facturas : Form
     {
-        clases_formularios.Cl_SqlMaestra sql_data = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
-        clases_formularios.Cl_Reportes rep_form = new clases_formularios.Cl_Reportes();
+        Clases.Cl_SqlMaestra sql_data = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        Clases.Cl_Reportes rep_form = new Clases.Cl_Reportes();
         DataGridView dgv = new DataGridView();        
 
         public frm_Facturas()

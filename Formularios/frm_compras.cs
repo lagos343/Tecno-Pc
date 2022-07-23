@@ -12,8 +12,8 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_compras : Form
     {
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Productos productos = new clases_formularios.Cl_Productos();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Productos productos = new Clases.Cl_Productos();
 
 
         public frm_compras()

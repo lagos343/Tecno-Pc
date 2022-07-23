@@ -14,8 +14,8 @@ namespace Tecno_Pc.Formularios
     public partial class Frm_ReportProveedores : Form
     {
         bool ReporteGenerado = false;
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();

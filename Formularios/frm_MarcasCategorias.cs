@@ -20,10 +20,10 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr h_wnd, int w_msg, int w_param, int l_param);
                         
         bool editar = false;
-        clases_formularios.Cl_Marcas mar_form = new clases_formularios.Cl_Marcas();
-        clases_formularios.Cl_Categorias cate_form = new clases_formularios.Cl_Categorias();
-        clases_formularios.Cl_NotificacionCompra  noti_form = new clases_formularios.Cl_NotificacionCompra();
-        clases_formularios.Cl_Validacion vld_form = new clases_formularios.Cl_Validacion();
+        Clases.Cl_Marcas mar_form = new Clases.Cl_Marcas();
+        Clases.Cl_Categorias cate_form = new Clases.Cl_Categorias();
+        Clases.Cl_NotificacionCompra  noti_form = new Clases.Cl_NotificacionCompra();
+        Clases.Cl_Validacion vld_form = new Clases.Cl_Validacion();
 
         public frm_MarcasCategorias(int valor_marcas)
         {          

@@ -18,7 +18,7 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
 
         public frm_sar()
         {

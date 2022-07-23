@@ -19,9 +19,9 @@ namespace Tecno_Pc.Formularios
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
-        clases_formularios.Cl_Usuarios user = new clases_formularios.Cl_Usuarios();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
 
         public frm_AñadirUsuarios(int estado, DataGridView dat)
         {

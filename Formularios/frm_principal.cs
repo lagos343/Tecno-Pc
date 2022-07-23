@@ -20,7 +20,7 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        clases_formularios.Cl_UsuarioLogueado user = new clases_formularios.Cl_UsuarioLogueado();
+        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         private Form formActivado = null;
 
         public frm_principal()

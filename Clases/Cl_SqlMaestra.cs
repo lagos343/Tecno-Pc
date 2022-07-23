@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-namespace Tecno_Pc.clases_formularios
+namespace Tecno_Pc.Clases
 {
     class Cl_SqlMaestra //clase que se encarga de todos los procedimientoos que tengan que ver con la DB 
     {

@@ -21,9 +21,9 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         //definicion de objetos de las clases necesarias
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Empleados empleados = new clases_formularios.Cl_Empleados();
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
 
         public frm_AñadirEmpleado(int estado, DataGridView dat) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion

@@ -7,7 +7,7 @@ using System.Data;
 using System.Windows.Forms;
 using Guna.UI.WinForms;
 
-namespace Tecno_Pc.clases_formularios
+namespace Tecno_Pc.Clases
 {
     class Cl_UsuarioLogueado: Cl_SqlMaestra //esta clase sirve de cache para tene informacion de quien se logueo en el sistema
     {

@@ -21,9 +21,9 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Proveedores proveedores = new clases_formularios.Cl_Proveedores();
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_AñadirProveedores(int estado, DataGridView dat)
         {

@@ -16,14 +16,14 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_ConfigurarDB : Form
     {
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         public bool EscribirServer = false;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
+        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
         public frm_ConfigurarDB(bool modi)
         {

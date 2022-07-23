@@ -12,10 +12,10 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_productos : Form
     {
-        clases_formularios.Cl_Productos prod = new clases_formularios.Cl_Productos();
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_UsuarioLogueado login = new clases_formularios.Cl_UsuarioLogueado();
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
+        Clases.Cl_Productos prod = new Clases.Cl_Productos();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_productos()
         {

@@ -15,7 +15,7 @@ namespace Tecno_Pc.Formularios
 
     public partial class frm_ReportVenta : Form
     {
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();

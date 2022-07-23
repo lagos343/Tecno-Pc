@@ -15,8 +15,8 @@ namespace Tecno_Pc
 {
     public partial class Form1 : Form
     {
-        clases_formularios.Cl_UsuarioLogueado user_login = new clases_formularios.Cl_UsuarioLogueado();
-        clases_formularios.Cl_RecuperarContraseña recu_login = new clases_formularios.Cl_RecuperarContraseña();
+        Clases.Cl_UsuarioLogueado user_login = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_RecuperarContraseña recu_login = new Clases.Cl_RecuperarContraseña();
 
         public Form1()
         {
@@ -149,7 +149,7 @@ namespace Tecno_Pc
             //        printDocument.Print();
             //    }
             //}
-            clases_formularios.Cl_Reportes rep_form = new clases_formularios.Cl_Reportes();
+            Clases.Cl_Reportes rep_form = new Clases.Cl_Reportes();
             rep_form.Vertical = true;
             rep_form.Carpeta = "Facturas";
             rep_form.Generar_pdf();

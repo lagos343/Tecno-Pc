@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Drawing;
 using System.Drawing.Drawing2D;
 
-namespace Tecno_Pc.clases_formularios
+namespace Tecno_Pc.Clases
 {
     class RJDatePicker: DateTimePicker
     {

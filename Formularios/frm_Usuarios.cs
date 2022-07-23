@@ -13,10 +13,10 @@ namespace Tecno_Pc.Formularios
     public partial class frm_Usuarios : Form
     {
 
-        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
-        clases_formularios.Cl_Usuarios user = new clases_formularios.Cl_Usuarios();
-        clases_formularios.Cl_UsuarioLogueado login = new clases_formularios.Cl_UsuarioLogueado();
-        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
+        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
+        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         public frm_Usuarios()
         {
             InitializeComponent();
