@@ -29,7 +29,7 @@ namespace Tecno_Pc.Formularios
 
         public frm_ConfigurarDB(bool modi)
         {
-            InitializeComponent();
+            InitializeComponent();            
             Control.CheckForIllegalCrossThreadCalls = false;
             toolTip1.SetToolTip(this.Btn_Guardar, "Guardar la configuracion inicial");
             toolTip1.SetToolTip(this.Btn_Minimizar, "Minimizar");

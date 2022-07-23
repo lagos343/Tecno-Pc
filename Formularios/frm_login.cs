@@ -28,9 +28,6 @@ namespace Tecno_Pc
             this.ttMensaje.SetToolTip(this.chk_paswordChar, "Activar/Desactivar vista de la contraseña");
             this.ttMensaje.SetToolTip(this.btn_CerrarLogin, "Salir");
             this.ttMensaje.SetToolTip(this.btn_ingresar, "Ingresar al sistema");
-
-            //Properties.Settings.Default.Servidor = "";
-            //Properties.Settings.Default.Save();
         }
 
         private void btn_CerrarLogin_Click(object sender_cerrar, EventArgs index_e)
