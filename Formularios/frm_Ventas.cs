@@ -36,7 +36,7 @@ namespace Tecno_Pc.Formularios
         private void frm_Ventas_Load(object sender, EventArgs e)
         {
             //mostramos la informacion inicial del form
-            dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+            dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
             Operaciones_Datagrid1();
             Inicializar_Combobox();
@@ -46,12 +46,12 @@ namespace Tecno_Pc.Formularios
         private void Inicializar_Combobox() //carga la informacion de la DB en los Combobox y establece el valor de Vista y Seleccion
         {
             lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
-            cbo_cliente.DataSource = sql.Consulta("select [id_cliente], (nombre_cliente + ' ' + apellido_cliente) Nombre from Clientes where estado_cliente = 1");
+            cbo_cliente.DataSource = sql.Consulta_registro("select [id_cliente], (nombre_cliente + ' ' + apellido_cliente) Nombre from Clientes where estado_cliente = 1");
             cbo_cliente.DisplayMember = "Nombre";
             cbo_cliente.ValueMember = "id_cliente";
             cbo_cliente.SelectedIndex = -1;
 
-            cbo_tipoPago.DataSource = sql.Consulta("select * from Transacciones");
+            cbo_tipoPago.DataSource = sql.Consulta_registro("select * from Transacciones");
             cbo_tipoPago.DisplayMember = "tipo_transaccion";
             cbo_tipoPago.ValueMember = "id_transaccion";
             cbo_tipoPago.SelectedIndex = -1;
@@ -229,7 +229,7 @@ namespace Tecno_Pc.Formularios
 
             txt_buscar.Clear();
             Inicializar_Combobox();            
-            dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+            dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
                     
             Limpiar_Producto_Seleccionado();
@@ -251,20 +251,20 @@ namespace Tecno_Pc.Formularios
             else
             {
                 //buscamos la informacion de la SAR para ver si hay facturas disponobles
-                long id_factura = long.Parse(sql.Consulta2("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
-                DataTable sar_tabla = sql.Consulta("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id_factura + 1)+") >= (ran_desde - 1) " +
+                long id_factura = long.Parse(sql.Consulta2_registro("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
+                DataTable sar_tabla = sql.Consulta_registro("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id_factura + 1)+") >= (ran_desde - 1) " +
                     "and ("+(id_factura + 1)+ ") <= ran_hasta ) order by id_sar desc");
 
                 //verificamos si hay registrso validos
                 if(sar_tabla.Rows.Count > 0)
                 {
                     long id_sar = long.Parse(sar_tabla.Rows[0][0].ToString());
-                    long ultima_sar = long.Parse(sql.Consulta2("select top 1 id_sar from sar order by id_sar desc"));
+                    long ultima_sar = long.Parse(sql.Consulta2_registro("select top 1 id_sar from sar order by id_sar desc"));
 
                     if(id_sar == ultima_sar) //verificamos que la ultima SAR registrada sea la seleccionada
                     {
                         //creamos el registro de la factura
-                        sql.Sql_Querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.Id_Empleado + ", " + cbo_tipoPago.SelectedValue.ToString() +
+                        sql.Sql_querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.Id_Empleado + ", " + cbo_tipoPago.SelectedValue.ToString() +
                         ", GETDATE(), 0.15, " + id_sar + ")");
                         
                         //recorremos la lista de ventas para ir añadiendo a la BD esos registros del Detalle
@@ -272,7 +272,7 @@ namespace Tecno_Pc.Formularios
                         {
                             int cant = int.Parse(fila_actual.Cells[3].Value.ToString());
                             int id_producto = int.Parse(fila_actual.Cells[1].Value.ToString());
-                            sql.Sql_Querys("insert into DetalleFactura values (" + (id_factura + 1) + ", "
+                            sql.Sql_querys("insert into DetalleFactura values (" + (id_factura + 1) + ", "
                                 + id_producto + ", (Select [precio_unitario] from Productos where [id_producto] = " + id_producto + "), " + cant + ", " + fila_actual.Cells[5].Value.ToString() + ")");
                         }
 
@@ -297,14 +297,14 @@ namespace Tecno_Pc.Formularios
          
         private async void Generar_Factura() //mandamos la informacion de la factura para mostrarala
         {
-            rep.Dgv = sql.Consulta("select Top 1 [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+            rep.Dgv = sql.Consulta_registro("select Top 1 [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                     "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
                     "join Transacciones t on t.[id_transaccion] = f.[id_transaccion] order by f.[id_factura] desc");
 
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(rep.PdfFacturas); //creamos un subproceso en base a las facturas 
+            Task tar1 = new Task(rep.pdf_facturas); //creamos un subproceso en base a las facturas 
             tar1.Start();
             await tar1;
 
@@ -383,7 +383,7 @@ namespace Tecno_Pc.Formularios
             {
                 if (Properties.Settings.Default.CodBar == "true") //vemos si estamos en modo Escaner
                 {
-                    dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and cod_barra = '" + txt_buscar.Text + "' order by [nombre_producto] asc");
                     Operaciones_Datagrid1(); //hacemos la busqueda en base a el cod de barras leido por el escaner
 
@@ -409,14 +409,14 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
                     Operaciones_Datagrid1();
                 }
             }
             else
             {
-                dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
                 Operaciones_Datagrid1();
             }           

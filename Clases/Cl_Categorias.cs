@@ -29,12 +29,12 @@ namespace Tecno_Pc.Clases
 
         public void Consultar_Datos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario 
         {
-            dgv.DataSource = Consulta("select *from Categorias order by [nombre_categoria] asc");
+            dgv.DataSource = Consulta_registro("select *from Categorias order by [nombre_categoria] asc");
         }
 
         public void Buscar_Datos(DataGridView dgv) //Procedimiento pa las busqueda filtradas
         {           
-            dgv.DataSource = Consulta("select *from Categorias where [nombre_categoria] Like '%"+nombre_categoria+"%' order by [nombre_categoria] asc");
+            dgv.DataSource = Consulta_registro("select *from Categorias where [nombre_categoria] Like '%"+ nombre_categoria + "%' order by [nombre_categoria] asc");
         }
 
         public bool Actualizar_Datos() 

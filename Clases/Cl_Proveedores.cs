@@ -10,54 +10,54 @@ namespace Tecno_Pc.Clases
     class Cl_Proveedores: Cl_SqlMaestra
     {
         //variables que almacenan la columnas de la tabla de la DB
-        private static int iDProveedor;
-        private static int iDDepto;
-        private static string nombre;
-        private static string telefono;
-        private static string direccion;
-        private static string correoElectronico;
-        private static bool estado;
+        private static int id_Proveedor;
+        private static int id_depto;
+        private static string nombre_proveedor;
+        private static string telefono_proveedor;
+        private static string direccion_proveedor;
+        private static string correo_electronico;
+        private static bool estado_pedido;
 
         #region Encapsulamiento
 
-        public int IDProveedor { get => iDProveedor; set => iDProveedor = value; }
-        public int IDDepto { get => iDDepto; set => iDDepto = value; }
-        public string Nombre { get => nombre; set => nombre = value; }
-        public string Telefono { get => telefono; set => telefono = value; }
-        public string Direccion { get => direccion; set => direccion = value; }
-        public string CorreoElectronico { get => correoElectronico; set => correoElectronico = value; }
-        public bool Estado { get => estado; set => estado = value; }
+        public int IDProveedor { get => id_Proveedor; set => id_Proveedor = value; }
+        public int IDDepto { get => id_depto; set => id_depto = value; }
+        public string Nombre { get => nombre_proveedor; set => nombre_proveedor = value; }
+        public string Telefono { get => telefono_proveedor; set => telefono_proveedor = value; }
+        public string Direccion { get => direccion_proveedor; set => direccion_proveedor = value; }
+        public string CorreoElectronico { get => correo_electronico; set => correo_electronico = value; }
+        public bool Estado { get => estado_pedido; set => estado_pedido = value; }
 
         #endregion
 
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
-        public bool guardar()
+        public bool Guardar_sql()
         {
-            return Sql_Query("insert into Proveedores values ("+iDDepto+", '"+nombre+"', '"+telefono+"', '"+direccion+"', '"+correoElectronico+"', " + Convert.ToInt32(estado) + ")", 
+            return Sql_query("insert into Proveedores values ("+id_depto+", '"+nombre_proveedor+"', '"+telefono_proveedor+"', '"+direccion_proveedor+"', '"+correo_electronico+"', " + Convert.ToInt32(estado_pedido) + ")", 
                 "Proveedor añadid con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
-        public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
+        public void Consultar_datos(DataGridView dgv) //llena el datagrid con los registros
         {
-            dgv.DataSource = Consulta("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores where " +
+            dgv.DataSource = Consulta_registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores where " +
                 "estado_proveedor = 1 order by nombre_proveedor asc");
         }
 
-        public void buscarDatos(DataGridView dgv) //busquedas filtradas
+        public void Buscar_datos(DataGridView dgv) //busquedas filtradas
         {
-            dgv.DataSource = Consulta("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores " +
-                "where estado_proveedor = 1 and nombre_proveedor Like '%" + nombre+ "%' order by nombre_proveedor asc");
+            dgv.DataSource = Consulta_registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores " +
+                "where estado_proveedor = 1 and nombre_proveedor Like '%" + nombre_proveedor+ "%' order by nombre_proveedor asc");
         }
 
-        public bool actualizarDatos()
+        public bool Actualizar_datos()
         {
-            return Sql_Query("update Proveedores set [id_depto] ="+iDDepto + ", nombre_proveedor = '" + nombre+ "', telefono_proveedor = '" + telefono+ "', direccion_proveedor = '" + direccion+"', [correo_electronico] = '"+correoElectronico+"' " +
-                "where[id_proveedor] = "+iDProveedor, "Categoria actualizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
+            return Sql_query("update Proveedores set [id_depto] ="+id_depto + ", nombre_proveedor = '" + nombre_proveedor+ "', telefono_proveedor = '" + telefono_proveedor+ "', direccion_proveedor = '" + direccion_proveedor+"', [correo_electronico] = '"+correo_electronico+"' " +
+                "where[id_proveedor] = "+id_Proveedor, "Categoria actualizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
-        public void eliminar()
+        public void Eliminar_datos()
         {
-            Sql_Querys("update Proveedores set estado_proveedor = 0 where [id_proveedor] =" + iDProveedor,"Se ha elminado al proveedor", "Error al eliminar");
+            Sql_querys("update Proveedores set estado_proveedor = 0 where [id_proveedor] =" + id_Proveedor,"Se ha elminado al proveedor", "Error al eliminar");
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
             frm.Carga_Proveedores();

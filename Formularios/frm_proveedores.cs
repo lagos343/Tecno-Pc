@@ -66,7 +66,7 @@ namespace Tecno_Pc.Formularios
 
         public void Carga_Proveedores() //se encarga de llenar el datagrid con los registros de la tabla
         {
-            proveedores.consultarDatos(dgv_Productos);
+            proveedores.Consultar_datos(dgv_Productos);
             Operaciones_Datarid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
@@ -94,7 +94,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             proveedores.Nombre = txt_buscar.Text;
-            proveedores.buscarDatos(dgv_Productos);
+            proveedores.Buscar_datos(dgv_Productos);
             Operaciones_Datarid();
         }
 
@@ -116,10 +116,10 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         proveedores.IDProveedor = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        proveedores.eliminar();
+                        proveedores.Eliminar_datos();
                         #region Limpieza
                         lbl_id.Text = "";
                         lbl_nombre.Text = "";

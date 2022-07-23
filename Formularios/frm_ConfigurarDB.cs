@@ -135,7 +135,7 @@ namespace Tecno_Pc.Formularios
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de configuracion inicial de Tecno Pc?", 2);
                 noti.ShowDialog();
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.dialogs_resul == DialogResult.OK)
                 {
                     Application.Exit();
                 }
@@ -175,7 +175,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea guardar esta configuracion?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK) //si presionamos ok se procedera a guardar la informacion
+                    if (noti.dialogs_resul == DialogResult.OK) //si presionamos ok se procedera a guardar la informacion
                     {
                         Properties.Settings.Default.Servidor = cbo_servers.Text;
 

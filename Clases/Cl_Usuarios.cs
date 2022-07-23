@@ -30,19 +30,19 @@ namespace Tecno_Pc.Clases
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
         public bool Guardar_Usuario()
         {
-            return Sql_Query("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+ "', ENCRYPTBYPASSPHRASE('TecnoPc', N'" + Clave_Usuario+"'), "+ Convert.ToInt32(estado_usuario) + ")",
+            return Sql_query("insert into Usuarios values ("+id_rol+", "+Id_empleado+", '"+nombre_usuario+ "', ENCRYPTBYPASSPHRASE('TecnoPc', N'" + Clave_Usuario+"'), "+ Convert.ToInt32(estado_usuario) + ")",
                 "Usuario añadido con exito", "¡Este nombre de usuario ya esta ocupado!"); //si devuelve falso significa que ya existe ese usuario
         }
         public void Consultar_Datos(DataGridView dgv) //llena el datagrid con los registros  
         {
-            dgv.DataSource = Consulta("select [id_usuario], [id_rol], [id_empleado], [nombre_usuario] [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' , [clave_usuario])), [estado_usuario], (select nombre_empleado from Empleados  " +
+            dgv.DataSource = Consulta_registro("select [id_usuario], [id_rol], [id_empleado], [nombre_usuario] [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' , [clave_usuario])), [estado_usuario], (select nombre_empleado from Empleados  " +
                 "where Empleados .[id_empleado] = Usuarios .[id_empleado] ) as Empleado, " +
                 "(select [nombre_rol]  from Roles where Roles .id_rol = Usuarios .[id_rol] ) as Rol  from Usuarios where estado_usuario = 1 order by [nombre_usuario] asc");
         }
 
         public void Buscar_Datos(DataGridView dgv) //hace busquedas iltrradas
         {
-            dgv.DataSource = Consulta("select [id_usuario], [id_rol], [id_empleado], [nombre_usuario] [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' ,[clave_usuario])), [estado_usuario], " +
+            dgv.DataSource = Consulta_registro("select [id_usuario], [id_rol], [id_empleado], [nombre_usuario] [Nombre Usuario], convert(nvarchar, DECRYPTBYPASSPHRASE('TecnoPc' ,[clave_usuario])), [estado_usuario], " +
                 "(select nombre_empleado from Empleados  where Empleados .[id_empleado] = Usuarios .[id_empleado] ) " +
                 "as Empleado, (select [nombre_rol]  from Roles where Roles .id_rol = Usuarios .[id_rol] ) " +
                 "as Rol  from Usuarios where estado_usuario = 1 and [nombre_usuario] like '%"+nombre_usuario+"%' order by [nombre_usuario] asc"); 
@@ -50,14 +50,14 @@ namespace Tecno_Pc.Clases
 
         public bool Actualizar_Datos() 
         {
-            return Sql_Query("update Usuarios set [id_rol] = "+id_rol+", [id_empleado] = "+Id_empleado+", " +
+            return Sql_query("update Usuarios set [id_rol] = "+id_rol+", [id_empleado] = "+Id_empleado+", " +
                 "[nombre_usuario] = '"+nombre_usuario+ "', clave_usuario = ENCRYPTBYPASSPHRASE('TecnoPc', N'" + Clave_Usuario+"') where [id_usuario] = "+id_usuarios, 
                 "Usuario actualizado con exito", "¡Este nombre de usuario ya esta ocupado!"); //si devuelve falso significa que ya existe ese usuario
         }
 
         public void Eliminar_Datos()
         {
-            Sql_Querys("update Usuarios set estado_usuario = 0 where [id_usuario] ="+id_usuarios);
+            Sql_querys("update Usuarios set estado_usuario = 0 where [id_usuario] ="+id_usuarios);
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
             frm.Carga_Grid();
         }

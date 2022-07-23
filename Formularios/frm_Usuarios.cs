@@ -112,7 +112,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este usuario?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         user.Id_usuarios = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                         user.Eliminar_Datos();
@@ -198,7 +198,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Usuarios";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = true;
-            rep.GenerarPdf();
+            rep.Generar_pdf();
         }
     }
 }

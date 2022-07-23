@@ -64,12 +64,12 @@ namespace Tecno_Pc.Formularios
 
         public void Iniciar_Combobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
-            cbo_puesto.DataSource = sql.Consulta("select * from Puestos order by [nombre_puesto] asc");
+            cbo_puesto.DataSource = sql.Consulta_registro("select * from Puestos order by [nombre_puesto] asc");
             cbo_puesto.DisplayMember = "nombre_puesto";
             cbo_puesto.ValueMember = "id_puesto";
             cbo_puesto.SelectedIndex = -1;
 
-            cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DataSource = sql.Consulta_registro("select * from Departamentos order by [nombre_depto] asc");
             cbo_depto.DisplayMember = "nombre_depto";
             cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;           
@@ -137,7 +137,7 @@ namespace Tecno_Pc.Formularios
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga(); //recargamos el formulario
+            frm.Carga_empleado(); //recargamos el formulario
         }
 
         private void Actualiza_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
@@ -172,7 +172,7 @@ namespace Tecno_Pc.Formularios
                 if (vld.Buscar_Repetidos(txt_telefono, erp_tel) == true) ;                
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga();//revcargamos el formulario
+            frm.Carga_empleado();//revcargamos el formulario
         }
 
         public void Limpiado_Empleados()

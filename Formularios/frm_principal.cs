@@ -50,7 +50,7 @@ namespace Tecno_Pc.Formularios
             Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de Tecno Pc?", 2);
             noti.ShowDialog();
 
-            if (noti.Dialogresul == DialogResult.OK)
+            if (noti.dialogs_resul == DialogResult.OK)
             {
                 Application.Exit();
             }
@@ -204,7 +204,7 @@ namespace Tecno_Pc.Formularios
 
             //Si presionamos OK cerrar sesion y nos mandara al login
 
-            if (noti.Dialogresul == DialogResult.OK)
+            if (noti.dialogs_resul == DialogResult.OK)
             {
                 noti.Close();
                 Form1 frm = Application.OpenForms.OfType<Form1>().SingleOrDefault();

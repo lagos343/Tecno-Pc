@@ -14,7 +14,7 @@ namespace Tecno_Pc.Formularios
     {
         //definicion de objetos de las clases necesarias 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
+        Clases.Cl_Empleados empleados_formularios = new Clases.Cl_Empleados();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_empleados()
@@ -28,35 +28,35 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e) //llamamos el formulario en modo nuevo registro
         {
-            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirEmpleado);
-            if (frm == null)
+            Form frm_nuevo = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirEmpleado);
+            if (frm_nuevo == null)
             {
-                frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(1, dgv_Productos);
-                añaem.Show();
+                frm_AñadirEmpleado añaem_nuevo = new frm_AñadirEmpleado(1, dgv_Productos);
+                añaem_nuevo.Show();
             }
             else 
             {
-                frm.BringToFront();
+                frm_nuevo.BringToFront();
             }
         }
 
         private void frm_empleados_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_empleado();
         }
 
-        public void carga() //se encarga de llenar el datagrid con los registros de la tabla
+        public void Carga_empleado() //se encarga de llenar el datagrid con los registros de la tabla
         {
-            empleados.consultar_Datos(dgv_Productos);
-            operacionesdatarid();
-            foreach (DataGridViewColumn columna in dgv_Productos.Columns)
+            empleados_formularios.consultar_Datos(dgv_Productos);
+            Operaciones_data_rid();
+            foreach (DataGridViewColumn columna_data in dgv_Productos.Columns)
             {
-                columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+                columna_data.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
         }
 
-        private void operacionesdatarid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados
+        private void Operaciones_data_rid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -75,8 +75,11 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[7].HeaderText = "Apellido";
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
+        private void txt_buscar_TextChanged(object sender_buscar, EventArgs e)//se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
+            empleados_formularios.Nombre = txt_buscar.Text;
+            empleados_formularios.buscardatos(dgv_Productos);
+            Operaciones_data_rid();
             empleados.Nombre_Empleado = txt_buscar.Text;
             empleados.Buscar_Datos(dgv_Productos);
             operacionesdatarid();
@@ -84,26 +87,26 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        private void dgv_Productos_CellContentClick_1(object sender, DataGridViewCellEventArgs e) //prod que verifica si tocamos el boton de editar o de eliminar
+        private void dgv_Productos_CellContentClick_1(object sender_buscar, DataGridViewCellEventArgs index_e) //prod que verifica si tocamos el boton de editar o de eliminar
         {
             try
             {
-                if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
+                if (dgv_Productos.Rows[index_e.RowIndex].Cells["Editar"].Selected)
                 {
-                    //si es editar llamamos el formulario en modo actualizar y le pasamos la info del registro seleccionado  
-                    frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(2, dgv_Productos);
-                    añaem.ShowDialog();
+                    //si es editar llamamos el formulario en modo actualizar y le pasamos la info del registro seleccionado
+                    frm_AñadirEmpleado añaem_productos = new frm_AñadirEmpleado(2, dgv_Productos);
+                    añaem_productos.ShowDialog();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
+                else if (dgv_Productos.Rows[index_e.RowIndex].Cells["Eliminar"].Selected)
                 {
                     //si es eliminar y presionamos ok procedera a deshabilitar el registro
-                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este empleado?", 2);
-                    noti.ShowDialog();
+                    Formularios.frm_notificacion noti_producto = new Formularios.frm_notificacion("¿Desea eliminar este empleado?", 2);
+                    noti_producto.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti_producto.dialogs_resul == DialogResult.OK)
                     {
-                        empleados.Id_Empleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        empleados.Eliminar_Empleado();
+                        empleados_formularios.Id_Empleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        empleados_formularios.Eliminar_Empleado();
                         #region Limpieza
                         lbl_id.Text = lbl_email.Text = "";
                         lbl_depto.Text = lbl_email.Text = "";
@@ -115,9 +118,9 @@ namespace Tecno_Pc.Formularios
                         #endregion
                     }
 
-                    noti.Close();
+                    noti_producto.Close();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["nombre_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["identidad_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["apellido_empleado"].Selected)
+                else if (dgv_Productos.Rows[index_e.RowIndex].Cells["nombre_empleado"].Selected || dgv_Productos.Rows[index_e.RowIndex].Cells["identidad_empleado"].Selected || dgv_Productos.Rows[index_e.RowIndex].Cells["apellido_empleado"].Selected)
                 {
                     //en caso de tocar cualquier otra columna, mostrara la informacion de este registro en los labels
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
@@ -130,21 +133,22 @@ namespace Tecno_Pc.Formularios
                 }
 
             }
-            catch(Exception ex){}            
+            catch(Exception ex_catch){}            
         }
 
+        private void btn_reporte_Click(object sender_reporte, EventArgs e)
         private void btn_reporte_Click(object sender, EventArgs e) //abre el form de reportes de esta pantalla
         {
-            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
+            Form frm_reporte = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
 
-            if (frm == null)
+            if (frm_reporte == null)
             {
-                frm_ReportVendedor report = new frm_ReportVendedor();
-                report.Show();
+                frm_ReportVendedor report_report = new frm_ReportVendedor();
+                report_report.Show();
             }
             else
             {
-                frm.BringToFront();
+                frm_reporte.BringToFront();
             }
         }
     }         

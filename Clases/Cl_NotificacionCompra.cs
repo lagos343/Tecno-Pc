@@ -28,17 +28,17 @@ namespace Tecno_Pc.Clases
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
         public void consultarDatos(DataGridView dgv) //prod que llena el datagrid con las ntificaciones recientes
         {
-            dgv.DataSource = Consulta("select * from [Notificacion] where estado_noti = 1 order by producto asc");
+            dgv.DataSource = Consulta_registro("select * from [Notificacion] where estado_noti = 1 order by producto asc");
         }
 
         public void buscardatos(DataGridView dgv) //prod para las busquedas filtadas
         {
-            dgv.DataSource = Consulta("select * from [Notificacion] where estado_noti = 1 and producto like '%"+producto_compra+"%' order by producto asc");
+            dgv.DataSource = Consulta_registro("select * from [Notificacion] where estado_noti = 1 and producto like '%"+producto_compra+"%' order by producto asc");
         }
 
         public void eliminar() //quita la notificacion de la lista y actualiza el formulario
         {
-            Sql_Querys("update [Notificacion] set estado_noti = 0 where [id_noti]= "+id_noti, "Producto ya comprado", "Error al eliminar");
+            Sql_querys("update [Notificacion] set estado_noti = 0 where [id_noti]= "+id_noti, "Producto ya comprado", "Error al eliminar");
             Formularios.frm_MarcasCategorias  frm = Application.OpenForms.OfType<Formularios.frm_MarcasCategorias >().SingleOrDefault();
             frm.carga();
         }

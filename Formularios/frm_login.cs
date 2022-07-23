@@ -15,9 +15,9 @@ namespace Tecno_Pc
 {
     public partial class Form1 : Form
     {
-        //definicion de objetos de las clases necesarias
-        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_RecuperarContraseña recu = new Clases.Cl_RecuperarContraseña();
+        //llamamos el sub proceso que mostrara la factura
+        Clases.Cl_UsuarioLogueado user_login = new Clases.Cl_UsuarioLogueado();
+        Clases.Cl_RecuperarContraseña recu_login = new Clases.Cl_RecuperarContraseña();
 
         public Form1()
         {
@@ -33,12 +33,12 @@ namespace Tecno_Pc
             //Properties.Settings.Default.Save();
         }
 
-        private void btn_CerrarLogin_Click(object sender, EventArgs e)
+        private void btn_CerrarLogin_Click(object sender_cerrar, EventArgs index_e)
         {
             Application.Exit();
         }
 
-        private void chk_paswordChar_CheckedChanged(object sender, EventArgs e)
+        private void chk_paswordChar_CheckedChanged(object sender_password, EventArgs index_e)
         {
             //muestra o no la contraseña dependiendo del estado del Checkbox
             if (chk_paswordChar.Checked == true)
@@ -51,7 +51,7 @@ namespace Tecno_Pc
             }
         }
 
-        private void Form1_Load(object sender, EventArgs e)
+        private void Form1_Load(object sender_form, EventArgs index_e)
         {
             txt_pasword.UseSystemPasswordChar = true;
         }
@@ -92,20 +92,20 @@ namespace Tecno_Pc
 
         #endregion
 
-        private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //el linklabel que manda el correo de recuperacion
+        private void lnk_Re_usu_contra_LinkClicked(object sender_contra, LinkLabelLinkClickedEventArgs index_e) //el linklabel que manda el correo de recuperacion
         {
-            recu.EnviarCorreo();
+            recu_login.Enviar_correo();
         }
 
-        private void btn_ingresar_Click(object sender, EventArgs e) //se encarga de verificar si se ingresa la sistema o no
+        private void btn_ingresar_Click(object sender_ingresar, EventArgs index_e) //se encarga de verificar si se ingresa la sistema o no
         {
-            user.Erp_Contra = error_contraseña;
-            user.Erp_Usu = error_usuario;
-            user.Txt_Contra = txt_pasword;
-            user.Txt_Usu = txt_userName;
-            user.Usuario = txt_userName.Text;
+            user_login.Erp_contra = error_contraseña;
+            user_login.Erp_usu = error_usuario;
+            user_login.Txt_contra = txt_pasword;
+            user_login.Txt_Usu = txt_userName;
+            user_login.Usuario_ = txt_userName.Text;
 
-            if (user.Obtener_Datos(lnk_Re_usu_contra) == true) //si la obtencion de datos es correcta, podremos entrar al sistema
+            if (user_login.Obtener_Datos(lnk_Re_usu_contra) == true) //si la obtencion de datos es correcta, podremos entrar al sistema
             {            
                 this.Hide();
                 txt_userName.Text = "Usuario";
@@ -113,30 +113,30 @@ namespace Tecno_Pc
                 chk_paswordChar.Checked = false;
                 txt_pasword.UseSystemPasswordChar = true;
                 lnk_Re_usu_contra.Visible = false;
-                Formularios.frm_principal prin = new Formularios.frm_principal();
-                prin.Show();
+                Formularios.frm_principal prin_form = new Formularios.frm_principal();
+                prin_form.Show();
             }
         }
 
-        private void txt_userName_TextChanged(object sender, EventArgs e)
+        private void txt_userName_TextChanged(object sender_user, EventArgs index_e)
         {
             error_usuario.Clear();
         }
 
-        private void txt_pasword_TextChanged(object sender, EventArgs e)
+        private void txt_pasword_TextChanged(object sender_password, EventArgs index_e)
         {
             error_contraseña.Clear();
         }
 
-        private void txt_pasword_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_pasword_KeyPress(object sender_password, KeyPressEventArgs index_e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (index_e.KeyChar == (char)Keys.Enter)
             {
                 btn_ingresar.PerformClick();
             }
         }
 
-        private void gunaButton1_Click(object sender, EventArgs e)
+        private void gunaButton1_Click(object sender_guna, EventArgs index_e)
         {
             //using (var document = PdfDocument.Load(@"C:\Users\loren\Documents\UNICAH\2022\II Trimestre\Salud y Nutricion\I Parcial\Cuadro Comparativo.pdf"))
             //{
@@ -153,10 +153,10 @@ namespace Tecno_Pc
             //        printDocument.Print();
             //    }
             //}
-            Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
-            rep.Vertical = true;
-            rep.Carpeta = "Facturas";
-            rep.GenerarPdf();
+            Clases.Cl_Reportes rep_form = new Clases.Cl_Reportes();
+            rep_form.Vertical = true;
+            rep_form.Carpeta = "Facturas";
+            rep_form.Generar_pdf();
         }
     }
 }

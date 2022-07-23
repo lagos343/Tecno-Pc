@@ -118,7 +118,7 @@ namespace Tecno_Pc.Formularios
         private void btn_nuevaCompra_Click(object sender, EventArgs e) //prod que limpia los datagrid y la info de una compra para realizar una nueva
         {
             txt_buscar.Clear();
-            dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+            dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
             Limpiar_Productoseleccionado();
 
@@ -147,7 +147,7 @@ namespace Tecno_Pc.Formularios
                     int idprod = int.Parse(fila.Cells[1].Value.ToString());
                     double precio = double.Parse(fila.Cells[4].Value.ToString()) / double.Parse(fila.Cells[3].Value.ToString());
                     int cant = int.Parse(fila.Cells[3].Value.ToString());
-                    sql.Sql_Querys("insert into Compras values ("+idprod+",getdate(),"+cant+", "+precio+")");
+                    sql.Sql_querys("insert into Compras values ("+idprod+",getdate(),"+cant+", "+precio+")");
                 }
 
                 frm_notificacion noti = new frm_notificacion("Compra registrada con Exito", 1);
@@ -185,7 +185,7 @@ namespace Tecno_Pc.Formularios
             {
                 if (Properties.Settings.Default.CodBar == "true") //vemos si estamos en modo Escaner
                 {
-                    dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and cod_barra = '" + txt_buscar.Text + "' order by [nombre_producto] asc");
                     Operaciones_Datagrid1(); //hacemos la busqueda en base a el cod de barras leido por el escaner
 

@@ -38,10 +38,10 @@ namespace Tecno_Pc.Formularios
 
         public void Dashboard() //manda a llamar la informacion que se muestra en los Widgets
         {
-            lbl_totalProductos.Text = sql.Consulta("select *from Productos where estado_producto = 1").Rows.Count.ToString();
-            lbl_totalMarcas.Text = sql.Consulta("select *from Marcas").Rows.Count.ToString();
-            lbl_TotalCategorias.Text = sql.Consulta("select *from Categorias").Rows.Count.ToString();
-            lbl_ProductosTotales.Text = sql.Consulta2("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
+            lbl_totalProductos.Text = sql.Consulta_registro("select *from Productos where estado_producto = 1").Rows.Count.ToString();
+            lbl_totalMarcas.Text = sql.Consulta_registro("select *from Marcas").Rows.Count.ToString();
+            lbl_TotalCategorias.Text = sql.Consulta_registro("select *from Categorias").Rows.Count.ToString();
+            lbl_ProductosTotales.Text = sql.Consulta2_registro("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
 
             prod.consultarDatos(dgv_Productos); //llamamos la informacion de los registros de la tabla al Datagrid
 
@@ -127,7 +127,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este producto?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                         prod.eliminarDatos();
@@ -169,7 +169,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Productos";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = false;
-            rep.GenerarPdf(); //generamos el pdf
+            rep.Generar_pdf(); //generamos el pdf
         }        
 
         private void Usuario_Productos() //dependiendo del usuario se ocultaran algunas opciones

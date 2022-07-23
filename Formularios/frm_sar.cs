@@ -29,7 +29,7 @@ namespace Tecno_Pc.Formularios
             dtp_limite.MinDate = DateTime.Now.AddMonths(1);
             dtp_limite.Value = DateTime.Now.AddMonths(1);
             toolTip1.SetToolTip(btn_guardar, "Guardar nuevo rango de facturacion");
-            lbl_desde.Text = (long.Parse(sql.Consulta2("select top 1 id_factura from Facturas order by id_factura desc")) + 1).ToString();
+            lbl_desde.Text = (long.Parse(sql.Consulta2_registro("select top 1 id_factura from Facturas order by id_factura desc")) + 1).ToString();
             txt_hasta.Focus();
         }
 
@@ -77,9 +77,9 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
 
                 //de no haber errores y presiona OK se guardara el registro en la tabla de la SAR
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.dialogs_resul == DialogResult.OK)
                 {
-                    sql.Sql_Querys("insert into Sar values("+lbl_desde.Text+", "+txt_hasta.Text+",'"+ dtp_limite.Value.ToString("yyyy-MM-dd") + "')", 
+                    sql.Sql_querys("insert into Sar values("+lbl_desde.Text+", "+txt_hasta.Text+",'"+ dtp_limite.Value.ToString("yyyy-MM-dd") + "')", 
                         "El nuevo rango de Facturacion se guardo con exito", "Error al guarar");
                     this.Close();
                 }
