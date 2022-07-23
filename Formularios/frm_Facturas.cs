@@ -23,6 +23,7 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_Facturas : Form
     {
+        //Declaracion de la Clases Necesarias para el funcionamiento del form
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
@@ -31,6 +32,8 @@ namespace Tecno_Pc.Formularios
         public frm_Facturas()
         {
             InitializeComponent();
+
+            //definicion de la ayuda visual con tooltip
             Control.CheckForIllegalCrossThreadCalls = false;
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
             this.toolTip1.SetToolTip(this.cbo_filtro, "Seleccionar Filtro de Busqueda");
@@ -47,7 +50,7 @@ namespace Tecno_Pc.Formularios
             txt_buscar.ShortcutsEnabled = false;
         }
 
-        private void operacionesDatagrid()
+        private void operacionesDatagrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de las Facturas
         {
             dgv_Facturas.Columns[1].Visible = false;
             dgv_Facturas.Columns[6].Visible = false;
@@ -58,10 +61,11 @@ namespace Tecno_Pc.Formularios
             dgv_Facturas.Columns[3].Width = 280;            
         }        
 
-        private async void dgv_Facturas_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private async void dgv_Facturas_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si estamos presionando el boton de visuaizar una factura
         {
             if (dgv_Facturas.Rows[e.RowIndex].Cells["Mostrar"].Selected)
             {
+                //de ser mostrar mostramos el reporte de esta factura
                 rep.Dgv = sql.Consulta("select [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                     "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
                     "join Transacciones t on t.[id_transaccion] = f.[id_transaccion] where [id_factura] = " + dgv_Facturas.Rows[e.RowIndex].Cells[1].Value.ToString() + " order by f.[id_factura] desc");
@@ -69,7 +73,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(rep.PdfFacturas);
+                Task tar1 = new Task(rep.PdfFacturas); //llamamos el sub proceso que mostrara la factura
                 tar1.Start();
                 await tar1;
 
@@ -79,7 +83,7 @@ namespace Tecno_Pc.Formularios
             }
         }
        
-        private void txt_buscar_TextChanged_1(object sender, EventArgs e)
+        private void txt_buscar_TextChanged_1(object sender, EventArgs e) //hace busqeuda dependiendo del filtro que escogimos en el combobox
         {
             if (cbo_filtro.Text == "ID Factura" && txt_buscar.Text != "")
             {
@@ -104,7 +108,7 @@ namespace Tecno_Pc.Formularios
             else{}
         }
 
-        private void btn_imprimir_Click(object sender, EventArgs e)
+        private void btn_imprimir_Click(object sender, EventArgs e) //abre el form de reportes de esta pantalla
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVenta);
 
@@ -121,13 +125,14 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_KeyPress(object sender, KeyPressEventArgs e)
         {
+            //si estamos buscando por ID no permitira escribir letras
             if(cbo_filtro.Text == "ID Factura" && Char.IsLetter(e.KeyChar))
             {
                 e.Handled = true;
             }
         }
 
-        private void btn_sar_Click(object sender, EventArgs e)
+        private void btn_sar_Click(object sender, EventArgs e) //abre el formulario de la SAR
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_sar);
 

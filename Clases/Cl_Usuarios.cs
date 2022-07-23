@@ -59,7 +59,7 @@ namespace Tecno_Pc.Clases
         {
             Sql_Querys("update Usuarios set estado_usuario = 0 where [id_usuario] ="+id_usuarios);
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
-            frm.carga();
+            frm.Carga_Grid();
         }
     }
 

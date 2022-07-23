@@ -13,10 +13,12 @@ namespace Tecno_Pc.Formularios
 {
     public partial class Frm_ReportProveedores : Form
     {
+        //Declaracion de la Clases Necesarias para el funcionamiento del form
         bool ReporteGenerado = false;
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
 
+        //Importacion de librerias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -26,15 +28,17 @@ namespace Tecno_Pc.Formularios
         public Frm_ReportProveedores()
         {
             InitializeComponent();
+            //ayuda mediante tooltip
             this.toolTip1.SetToolTip(this.btn_imprimir, "Crear Reporte");
 
+            //cargado de la informacion del Combobox
             cbo_proveedor.DataSource = sql.Consulta("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
             cbo_proveedor.DisplayMember = "nombre_proveedor";
             cbo_proveedor.ValueMember = "id_proveedor";
             cbo_proveedor.SelectedIndex = -1;
         }
 
-        private async void btn_imprimir_Click(object sender, EventArgs e)
+        private async void btn_imprimir_Click(object sender, EventArgs e) //generacion del reporte
         {
             if (radio_filtrado.Checked == false && radio_gen.Checked == false)
             {
@@ -48,14 +52,14 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(ReporteProveedor);
+                Task tar1 = new Task(ReporteProveedor); //generamos un sub proceso en een base al prod de los reportes
                 tar1.Start();
                 await tar1;
 
                 noti.Close();
                 btn_imprimir.Enabled = true;
 
-                if (ReporteGenerado)
+                if (ReporteGenerado) //en caso de que estemos generando un reporte
                 {
                     Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
                     frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
@@ -65,9 +69,9 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void ReporteProveedor()
-        {
-            if (radio_gen.Checked)
+        private void ReporteProveedor() //genera un reporte en base a la seleccion que hayamos hecho
+        { 
+            if (radio_gen.Checked) //reporte general de proveedores
             {
                 rep.Cadena_consulta = "SELECT Proveedores.nombre_proveedor, Proveedores.telefono_proveedor,Departamentos.[nombre_depto] [Departamento], Proveedores.direccion_proveedor, Proveedores.[correo_electronico] FROM    " +
                 " Proveedores INNER JOIN  Departamentos ON Proveedores.[id_depto] = Departamentos.[id_depto]" +
@@ -83,7 +87,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                if (cbo_proveedor.SelectedIndex != -1)
+                if (cbo_proveedor.SelectedIndex != -1) //reporte de productos por proveedor
                 {
                     rep.Cadena_consulta = "select p.[nombre_producto], p.modelo_producto, CAST(p.[precio_unitario] AS decimal(9,2)), c.[nombre_categoria], m.[nombre_marca], pr.nombre_proveedor, " +
                     "(select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock, cod_barra from Productos p " +
@@ -115,7 +119,7 @@ namespace Tecno_Pc.Formularios
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0);  //usamos las librerias ddl para mover el formulario desde este panel
         }
 
         private void minimizar_Click(object sender, EventArgs e)
@@ -125,12 +129,12 @@ namespace Tecno_Pc.Formularios
 
         private void radio_gen_CheckedChanged(object sender, EventArgs e)
         {
-            cbo_proveedor.Enabled = false;
+            cbo_proveedor.Enabled = false; //activamos el combobox
         }
 
         private void radio_filtrado_CheckedChanged(object sender, EventArgs e)
         {
-            cbo_proveedor.Enabled = true;
+            cbo_proveedor.Enabled = true; //desactivamos el combobox
         }
     }
 }

@@ -15,12 +15,14 @@ namespace Tecno_Pc
 {
     public partial class Form1 : Form
     {
+        //definicion de objetos de las clases necesarias
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         Clases.Cl_RecuperarContraseña recu = new Clases.Cl_RecuperarContraseña();
 
         public Form1()
         {
             InitializeComponent();
+            //definicion de la ayuda visual con tooltip
             this.ttMensaje.SetToolTip(this.txt_pasword, "Contraseña");
             this.ttMensaje.SetToolTip(this.txt_userName, "Nombre de usuario");
             this.ttMensaje.SetToolTip(this.chk_paswordChar, "Activar/Desactivar vista de la contraseña");
@@ -38,6 +40,7 @@ namespace Tecno_Pc
 
         private void chk_paswordChar_CheckedChanged(object sender, EventArgs e)
         {
+            //muestra o no la contraseña dependiendo del estado del Checkbox
             if (chk_paswordChar.Checked == true)
             {
                 txt_pasword.UseSystemPasswordChar = false;
@@ -53,7 +56,8 @@ namespace Tecno_Pc
             txt_pasword.UseSystemPasswordChar = true;
         }
 
-        #region Eventos Enter y Leave de los textbox               
+        #region Eventos Enter y Leave de los textbox            
+        //estos eventos dan estetica a los textbox si estan vacios
         private void txt_userName_Enter(object sender, EventArgs e)
         {
             if (txt_userName.Text == "Usuario")
@@ -88,12 +92,12 @@ namespace Tecno_Pc
 
         #endregion
 
-        private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e) //el linklabel que manda el correo de recuperacion
         {
             recu.EnviarCorreo();
         }
 
-        private void btn_ingresar_Click(object sender, EventArgs e)
+        private void btn_ingresar_Click(object sender, EventArgs e) //se encarga de verificar si se ingresa la sistema o no
         {
             user.Erp_contra = error_contraseña;
             user.Erp_usu = error_usuario;
@@ -101,8 +105,8 @@ namespace Tecno_Pc
             user.Txt_usu = txt_userName;
             user.Usuario_ = txt_userName.Text;
 
-            if (user.ObtenerDatos(lnk_Re_usu_contra) == true)
-            {
+            if (user.ObtenerDatos(lnk_Re_usu_contra) == true) //si la obtencion de datos es correcta, podremos entrar al sistema
+            { 
                 this.Hide();
                 txt_userName.Text = "Usuario";
                 txt_pasword.Text = "Contraseña";

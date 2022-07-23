@@ -16,9 +16,11 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_ConfigurarDB : Form
     {
+        //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         public bool EscribirServer = false;
 
+        //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -36,8 +38,9 @@ namespace Tecno_Pc.Formularios
             toolTip1.SetToolTip(this.Btn_Servers, "Refrescar la lista de Servidores");
             toolTip1.SetToolTip(this.cbo_autenticaciones, "Autenticacion de logueo al server");
 
-            if (modi == true)
+            if (modi == true) //verificamos si entramos a modificar datos o no
             {
+                //mostramos toda la informacion almacenada en las variables del sistema
                 cbo_servers.Text = Properties.Settings.Default.Servidor.ToString();
 
                 if (Properties.Settings.Default.WindowsAuten == "true")
@@ -65,14 +68,16 @@ namespace Tecno_Pc.Formularios
             txt_password.UseSystemPasswordChar = true;
         }
 
-        private void Cargar_Servers()
+        private void Cargar_Servers() //prod que se encarga de buscar los servers sql del pc y los lista en el Combobox
         {
+            //variables necesarias
             DataTable sqls = new DataTable(); 
             sqls = SqlDataSourceEnumerator.Instance.GetDataSources();
             DataColumn server = new DataColumn("server", typeof(System.String));
             DataTable sqls2 = new DataTable();
             sqls2.Columns.Add(server);
 
+            //recorremos la lista de servidores y de haber una instancia con nombre se agrega
             for (int i = 0; i < sqls.Rows.Count; i++)
             {
                 if (sqls.Rows[i][1].ToString() == "")
@@ -85,10 +90,10 @@ namespace Tecno_Pc.Formularios
                 }
             }                            
 
-            cbo_servers.DataSource = sqls2;                               
+            cbo_servers.DataSource = sqls2;  //devolvermos la lista de servidores                             
         }
 
-        private async void btn_actualizar_Click(object sender, EventArgs e)
+        private async void btn_actualizar_Click(object sender, EventArgs e) //boton que da la orden de buscar lso servidores
         {
             Btn_Servers.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
@@ -99,7 +104,7 @@ namespace Tecno_Pc.Formularios
             await tar;
             noti.Close();
 
-            if (cbo_servers.Items.Count != 0)
+            if (cbo_servers.Items.Count != 0) //si hay servidores se despliega el combobox
             {
                 cbo_servers.DisplayMember = "server";
                 cbo_servers.ValueMember = "server";
@@ -108,6 +113,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                //si no se le permite al ususario escribir el nombre del server por el mismo
                 Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Hubo un error al intentar encontrar servidores, Escriba el servidor manualmente", 3);
                 noti2.ShowDialog();
                 noti2.Close();
@@ -116,15 +122,16 @@ namespace Tecno_Pc.Formularios
             Btn_Servers.Enabled = true;
         }
 
-        private void btn_salir_Click(object sender, EventArgs e)
+        private void btn_salir_Click(object sender, EventArgs e) 
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_principal);
-            if (frm != null)
+            if (frm != null) //si estamos desde el form principal solo cerramos el formulario de config
             {
                 this.Close();
             }
             else
             {
+                //si estamos desde el login cerramos el programa
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de configuracion inicial de Tecno Pc?", 2);
                 noti.ShowDialog();
 
@@ -142,7 +149,7 @@ namespace Tecno_Pc.Formularios
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        private void gunaGradientButton1_Click(object sender, EventArgs e) //boton que se encarga de buscar la ruta donde estara la carpeta de reportes
         {
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
@@ -151,12 +158,12 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void btn_guardar_Click(object sender, EventArgs e) //boton que guarda toda la configuracion
         {
             Definicion_Array();
             if (vld.comprobartxt() == true && cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "" && txt_cai.Text.Length == 37)
             { 
-                if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == ""))
+                if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == "")) //verificamos el modo de autenticacion 
                 {
                     frm_notificacion noti3 = new frm_notificacion("Indique las credenciales de Sql server", 3);
                     noti3.ShowDialog();
@@ -168,7 +175,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea guardar esta configuracion?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.Dialogresul == DialogResult.OK) //si presionamos ok se procedera a guardar la informacion
                     {
                         Properties.Settings.Default.Servidor = cbo_servers.Text;
 
@@ -183,6 +190,7 @@ namespace Tecno_Pc.Formularios
                             Properties.Settings.Default.WindowsAuten = "true";
                         }
 
+                        //creamos las  carpetas de los reportes en la ruta escogida 
                         Properties.Settings.Default.RutaReportes = txt_ruta.Text;
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc");
                         Directory.CreateDirectory(txt_ruta.Text + @"\Reportes Tecno Pc\Clientes");
@@ -201,7 +209,7 @@ namespace Tecno_Pc.Formularios
                         Properties.Settings.Default.Email = txt_correo.Text;
                         Properties.Settings.Default.Telefono = txt_telefono.Text;
 
-                        Properties.Settings.Default.Save();                                                
+                        Properties.Settings.Default.Save(); //guardamos las variables de entorno                                                
 
                         noti.Close();
                         Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Configuracion guardada con exito", 1);
@@ -210,7 +218,7 @@ namespace Tecno_Pc.Formularios
                         Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_principal);
                         if (frm == null)
                         {
-                            Form1 login = new Form1();
+                            Form1 login = new Form1(); //cargamos el login
                             login.Show();
                         }                                                                      
                         this.Hide();
@@ -226,7 +234,7 @@ namespace Tecno_Pc.Formularios
             }         
         }
 
-        public void Escoger_Erp()
+        public void Escoger_Erp()  //muestra los errores que puedan ocurrir en los combobox
         {
             if (txt_cai.Text.Length != 37)
             {
@@ -268,7 +276,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void cbo_autenticaciones_SelectedIndexChanged(object sender, EventArgs e)
+        private void cbo_autenticaciones_SelectedIndexChanged(object sender, EventArgs e) //dependiendo del modo de autenticacion seleccionado activamos o no el user y password de sql 
         {
             erp_auten.Clear();
 
@@ -287,7 +295,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         public void Definicion_Array() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares 

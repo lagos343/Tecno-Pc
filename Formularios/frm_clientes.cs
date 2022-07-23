@@ -15,13 +15,14 @@ namespace Tecno_Pc.Formularios
 
     public partial class frm_clientes : Form
     {
-
+        //Importacion de libreias propias de windows para movimiento del formulario  
         bool actualizar = false;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        //definicion de objetos de las clases necesarias
         Clases.Cl_Clientes cli = new Clases.Cl_Clientes();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
@@ -31,6 +32,8 @@ namespace Tecno_Pc.Formularios
         public frm_clientes()
         {
             InitializeComponent();
+
+            //definicion de la ayuda visual con tooltip
             Inicializar_Combobox();
             
             this.ttMensaje.SetToolTip(this.cmb_Depto, "Combobox de departamento");
@@ -80,7 +83,7 @@ namespace Tecno_Pc.Formularios
             erp_telefono.Clear();            
         }
 
-        public void Operaciones_Datagrid()
+        public void Operaciones_Datagrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los clientes
         {
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[1].Visible = false;
@@ -91,15 +94,15 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        public void Inicializar_Combobox()
+        public void Inicializar_Combobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cmb_Depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
             cmb_Depto.DisplayMember = "nombre_depto";
             cmb_Depto.ValueMember = "id_depto";
             cmb_Depto.SelectedIndex = -1;
         }
-
-        public void Definicion_Array()
+ 
+        public void Definicion_Array() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
         {
             vld.Text = new TextBox [6] { txt_Ident, txt_Nombre, txt_Apell, txt_Tel, txt_Email, txt_Direccion };
             vld.Error = new ErrorProvider[6] { erp_identidad,erp_nombre, erp_apellido, erp_telefono, erp_email, erp_direccion  };
@@ -111,12 +114,12 @@ namespace Tecno_Pc.Formularios
             
         }
 
-        private void btn_guardar_Click(object sender, EventArgs e)
+        private void btn_guardar_Click(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos guardar
         {
             Definicion_Array();
             if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_Email, erp_email) == true && vld.buscarRepetidos(txt_Tel, erp_telefono) == true)
             {
-                if (actualizar == true)
+                if (actualizar == true) //verificamos si vamos a guardar o actulizar
                 {
                     cli.IDCliente = int.Parse(txt_id.Text.ToString());
                     cli.IDDepto = int.Parse(cmb_Depto.SelectedValue.ToString());
@@ -127,7 +130,7 @@ namespace Tecno_Pc.Formularios
                     cli.CorreoElectronicoo = txt_Email.Text;
                     cli.Direccionn = txt_Direccion.Text;
 
-                    if (cli.actualizarDatos())
+                    if (cli.actualizarDatos()) //verificamos que no devuelva error el comando sql
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
@@ -145,7 +148,7 @@ namespace Tecno_Pc.Formularios
                     cli.CorreoElectronicoo = txt_Email.Text;
                     cli.Direccionn = txt_Direccion.Text;
 
-                    if (cli.guardar())
+                    if (cli.guardar()) //verificamos que no devuelva error el comando sql
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
@@ -156,6 +159,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                //mostramos los errores
                 frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
@@ -165,7 +169,7 @@ namespace Tecno_Pc.Formularios
             }              
         }
 
-        private void Escoger_Erp()
+        private void Escoger_Erp() //muestra los errores que puedan ocurrir en los combobox
         {
             if (cmb_Depto.SelectedIndex == -1)
             {
@@ -181,9 +185,9 @@ namespace Tecno_Pc.Formularios
             Inicializar_Combobox();
         }
 
-        private void btn_editar_Click(object sender, EventArgs e)
+        private void btn_editar_Click(object sender, EventArgs e) //prod que llena los campos con el registro seleccionado para editar su informacion 
         {
-            if (dgv_datos.CurrentRow == null)
+            if (dgv_datos.CurrentRow == null) 
             {
                 frm_notificacion noti = new frm_notificacion("Escoja algo antes para poder modificarlo", 3);
                 noti.ShowDialog();
@@ -205,14 +209,14 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_eliminar_Click(object sender, EventArgs e)
+        private void btn_eliminar_Click(object sender, EventArgs e) //prod que oculta registros y actuliza su estado a inactivos
         {
             if(dgv_datos.CurrentRow != null)
             {
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este cliente?", 2);
                 noti.ShowDialog();
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.Dialogresul == DialogResult.OK) //si presionamos ok se oculta el registro
                 {
                     noti.Close();
                     cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
@@ -229,13 +233,13 @@ namespace Tecno_Pc.Formularios
             }            
         }
 
-        private void btn_nuevo_Click(object sender, EventArgs e)
+        private void btn_nuevo_Click(object sender, EventArgs e) //se encarga de limpiar la cajas de texto y reiniciar el form para añadir un nuevo registro
         {
             Limpiado_Clientes();
             Btn_Guardar.Text = "Guardar";
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             cli.Nombree = txt_buscar.Text;
             cli.buscarDatos(dgv_datos);
@@ -245,7 +249,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         private async void btn_imprimir_Click(object sender, EventArgs e)
@@ -254,7 +258,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(Reporte_Clientes);
+            Task tar1 = new Task(Reporte_Clientes); //llamaos el subproceso en base a el prod que abre el reporte
             tar1.Start();
             await tar1;
 
@@ -266,7 +270,7 @@ namespace Tecno_Pc.Formularios
             frm.BringToFront();
         }
 
-        public void Reporte_Clientes()
+        public void Reporte_Clientes() //prod que genera el reporte 
         {
             rep.Cadena_consulta = " select (c.nombre_cliente +' '+ c.Apellido) as [Cliente], c.Identidad, c.Telefono, c.Direccion, c.[Correo Electronico], d.[Nombre Depto] " +
                 "from Clientes as c inner join Departamentos as D  on D.[ID Depto] = c.[ID Depto] Where Estado = 1";

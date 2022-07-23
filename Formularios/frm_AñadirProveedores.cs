@@ -14,45 +14,47 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_AñadirProveedores : Form
     {
-
+        //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-
+        //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
 
-        public frm_AñadirProveedores(int estado, DataGridView dat)
-        {
+        public frm_AñadirProveedores(int estado_form, DataGridView datos_registro)//el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
+        {                                                         //el segundo recibe los datos del datagrid para llenar los campos en el modo actualizacion
             InitializeComponent();
-            if (estado == 1)
+            if (estado_form == 1)
             {
                 lbl_titulo.Text = "NUEVO PROVEEDOR";
                 btn_guardar.Text = "GUARDAR";
-                btn_guardar.Click += guarda_click;
-                iniciarcombobox();
+                btn_guardar.Click += Guarda_Click; //definimos el proceso subrogado para que el boton relice el proceso de guardar
+                Iniciar_Combobox();
             }
-            else if (estado == 2)
+            else if (estado_form == 2)
             {
-                iniciarcombobox();
+                Iniciar_Combobox();
                 lbl_titulo.Text = "ACTUALIZAR PROVEEDOR";
                 btn_guardar.Text = "ACTUALIZAR";
-                btn_guardar.Click += actualiza_click;
-                txt_id.Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
-                cbo_depto.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
-                txt_nombre.Text = dat.CurrentRow.Cells[2 + 2].Value.ToString();
-                txt_telefono.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
-                txt_direccion.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
-                txt_email.Text = dat.CurrentRow.Cells[5 + 2].Value.ToString();
+                btn_guardar.Click += Actualiza_Click; //definimos el proceso subrogado para que el boton relice el proceso de actualizar
+
+                //llenado de los datos en cada control para luego hacer las modificaciones
+                txt_id.Text = datos_registro.CurrentRow.Cells[0 + 2].Value.ToString();
+                cbo_depto.SelectedValue = datos_registro.CurrentRow.Cells[1 + 2].Value.ToString();
+                txt_nombre.Text = datos_registro.CurrentRow.Cells[2 + 2].Value.ToString();
+                txt_telefono.Text = datos_registro.CurrentRow.Cells[3 + 2].Value.ToString();
+                txt_direccion.Text = datos_registro.CurrentRow.Cells[4 + 2].Value.ToString();
+                txt_email.Text = datos_registro.CurrentRow.Cells[5 + 2].Value.ToString();
                 this.Text = "Actualizar Proveedores";
             }
         }
 
 
-        public void iniciarcombobox()
+        public void Iniciar_Combobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cbo_depto.DataSource = sql.Consulta("select * from Departamentos order by [nombre_depto] asc");
             cbo_depto.DisplayMember = "nombre_depto";
@@ -60,7 +62,7 @@ namespace Tecno_Pc.Formularios
             cbo_depto.SelectedIndex = -1;
         }
 
-        public void definicionarrayPro()
+        public void Definicion_Array() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
         {
             vld.Text = new TextBox[4] {txt_nombre, txt_telefono, txt_email, txt_direccion};
             vld.Error = new ErrorProvider[4] {erp_nombre, erp_telefono, erp_correo, erp_direccion };
@@ -73,9 +75,9 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        private void guarda_click(object sender, EventArgs e)
+        private void Guarda_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos guardar
         {
-            definicionarrayPro();
+            Definicion_Array();
 
             if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
@@ -86,9 +88,9 @@ namespace Tecno_Pc.Formularios
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 proveedores.Estado = Convert.ToBoolean(true);
 
-                if (proveedores.guardar())
+                if (proveedores.guardar()) //verificamos que no devuelva error el comando sql
                 {
-                    limpiado();
+                    Limpiado_Proveedores();
                 }
             }
             else
@@ -96,7 +98,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();
+                Escoger_Erp();
                 if(vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
                 if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
             }
@@ -105,9 +107,9 @@ namespace Tecno_Pc.Formularios
             frm.carga();
         }
 
-        private void actualiza_click(object sender, EventArgs e)
+        private void Actualiza_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
         {
-            definicionarrayPro();
+            Definicion_Array();
 
             if (vld.comprobartxt() == true && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_correo) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
@@ -118,9 +120,9 @@ namespace Tecno_Pc.Formularios
                 proveedores.Direccion = txt_direccion.Text;
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
 
-                if (proveedores.actualizarDatos())
+                if (proveedores.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
                 {
-                    limpiado();
+                    Limpiado_Proveedores();
                     this.Close();
                 }
                 
@@ -130,16 +132,16 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();
+                Escoger_Erp();
                 if (vld.ValidarLetrasCorreos(txt_email, erp_correo) == true) ;
                 if (vld.buscarRepetidos(txt_telefono, erp_telefono) == true) ;
 
             }
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
-            frm.carga();
+            frm.carga(); //recargar el form
         }
 
-        private void escoger_erp()  
+        private void Escoger_Erp() //muestra los errores que puedan ocurrir en los combobox
         {
             if (cbo_depto.SelectedIndex == -1)
             {
@@ -149,7 +151,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        public void limpiado()
+        public void Limpiado_Proveedores()
         {
             txt_nombre.Clear();
             txt_telefono.Clear();
@@ -171,7 +173,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         #region keypress
