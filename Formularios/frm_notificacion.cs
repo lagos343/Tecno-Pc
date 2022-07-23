@@ -17,24 +17,24 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private extern static void SendMessage(System.IntPtr h_wnd, int w_msg, int w_param, int l_param);
         
-        private static DialogResult dialogresul = new DialogResult();
-        public DialogResult Dialogresul { get => dialogresul; set => dialogresul = value; }
+        private static DialogResult dialog_resul = new DialogResult();
+        public DialogResult dialogs_resul { get => dialog_resul; set => dialog_resul = value; }
 
-        public frm_notificacion(string mensaje, int estado)
+        public frm_notificacion(string mensaje_notificacion, int estado_notificacion)
         {
             InitializeComponent();
-            lbl_Mensaje.Text = mensaje;
+            lbl_Mensaje.Text = mensaje_notificacion;
 
-            if (estado == 1)
+            if (estado_notificacion == 1)
             {
                 btn_confirmar.Visible = true;
                 pic_confirmation.Visible = true;
                 gunaCircleProgressBar1.Visible = false;
             }
 
-            if(estado == 2)
+            if(estado_notificacion == 2)
             {
                 btn_confirmar.Visible = true;
                 btn_cancelar.Visible = true;
@@ -42,14 +42,14 @@ namespace Tecno_Pc.Formularios
                 gunaCircleProgressBar1.Visible = false;
             }
 
-            if (estado == 3)
+            if (estado_notificacion == 3)
             {
                 btn_confirmar.Visible = true;                
                 pic_exclamation.Visible = true;
                 gunaCircleProgressBar1.Visible = false;
             }
 
-            if (estado == 4)
+            if (estado_notificacion == 4)
             {               
                 pic_exclamation.Visible = true;
                 gunaCircleProgressBar1.Visible = true;
@@ -74,41 +74,41 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_confirmar_Click(object sender, EventArgs e)
+        private void btn_confirmar_Click(object sender_confirmar, EventArgs index_e)
         {
-            Dialogresul = DialogResult.OK;
+            dialogs_resul = DialogResult.OK;
             this.Hide();      
         }
 
-        private void btn_cancelar_Click(object sender, EventArgs e)
+        private void btn_cancelar_Click(object sender_cancelar, EventArgs index_e)
         {            
-            Dialogresul = DialogResult.Cancel;
+            dialogs_resul = DialogResult.Cancel;
             this.Hide();
         }
 
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void panel1_MouseDown(object sender_panel, MouseEventArgs index_e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
         
-        private void pic_exclamation_MouseDown(object sender, MouseEventArgs e)
+        private void pic_exclamation_MouseDown(object sender_exclamation, MouseEventArgs index_e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void pic_confirmation_MouseDown(object sender, MouseEventArgs e)
+        private void pic_confirmation_MouseDown(object sender_confirmation, MouseEventArgs index_e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private async void frm_notificacion_Load(object sender, EventArgs e)
+        private async void frm_notificacion_Load(object sender_notificacion, EventArgs index_e)
         {
-            Task tas1 = new Task(barra);
-            tas1.Start();
-            await tas1;
+            Task task_1 = new Task(barra);
+            task_1.Start();
+            await task_1;
         }
     }
 }

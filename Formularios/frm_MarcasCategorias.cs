@@ -17,37 +17,37 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
-        private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
+        private extern static void SendMessage(System.IntPtr h_wnd, int w_msg, int w_param, int l_param);
                         
         bool editar = false;
-        Clases.Cl_Marcas mar = new Clases.Cl_Marcas();
-        Clases.Cl_Categorias cate = new Clases.Cl_Categorias();
-        Clases.Cl_NotificacionCompra  noti = new Clases.Cl_NotificacionCompra();
-        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        clases_formularios.Cl_Marcas mar_form = new clases_formularios.Cl_Marcas();
+        clases_formularios.Cl_Categorias cate_form = new clases_formularios.Cl_Categorias();
+        clases_formularios.Cl_NotificacionCompra  noti_form = new clases_formularios.Cl_NotificacionCompra();
+        clases_formularios.Cl_Validacion vld_form = new clases_formularios.Cl_Validacion();
 
-        public frm_MarcasCategorias(int valor)
+        public frm_MarcasCategorias(int valor_marcas)
         {          
             InitializeComponent();            
 
-            if (valor == 1)
+            if (valor_marcas == 1)
             {
                 lbl_titulo.Text = "CATEGORIAS";
                 btn_guardar.Click += btn_guardarCategorias;
                 txt_buscar.TextChanged += txt_buscarCategorias_TextChanged;
                 btn_editar.Click += btn_editarCategorias_Click;                            
                 this.Text = "Categorias";
-                cate.consultarDatos(dgv_datos);                
+                cate_form.consultarDatos(dgv_datos);                
             }
-            else if (valor == 2)
+            else if (valor_marcas == 2)
             {
                 lbl_titulo.Text = "MARCAS";
                 btn_guardar.Click += btn_guardarMarcas;
                 txt_buscar.TextChanged += txt_buscarMarcas_TextChanged;
                 btn_editar.Click += btn_editarMarcas_Click;            
                 this.Text = "Marcas";
-                mar.consultarDatos(dgv_datos);                
+                mar_form.consultarDatos(dgv_datos);                
             }
-            else if (valor == 3)
+            else if (valor_marcas == 3)
             {
                 txt_buscar.TextChanged += txt_buscarNotificacion_TextChanged;
                 btn_nuevo.Click += btn_seleccionar_Click;
@@ -56,33 +56,33 @@ namespace Tecno_Pc.Formularios
             }
         }
         
-        private void panel1_MouseDown(object sender, MouseEventArgs e)
+        private void panel1_MouseDown(object sender_panel, MouseEventArgs index_e)
         {
             ReleaseCapture();
             SendMessage(this.Handle, 0x112, 0xf012, 0);
         }
 
-        private void btn_salir_Click(object sender, EventArgs e)
+        private void btn_salir_Click(object sender_salir, EventArgs index_e)
         {            
             this.Close();
         }
 
         public void definicionarrayMarcas()
         {
-            vld.Text = new System.Windows.Forms.TextBox[1] {txt_nombre};
-            vld.Error = new ErrorProvider[1] {erp_nombre};
-            vld.Minimo = new int[1] {3};
-            vld.Regular = new string[1] {"[A-Z, a-z, 0-9, ¡ * + % & $ # _]"};
-            vld.Msj = new string[1] { @"Solo alfanumericos y especiales como: (¡ * + % & $ # _)" };
+            vld_form.Text = new System.Windows.Forms.TextBox[1] {txt_nombre};
+            vld_form.Error = new ErrorProvider[1] {erp_nombre};
+            vld_form.Minimo = new int[1] {3};
+            vld_form.Regular = new string[1] {"[A-Z, a-z, 0-9, ¡ * + % & $ # _]"};
+            vld_form.Msj = new string[1] { @"Solo alfanumericos y especiales como: (¡ * + % & $ # _)" };
         }
 
         public void definicionarrayCategorias()
         {
-            vld.Text = new System.Windows.Forms.TextBox[1] { txt_nombre };
-            vld.Error = new ErrorProvider[1] { erp_nombre };
-            vld.Minimo = new int[1] { 3 };
-            vld.Regular = new string[1] { "[A-Z, a-z, 0-9]" };
-            vld.Msj = new string[1] { "Solo alfanumericos" };
+            vld_form.Text = new System.Windows.Forms.TextBox[1] { txt_nombre };
+            vld_form.Error = new ErrorProvider[1] { erp_nombre };
+            vld_form.Minimo = new int[1] { 3 };
+            vld_form.Regular = new string[1] { "[A-Z, a-z, 0-9]" };
+            vld_form.Msj = new string[1] { "Solo alfanumericos" };
         }
 
         #region Botones del form
@@ -114,34 +114,34 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayCategorias();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld_form.comprobartxt() == false || vld_form.ValidarLetras(txt_nombre, erp_nombre) == false)
             {                
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false);
+                if (vld_form.ValidarLetras(txt_nombre, erp_nombre) == false);
             }
             else
             {
                 if (editar == true)
                 {
-                    cate.IDCategoria = int.Parse(txt_id.Text);
-                    cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.actualizarDatos())
+                    cate_form.IDCategoria = int.Parse(txt_id.Text);
+                    cate_form.NombreCategoria = txt_nombre.Text;
+                    if (cate_form.actualizarDatos())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate_form.consultarDatos(dgv_datos);
                     }
                 }
                 else
                 {
-                    cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.guardar())
+                    cate_form.NombreCategoria = txt_nombre.Text;
+                    if (cate_form.guardar())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate_form.consultarDatos(dgv_datos);
                     }
                 }                
             }           
@@ -149,8 +149,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarCategorias_TextChanged(object sender, EventArgs e)
         {
-            cate.NombreCategoria = txt_buscar.Text;
-            cate.buscarDatos(dgv_datos);
+            cate_form.NombreCategoria = txt_buscar.Text;
+            cate_form.buscarDatos(dgv_datos);
         }
 
         private void btn_editarCategorias_Click(object sender, EventArgs e)
@@ -177,34 +177,34 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayMarcas();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld_form.comprobartxt() == false || vld_form.ValidarLetras(txt_nombre, erp_nombre) == false)
             {
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false) ;
+                if (vld_form.ValidarLetras(txt_nombre, erp_nombre) == false) ;
             }
             else
             {
                 if (editar == true)
                 {
-                    mar.IDMarca = int.Parse(txt_id.Text);
-                    mar.NombreMarca = txt_nombre.Text;
-                    if (mar.actualizarDatos())
+                    mar_form.IDMarca = int.Parse(txt_id.Text);
+                    mar_form.NombreMarca = txt_nombre.Text;
+                    if (mar_form.actualizarDatos())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        mar.consultarDatos(dgv_datos);
+                        mar_form.consultarDatos(dgv_datos);
                     }
                 }
                 else
                 {
-                    mar.NombreMarca = txt_nombre.Text;
-                    if (mar.guardar())
+                    mar_form.NombreMarca = txt_nombre.Text;
+                    if (mar_form.guardar())
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        mar.consultarDatos(dgv_datos);
+                        mar_form.consultarDatos(dgv_datos);
                     }
                 }                
             }
@@ -212,8 +212,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarMarcas_TextChanged(object sender, EventArgs e)
         {
-            mar.NombreMarca = txt_buscar.Text;
-            mar.buscarDatos(dgv_datos);
+            mar_form.NombreMarca = txt_buscar.Text;
+            mar_form.buscarDatos(dgv_datos);
         }
 
         private void btn_editarMarcas_Click(object sender, EventArgs e)
@@ -241,8 +241,8 @@ namespace Tecno_Pc.Formularios
         {
             if (editar == true)
             {
-                noti.Id_noti = int.Parse(txt_id.Text);
-                noti.eliminar();
+                noti_form.Id_noti = int.Parse(txt_id.Text);
+                noti_form.eliminar();
             }
             else if (editar == false)
             {
@@ -255,8 +255,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscarNotificacion_TextChanged(object sender, EventArgs e)
         {
-            noti.Producto = txt_buscar.Text;
-            noti.buscardatos(dgv_datos);
+            noti_form.Producto = txt_buscar.Text;
+            noti_form.buscardatos(dgv_datos);
         }
 
         private void btn_seleccionar_Click(object sender, EventArgs e)
@@ -290,7 +290,7 @@ namespace Tecno_Pc.Formularios
             txt_nombre.Text = "";
             txt_id.Text = "";            
 
-            noti.consultarDatos(dgv_datos);
+            noti_form.consultarDatos(dgv_datos);
 
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[2].Visible = false;
@@ -299,16 +299,16 @@ namespace Tecno_Pc.Formularios
 
         #endregion        
 
-        private void txt_nombre_TextChanged(object sender, EventArgs e)
+        private void txt_nombre_TextChanged(object sender_nombre, EventArgs index_e)
         {
             erp_nombre.Clear();
         }
 
-        private void txt_nombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void txt_nombre_KeyPress(object sender_nombre, KeyPressEventArgs index_e)
         {
-            if (e.KeyChar == (char)Keys.Enter)
+            if (index_e.KeyChar == (char)Keys.Enter)
             {
-                e.Handled = true;
+                index_e.Handled = true;
                 btn_guardar.PerformClick();                
             }
         }

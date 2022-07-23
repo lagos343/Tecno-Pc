@@ -18,7 +18,7 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
 
         public frm_sar()
         {
@@ -73,7 +73,7 @@ namespace Tecno_Pc.Formularios
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Esta seguro del Rango Ingresado, desea Guardarlo?", 2);
                 noti.ShowDialog();
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.dialogs_resul == DialogResult.OK)
                 {
                     sql.Sql_querys("insert into Sar values("+lbl_desde.Text+", "+txt_hasta.Text+",'"+ dtp_limite.Value.ToString("yyyy-MM-dd") + "')", 
                         "El nuevo rango de Facturacion se guardo con exito", "Error al guarar");

@@ -12,10 +12,10 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_productos : Form
     {
-        Clases.Cl_Productos prod = new Clases.Cl_Productos();
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        clases_formularios.Cl_Productos prod = new clases_formularios.Cl_Productos();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_UsuarioLogueado login = new clases_formularios.Cl_UsuarioLogueado();
+        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
 
         public frm_productos()
         {
@@ -124,7 +124,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este producto?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                         prod.eliminarDatos();

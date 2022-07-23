@@ -21,9 +21,9 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         //definicion de objetos de las clases necesarias
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
-        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Empleados empleados = new clases_formularios.Cl_Empleados();
+        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
 
 
         public frm_AñadirEmpleado(int estado, DataGridView dat) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
@@ -137,7 +137,7 @@ namespace Tecno_Pc.Formularios
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga(); //recargamos el formulario
+            frm.Carga_empleado(); //recargamos el formulario
         }
 
         private void actualiza_click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
@@ -172,7 +172,7 @@ namespace Tecno_Pc.Formularios
                 if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga();//revcargamos el formulario
+            frm.Carga_empleado();//revcargamos el formulario
         }
 
         public void limpiado()

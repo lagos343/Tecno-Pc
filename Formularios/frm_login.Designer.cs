@@ -34,7 +34,7 @@ namespace Tecno_Pc
             this.panel1 = new System.Windows.Forms.Panel();
             this.guna2PictureBox1 = new Guna.UI2.WinForms.Guna2PictureBox();
             this.btn_CerrarLogin = new System.Windows.Forms.PictureBox();
-            this.elipseControl1 = new Tecno_Pc.Clases.ElipseControl();
+            this.elipseControl1 = new Tecno_Pc.clases_formularios.ElipseControl();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -47,8 +47,8 @@ namespace Tecno_Pc
             this.error_contraseña = new System.Windows.Forms.ErrorProvider(this.components);
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.ttMensaje = new System.Windows.Forms.ToolTip(this.components);
-            this.elipseControl3 = new Tecno_Pc.Clases.ElipseControl();
-            this.elipseComponent1 = new Tecno_Pc.Clases.ElipseComponent();
+            this.elipseControl3 = new Tecno_Pc.clases_formularios.ElipseControl();
+            this.elipseComponent1 = new Tecno_Pc.clases_formularios.ElipseComponent();
             this.gunaButton1 = new Guna.UI.WinForms.GunaButton();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.guna2PictureBox1)).BeginInit();
@@ -335,14 +335,14 @@ namespace Tecno_Pc
 
         #endregion
 
-        private Clases.ElipseComponent elipseComponent1;
+        private clases_formularios.ElipseComponent elipseComponent1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private Clases.ElipseControl elipseControl1;
+        private clases_formularios.ElipseControl elipseControl1;
         private System.Windows.Forms.PictureBox btn_CerrarLogin;
         private System.Windows.Forms.Label label2;
-        private Clases.ElipseControl elipseControl3;
+        private clases_formularios.ElipseControl elipseControl3;
         private Guna.UI.WinForms.GunaCheckBox chk_paswordChar;
         private Guna.UI.WinForms.GunaLineTextBox txt_userName;
         private Guna.UI.WinForms.GunaLineTextBox txt_pasword;

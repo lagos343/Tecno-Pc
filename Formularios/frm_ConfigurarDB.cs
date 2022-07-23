@@ -16,14 +16,14 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_ConfigurarDB : Form
     {
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
         public bool EscribirServer = false;
 
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
-        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
 
         public frm_ConfigurarDB(bool modi)
         {
@@ -128,7 +128,7 @@ namespace Tecno_Pc.Formularios
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de configuracion inicial de Tecno Pc?", 2);
                 noti.ShowDialog();
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.dialogs_resul == DialogResult.OK)
                 {
                     Application.Exit();
                 }
@@ -168,7 +168,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea guardar esta configuracion?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         Properties.Settings.Default.Servidor = cbo_servers.Text;
 

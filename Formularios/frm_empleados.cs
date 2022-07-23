@@ -13,9 +13,9 @@ namespace Tecno_Pc.Formularios
     public partial class frm_empleados : Form
     {
 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Empleados empleados_formularios = new clases_formularios.Cl_Empleados();
+        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
 
         public frm_empleados()
         {
@@ -27,35 +27,35 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevoUsuario_Click(object sender, EventArgs e)
         {
-            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirEmpleado);
-            if (frm == null)
+            Form frm_nuevo = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirEmpleado);
+            if (frm_nuevo == null)
             {
-                frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(1, dgv_Productos);
-                añaem.Show();
+                frm_AñadirEmpleado añaem_nuevo = new frm_AñadirEmpleado(1, dgv_Productos);
+                añaem_nuevo.Show();
             }
             else 
             {
-                frm.BringToFront();
+                frm_nuevo.BringToFront();
             }
         }
 
         private void frm_empleados_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_empleado();
         }
 
-        public void carga() 
+        public void Carga_empleado() 
         {
-            empleados.consultarDatos(dgv_Productos);
-            operacionesdatarid();
-            foreach (DataGridViewColumn columna in dgv_Productos.Columns)
+            empleados_formularios.consultarDatos(dgv_Productos);
+            Operaciones_data_rid();
+            foreach (DataGridViewColumn columna_data in dgv_Productos.Columns)
             {
-                columna.SortMode = DataGridViewColumnSortMode.NotSortable;
+                columna_data.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
         }
 
-        private void operacionesdatarid()
+        private void Operaciones_data_rid()
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -74,33 +74,33 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[7].HeaderText = "Apellido";
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        private void txt_buscar_TextChanged(object sender_buscar, EventArgs e)
         {
-            empleados.Nombre = txt_buscar.Text;
-            empleados.buscardatos(dgv_Productos);
-            operacionesdatarid();
+            empleados_formularios.Nombre = txt_buscar.Text;
+            empleados_formularios.buscardatos(dgv_Productos);
+            Operaciones_data_rid();
             
         }
 
 
-        private void dgv_Productos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Productos_CellContentClick_1(object sender_buscar, DataGridViewCellEventArgs index_e)
         {
             try
             {
-                if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
+                if (dgv_Productos.Rows[index_e.RowIndex].Cells["Editar"].Selected)
                 {
-                    frm_AñadirEmpleado añaem = new frm_AñadirEmpleado(2, dgv_Productos);
-                    añaem.ShowDialog();
+                    frm_AñadirEmpleado añaem_productos = new frm_AñadirEmpleado(2, dgv_Productos);
+                    añaem_productos.ShowDialog();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
+                else if (dgv_Productos.Rows[index_e.RowIndex].Cells["Eliminar"].Selected)
                 {
-                    Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este empleado?", 2);
-                    noti.ShowDialog();
+                    Formularios.frm_notificacion noti_producto = new Formularios.frm_notificacion("¿Desea eliminar este empleado?", 2);
+                    noti_producto.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti_producto.dialogs_resul == DialogResult.OK)
                     {
-                        empleados.Idempleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        empleados.eliminar();
+                        empleados_formularios.Idempleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        empleados_formularios.eliminar();
                         #region Limpieza
                         lbl_id.Text = lbl_email.Text = "";
                         lbl_depto.Text = lbl_email.Text = "";
@@ -112,9 +112,9 @@ namespace Tecno_Pc.Formularios
                         #endregion
                     }
 
-                    noti.Close();
+                    noti_producto.Close();
                 }
-                else if (dgv_Productos.Rows[e.RowIndex].Cells["nombre_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["identidad_empleado"].Selected || dgv_Productos.Rows[e.RowIndex].Cells["apellido_empleado"].Selected)
+                else if (dgv_Productos.Rows[index_e.RowIndex].Cells["nombre_empleado"].Selected || dgv_Productos.Rows[index_e.RowIndex].Cells["identidad_empleado"].Selected || dgv_Productos.Rows[index_e.RowIndex].Cells["apellido_empleado"].Selected)
                 {
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString();
                     lbl_depto.Text = dgv_Productos.CurrentRow.Cells[13].Value.ToString();
@@ -126,21 +126,21 @@ namespace Tecno_Pc.Formularios
                 }
 
             }
-            catch(Exception ex){}            
+            catch(Exception ex_catch){}            
         }
 
-        private void btn_reporte_Click(object sender, EventArgs e)
+        private void btn_reporte_Click(object sender_reporte, EventArgs e)
         {
-            Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
+            Form frm_reporte = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_ReportVendedor);
 
-            if (frm == null)
+            if (frm_reporte == null)
             {
-                frm_ReportVendedor report = new frm_ReportVendedor();
-                report.Show();
+                frm_ReportVendedor report_report = new frm_ReportVendedor();
+                report_report.Show();
             }
             else
             {
-                frm.BringToFront();
+                frm_reporte.BringToFront();
             }
         }
     }         

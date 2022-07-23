@@ -9,7 +9,7 @@ using System.Data.SqlClient;
 using System.Windows.Forms;
 
 
-namespace Tecno_Pc.Clases
+namespace Tecno_Pc.clases_formularios
 {
     class Cl_SqlMaestra //clase que se encarga de todos los procedimientoos que tengan que ver con la DB 
     {
@@ -49,7 +49,7 @@ namespace Tecno_Pc.Clases
                 Formularios.frm_notificacion noti_sql = new Formularios.frm_notificacion("Error al conectar con el server o la DB, ¿Desea abrir la configuracion?", 2);
                 noti_sql.ShowDialog(); 
 
-                if (noti_sql.Dialogresul == DialogResult.OK) 
+                if (noti_sql.dialogs_resul == DialogResult.OK) 
                 {   
                     Formularios.frm_ConfigurarDB bd = new Formularios.frm_ConfigurarDB(true);
                     bd.Show();

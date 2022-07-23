@@ -13,9 +13,9 @@ namespace Tecno_Pc.Formularios
     public partial class frm_proveedores : Form
     {
 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Proveedores proveedores = new clases_formularios.Cl_Proveedores();
+        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
 
 
         public frm_proveedores()
@@ -113,7 +113,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         proveedores.IDProveedor = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                         proveedores.Eliminar_datos();

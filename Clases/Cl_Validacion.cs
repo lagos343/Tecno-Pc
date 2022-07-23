@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.IO;
 
-namespace Tecno_Pc.Clases
+namespace Tecno_Pc.clases_formularios
 {
     class Cl_Validacion //se encarga de las validaciones de los datos de entrada en los formularios 
     {

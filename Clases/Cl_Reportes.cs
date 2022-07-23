@@ -18,7 +18,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tecno_Pc.Clases
+namespace Tecno_Pc.clases_formularios
 {
     class Cl_Reportes: Cl_SqlMaestra
     {

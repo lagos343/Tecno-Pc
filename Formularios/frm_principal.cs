@@ -20,7 +20,7 @@ namespace Tecno_Pc.Formularios
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
-        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
+        clases_formularios.Cl_UsuarioLogueado user = new clases_formularios.Cl_UsuarioLogueado();
         private Form formActivado = null;
 
         public frm_principal()
@@ -46,7 +46,7 @@ namespace Tecno_Pc.Formularios
             Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea Salir de Tecno Pc?", 2);
             noti.ShowDialog();
 
-            if (noti.Dialogresul == DialogResult.OK)
+            if (noti.dialogs_resul == DialogResult.OK)
             {
                 Application.Exit();
             }
@@ -198,7 +198,7 @@ namespace Tecno_Pc.Formularios
             Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea cerrar Sesion?", 2);
             noti.ShowDialog();
 
-            if (noti.Dialogresul == DialogResult.OK)
+            if (noti.dialogs_resul == DialogResult.OK)
             {
                 noti.Close();
                 Form1 frm = Application.OpenForms.OfType<Form1>().SingleOrDefault();

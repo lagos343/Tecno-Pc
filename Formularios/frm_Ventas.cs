@@ -12,9 +12,9 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_Ventas : Form
     {
-        Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        clases_formularios.Cl_UsuarioLogueado user = new clases_formularios.Cl_UsuarioLogueado();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
 
         public frm_Ventas()
         {

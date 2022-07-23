@@ -21,9 +21,9 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
         //definicion de objetos de las clases necesarias
-        Clases.Cl_Productos prod = new Clases.Cl_Productos(); 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
+        clases_formularios.Cl_Productos prod = new clases_formularios.Cl_Productos(); 
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Validacion vld = new clases_formularios.Cl_Validacion();
 
         public frm_AñadirProductos(int estado, DataGridView dat) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
         {                                                        //el segundo recibe los datos del datagrid para llenar los campos en el modo actualizacion

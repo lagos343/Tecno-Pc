@@ -11,7 +11,7 @@ using System.Net.Mail;
 using System.Net;
 
 
-namespace Tecno_Pc.Clases
+namespace Tecno_Pc.clases_formularios
 {
     public class Cl_RecuperarContraseña
     {

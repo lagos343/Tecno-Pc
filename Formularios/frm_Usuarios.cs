@@ -13,10 +13,10 @@ namespace Tecno_Pc.Formularios
     public partial class frm_Usuarios : Form
     {
 
-        Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
-        Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
-        Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
+        clases_formularios.Cl_SqlMaestra sql = new clases_formularios.Cl_SqlMaestra();
+        clases_formularios.Cl_Usuarios user = new clases_formularios.Cl_Usuarios();
+        clases_formularios.Cl_UsuarioLogueado login = new clases_formularios.Cl_UsuarioLogueado();
+        clases_formularios.Cl_Reportes rep = new clases_formularios.Cl_Reportes();
         public frm_Usuarios()
         {
             InitializeComponent();
@@ -109,7 +109,7 @@ namespace Tecno_Pc.Formularios
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este usuario?", 2);
                     noti.ShowDialog();
 
-                    if (noti.Dialogresul == DialogResult.OK)
+                    if (noti.dialogs_resul == DialogResult.OK)
                     {
                         user.Id_usuarios = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
                         user.eliminar();

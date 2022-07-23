@@ -33,7 +33,7 @@ namespace Tecno_Pc.Formularios
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_sar));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.dtp_limite = new Tecno_Pc.Clases.RJDatePicker();
+            this.dtp_limite = new Tecno_Pc.clases_formularios.RJDatePicker();
             this.btn_guardar = new Guna.UI.WinForms.GunaGradientButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.salir = new Guna.UI.WinForms.GunaPictureBox();
@@ -316,7 +316,7 @@ namespace Tecno_Pc.Formularios
 
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
-        private Clases.RJDatePicker dtp_limite;
+        private clases_formularios.RJDatePicker dtp_limite;
         private Guna.UI.WinForms.GunaGradientButton btn_guardar;
         private System.Windows.Forms.Panel panel2;
         private Guna.UI.WinForms.GunaPictureBox salir;

@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Tecno_Pc.Clases
+namespace Tecno_Pc.clases_formularios
 {
     class Cl_Empleados: Cl_SqlMaestra
     {
@@ -66,7 +66,7 @@ namespace Tecno_Pc.Clases
         {
             Sql_querys("update Empleados set estado_empleado = 0 where [id_empleado] =" + idempleado, "Se ha elminado al empleado", "Error al eliminar");
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
-            frm.carga();
+            frm.Carga_empleado();
         }
     }
 }
