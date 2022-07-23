@@ -12,27 +12,27 @@ namespace Tecno_Pc.Clases
     class Cl_Validacion //se encarga de las validaciones de los datos de entrada en los formularios 
     {
         // propiedades que permiten validar todos los formualarios
-        private static TextBox [] text;
-        private static ErrorProvider[] error;
-        private static string[] regular;
-        private static int[] minimo;
-        private static string[] msj;
-        private static int control = 0;
+        private static TextBox [] text_validacion;
+        private static ErrorProvider[] error_validacion;
+        private static string[] regular_validacion;
+        private static int[] minimo_validacion;
+        private static string[] msj_validacion;
+        private static int control_validacion = 0;
         private static int [] ctrl_user;
                 
         #region encapsulaimetno
-        public TextBox[] Text { get => text; set => text = value; }
-        public ErrorProvider[] Error { get => error; set => error = value; }
-        public string[] Regular { get => regular; set => regular = value; }
-        public int[] Minimo { get => minimo; set => minimo = value; }
-        public string[] Msj { get => msj; set => msj = value; }
-        public int Control { get => control; set => control = value; }
+        public TextBox[] Text { get => text_validacion; set => text_validacion = value; }
+        public ErrorProvider[] Error { get => error_validacion; set => error_validacion = value; }
+        public string[] Regular { get => regular_validacion; set => regular_validacion = value; }
+        public int[] Minimo { get => minimo_validacion; set => minimo_validacion = value; }
+        public string[] Msj { get => msj_validacion; set => msj_validacion = value; }
+        public int Control { get => control_validacion; set => control_validacion = value; }
         public int[] Ctrl_user { get => ctrl_user; set => ctrl_user = value; }
         #endregion
 
-        public bool comprobartxt() //este procedimiento valida los textbox
+        public bool Comprobar_Txt() //este procedimiento valida los textbox
         {
-            for (int i = 0; i < text.Length; i++)
+            for (int i = 0; i < text_validacion.Length; i++)
             {
                 bool conteo; 
                 Error[i].Clear();
@@ -60,24 +60,24 @@ namespace Tecno_Pc.Clases
 
                 if (conteo == false) //de hallarce un error aumenta el conteo de errores
                 {
-                    control += 1;
+                    control_validacion += 1;
                 }
             }
                        
 
-            if (control > 0) //si hay errores rretorna falso, sino verdadero
+            if (control_validacion > 0) //si hay errores rretorna falso, sino verdadero
             {
-                control = 0;
+                control_validacion = 0;
                 return false;
             }
             else
             {
-                control = 0;
+                control_validacion = 0;
                 return true;                
             }         
         }  
 
-        public void ValidarCarpetas(string Carpeta) //validamos que no se hayan borado las carpetas de los reportes
+        public void Validar_Carpetas(string Carpeta) //validamos que no se hayan borado las carpetas de los reportes
         {
             string ruta = Properties.Settings.Default.RutaReportes.ToString(); //extraemos la ruta definida por el user
 
@@ -95,7 +95,7 @@ namespace Tecno_Pc.Clases
             }            
         }
 
-        public bool ValidarLetrasCorreos(TextBox txt, ErrorProvider erp)
+        public bool Validar_Letrascorreos(TextBox txt, ErrorProvider erp)
         {
             int parte = 0; //variable que indica en que sector del correo estamos
             int conteo1 = 0, conteo2 = 0, conteo3 = 0;//cuentan los errores dependiendo del sector de email, conteo1@conteo2.conteo3
@@ -145,7 +145,7 @@ namespace Tecno_Pc.Clases
             }
         }
 
-        public bool ValidarLetras(TextBox txt, ErrorProvider erp) //valida que las marcas tengas minimo una letra y no solo numeros
+        public bool Validar_Letras(TextBox txt, ErrorProvider erp) //valida que las marcas tengas minimo una letra y no solo numeros
         {
             int conteo = 0;
             for (int i = 0; i < txt.Text.Length; i++)
@@ -171,38 +171,38 @@ namespace Tecno_Pc.Clases
             }                      
         }
 
-        public bool validarusuario() //validaciones de usuario y contraseña 
+        public bool Validar_Usuario() //validaciones de usuario y contraseña 
         {        
-            for (int i = 0; i < text.Length ; i++) //recoremos todos los textbox
+            for (int i = 0; i < text_validacion.Length ; i++) //recoremos todos los textbox
             {
                 bool conteo;
-                error[i].Clear(); //accedemos a su error provider para mostrar alertas en caso de error
+                error_validacion[i].Clear(); //accedemos a su error provider para mostrar alertas en caso de error
 
                 if (ctrl_user[i] == 1) //esta variable verifica si validamos usuario o contraseña
                 {
 
                     //USUARIO
-                    if (text[i].Text == "")
+                    if (text_validacion[i].Text == "")
                     {
-                        error[i].SetError(text[i], "Campo Vacio");
+                        error_validacion[i].SetError(text_validacion[i], "Campo Vacio");
                         conteo = false;
 
                     }
-                    else if (text[i].Text.Length < 8)
+                    else if (text_validacion[i].Text.Length < 8)
                     {
-                        error[i].SetError(text[i], "El minimo de caracteres es 8");
+                        error_validacion[i].SetError(text_validacion[i], "El minimo de caracteres es 8");
                         conteo = false;
 
                     }
-                    else if (Regex.Replace(text[i].Text, "[A-Z, a-z]", String.Empty).Length != 0)
+                    else if (Regex.Replace(text_validacion[i].Text, "[A-Z, a-z]", String.Empty).Length != 0)
                     {
-                        error[i].SetError(text[i], "Solo caracteres tipo letra");
+                        error_validacion[i].SetError(text_validacion[i], "Solo caracteres tipo letra");
                         conteo = false ;
 
                     }
-                    else if (Regex.IsMatch(text[i].Text, "[A-Z]") == false)
+                    else if (Regex.IsMatch(text_validacion[i].Text, "[A-Z]") == false)
                     {
-                        error[i].SetError(text[i], "Debe contener por lo menos una Mayus");
+                        error_validacion[i].SetError(text_validacion[i], "Debe contener por lo menos una Mayus");
                         conteo = false;
                     }
                     else
@@ -216,31 +216,31 @@ namespace Tecno_Pc.Clases
                     //CONTRASEÑA
                     bool mayuscula = false, minuscula = false, numero = false, carespecial = false;
 
-                    if (text[i].Text == "")
+                    if (text_validacion[i].Text == "")
                     {
-                        error[i].SetError(text[i], "Campo Vacio");
+                        error_validacion[i].SetError(text_validacion[i], "Campo Vacio");
                         conteo = false;
 
                     }
-                    else if (text[i].Text.Length < 8)
+                    else if (text_validacion[i].Text.Length < 8)
                     {
-                        error[i].SetError(text[i], "El minimo de caracteres es 8");
+                        error_validacion[i].SetError(text_validacion[i], "El minimo de caracteres es 8");
                         conteo = false;
 
                     }
                     else
                     {
-                        for (int j = 0; j < text[i].Text.Length; j++)
+                        for (int j = 0; j < text_validacion[i].Text.Length; j++)
                         {
-                            if (Char.IsUpper(text[i].Text, j))
+                            if (Char.IsUpper(text_validacion[i].Text, j))
                             {
                                 mayuscula = true;
                             }
-                            else if (Char.IsLower(text[i].Text, j))
+                            else if (Char.IsLower(text_validacion[i].Text, j))
                             {
                                 minuscula = true;
                             }
-                            else if (Char.IsDigit(text[i].Text, j))
+                            else if (Char.IsDigit(text_validacion[i].Text, j))
                             {
                                 numero = true;
                             }
@@ -249,36 +249,36 @@ namespace Tecno_Pc.Clases
                                 carespecial = true;
                             }
                         }
-                        if (mayuscula && minuscula && numero && carespecial && text[i].Text.Length >= 8)
+                        if (mayuscula && minuscula && numero && carespecial && text_validacion[i].Text.Length >= 8)
                         {
                             conteo = true;
                         }
                         else
                         {
-                            error[i].SetError(text[i], "Debe contener por lo menos una Mayus, un numero y un caracter especial");
+                            error_validacion[i].SetError(text_validacion[i], "Debe contener por lo menos una Mayus, un numero y un caracter especial");
                             conteo = false;
                         }
                     }
                 }
                 if (conteo == false)
                 {
-                    control += 1;
+                    control_validacion += 1;
                 }
             }
 
-            if (control > 0)
+            if (control_validacion > 0)
             {
-                control = 0;
+                control_validacion = 0;
                 return false;
             }
             else
             {
-                control = 0;
+                control_validacion = 0;
                 return true;
             }
         }
 
-        public bool buscarRepetidos(TextBox txt, ErrorProvider erp)//valida que un telefono no tenga 8 digitos repetidos
+        public bool Buscar_Repetidos(TextBox txt, ErrorProvider erp)//valida que un telefono no tenga 8 digitos repetidos
         {
             if (txt.Text != "") //validamos que no este vacio
             {

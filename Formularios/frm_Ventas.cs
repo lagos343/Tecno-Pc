@@ -266,7 +266,7 @@ namespace Tecno_Pc.Formularios
                         //creamos el registro de la factura
                         sql.Sql_Querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
                         ", GETDATE(), 0.15, " + id_sar + ")");
-
+                        
                         //recorremos la lista de ventas para ir añadiendo a la BD esos registros del Detalle
                         foreach (DataGridViewRow fila_actual in dgv_Factura.Rows)
                         {

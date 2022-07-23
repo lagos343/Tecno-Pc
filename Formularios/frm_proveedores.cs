@@ -61,13 +61,13 @@ namespace Tecno_Pc.Formularios
 
         private void frm_proveedores_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_Proveedores();
         }
 
-        public void carga() //se encarga de llenar el datagrid con los registros de la tabla
+        public void Carga_Proveedores() //se encarga de llenar el datagrid con los registros de la tabla
         {
             proveedores.consultarDatos(dgv_Productos);
-            operacionesdatarid();
+            Operaciones_Datarid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
                 columna.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -75,7 +75,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void operacionesdatarid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los proveedores
+        private void Operaciones_Datarid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los proveedores
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -95,7 +95,7 @@ namespace Tecno_Pc.Formularios
         {
             proveedores.Nombre = txt_buscar.Text;
             proveedores.buscarDatos(dgv_Productos);
-            operacionesdatarid();
+            Operaciones_Datarid();
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si tocamos el boton de editar o de eliminar

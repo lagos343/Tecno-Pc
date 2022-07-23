@@ -74,15 +74,15 @@ namespace Tecno_Pc.Formularios
         private void Guarda_Click(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos guardar
         {
             Definicion_Array_User();
-            if(vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
+            if (vld.Validar_Usuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Nombre_usuario = txt_usuario.Text;
-                user.Clave = txt_pass.Text;
+                user.Clave_Usuario = txt_pass.Text;
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
-                user.Estado = Convert.ToBoolean(true);
+                user.Estado_Usuario = Convert.ToBoolean(true);
 
-                if (user.guardar()) //verificamos que no devuelva error el comando sql
+                if (user.Guardar_Usuario()) //verificamos que no devuelva error el comando sql 
                 {
                     Limpiar_Usuarios();
                 }                
@@ -119,16 +119,16 @@ namespace Tecno_Pc.Formularios
         {
             Definicion_Array_User();
 
-            if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
+            if (vld.Validar_Usuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Id_usuarios = int.Parse(txt_id.Text);
                 user.Nombre_usuario = txt_usuario.Text;
-                user.Clave = txt_pass.Text;
+                user.Clave_Usuario = txt_pass.Text;
                 user.Id_rol = int.Parse(cborol.SelectedValue.ToString());
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
-                user.Estado = Convert.ToBoolean(true);
+                user.Estado_Usuario = Convert.ToBoolean(true);
 
-                if (user.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
+                if (user.Actualizar_Datos()) //verifimacmos que no devuelva error el comando sql
                 {
                     this.Close();
                 }                

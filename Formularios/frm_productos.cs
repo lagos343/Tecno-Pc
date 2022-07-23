@@ -33,7 +33,7 @@ namespace Tecno_Pc.Formularios
         private void frm_productos_Load(object sender, EventArgs e) //Load para llamar el Dashboard
         {
             Dashboard();
-            usuario();
+            Usuario_Productos();
         }
 
         public void Dashboard() //manda a llamar la informacion que se muestra en los Widgets
@@ -50,10 +50,10 @@ namespace Tecno_Pc.Formularios
                 columna.SortMode = DataGridViewColumnSortMode.NotSortable;
             }
 
-            operacionesDataGrid();
+            Operaciones_DataGrid();
         }
 
-        public void operacionesDataGrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados         
+        public void Operaciones_DataGrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados        
         {            
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -102,7 +102,7 @@ namespace Tecno_Pc.Formularios
         {
             prod.Nombre_Producto = txt_buscar.Text;
             prod.buscarDatos(dgv_Productos);
-            operacionesDataGrid();
+            Operaciones_DataGrid();
         }
 
         private void btn_nuevoProducto_Click(object sender, EventArgs e) //muestra el formulario de nuevos productos
@@ -146,7 +146,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(ReporteProductos); //generamos un subproceso en base a el prod de reportes
+            Task tar1 = new Task(Reporte_Productos); //generamos un subproceso en base a el prod de reportes
             tar1.Start();
             await tar1;
 
@@ -157,7 +157,7 @@ namespace Tecno_Pc.Formularios
             frm.abrirPdfs(new frm_productos()); //abrimos el pdf
         }
 
-        private void ReporteProductos() //mandamos a la clase de reporte la info necesaria para geneerar este reporte
+        private void Reporte_Productos() //mandamos a la clase de reporte la info necesaria para geneerar este reporte
         {
             rep.Cadena_consulta = "select p.[nombre_producto], p.modelo_producto, CAST(p.[precio_unitario] AS decimal(9,2)), c.[nombre_categoria], m.[nombre_marca], pr.nombre_proveedor, " +
                 "(select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock, cod_barra from Productos p " +
@@ -172,9 +172,9 @@ namespace Tecno_Pc.Formularios
             rep.GenerarPdf(); //generamos el pdf
         }        
 
-        private void usuario() //dependiendo del usuario se ocultaran algunas opciones
+        private void Usuario_Productos() //dependiendo del usuario se ocultaran algunas opciones
         {
-            if(login.IdRol_ == 2)
+            if(login.Id_Rol == 2)
             {
                 btn_nuevoProducto.Hide();
                 btn_Imprimir.Hide();

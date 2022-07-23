@@ -161,7 +161,7 @@ namespace Tecno_Pc.Formularios
         private void btn_guardar_Click(object sender, EventArgs e) //boton que guarda toda la configuracion
         {
             Definicion_Array();
-            if (vld.comprobartxt() == true && cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "" && txt_cai.Text.Length == 37)
+            if (vld.Comprobar_Txt() == true && cbo_servers.Text != "" && cbo_autenticaciones.SelectedIndex != -1 && txt_ruta.Text != "" && txt_cai.Text.Length == 37)
             { 
                 if (cbo_autenticaciones.SelectedIndex == 1 && (txt_password.Text == "" || txt_user.Text == "")) //verificamos el modo de autenticacion 
                 {

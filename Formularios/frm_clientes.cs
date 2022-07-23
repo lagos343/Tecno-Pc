@@ -117,20 +117,20 @@ namespace Tecno_Pc.Formularios
         private void btn_guardar_Click(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos guardar
         {
             Definicion_Array();
-            if (vld.comprobartxt() == true && cmb_Depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_Email, erp_email) == true && vld.buscarRepetidos(txt_Tel, erp_telefono) == true)
+            if (vld.Comprobar_Txt() == true && cmb_Depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_Email, erp_email) == true && vld.Buscar_Repetidos(txt_Tel, erp_telefono) == true)
             {
                 if (actualizar == true) //verificamos si vamos a guardar o actulizar
                 {
-                    cli.IDCliente = int.Parse(txt_id.Text.ToString());
-                    cli.IDDepto = int.Parse(cmb_Depto.SelectedValue.ToString());
-                    cli.identidad = txt_Ident.Text;
-                    cli.Nombree = txt_Nombre.Text;
-                    cli.Apellidoo = txt_Apell.Text;
-                    cli.Telefonoo = txt_Tel.Text;
-                    cli.CorreoElectronicoo = txt_Email.Text;
-                    cli.Direccionn = txt_Direccion.Text;
+                    cli.Id_Cliente = int.Parse(txt_id.Text.ToString());
+                    cli.Id_Depto = int.Parse(cmb_Depto.SelectedValue.ToString());
+                    cli.identidad_Cliente = txt_Ident.Text;
+                    cli.Nombre_Cliente = txt_Nombre.Text;
+                    cli.Apellido_Cliente = txt_Apell.Text;
+                    cli.Telefono_Cliente = txt_Tel.Text;
+                    cli.Correo_Electronico = txt_Email.Text;
+                    cli.Direccion_Cliente = txt_Direccion.Text;
 
-                    if (cli.actualizarDatos()) //verificamos que no devuelva error el comando sql
+                    if (cli.Actualizar_Datos()) //verificamos que no devuelva error el comando sql
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
@@ -140,15 +140,15 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    cli.IDDepto = int.Parse(cmb_Depto.SelectedValue.ToString());
-                    cli.identidad = txt_Ident.Text;
-                    cli.Nombree = txt_Nombre.Text;
-                    cli.Apellidoo = txt_Apell.Text;
-                    cli.Telefonoo = txt_Tel.Text;
-                    cli.CorreoElectronicoo = txt_Email.Text;
-                    cli.Direccionn = txt_Direccion.Text;
+                    cli.Id_Depto = int.Parse(cmb_Depto.SelectedValue.ToString());
+                    cli.identidad_Cliente = txt_Ident.Text;
+                    cli.Nombre_Cliente = txt_Nombre.Text;
+                    cli.Apellido_Cliente = txt_Apell.Text;
+                    cli.Telefono_Cliente = txt_Tel.Text;
+                    cli.Correo_Electronico = txt_Email.Text;
+                    cli.Direccion_Cliente = txt_Direccion.Text;
 
-                    if (cli.guardar()) //verificamos que no devuelva error el comando sql
+                    if (cli.Guardar_Cliente()) //verificamos que no devuelva error el comando sql
                     {
                         Btn_Guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
@@ -164,8 +164,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 Escoger_Erp();
-                if (vld.ValidarLetrasCorreos(txt_Email, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_Tel, erp_telefono) == true) ;
+                if (vld.Validar_Letrascorreos(txt_Email, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_Tel, erp_telefono) == true) ;
             }              
         }
 
@@ -219,8 +219,8 @@ namespace Tecno_Pc.Formularios
                 if (noti.Dialogresul == DialogResult.OK) //si presionamos ok se oculta el registro
                 {
                     noti.Close();
-                    cli.IDCliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
-                    cli.eliminarDatos();
+                    cli.Id_Cliente = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
+                    cli.Eliminar_Datos();
                     dgv_datos.DataSource = sql.Consulta("select * from Clientes where estado_cliente=1");
                     Operaciones_Datagrid();
                 }                
@@ -241,8 +241,8 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
-            cli.Nombree = txt_buscar.Text;
-            cli.buscarDatos(dgv_datos);
+            cli.Nombre_Cliente = txt_buscar.Text;
+            cli.Buscar_Datos(dgv_datos);
             Operaciones_Datagrid();
         }
 

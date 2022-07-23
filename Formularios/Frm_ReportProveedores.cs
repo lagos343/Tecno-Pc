@@ -52,7 +52,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(ReporteProveedor); //generamos un sub proceso en een base al prod de los reportes
+                Task tar1 = new Task(Reporte_Proveedor); //generamos un sub proceso en een base al prod de los reportes
                 tar1.Start();
                 await tar1;
 
@@ -69,9 +69,9 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void ReporteProveedor() //genera un reporte en base a la seleccion que hayamos hecho
-        { 
-            if (radio_gen.Checked) //reporte general de proveedores
+        private void Reporte_Proveedor() //genera un reporte en base a la seleccion que hayamos hecho
+        {
+            if (radio_gen.Checked) //reporte general de proveedores                
             {
                 rep.Cadena_consulta = "SELECT Proveedores.nombre_proveedor, Proveedores.telefono_proveedor,Departamentos.[nombre_depto] [Departamento], Proveedores.direccion_proveedor, Proveedores.[correo_electronico] FROM    " +
                 " Proveedores INNER JOIN  Departamentos ON Proveedores.[id_depto] = Departamentos.[id_depto]" +

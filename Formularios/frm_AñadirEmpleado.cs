@@ -107,20 +107,20 @@ namespace Tecno_Pc.Formularios
         private void Guarda_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos guardar 
         {
             Definicion_Array();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true 
-                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
+            if (vld.Comprobar_Txt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_correo, erp_email) == true 
+                && vld.Buscar_Repetidos(txt_telefono, erp_tel) == true)
             { 
-                empleados.Identidad = txt_identidad.Text;
-                empleados.Nombre = txt_nombre.Text;
-                empleados.Apellido = txt_apellido.Text;
-                empleados.Telefono = txt_telefono.Text;
-                empleados.Direccion = txt_direccion.Text;
-                empleados.Email = txt_correo.Text;
-                empleados.Iddepto = int.Parse(cbo_depto.SelectedValue.ToString());
-                empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
-                empleados.Estado = Convert.ToBoolean(true);
+                empleados.Identidad_Empleado = txt_identidad.Text;
+                empleados.Nombre_Empleado = txt_nombre.Text;
+                empleados.Apellido_Empleado = txt_apellido.Text;
+                empleados.Telefono_Empleado = txt_telefono.Text;
+                empleados.Direccion_Empleado = txt_direccion.Text;
+                empleados.Email_Empleado = txt_correo.Text;
+                empleados.Id_Depto = int.Parse(cbo_depto.SelectedValue.ToString());
+                empleados.Id_Puesto = int.Parse(cbo_puesto.SelectedValue.ToString());
+                empleados.Estado_Empleado = Convert.ToBoolean(true);
 
-                if (empleados.guardar()) //verificamos que no devuelva error el comando sql
+                if (empleados.Guardar_Empleado()) //verificamos que no devuelva error el comando sql
                 {
                     Limpiado_Empleados();
                 }
@@ -131,9 +131,9 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                Escoger_Erp(); 
-                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
+                Escoger_Erp();
+                if (vld.Validar_Letrascorreos(txt_correo, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_tel) == true) ;
             }
 
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
@@ -143,20 +143,20 @@ namespace Tecno_Pc.Formularios
         private void Actualiza_Click(object sender, EventArgs e) // proceso subrogado que usara el boton cuando requiramos actualizar
         {
             Definicion_Array();
-            if (vld.comprobartxt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_correo, erp_email) == true
-                && vld.buscarRepetidos(txt_telefono, erp_tel) == true)
+            if (vld.Comprobar_Txt() == true && cbo_puesto.SelectedIndex != -1 && cbo_depto.SelectedIndex != -1 && vld.Validar_Letrascorreos(txt_correo, erp_email) == true
+                && vld.Buscar_Repetidos(txt_telefono, erp_tel) == true)
             {
-                empleados.Idempleado = int.Parse(txt_id.Text);
-                empleados.Identidad = txt_identidad.Text;
-                empleados.Nombre = txt_nombre.Text;
-                empleados.Apellido = txt_apellido.Text;
-                empleados.Telefono = txt_telefono.Text;
-                empleados.Direccion = txt_direccion.Text;
-                empleados.Email = txt_correo.Text;
-                empleados.Iddepto = int.Parse(cbo_depto.SelectedValue.ToString());
-                empleados.Idpuesto = int.Parse(cbo_puesto.SelectedValue.ToString());
+                empleados.Id_Empleado = int.Parse(txt_id.Text);
+                empleados.Identidad_Empleado = txt_identidad.Text;
+                empleados.Nombre_Empleado = txt_nombre.Text;
+                empleados.Apellido_Empleado = txt_apellido.Text;
+                empleados.Telefono_Empleado = txt_telefono.Text;
+                empleados.Direccion_Empleado = txt_direccion.Text;
+                empleados.Email_Empleado = txt_correo.Text;
+                empleados.Id_Depto = int.Parse(cbo_depto.SelectedValue.ToString());
+                empleados.Id_Puesto = int.Parse(cbo_puesto.SelectedValue.ToString());
 
-                if (empleados.update()) //verificamos que no devuelva error el comando sql
+                if (empleados.Update_Empleado()) //verificamos que no devuelva error el comando sql
                 {
                     Limpiado_Empleados();
                     this.Close();
@@ -168,8 +168,8 @@ namespace Tecno_Pc.Formularios
                 noti.ShowDialog();
                 noti.Close();
                 Escoger_Erp();
-                if (vld.ValidarLetrasCorreos(txt_correo, erp_email) == true) ;
-                if (vld.buscarRepetidos(txt_telefono, erp_tel) == true) ;
+                if (vld.Validar_Letrascorreos(txt_correo, erp_email) == true) ;
+                if (vld.Buscar_Repetidos(txt_telefono, erp_tel) == true) ;                
             }
             Formularios.frm_empleados frm = Application.OpenForms.OfType<Formularios.frm_empleados>().SingleOrDefault();
             frm.carga();//revcargamos el formulario

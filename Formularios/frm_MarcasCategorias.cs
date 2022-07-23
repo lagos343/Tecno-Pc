@@ -38,7 +38,7 @@ namespace Tecno_Pc.Formularios
                 txt_buscar.TextChanged += txt_buscarCategorias_TextChanged;
                 btn_editar.Click += btn_editarCategorias_Click;                            
                 this.Text = "Categorias";
-                cate.consultarDatos(dgv_datos);                
+                cate.Consultar_Datos(dgv_datos);                
             }
             else if (valor == 2) //este valor es el modo marcas
             {
@@ -116,34 +116,34 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayCategorias();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld.Comprobar_Txt() == false || vld.Validar_Letras(txt_nombre, erp_nombre) == false)
             {                
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false);
+                if (vld.Validar_Letras(txt_nombre, erp_nombre) == false);
             }
             else
             {
                 if (editar == true) //verificamos si estamos editando o guardando
                 {
-                    cate.IDCategoria = int.Parse(txt_id.Text);
+                    cate.Id_Categoria = int.Parse(txt_id.Text);
                     cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.actualizarDatos()) //verificamos que no devuelva error el comando sql
+                    if (cate.Actualizar_Datos()) //verificamos que no devuelva error el comando sql
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate.Consultar_Datos(dgv_datos);
                     }
                 }
                 else
                 {
                     cate.NombreCategoria = txt_nombre.Text;
-                    if (cate.guardar()) //verificamos que no devuelva error el comando sql
+                    if (cate.Guardar_Categoria()) //verificamos que no devuelva error el comando sql
                     {
                         limpiarDatos();
                         btn_guardar.Text = "Guardar";
-                        cate.consultarDatos(dgv_datos);
+                        cate.Consultar_Datos(dgv_datos);
                     }
                 }                
             }           
@@ -152,7 +152,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscarCategorias_TextChanged(object sender, EventArgs e) //se encarga de buscar los registros filtrados
         {
             cate.NombreCategoria = txt_buscar.Text;
-            cate.buscarDatos(dgv_datos);
+            cate.Buscar_Datos(dgv_datos);
         }
 
         private void btn_editarCategorias_Click(object sender, EventArgs e) //manda la informacion del registro seleccionado a los textbox para editarlo
@@ -179,12 +179,12 @@ namespace Tecno_Pc.Formularios
         {
             definicionarrayMarcas();
 
-            if (vld.comprobartxt() == false || vld.ValidarLetras(txt_nombre, erp_nombre) == false)
+            if (vld.Comprobar_Txt() == false || vld.Validar_Letras(txt_nombre, erp_nombre) == false)
             {
                 frm_notificacion noti = new frm_notificacion("Operacion imcompleta por errores, ¡Corrija todos los errores!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                if (vld.ValidarLetras(txt_nombre, erp_nombre) == false) ;
+                if (vld.Validar_Letras(txt_nombre, erp_nombre) == false) ;
             }
             else
             {
