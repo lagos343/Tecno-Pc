@@ -90,7 +90,7 @@ namespace Tecno_Pc
 
         private void lnk_Re_usu_contra_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
-            recu.enviar_correo();
+            recu.Enviar_correo();
         }
 
         private void btn_ingresar_Click(object sender, EventArgs e)
@@ -152,7 +152,7 @@ namespace Tecno_Pc
             Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
             rep.Vertical = true;
             rep.Carpeta = "Facturas";
-            rep.generar_pdf();
+            rep.Generar_pdf();
         }
     }
 }

@@ -31,7 +31,7 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Ventas_Load(object sender, EventArgs e)
         {
-            dgv_Productos.DataSource = sql.consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+            dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
             Operacionesdatagrid1();
             InicializarCombobox();
@@ -41,12 +41,12 @@ namespace Tecno_Pc.Formularios
         private void InicializarCombobox()
         {
             lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
-            cbo_cliente.DataSource = sql.consulta_registro("select [id_cliente], (nombre_cliente + ' ' + apellido_cliente) Nombre from Clientes where estado_cliente = 1");
+            cbo_cliente.DataSource = sql.Consulta_registro("select [id_cliente], (nombre_cliente + ' ' + apellido_cliente) Nombre from Clientes where estado_cliente = 1");
             cbo_cliente.DisplayMember = "Nombre";
             cbo_cliente.ValueMember = "id_cliente";
             cbo_cliente.SelectedIndex = -1;
 
-            cbo_tipoPago.DataSource = sql.consulta_registro("select * from Transacciones");
+            cbo_tipoPago.DataSource = sql.Consulta_registro("select * from Transacciones");
             cbo_tipoPago.DisplayMember = "tipo_transaccion";
             cbo_tipoPago.ValueMember = "id_transaccion";
             cbo_tipoPago.SelectedIndex = -1;
@@ -216,7 +216,7 @@ namespace Tecno_Pc.Formularios
 
             txt_buscar.Clear();
             InicializarCombobox();            
-            dgv_Productos.DataSource = sql.consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+            dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
                     
             LimpiarProductoSeleccionado();
@@ -237,25 +237,25 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                long id = long.Parse(sql.consulta2_registro("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
-                DataTable Sar = sql.consulta_registro("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id+1)+") >= (ran_desde - 1) " +
+                long id = long.Parse(sql.Consulta2_registro("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
+                DataTable Sar = sql.Consulta_registro("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id+1)+") >= (ran_desde - 1) " +
                     "and ("+(id+1)+ ") <= ran_hasta ) order by id_sar desc");
 
                 if(Sar.Rows.Count > 0)
                 {
                     long IdSar = long.Parse(Sar.Rows[0][0].ToString());
-                    long ultimasar = long.Parse(sql.consulta2_registro("select top 1 id_sar from sar order by id_sar desc"));
+                    long ultimasar = long.Parse(sql.Consulta2_registro("select top 1 id_sar from sar order by id_sar desc"));
 
                     if(IdSar == ultimasar)
                     {
-                        sql.sql_querys("insert into Facturas values(" + (id + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
+                        sql.Sql_querys("insert into Facturas values(" + (id + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
                         ", GETDATE(), 0.15, " + IdSar + ")");
 
                         foreach (DataGridViewRow fila in dgv_Factura.Rows)
                         {
                             int cant = int.Parse(fila.Cells[3].Value.ToString());
                             int idprod = int.Parse(fila.Cells[1].Value.ToString());
-                            sql.sql_querys("insert into DetalleFactura values (" + (id + 1) + ", "
+                            sql.Sql_querys("insert into DetalleFactura values (" + (id + 1) + ", "
                                 + idprod + ", (Select [precio_unitario] from Productos where [id_producto] = " + idprod + "), " + cant + ", " + fila.Cells[5].Value.ToString() + ")");
                         }
 
@@ -280,7 +280,7 @@ namespace Tecno_Pc.Formularios
          
         private async void GenerarFactura()
         {
-            rep.Dgv = sql.consulta_registro("select Top 1 [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
+            rep.Dgv = sql.Consulta_registro("select Top 1 [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                     "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
                     "join Transacciones t on t.[id_transaccion] = f.[id_transaccion] order by f.[id_factura] desc");
 
@@ -366,7 +366,7 @@ namespace Tecno_Pc.Formularios
             {
                 if (Properties.Settings.Default.CodBar == "true")
                 {
-                    dgv_Productos.DataSource = sql.consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and cod_barra = '" + txt_buscar.Text + "' order by [nombre_producto] asc");
                     Operacionesdatagrid1();
 
@@ -392,14 +392,14 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    dgv_Productos.DataSource = sql.consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                    dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
                     Operacionesdatagrid1();
                 }
             }
             else
             {
-                dgv_Productos.DataSource = sql.consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
+                dgv_Productos.DataSource = sql.Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
                 Operacionesdatagrid1();
             }           

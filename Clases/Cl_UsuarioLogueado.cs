@@ -55,7 +55,7 @@ namespace Tecno_Pc.Clases
                 "(e.nombre_empleado + ' ' + e.apellido_empleado) Propietario, e.[correo_electronico], e.telefono_empleado, " +
                 "r.[nombre_rol], u.estado_usuario from Usuarios u inner join Roles r on u.[id_rol] = r.id_rol inner join Empleados e on u.[id_empleado] = e.[id_empleado] where " +
                 "[nombre_usuario] = '" + usuario_+ "' and u.estado_usuario = 1";
-            datos = consulta_registro(cadena);
+            datos = Consulta_registro(cadena);
 
             try//intentamos extraer la informacion si ha devuelto algun registro la consulta sql 
             {

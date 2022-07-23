@@ -52,7 +52,7 @@ namespace Tecno_Pc.Formularios
                 txt_precio.Text = dat.CurrentRow.Cells[6 + 2].Value.ToString();
                 swt_estado.Checked = Convert.ToBoolean(dat.CurrentRow.Cells[7 + 2].Value.ToString());
                 txt_codBarra.Text = dat.CurrentRow.Cells[8 + 2].Value.ToString();
-                txt_stock.Text = sql.consulta2_registro("Select stock_producto from Inventarios where [id_producto] = " + txt_id.Text);
+                txt_stock.Text = sql.Consulta2_registro("Select stock_producto from Inventarios where [id_producto] = " + txt_id.Text);
                 this.Text = "Actualizar Producto";
             }
 
@@ -73,17 +73,17 @@ namespace Tecno_Pc.Formularios
 
         public void InicializarCombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
-            cbo_marca.DataSource = sql.consulta_registro("select *from Marcas order by [nombre_marca] asc");
+            cbo_marca.DataSource = sql.Consulta_registro("select *from Marcas order by [nombre_marca] asc");
             cbo_marca.DisplayMember = "nombre_marca";
             cbo_marca.ValueMember = "id_marca";
             cbo_marca.SelectedIndex = -1;
 
-            cbo_categoria.DataSource = sql.consulta_registro("select *from Categorias order by [nombre_categoria] asc");
+            cbo_categoria.DataSource = sql.Consulta_registro("select *from Categorias order by [nombre_categoria] asc");
             cbo_categoria.DisplayMember = "nombre_categoria";
             cbo_categoria.ValueMember = "id_categoria";
             cbo_categoria.SelectedIndex = -1;
 
-            cbo_proveedor.DataSource = sql.consulta_registro("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
+            cbo_proveedor.DataSource = sql.Consulta_registro("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
             cbo_proveedor.DisplayMember = "nombre_proveedor";
             cbo_proveedor.ValueMember = "id_proveedor";
             cbo_proveedor.SelectedIndex = -1;
@@ -115,7 +115,7 @@ namespace Tecno_Pc.Formularios
 
                 if (prod.guardar()) //verificamos que no devuelva error el comando sql
                 {
-                    sql.sql_querys("insert into Inventarios values((select top 1 [id_producto] from Productos order by[id_producto] desc), " + txt_stock.Text + ")"); //actualizamos inventarios
+                    sql.Sql_querys("insert into Inventarios values((select top 1 [id_producto] from Productos order by[id_producto] desc), " + txt_stock.Text + ")"); //actualizamos inventarios
                     Limnpiado();
                 }
             }
@@ -196,7 +196,7 @@ namespace Tecno_Pc.Formularios
 
                 if (prod.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
                 {
-                    sql.sql_querys("update Inventarios set stock_producto = " + txt_stock.Text + " where [id_producto] = " + txt_id.Text); //actulizamos inventarios
+                    sql.Sql_querys("update Inventarios set stock_producto = " + txt_stock.Text + " where [id_producto] = " + txt_id.Text); //actulizamos inventarios
                     this.Close();
                 }                
             }

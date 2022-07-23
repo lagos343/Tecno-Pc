@@ -26,24 +26,24 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombreMarca + "')";
-            return sql_query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
         public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = consulta_registro("select *from Marcas order by [nombre_marca] asc"); 
+            dgv.DataSource = Consulta_registro("select *from Marcas order by [nombre_marca] asc"); 
         }
 
         public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
         {
-            dgv.DataSource = consulta_registro("select *from Marcas where [nombre_marca] Like '%"+nombreMarca+"%' order by [nombre_marca] asc");
+            dgv.DataSource = Consulta_registro("select *from Marcas where [nombre_marca] Like '%"+nombreMarca+"%' order by [nombre_marca] asc");
         }
 
         public bool actualizarDatos()
         {
             string cadena;
             cadena = "Update Marcas set [nombre_marca] = '"+nombreMarca+"' where [id_marca] = "+iDMarca+"";
-            return sql_query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }       
     }
 }

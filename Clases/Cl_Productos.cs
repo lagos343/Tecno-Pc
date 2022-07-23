@@ -39,31 +39,31 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "insert into Productos values ("+iDCategoria+", "+iDMarca+", "+iDProveedor+", '"+nombreProducto+"', '"+modelo+"', "+precioUnitario+", "+Convert.ToInt32(estado)+", '"+codbarra+"')";
-            return sql_query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
+            return Sql_query(cadena, "Producto añadido con Exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
         public void consultarDatos(DataGridView dgv) //llena el datagrid con los registros
         {
-            dgv.DataSource = consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
+            dgv.DataSource = Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
                 "order by [nombre_producto] asc");
         }
 
         public void buscarDatos(DataGridView dgv) //busquedas filtradas 
         {
-            dgv.DataSource = consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
+            dgv.DataSource = Consulta_registro("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock from Productos p where estado_producto = 1 " +
                 "and [nombre_producto] Like '%" + nombreProducto + "%' order by [nombre_producto] asc");
         }
 
         public bool actualizarDatos() 
         {
-            return sql_query("Update Productos set [id_categoria] = " + iDCategoria + ", [id_marca] = " + iDMarca + ", [id_proveedor] = " + iDProveedor + ", [nombre_producto] = '" + nombreProducto + "', " +
+            return Sql_query("Update Productos set [id_categoria] = " + iDCategoria + ", [id_marca] = " + iDMarca + ", [id_proveedor] = " + iDProveedor + ", [nombre_producto] = '" + nombreProducto + "', " +
                 "modelo_producto = '" + modelo + "', [precio_unitario] = " + precioUnitario + ", estado_producto = " + Convert.ToInt32(estado) + ", cod_barra = '"+codbarra+"' where [id_producto] = " + iDProducto + "", 
                 "Producto actualizado con exito", "¡El codigo de barra especificado ya esta en uso!"); //si sql devuelve error, hay un codigo de barras repetido
         }
 
         public void eliminarDatos()
         {
-            sql_querys("Update Productos set estado_producto = 0 where [id_producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
+            Sql_querys("Update Productos set estado_producto = 0 where [id_producto] = " + iDProducto, "Se ha elminado este producto", "Error al eliminar");            
         }
     }
 }

@@ -26,7 +26,7 @@ namespace Tecno_Pc.Clases
         public string correos_recuperacion { get => correo_recuperacion; set => correo_recuperacion = value; }
         public string contraseñas_correo_recuperacion { get => contraseña_correo_recuperacion; set => contraseña_correo_recuperacion = value; }        
 
-        public void enviar_correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
+        public void Enviar_correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
         {  
             //creacion de el mensaje y su cuerpo 
             mmsg_recuperacion.To.Add(user_log.Correo_);

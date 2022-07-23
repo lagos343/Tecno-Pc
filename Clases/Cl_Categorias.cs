@@ -24,24 +24,24 @@ namespace Tecno_Pc.Clases
         {
             string cadena;
             cadena = "Insert into Categorias values('" + nombreCategoria + "')";
-            return sql_query(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_query(cadena, "Categoria añadida con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
         public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario 
         {
-            dgv.DataSource = consulta_registro("select *from Categorias order by [nombre_categoria] asc");
+            dgv.DataSource = Consulta_registro("select *from Categorias order by [nombre_categoria] asc");
         }
 
         public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas
         {           
-            dgv.DataSource = consulta_registro("select *from Categorias where [nombre_categoria] Like '%"+nombreCategoria+"%' order by [nombre_categoria] asc");
+            dgv.DataSource = Consulta_registro("select *from Categorias where [nombre_categoria] Like '%"+nombreCategoria+"%' order by [nombre_categoria] asc");
         }
 
         public bool actualizarDatos() 
         {
             string cadena;
             cadena = "Update Categorias set [nombre_categoria] = '"+nombreCategoria+"' where [id_categoria] = "+iDCategoria+"";
-            return sql_query(cadena, "Categoria actulizada con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false la infformacion actulizada repite un registro ya existente
+            return Sql_query(cadena, "Categoria actulizada con exito", "¡Ya existe esta categoria!"); //si la sentencia sql devuelve false la infformacion actulizada repite un registro ya existente
         }        
     }
 }

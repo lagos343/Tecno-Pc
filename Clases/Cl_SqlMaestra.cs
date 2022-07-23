@@ -38,7 +38,7 @@ namespace Tecno_Pc.Clases
         }
 
        
-        public void abrir_coneccion() //se encarga de abrrir la coneccion a sql
+        public void Abrir_coneccion() //se encarga de abrrir la coneccion a sql
         {
             try
             {
@@ -70,9 +70,9 @@ namespace Tecno_Pc.Clases
             connection_sql.Close();
         }
 
-        public DataTable consulta_registro(String cadena_consulta) //se encarga dde consultas de muchos registros
+        public DataTable Consulta_registro(String cadena_consulta) //se encarga dde consultas de muchos registros
         {
-            abrir_coneccion();
+            Abrir_coneccion();
             adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
             tabla_resultados = new DataTable();
             try
@@ -85,11 +85,11 @@ namespace Tecno_Pc.Clases
             return tabla_resultados;
         }
 
-        public String consulta2_registro(String cadena_consulta) //se encarga de consultas que retornan un solo dato
+        public String Consulta2_registro(String cadena_consulta) //se encarga de consultas que retornan un solo dato
         {
             string resultado_consulta = "";
 
-            abrir_coneccion();
+            Abrir_coneccion();
             adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
             tabla_resultados = new DataTable();
             adapter_sql.Fill(tabla_resultados);
@@ -99,9 +99,9 @@ namespace Tecno_Pc.Clases
             return resultado_consulta;
         }
 
-        public void sql_querys(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores
+        public void Sql_querys(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores
         {
-            abrir_coneccion();
+            Abrir_coneccion();
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;
             cmd_sql.CommandText = cadena_sql;
@@ -122,10 +122,10 @@ namespace Tecno_Pc.Clases
             Cerrar();
         }
 
-        public bool sql_query(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
+        public bool Sql_query(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
         {
             bool retorno_sql;
-            abrir_coneccion();
+            Abrir_coneccion();
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;
             cmd_sql.CommandText = cadena_sql;
@@ -149,9 +149,9 @@ namespace Tecno_Pc.Clases
             return retorno_sql;
         }
 
-        public void sql_querys(string cadena_sql) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
+        public void Sql_querys(string cadena_sql) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
         {
-            abrir_coneccion();
+            Abrir_coneccion();
 
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;

@@ -95,7 +95,7 @@ namespace Tecno_Pc.Formularios
             rep.Titulo = titulo;
             rep.Tamanios = new float[] { 2, 6, 2, 6, 2, 1, 2};
             rep.Vertical = false;
-            rep.generar_pdf();
+            rep.Generar_pdf();
         }
    
         private void salir_Click(object sender, EventArgs e)

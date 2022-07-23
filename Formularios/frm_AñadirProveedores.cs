@@ -54,7 +54,7 @@ namespace Tecno_Pc.Formularios
 
         public void iniciarcombobox()
         {
-            cbo_depto.DataSource = sql.consulta_registro("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DataSource = sql.Consulta_registro("select * from Departamentos order by [nombre_depto] asc");
             cbo_depto.DisplayMember = "nombre_depto";
             cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;
@@ -86,7 +86,7 @@ namespace Tecno_Pc.Formularios
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 proveedores.Estado = Convert.ToBoolean(true);
 
-                if (proveedores.guardar_sql())
+                if (proveedores.Guardar_sql())
                 {
                     limpiado();
                 }
@@ -118,7 +118,7 @@ namespace Tecno_Pc.Formularios
                 proveedores.Direccion = txt_direccion.Text;
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
 
-                if (proveedores.actualizar_datos())
+                if (proveedores.Actualizar_datos())
                 {
                     limpiado();
                     this.Close();
