@@ -16,12 +16,14 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_contactos : Form
     {
+        //Importacion de libreias propias de windows para movimiento del formulario  
         bool actualizar = false;
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        //definicion de objetos de las clases necesarias
         Clases.Cl_Contactos con = new Clases.Cl_Contactos();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
@@ -32,6 +34,7 @@ namespace Tecno_Pc.Formularios
             InitializeComponent();
             InicializarCombobox();
 
+            //definicion de la ayuda visual con tooltip
             this.toolTip1.SetToolTip(this.cmb_depto, "Combobox de departamento");
             this.toolTip1.SetToolTip(this.cmb_proveedor, "Combobox de proveedor");
             this.toolTip1.SetToolTip(this.txt_id, "Caja de texto del No. de Identidad del Contacto");
@@ -82,7 +85,7 @@ namespace Tecno_Pc.Formularios
             erp_telefono.Clear();
         }
 
-        public void operacionesDataGrid()
+        public void operacionesDataGrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los contactos
         {
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[1].Visible = false;
@@ -91,7 +94,7 @@ namespace Tecno_Pc.Formularios
             dgv_datos.Columns[8].Visible = false;
         }
 
-        public void InicializarCombobox()
+        public void InicializarCombobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cmb_depto.DataSource = sql.Consulta("select *from Departamentos order by [nombre_depto] asc");
             cmb_depto.DisplayMember = "nombre_depto";
@@ -104,7 +107,7 @@ namespace Tecno_Pc.Formularios
             cmb_proveedor.SelectedIndex = -1;
         }
 
-        public void definicionarray()
+        public void definicionarray() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
         {
             vld.Text = new TextBox [5] { txt_nombre, txt_apellido, txt_direccion,txt_telefono,txt_email };
             vld.Error = new ErrorProvider[5] {erp_nombre,erp_apellido, erp_direccion, erp_telefono, erp_email  };
@@ -122,18 +125,18 @@ namespace Tecno_Pc.Formularios
             InicializarCombobox();
         }
 
-        private void btn_nuevo_Click_1(object sender, EventArgs e)
+        private void btn_nuevo_Click_1(object sender, EventArgs e) //se encarga de limpiar la cajas de texto y reiniciar el form para añadir un nuevo registro
         {
             Limnpiado();
             btn_guardar.Text = "Guardar";
         }
 
-        private void btn_guardar_Click_1(object sender, EventArgs e)
+        private void btn_guardar_Click_1(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos guardar
         {
             definicionarray();
             if (vld.comprobartxt()==true && cmb_depto.SelectedIndex != -1 && cmb_proveedor.SelectedIndex != -1 && vld.ValidarLetrasCorreos(txt_email, erp_email) == true && vld.buscarRepetidos(txt_telefono, erp_telefono) == true)
             {
-                if (actualizar == true)
+                if (actualizar == true) //verificamos si vamos a guardar o actulizar
                 {
                     con.IDContacto = int.Parse(txt_id.Text.ToString());
                     con.IDProveedor = int.Parse(cmb_proveedor.SelectedValue.ToString());
@@ -144,7 +147,7 @@ namespace Tecno_Pc.Formularios
                     con.CorreoElectronicoo = txt_email.Text;
                     con.Direccionn = txt_direccion.Text;
 
-                    if (con.actualizarDatos())
+                    if (con.actualizarDatos()) //verificamos que no devuelva error el comando sql
                     {
                         btn_guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -163,7 +166,7 @@ namespace Tecno_Pc.Formularios
                     con.Direccionn = txt_direccion.Text;
                     con.Estadoo = Convert.ToBoolean(true);
 
-                    if (con.guardar())
+                    if (con.guardar()) //verificamos que no devuelva error el comando sql
                     {
                         btn_guardar.Text = "Guardar";
                         dgv_datos.DataSource = sql.Consulta("select * from Contactos where estado_contacto=1");
@@ -174,6 +177,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                //mostramos los errores
                 frm_notificacion noti = new frm_notificacion("Error, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
@@ -183,7 +187,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void escoger_erp()
+        private void escoger_erp() //muestra los errores que puedan ocurrir en los combobox
         {
             if (cmb_proveedor.SelectedIndex == -1)
             {
@@ -199,7 +203,7 @@ namespace Tecno_Pc.Formularios
         }
 
         
-        private void btn_editar_Click_1(object sender, EventArgs e)
+        private void btn_editar_Click_1(object sender, EventArgs e) //prod que llena los campos con el registro seleccionado para editar su informacion 
         {
 
             if (dgv_datos.CurrentRow == null)
@@ -224,14 +228,14 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void btn_eliminar_Click_1(object sender, EventArgs e)
+        private void btn_eliminar_Click_1(object sender, EventArgs e) //prod que oculta registros y actuliza su estado a inactivos
         {
             if (dgv_datos.CurrentRow != null)
             {
                 Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este contacto?", 2);
                 noti.ShowDialog();
 
-                if (noti.Dialogresul == DialogResult.OK)
+                if (noti.Dialogresul == DialogResult.OK) //si presionamos ok se oculta el registro
                 {
                     con.IDContacto = int.Parse(dgv_datos.CurrentRow.Cells[0].Value.ToString());
                     con.eliminarDatos();
@@ -248,7 +252,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void txt_buscar_TextChanged_1(object sender, EventArgs e)
+        private void txt_buscar_TextChanged_1(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             con.Nombree = txt_buscar.Text;
             con.buscarDatos(dgv_datos);
@@ -258,7 +262,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown_1(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         #region keypress
@@ -331,7 +335,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(ReporteContactos);
+            Task tar1 = new Task(ReporteContactos); //llamaos el subproceso en base a el prod que abre el reporte
             tar1.Start();
             await tar1;
 
@@ -343,7 +347,7 @@ namespace Tecno_Pc.Formularios
             frm.BringToFront();
         }
 
-        public void ReporteContactos()
+        public void ReporteContactos() //prod que genera el reporte
         {
             rep.Cadena_consulta = "Select Contactos.nombre_contacto + ' ' + Contactos.apellido_contacto[Contacto], [Proveedores].nombre_proveedor[Proveedores], Departamentos.[nombre_depto][Departamento], " +
                 "Contactos.telefono_contacto, Contactos.[correo_electronico], Contactos.direccion_contacto from Contactos INNER JOIN Departamentos ON Contactos.[id_depto] =" +

@@ -13,8 +13,9 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_pdfs : Form
     {
+        //variable que almacena el form anterior que se reabrira al salir de la vista del pdf
         Form FormAnterior;
-        public frm_pdfs(string filepath, Form frm)
+        public frm_pdfs(string filepath, Form frm) //contructor que recibe la ruta del reporte y el form desde el cual se llama
         {
             InitializeComponent();
             toolTip1.SetToolTip(this.btn_cerar, "Cerrar Vista");
@@ -22,7 +23,7 @@ namespace Tecno_Pc.Formularios
             FormAnterior = frm;
         }
 
-        private void vizulizarPdf(string filepath)
+        private void vizulizarPdf(string filepath) //se envcarga de mostrar el pdf seleccionado
         {
             byte[] bytes = System.IO.File.ReadAllBytes(filepath);
             var stream = new System.IO.MemoryStream(bytes);
@@ -37,6 +38,7 @@ namespace Tecno_Pc.Formularios
             frm.AbrirFormulario(FormAnterior);
         }       
 
+        //apariencia de el boton de cerrado
         private void btn_cerar_MouseLeave(object sender, EventArgs e)
         {
             btn_cerar.FlatAppearance.BorderSize = 0;

@@ -47,7 +47,7 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void GenerarPdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdff
+        public void GenerarPdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdf
         {
             //indicamos el reporte que se abrira el el formulario de PDFs
             Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\" + titulo + " " + fecha.Replace("/", "-") + ".pdf";

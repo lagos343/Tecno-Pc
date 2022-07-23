@@ -12,7 +12,7 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_Usuarios : Form
     {
-
+        //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
         Clases.Cl_UsuarioLogueado login = new Clases.Cl_UsuarioLogueado();
@@ -20,17 +20,18 @@ namespace Tecno_Pc.Formularios
         public frm_Usuarios()
         {
             InitializeComponent();
+            //definicion de la ayuda visual con tooltip
             this.toolTip1.SetToolTip(this.btn_reporte, "Crear Reporte");
             this.toolTip1.SetToolTip(this.btn_nuevoUsuario, "Agregar Usuario");
             this.toolTip1.SetToolTip(this.gunaGradientButton1, "Gestionar Cliente");
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
         }    
 
-        public void carga()
+        public void Carga_Grid() //se encarga de llenar el datagrid con los registros de la tabla
         {
             user.consultarDatos(dgv_Productos);
-            operacionesdgv();
-            usuarios();
+            Operaciones_Dgv();
+            Usuarios_Load();
 
             foreach(DataGridViewColumn columna in dgv_Productos.Columns)
             {
@@ -41,10 +42,10 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Usuarios_Load(object sender, EventArgs e)
         {
-            carga();
+            Carga_Grid();
         }
 
-        private void btn_nuevoUsuario_Click(object sender, EventArgs e)
+        private void btn_nuevoUsuario_Click(object sender, EventArgs e) //llamamos el formulario en modo nuevo registro
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirUsuarios);
 
@@ -59,7 +60,7 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        private void gunaGradientButton1_Click(object sender, EventArgs e) //muestra el form de clientes
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_clientes);
             if (frm == null)
@@ -72,7 +73,7 @@ namespace Tecno_Pc.Formularios
                 frm.BringToFront();
             }
         }
-        private void operacionesdgv()
+        private void Operaciones_Dgv() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los usuarios
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -86,19 +87,20 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[1].Width = 50;
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             user.Nombre_usuario = txt_buscar.Text;
             user.buscarDatos(dgv_Productos);
-            operacionesdgv();
+            Operaciones_Dgv();
         }
 
-        private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si tocamos el boton de editar o de eliminar
         {
             try 
             {
                 if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
                 {
+                    //si es editar llamamos el formulario en modo actualizar y le pasamos la info del registro seleccionado  
                     frm_AñadirUsuarios añaem = new frm_AñadirUsuarios(2, dgv_Productos);
                     añaem.ShowDialog();
 
@@ -106,6 +108,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
                 {
+                    //si es eliminar y presionamos ok procedera a deshabilitar el registro
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este usuario?", 2);
                     noti.ShowDialog();
 
@@ -127,6 +130,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["Nombre Usuario"].Selected)
                 {
+                    //en caso de tocar cualquier otra columna, mostrara la informacion de este registro en los labels
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
                     lbl_user.Text = dgv_Productos.CurrentRow.Cells[5].Value.ToString();
                     lbl_contra.Text = dgv_Productos.CurrentRow.Cells[6].Value.ToString().Substring(0, 2) + "**********"; 
@@ -140,7 +144,7 @@ namespace Tecno_Pc.Formularios
 
 
 
-        private void usuarios()
+        private void Usuarios_Load() //dependiendo del que usuario logueado se ocultaran algunas cosas
         {
             if (login.IdRol_ == 3 || login.IdRol_ == 2)
             {
@@ -163,13 +167,13 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private async void btn_reporte_Click(object sender, EventArgs e)
+        private async void btn_reporte_Click(object sender, EventArgs e) //reporte
         {
             btn_reporte.Enabled = false;
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(ReporteUsuarios);
+            Task tar1 = new Task(Reporte_Usuarios); //creamos un subproceso con el prod de reporte
             tar1.Start();
             await tar1;
 
@@ -180,7 +184,7 @@ namespace Tecno_Pc.Formularios
             frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
         }
 
-        public void ReporteUsuarios()
+        public void Reporte_Usuarios() //mandamos la informacion necesaria a la clase de reportes para crear el pdf 
         {
             rep.Cadena_consulta = "Select Usuarios.[id_usuario] [Id], Roles.[nombre_rol] [Roles], " +
             "Empleados.nombre_empleado + ' ' + Empleados.apellido_empleado [Empleados], Usuarios.[nombre_usuario] [Nombre] " +

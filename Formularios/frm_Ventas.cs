@@ -12,6 +12,7 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_Ventas : Form
     {
+        //Declaracion de la Clases Necesarias para el funcionamiento del form
         Clases.Cl_UsuarioLogueado user = new Clases.Cl_UsuarioLogueado();
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
@@ -19,8 +20,11 @@ namespace Tecno_Pc.Formularios
         public frm_Ventas()
         {
             InitializeComponent();
+
+            //definicion de la ayuda visual con tooltip
             this.toolTip1.SetToolTip(this.txt_buscar, "Buscar");
 
+            //verificamos si estamos en modo de Escaner de Barras
             if (Properties.Settings.Default.CodBar == "true")
             {
                 dgv_Productos.Enabled = false;                
@@ -31,14 +35,15 @@ namespace Tecno_Pc.Formularios
 
         private void frm_Ventas_Load(object sender, EventArgs e)
         {
+            //mostramos la informacion inicial del form
             dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
-            Operacionesdatagrid1();
-            InicializarCombobox();
+            Operaciones_Datagrid1();
+            Inicializar_Combobox();
             txt_buscar.Focus();
         }   
 
-        private void InicializarCombobox()
+        private void Inicializar_Combobox() //carga la informacion de la DB en los Combobox y establece el valor de Vista y Seleccion
         {
             lbl_fechaCompra.Text = DateTime.Now.ToShortDateString();
             cbo_cliente.DataSource = sql.Consulta("select [id_cliente], (nombre_cliente + ' ' + apellido_cliente) Nombre from Clientes where estado_cliente = 1");
@@ -52,7 +57,7 @@ namespace Tecno_Pc.Formularios
             cbo_tipoPago.SelectedIndex = -1;
         }
 
-        private void Operacionesdatagrid1()
+        private void Operaciones_Datagrid1() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los productos
         {
             dgv_Productos.Columns[1].Visible = false;
             dgv_Productos.Columns[2].Visible = false;
@@ -67,14 +72,14 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[7].HeaderText = "Precio";
         }
 
-        private void Operacionesdatagrid2()
+        private void Operaciones_Datagrid2() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de la lista de ventas
         {
             dgv_Factura.Columns[1].Visible = false;
             dgv_Factura.Columns[0].Width = 30;
             dgv_Factura.Columns[2].Width = 250;            
         }
 
-        private void LimpiarProductoSeleccionado()
+        private void Limpiar_Producto_Seleccionado()
         {
             txt_cant.Clear();            
             lbl_Id.Text = "";
@@ -89,44 +94,48 @@ namespace Tecno_Pc.Formularios
             erp_tipopagos.Clear();            
         }
 
-        private int buscarRepetidos(string id)
+        private int Buscar_Repetidos(string id) //prod que busca si mandamos una producto que ya estaba en la lista de ventas
         {
-            int coin = 0;
-            foreach (DataGridViewRow fila in dgv_Factura.Rows )
+            int coin_rep = 0;
+
+            //recorremos las filas del datagrid y buscamos el prod
+            foreach (DataGridViewRow fila_actual in dgv_Factura.Rows )
             {
-                if (fila.Cells[1].Value.ToString() == id)
+                if (fila_actual.Cells[1].Value.ToString() == id)
                 {
-                    coin = coin + int.Parse(fila.Cells[3].Value.ToString());                    
+                    //en caso de encontrar una coincidencia sumamos la cant que estaba en el a la nueva cantidad
+                    coin_rep = coin_rep + int.Parse(fila_actual.Cells[3].Value.ToString());                    
                 }
             }
-            return coin;
+            return coin_rep;
         }
 
-        private double calcularTotaleventa()
+        private double Calcular_Total_Venta() //recorre todas las filas de detalle de venta y calcular el total de esta
         {
-            double coin = 0;
+            double coin_rep = 0;
 
-            foreach (DataGridViewRow fila in dgv_Factura.Rows)
+            foreach (DataGridViewRow fila_actual in dgv_Factura.Rows)
             {                                
-                coin = coin + double.Parse(fila.Cells[4].Value.ToString());        
+                coin_rep = coin_rep + double.Parse(fila_actual.Cells[4].Value.ToString());        
             }                 
             
-            return coin;
+            return coin_rep;
         }
 
-        private void btn_añadir_Click(object sender, EventArgs e)
+        private void btn_añadir_Click(object sender, EventArgs e) //añade productos a la lista de ventas
         {
             try
             {
                 erp_dgvfactura.Clear();
-                int cant = 0;
+                int cant_prod = 0;
 
-                if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty)
+                if (txt_cant.Text != string.Empty && lbl_Id.Text != string.Empty) //verificamos que la caantidad sea positiva y llamamos la busqueda de repetidos
                 {
-                    cant = int.Parse(txt_cant.Text);
-                    cant += buscarRepetidos(lbl_Id.Text);
+                    cant_prod = int.Parse(txt_cant.Text);
+                    cant_prod += Buscar_Repetidos(lbl_Id.Text);
                 }
 
+                //validaciones basicas para evitar errores
                 if (lbl_Id.Text == "")
                 {
                     frm_notificacion noti = new frm_notificacion("¡Debe Escoger un Producto antes!", 3);
@@ -149,9 +158,9 @@ namespace Tecno_Pc.Formularios
                     erp_cant.Clear();
                     erp_cant.SetError(txt_cant, "indique una cantidad positiva");
                 }
-                else if(cant > int.Parse(lbl_stock.Text))
+                else if(cant_prod > int.Parse(lbl_stock.Text))
                 {
-                    frm_notificacion noti = new frm_notificacion("Escogio vender " + cant.ToString() + " unidades de '" + lbl_producto.Text + 
+                    frm_notificacion noti = new frm_notificacion("Escogio vender " + cant_prod.ToString() + " unidades de '" + lbl_producto.Text + 
                         "' pero solo hay " + lbl_stock.Text + " unidades en existencia", 3);
                     noti.ShowDialog();
                     noti.Close();
@@ -160,29 +169,32 @@ namespace Tecno_Pc.Formularios
                 }
                 else
                 {
-                    double total, desc = 0;                         
-                
-                    foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                    double total_prod, desc_prod = 0;
+
+                    //verificamos si una fila ya tenia ese produto y la eliminamos para añadir una nueva con la suma de las 2 cantidades 
+                    foreach (DataGridViewRow fila_actual in dgv_Factura.Rows)
                     {
-                        if (fila.Cells[1].Value.ToString() == lbl_Id.Text)
+                        if (fila_actual.Cells[1].Value.ToString() == lbl_Id.Text)
                         {
-                            dgv_Factura.Rows.Remove(fila);
+                            dgv_Factura.Rows.Remove(fila_actual);
                         }
                     }
 
-                    total = cant * double.Parse(lbl_precio.Text);
+                    total_prod = cant_prod * double.Parse(lbl_precio.Text);
 
+                    //si hay descuento lo calculamos 
                     if (chk_desc.Checked)
                     {
-                        desc = double.Parse("0." + Num_Descv.Value);
-                        total = total - (total * desc);
+                        desc_prod = double.Parse("0." + Num_Descv.Value);
+                        total_prod = total_prod - (total_prod * desc_prod);
                     }
-                        
-                    dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant.ToString(), total.ToString(), desc.ToString());
 
-                    lbl_TotalVenta.Text = calcularTotaleventa().ToString();
-                    Operacionesdatagrid2();
-                    LimpiarProductoSeleccionado();
+                    //añadimos la nueva fila    
+                    dgv_Factura.Rows.Add(Tecno_Pc.Properties.Resources.EliminarProducto, lbl_Id.Text, lbl_producto.Text, cant_prod.ToString(), total_prod.ToString(), desc_prod.ToString());
+
+                    lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
+                    Operaciones_Datagrid2();
+                    Limpiar_Producto_Seleccionado();
                 }
             }
             catch (Exception)
@@ -192,18 +204,19 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Factura_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si estamos tocando el boton de eliminar del datagrid de factura
         {
             if (dgv_Factura.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
                 dgv_Factura.Rows.RemoveAt(e.RowIndex);
             }
 
-            lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+            lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
         }
 
-        private void btn_nuevaVenta_Click(object sender, EventArgs e)
+        private void btn_nuevaVenta_Click(object sender, EventArgs e) //prod que limpia los datagrid y la info de una venta para realizar una nueva
         {
+            //limpiamos la lista de compras
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {
                 dgv_Factura.Rows.Remove(fila);
@@ -215,11 +228,11 @@ namespace Tecno_Pc.Formularios
             }
 
             txt_buscar.Clear();
-            InicializarCombobox();            
+            Inicializar_Combobox();            
             dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                 "from Productos p where estado_producto = 1 order by [nombre_producto] asc");
                     
-            LimpiarProductoSeleccionado();
+            Limpiar_Producto_Seleccionado();
             foreach (DataGridViewRow fila in dgv_Factura.Rows)
             {                
                 dgv_Factura.Rows.Clear();
@@ -233,33 +246,37 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al guardar la Factura, ¡faltan datos!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();
+                Escoger_Erp();
             }
             else
             {
-                long id = long.Parse(sql.Consulta2("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
-                DataTable Sar = sql.Consulta("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id+1)+") >= (ran_desde - 1) " +
-                    "and ("+(id+1)+ ") <= ran_hasta ) order by id_sar desc");
+                //buscamos la informacion de la SAR para ver si hay facturas disponobles
+                long id_factura = long.Parse(sql.Consulta2("select top 1 [id_factura] from Facturas order by [id_factura] desc"));
+                DataTable sar_tabla = sql.Consulta("select top 1 id_sar from Sar where fecha_limite >= GETDATE() and ((" + (id_factura + 1)+") >= (ran_desde - 1) " +
+                    "and ("+(id_factura + 1)+ ") <= ran_hasta ) order by id_sar desc");
 
-                if(Sar.Rows.Count > 0)
+                //verificamos si hay registrso validos
+                if(sar_tabla.Rows.Count > 0)
                 {
-                    long IdSar = long.Parse(Sar.Rows[0][0].ToString());
-                    long ultimasar = long.Parse(sql.Consulta2("select top 1 id_sar from sar order by id_sar desc"));
+                    long id_sar = long.Parse(sar_tabla.Rows[0][0].ToString());
+                    long ultima_sar = long.Parse(sql.Consulta2("select top 1 id_sar from sar order by id_sar desc"));
 
-                    if(IdSar == ultimasar)
+                    if(id_sar == ultima_sar) //verificamos que la ultima SAR registrada sea la seleccionada
                     {
-                        sql.Sql_Querys("insert into Facturas values(" + (id + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
-                        ", GETDATE(), 0.15, " + IdSar + ")");
+                        //creamos el registro de la factura
+                        sql.Sql_Querys("insert into Facturas values(" + (id_factura + 1) + ", " + cbo_cliente.SelectedValue.ToString() + ", " + user.IdEmpleado_ + ", " + cbo_tipoPago.SelectedValue.ToString() +
+                        ", GETDATE(), 0.15, " + id_sar + ")");
 
-                        foreach (DataGridViewRow fila in dgv_Factura.Rows)
+                        //recorremos la lista de ventas para ir añadiendo a la BD esos registros del Detalle
+                        foreach (DataGridViewRow fila_actual in dgv_Factura.Rows)
                         {
-                            int cant = int.Parse(fila.Cells[3].Value.ToString());
-                            int idprod = int.Parse(fila.Cells[1].Value.ToString());
-                            sql.Sql_Querys("insert into DetalleFactura values (" + (id + 1) + ", "
-                                + idprod + ", (Select [precio_unitario] from Productos where [id_producto] = " + idprod + "), " + cant + ", " + fila.Cells[5].Value.ToString() + ")");
+                            int cant = int.Parse(fila_actual.Cells[3].Value.ToString());
+                            int id_producto = int.Parse(fila_actual.Cells[1].Value.ToString());
+                            sql.Sql_Querys("insert into DetalleFactura values (" + (id_factura + 1) + ", "
+                                + id_producto + ", (Select [precio_unitario] from Productos where [id_producto] = " + id_producto + "), " + cant + ", " + fila_actual.Cells[5].Value.ToString() + ")");
                         }
 
-                        GenerarFactura();
+                        Generar_Factura(); //mostramos el pdf de la factura
                         btn_nuevaVenta.PerformClick();
                     }
                     else
@@ -278,7 +295,7 @@ namespace Tecno_Pc.Formularios
             }            
         }
          
-        private async void GenerarFactura()
+        private async void Generar_Factura() //mandamos la informacion de la factura para mostrarala
         {
             rep.Dgv = sql.Consulta("select Top 1 [id_factura], (c.nombre_cliente +' '+ c.apellido_cliente) Cliente, (e.nombre_empleado +' '+ e.apellido_empleado) Empleado, t.[tipo_transaccion] Transaccion, f.[fecha_venta], " +
                     "f.isv, f.[id_sar] from Facturas f inner join Clientes c on c.[id_cliente] = f.[id_cliente] inner join Empleados e on e.[id_empleado] = f.[id_empleado] inner " +
@@ -287,7 +304,7 @@ namespace Tecno_Pc.Formularios
             frm_notificacion noti = new frm_notificacion("", 4);
             noti.Show();
 
-            Task tar1 = new Task(rep.PdfFacturas);
+            Task tar1 = new Task(rep.PdfFacturas); //creamos un subproceso en base a las facturas 
             tar1.Start();
             await tar1;
 
@@ -300,7 +317,7 @@ namespace Tecno_Pc.Formularios
             frm.abrirPdfs(new frm_Ventas()); //abrimos el pdf
         }
 
-        private void escoger_erp()
+        private void Escoger_Erp() //muestra los posibles errores de los Combobox
         {
             if (dgv_Factura.Rows.Count == 0)
             {
@@ -347,7 +364,7 @@ namespace Tecno_Pc.Formularios
 
         #endregion
 
-        private void dgv_Productos_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Productos_CellContentClick_1(object sender, DataGridViewCellEventArgs e) //prod que verifica si estamos tocando el boton de añadir del datagrid
         {
             if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
             {
@@ -360,19 +377,19 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        private void txt_buscar_TextChanged(object sender, EventArgs e) //hace busquedas en el datagrid de productos y sirve como filtro para el Escaner de Barras
         {
-            if (txt_buscar.Text != "")
+            if (txt_buscar.Text != "") //verficamos que no este vacio
             {
-                if (Properties.Settings.Default.CodBar == "true")
+                if (Properties.Settings.Default.CodBar == "true") //vemos si estamos en modo Escaner
                 {
                     dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and cod_barra = '" + txt_buscar.Text + "' order by [nombre_producto] asc");
-                    Operacionesdatagrid1();
+                    Operaciones_Datagrid1(); //hacemos la busqueda en base a el cod de barras leido por el escaner
 
-                    if (txt_buscar.Text.Length == 12)
+                    if (txt_buscar.Text.Length == 12) 
                     {
-                        if (dgv_Productos.Rows.Count != 0)
+                        if (dgv_Productos.Rows.Count != 0) //revisamos si se encontro ese producto en el sistema
                         {
                             txt_cant.Text = "1";
                             lbl_Id.Text = dgv_Productos.Rows[0].Cells[1].Value.ToString();
@@ -386,7 +403,7 @@ namespace Tecno_Pc.Formularios
                             frm_notificacion noti = new frm_notificacion("No se encontro el Producto", 3);
                             noti.ShowDialog();
                             noti.Close();
-                            LimpiarProductoSeleccionado();
+                            Limpiar_Producto_Seleccionado();
                         }
                     }
                 }
@@ -394,34 +411,34 @@ namespace Tecno_Pc.Formularios
                 {
                     dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
-                    Operacionesdatagrid1();
+                    Operaciones_Datagrid1();
                 }
             }
             else
             {
                 dgv_Productos.DataSource = sql.Consulta("select *, (select stock_producto from Inventarios Where [id_producto] = p.[id_producto]) as Stock " +
                     "from Productos p where estado_producto = 1 and [nombre_producto] LIKE '%" + txt_buscar.Text + "%' order by [nombre_producto] asc");
-                Operacionesdatagrid1();
+                Operaciones_Datagrid1();
             }           
             
         }
 
-        private void dgv_Factura_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Factura_CellContentClick_1(object sender, DataGridViewCellEventArgs e) //prod que verifica si estamos tocando el boton de eliminar del datagrid de factura
         {
             if (dgv_Factura.Rows[e.RowIndex].Cells["Eliminar"].Selected)
             {
                 dgv_Factura.Rows.RemoveAt(e.RowIndex);
             }
 
-            lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+            lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
         }
 
         private void num_ISV_ValueChanged(object sender, EventArgs e)
         {
-            lbl_TotalVenta.Text = calcularTotaleventa().ToString();
+            lbl_TotalVenta.Text = Calcular_Total_Venta().ToString();
         }
 
-        private void chk_desc_CheckedChanged(object sender, EventArgs e)
+        private void chk_desc_CheckedChanged(object sender, EventArgs e) //dependiendo de su estado podremos usar el Nmeric para indicar el descuento
         {
             if (chk_desc.Checked) Num_Descv.Enabled = true;
             else Num_Descv.Enabled = false;

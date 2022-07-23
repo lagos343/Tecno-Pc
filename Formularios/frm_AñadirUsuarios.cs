@@ -13,41 +13,45 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_AñadirUsuarios : Form
     {
+        //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
 
         private extern static void SendMessage(System.IntPtr hWnd, int wMsg, int wParam, int lParam);
 
+        //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Validacion vld = new Clases.Cl_Validacion();
         Clases.Cl_Usuarios user = new Clases.Cl_Usuarios();
 
-        public frm_AñadirUsuarios(int estado, DataGridView dat)
-        {
+        public frm_AñadirUsuarios(int estado_form, DataGridView datos_registro) //el contructor recibe dos parametros, el primeo indicara si lo abrimos en modo nuevo registro o en modo actualizacion
+        {                                                       //el segundo recibe los datos del datagrid para llenar los campos en el modo actualizacion
             InitializeComponent();
-            if (estado == 1)
+            if (estado_form == 1)
             {
                 lbl_titulo.Text = "NUEVO USUARIO";
                 btn_guardar.Text = "GUARDAR";
-                btn_guardar.Click += guarda_click;
-                iniciar1();
-            }else if (estado == 2)
+                btn_guardar.Click += Guarda_Click; //definimos el proceso subrogado para que el boton relice el proceso de guardar
+                Inicializar_Combobox();
+            }else if (estado_form == 2)
             {
-                iniciar1();
+                Inicializar_Combobox();
                 lbl_titulo.Text = "ACTUALIZAR USUARIO";
                 btn_guardar.Text = "ACTUALIZAR";
-                btn_guardar.Click += actualiza_click;
-                txt_id.Text = dat.CurrentRow.Cells[0 + 2].Value.ToString();
-                cboempleado.SelectedValue = dat.CurrentRow.Cells[2 + 2].Value.ToString();
-                cborol.SelectedValue = dat.CurrentRow.Cells[1 + 2].Value.ToString();
-                txt_usuario.Text = dat.CurrentRow.Cells[3 + 2].Value.ToString();
-                txt_pass.Text = dat.CurrentRow.Cells[4 + 2].Value.ToString();
+                btn_guardar.Click += Actualiza_Click; //definimos el proceso subrogado para que el boton relice el proceso de actualizar
+
+                //llenado de los datos en cada control para luego hacer las modificaciones
+                txt_id.Text = datos_registro.CurrentRow.Cells[0 + 2].Value.ToString();
+                cboempleado.SelectedValue = datos_registro.CurrentRow.Cells[2 + 2].Value.ToString();
+                cborol.SelectedValue = datos_registro.CurrentRow.Cells[1 + 2].Value.ToString();
+                txt_usuario.Text = datos_registro.CurrentRow.Cells[3 + 2].Value.ToString();
+                txt_pass.Text = datos_registro.CurrentRow.Cells[4 + 2].Value.ToString();
                 this.Text = "Actualizar Usuario";
             }
         }
 
-        public void iniciar1()
+        public void Inicializar_Combobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
             cboempleado.DataSource = sql.Consulta("select * from Empleados where estado_empleado = 1 order by nombre_empleado asc");
             cboempleado.DisplayMember = "nombre_empleado";
@@ -60,17 +64,16 @@ namespace Tecno_Pc.Formularios
             cborol.SelectedIndex = -1;
         }
 
-        public void definicionarrayuser()
+        public void Definicion_Array_User() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
         {
             vld.Text = new TextBox[2] { txt_usuario, txt_pass };
             vld.Error = new ErrorProvider[2] {erp_usuario, erp_contra};
-            vld.Ctrl_user = new int[2] {1,2};
-            
+            vld.Ctrl_user = new int[2] {1,2};            
         }
         
-        private void guarda_click(object sender, EventArgs e)
+        private void Guarda_Click(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos guardar
         {
-            definicionarrayuser();
+            Definicion_Array_User();
             if(vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
                 user.Nombre_usuario = txt_usuario.Text;
@@ -79,9 +82,9 @@ namespace Tecno_Pc.Formularios
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
 
-                if (user.guardar())
+                if (user.guardar()) //verificamos que no devuelva error el comando sql
                 {
-                    limpiar();
+                    Limpiar_Usuarios();
                 }                
             }
             else
@@ -89,14 +92,14 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al guardar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();     
+                Escoger_Erp();     
             }
 
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
-            frm.carga();
+            frm.Carga_Grid();
         }
 
-        private void escoger_erp() 
+        private void Escoger_Erp()  //muestra los errores que puedan ocurrir en los combobox
         {
 
             if (cboempleado.SelectedIndex == -1)
@@ -112,9 +115,9 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void actualiza_click(object sender, EventArgs e)
+        private void Actualiza_Click(object sender, EventArgs e) //proceso subrogado que usara el boton cuando requiramos actualizar
         {
-            definicionarrayuser();
+            Definicion_Array_User();
 
             if (vld.validarusuario() == true && cborol.SelectedIndex != -1 && cboempleado.SelectedIndex != -1)
             {
@@ -125,7 +128,7 @@ namespace Tecno_Pc.Formularios
                 user.Id_empleado = int.Parse(cboempleado.SelectedValue.ToString());
                 user.Estado = Convert.ToBoolean(true);
 
-                if (user.actualizarDatos())
+                if (user.actualizarDatos()) //verifimacmos que no devuelva error el comando sql
                 {
                     this.Close();
                 }                
@@ -135,14 +138,14 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("Error al actualizar, ¡Corrija todas las advertencias!", 3);
                 noti.ShowDialog();
                 noti.Close();
-                escoger_erp();                
+                Escoger_Erp();                
             }
 
             Formularios.frm_Usuarios frm = Application.OpenForms.OfType<Formularios.frm_Usuarios>().SingleOrDefault();
-            frm.carga();  
+            frm.Carga_Grid(); //recargar el form
         }
 
-        public void limpiar()
+        public void Limpiar_Usuarios()
         {
             txt_usuario.Clear();
             txt_pass.Clear();
@@ -153,7 +156,7 @@ namespace Tecno_Pc.Formularios
         private void panel1_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //llamado de las librerias ddl para mover el form desde este panel
         }
 
         private void btn_minimizar_Click(object sender, EventArgs e)

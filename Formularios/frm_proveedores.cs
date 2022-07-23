@@ -12,7 +12,7 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_proveedores : Form
     {
-
+        //definicion de objetos de las clases necesarias 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
         Clases.Cl_Proveedores proveedores = new Clases.Cl_Proveedores();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
@@ -21,6 +21,7 @@ namespace Tecno_Pc.Formularios
         public frm_proveedores()
         {
             InitializeComponent();
+            //definicion de la ayuda visual con tooltip
             this.toolTip1.SetToolTip(this.btn_contactos, "Gestionar Contactos");
             this.toolTip1.SetToolTip(this.btn_reporte, "Crear Reporte");
             this.toolTip1.SetToolTip(this.btn_nuevoUsuario, "Agregar Proveedor");
@@ -28,7 +29,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void btn_nuevoUsuario_Click(object sender, EventArgs e)
+        private void btn_nuevoUsuario_Click(object sender, EventArgs e) //llamamos el formulario en modo nuevo registro
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_AñadirProveedores);
 
@@ -44,7 +45,7 @@ namespace Tecno_Pc.Formularios
         
         }
 
-        private void gunaGradientButton1_Click(object sender, EventArgs e)
+        private void gunaGradientButton1_Click(object sender, EventArgs e) //llamamos el formulario en modo contactos
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is frm_contactos);
             if (frm == null)
@@ -63,7 +64,7 @@ namespace Tecno_Pc.Formularios
             carga();
         }
 
-        public void carga()
+        public void carga() //se encarga de llenar el datagrid con los registros de la tabla
         {
             proveedores.consultarDatos(dgv_Productos);
             operacionesdatarid();
@@ -74,7 +75,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void operacionesdatarid()
+        private void operacionesdatarid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los proveedores
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -90,19 +91,20 @@ namespace Tecno_Pc.Formularios
             dgv_Productos.Columns[4].HeaderText = "Nombre";
         }
 
-        private void txt_buscar_TextChanged(object sender, EventArgs e)
+        private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             proveedores.Nombre = txt_buscar.Text;
             proveedores.buscarDatos(dgv_Productos);
             operacionesdatarid();
         }
 
-        private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si tocamos el boton de editar o de eliminar
         {
             try
             {
                 if (dgv_Productos.Rows[e.RowIndex].Cells["Editar"].Selected)
                 {
+                    //si es editar llamamos el formulario en modo actualizar y le pasamos la info del registro seleccionado  
                     frm_AñadirProveedores añaem = new frm_AñadirProveedores(2, dgv_Productos);
                     añaem.ShowDialog();
 
@@ -110,6 +112,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["Eliminar"].Selected)
                 {
+                    //si es eliminar y presionamos ok procedera a deshabilitar el registro
                     Formularios.frm_notificacion noti = new Formularios.frm_notificacion("¿Desea eliminar este proveedor?", 2);
                     noti.ShowDialog();
 
@@ -131,6 +134,7 @@ namespace Tecno_Pc.Formularios
                 }
                 else if (dgv_Productos.Rows[e.RowIndex].Cells["nombre_proveedor"].Selected)
                 {
+                    //en caso de tocar cualquier otra columna, mostrara la informacion de este registro en los labels
                     lbl_id.Text = dgv_Productos.CurrentRow.Cells[2].Value.ToString();
                     lbl_nombre.Text = dgv_Productos.CurrentRow.Cells[4].Value.ToString();
                     lbl_telefono.Text = dgv_Productos.CurrentRow.Cells[5].Value.ToString();
@@ -144,7 +148,7 @@ namespace Tecno_Pc.Formularios
         }
 
 
-        private void btn_reporte_Click(object sender, EventArgs e)
+        private void btn_reporte_Click(object sender, EventArgs e) //mostramos el form de los reportes 
         {
             Form frm = System.Windows.Forms.Application.OpenForms.Cast<Form>().FirstOrDefault(x => x is Frm_ReportProveedores);
 

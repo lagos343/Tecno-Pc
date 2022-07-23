@@ -13,8 +13,10 @@ namespace Tecno_Pc.Formularios
 {
     public partial class frm_ReportVendedor : Form
     {
+        //Declaracion de la Clases Necesarias para el funcionamiento del form
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
+        //Importacion de librerias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
         private extern static void ReleaseCapture();
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
@@ -23,10 +25,11 @@ namespace Tecno_Pc.Formularios
         public frm_ReportVendedor()  
         {
             InitializeComponent();
+            //ayuda mediante tooltip
             this.toolTip1.SetToolTip(this.btn_imprimir, "Crear Reporte");
         }
 
-        private async void btn_imprimir_Click(object sender, EventArgs e)
+        private async void btn_imprimir_Click(object sender, EventArgs e) //generacion del reporte
         {
             if (radio_ventas.Checked == false && radio_gen.Checked == false)
             {
@@ -40,7 +43,7 @@ namespace Tecno_Pc.Formularios
                 frm_notificacion noti = new frm_notificacion("", 4);
                 noti.Show();
 
-                Task tar1 = new Task(ReporteEmnpleado);
+                Task tar1 = new Task(Reporte_Empleado); //generamos un sub proceso en een base al prod de los reportes
                 tar1.Start();
                 await tar1;
 
@@ -53,9 +56,9 @@ namespace Tecno_Pc.Formularios
             }
         }
 
-        private void ReporteEmnpleado()
+        private void Reporte_Empleado() //genera un reporte en base a la seleccion que hayamos hecho
         {
-            if (radio_gen.Checked)
+            if (radio_gen.Checked) //reporte general de empleados
             {
                 rep.Cadena_consulta = "SELECT Empleados.nombre_empleado  +' ' + Empleados.apellido_empleado [Empleado], Empleados.identidad_empleado, Empleados.telefono_empleado, Empleados.[correo_electronico], " +
                     "Departamentos.[nombre_depto] [Departamento],Empleados.direccion_empleado  FROM     Empleados INNER JOIN Departamentos ON Empleados.[id_depto] =" +
@@ -70,6 +73,7 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
+                //genera un reporte de de ventas totales por empleado
                 rep.Cadena_consulta = "select (e.nombre_empleado + ' ' + e.apellido_empleado), e.identidad_empleado, Sum(df.[precio_historico] * df.cantidad - (df.[precio_historico] * df.cantidad * df.descuentos)) " +
                     "from Facturas f inner join DetalleFactura df on df.[id_factura] = f.[id_factura] inner join Empleados e on e.[id_empleado] = f.[id_empleado] group by(e.nombre_empleado +' ' + e.apellido_empleado), " +
                     "e.identidad_empleado";
@@ -91,7 +95,7 @@ namespace Tecno_Pc.Formularios
         private void panel2_MouseDown(object sender, MouseEventArgs e)
         {
             ReleaseCapture();
-            SendMessage(this.Handle, 0x112, 0xf012, 0);
+            SendMessage(this.Handle, 0x112, 0xf012, 0); //usamos las librerias ddl para mover el formulario desde este panel
         }
 
         private void minimizar_Click(object sender, EventArgs e)
