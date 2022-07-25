@@ -264,6 +264,9 @@ namespace Tecno_Pc.Formularios
                             int id_producto = int.Parse(fila_actual.Cells[1].Value.ToString());
                             sql.Sql_querys("insert into DetalleFactura values (" + (id_factura + 1) + ", "
                                 + id_producto + ", (Select [precio_unitario] from Productos where [id_producto] = " + id_producto + "), " + cant + ", " + fila_actual.Cells[5].Value.ToString() + ")");
+                            
+                            //actualizamos el stock
+                            sql.Sql_querys("update Inventarios set stock_producto = stock_producto - " + cant + " where id_producto = " + id_producto);
                         }
 
                         Generar_Factura(); //mostramos el pdf de la factura
