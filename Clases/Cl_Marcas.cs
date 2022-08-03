@@ -22,28 +22,28 @@ namespace Tecno_Pc.Clases
         #endregion
 
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
-        public bool guardar()
+        public bool Guardar()
         {
             string cadena;
             cadena = "Insert into Marcas values('" + nombre_marca + "')";
-            return Sql_query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_Query(cadena, "Marca añadida con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }
 
-        public void consultarDatos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
+        public void Consultar_Datos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta_registro("select *from Marcas order by [nombre_marca] asc"); 
+            dgv.DataSource = Consulta_Registro("select *from Marcas order by [nombre_marca] asc"); 
         }
 
-        public void buscarDatos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
+        public void Buscar_Datos(DataGridView dgv) //Procedimiento pa las busqueda filtradas 
         {
-            dgv.DataSource = Consulta_registro("select *from Marcas where [nombre_marca] Like '%"+nombre_marca+"%' order by [nombre_marca] asc");
+            dgv.DataSource = Consulta_Registro("select *from Marcas where [nombre_marca] Like '%"+nombre_marca+"%' order by [nombre_marca] asc");
         }
 
-        public bool actualizarDatos()
+        public bool Actualizar_Datos()
         {
             string cadena;
             cadena = "Update Marcas set [nombre_marca] = '"+nombre_marca+"' where [id_marca] = "+id_marca+"";
-            return Sql_query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
+            return Sql_Query(cadena, "Marca actulizada con exito", "¡Ya existe esta marca!"); //si la sentencia sql devuelve false ya existe este registro
         }       
     }
 }

@@ -67,60 +67,60 @@ namespace Tecno_Pc.Formularios
         #region Procesos de Los botones del menu       
         private void btn_ventas_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_ventas);
-            AbrirFormulario(new frm_Ventas());
+            Seleccion_Boton(btn_ventas);
+            Abrir_Formulario(new frm_Ventas());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }               
 
         private void btn_Productos_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_Productos);
-            AbrirFormulario(new frm_productos());
+            Seleccion_Boton(btn_Productos);
+            Abrir_Formulario(new frm_productos());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
             
         }
 
         private void btn_Facturas_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_Facturas);
-            AbrirFormulario(new frm_Facturas());
+            Seleccion_Boton(btn_Facturas);
+            Abrir_Formulario(new frm_Facturas());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
         private void btn_compras_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_compras);
-            AbrirFormulario(new frm_compras());
+            Seleccion_Boton(btn_compras);
+            Abrir_Formulario(new frm_compras());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
         private void btn_Usuarios_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_Usuarios);
-            AbrirFormulario(new frm_Usuarios());
+            Seleccion_Boton(btn_Usuarios);
+            Abrir_Formulario(new frm_Usuarios());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
         private void btn_empleados_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_empleados);
-            AbrirFormulario(new frm_empleados());
+            Seleccion_Boton(btn_empleados);
+            Abrir_Formulario(new frm_empleados());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
         private void btn_proveedores_Click(object sender, EventArgs e)
         {
-            SeleccionBoton(btn_proveedores);
-            AbrirFormulario(new frm_proveedores());
+            Seleccion_Boton(btn_proveedores);
+            Abrir_Formulario(new frm_proveedores());
             Flecha((Guna.UI.WinForms.GunaGradientButton)sender);
         }
 
-        public void abrirPdfs(Form form) //se encarga de abrir los pdfs y mostrarlos en el form principal
+        public void Abrir_Pdfs(Form form) //se encarga de abrir los pdfs y mostrarlos en el form principal
         {
-            AbrirFormulario(new Formularios.frm_pdfs(Properties.Settings.Default.ReporteActual, form));
+            Abrir_Formulario(new Formularios.frm_pdfs(Properties.Settings.Default.ReporteActual, form));
         } 
 
-        private void SeleccionBoton(Guna.UI.WinForms.GunaGradientButton boton) //resalta el boton seleccionado y devuelve a normal los demas
+        private void Seleccion_Boton(Guna.UI.WinForms.GunaGradientButton boton) //resalta el boton seleccionado y devuelve a normal los demas
         {
             btn_ventas.ForeColor = Color.White; 
             btn_Productos.ForeColor = Color.White;
@@ -137,7 +137,7 @@ namespace Tecno_Pc.Formularios
             pic_flecha.Top = boton.Top + 242;
         }
 
-        public void AbrirFormulario(Form formHijo) //abre los formularios hijos en el panel 
+        public void Abrir_Formulario(Form formHijo) //abre los formularios hijos en el panel 
         {
             if (formActivado != null)
                 formActivado.Close();

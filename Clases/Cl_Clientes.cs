@@ -37,31 +37,34 @@ namespace Tecno_Pc.Clases
         public bool Guardar_Cliente()
         {
             string cadena;
-            cadena = "insert into Clientes values (" + id_depto + ", '" + identidad_cliente + "', '" + nombre_cliente + "', '" + apellido_cliente + "', '" + telefono_cliente + "', '"+correo_electronico+"','"+direccion_cliente+"', "+ 1 +"  )";
-            return Sql_query(cadena, "Cliente añadido con Exito", "El numero de identidad ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false se repitio el numero de identidad
+            cadena = "insert into Clientes values (" + id_depto + ", '" + identidad_cliente + "', '" + nombre_cliente + "', '" + apellido_cliente + "', '" + telefono_cliente + "', '"
+                +correo_electronico+"','"+direccion_cliente+"', "+ 1 +"  )";
+            return Sql_Query(cadena, "Cliente añadido con Exito", "El numero de identidad ya esta en uso, ¡Cambielo!"); //si la sentencia sql devuelve false se repitio el numero de identidad
         }
 
         public void Consultar_Datos(DataGridView dgv) //Procedimiento que recibe un datagrid que mostrara los registos del formulario
         {
-            dgv.DataSource = Consulta_registro(" select c.[id_cliente] as ID,c.nombre_cliente ,c.apellido_cliente,c.identidad_cliente,c.telefono_cliente,c.direccion_cliente,c.[correo_electronico]," +
+            dgv.DataSource = Consulta_Registro(" select c.[id_cliente] as ID,c.nombre_cliente ,c.apellido_cliente,c.identidad_cliente,c.telefono_cliente,c.direccion_cliente,c.[correo_electronico]," +
                 "d.[nombre_depto] from Clientes as c inner join Departamentos as d  on d.[id_depto] = c.[id_depto] Where estado_cliente = 1");       
         }
 
         public void Buscar_Datos(DataGridView dgv) //Procedimiento paraa las busquedas filtradas
         {            
-            dgv.DataSource = Consulta_registro("select * from Clientes where estado_cliente=1 and nombre_cliente LIKE '%"+nombre_cliente+"%'");
+            dgv.DataSource = Consulta_Registro("select * from Clientes where estado_cliente=1 and nombre_cliente LIKE '%"+nombre_cliente+"%'");
         }
 
         public bool Actualizar_Datos() 
         {
-            return Sql_query("update Clientes set [id_depto]="+id_depto+",identidad_cliente='"+identidad_cliente+ "',nombre_cliente='" + nombre_cliente+ "',apellido_cliente='" + apellido_cliente+ "',telefono_cliente='" + telefono_cliente+"',[correo_electronico]='"
-                +correo_electronico+ "',direccion_cliente='" + direccion_cliente+"' where  [id_cliente]="+id_cliente+"", "Cliente actualizado con exito", "El numero de identidad ya esta en uso, ¡Cambielo!");
+            return Sql_Query("update Clientes set [id_depto]="+id_depto+",identidad_cliente='"+identidad_cliente+ "',nombre_cliente='" + nombre_cliente+ "',apellido_cliente='" + apellido_cliente+ 
+                "',telefono_cliente='" + telefono_cliente+"',[correo_electronico]='"
+                +correo_electronico+ "',direccion_cliente='" + direccion_cliente+"' where  [id_cliente]="+id_cliente+"", "Cliente actualizado con exito", 
+                "El numero de identidad ya esta en uso, ¡Cambielo!");
             //si la sentencia sql devuelve false se repitio el numero de identidad
         }
 
         public void Eliminar_Datos()
         {
-            Sql_querys("Update Clientes set estado_cliente = 0 where [id_cliente] = " + id_cliente, "Se ha elminado este Cliente", "El numero de identidad ya esta en uso, ¡Cambielo!");
+            Sql_Querys("Update Clientes set estado_cliente = 0 where [id_cliente] = " + id_cliente, "Se ha elminado este Cliente", "El numero de identidad ya esta en uso, ¡Cambielo!");
         }
     }
 }

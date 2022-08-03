@@ -64,7 +64,7 @@ namespace Tecno_Pc.Formularios
                 btn_imprimir.Enabled = true;
 
                 Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-                frm.abrirPdfs(new frm_Facturas()); //abrimos el pdf
+                frm.Abrir_Pdfs(new frm_Facturas()); //abrimos el pdf
                 frm.BringToFront();
             }
         }
@@ -101,7 +101,7 @@ namespace Tecno_Pc.Formularios
             rep.Titulo = titulo_reporte;
             rep.Tamanios = new float[] { 2, 6, 2, 6, 2, 1, 2};
             rep.Vertical = false;
-            rep.Generar_pdf(); //generamos el pdf
+            rep.Generar_Pdf(); //generamos el pdf
         }
    
         private void salir_Click(object sender, EventArgs e)

@@ -18,7 +18,7 @@ namespace Tecno_Pc.Formularios
     {
         //definicion de objetos de las clases necesarias
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        public bool EscribirServer = false;
+        public bool escribir_server = false;
 
         //Importacion de libreias propias de windows para movimiento del formulario  
         [DllImport("user32.DLL", EntryPoint = "ReleaseCapture")]
@@ -109,7 +109,7 @@ namespace Tecno_Pc.Formularios
                 cbo_servers.DisplayMember = "server";
                 cbo_servers.ValueMember = "server";
                 cbo_servers.SelectedIndex = -1;
-                EscribirServer = false;
+                escribir_server = false;
             }
             else
             {
@@ -117,7 +117,7 @@ namespace Tecno_Pc.Formularios
                 Formularios.frm_notificacion noti2 = new Formularios.frm_notificacion("Hubo un error al intentar encontrar servidores, Escriba el servidor manualmente", 3);
                 noti2.ShowDialog();
                 noti2.Close();
-                EscribirServer = true;
+                escribir_server = true;
             }
             Btn_Servers.Enabled = true;
         }
@@ -331,7 +331,7 @@ namespace Tecno_Pc.Formularios
         #region keypress
         private void cbo_servers_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (EscribirServer == false)
+            if (escribir_server == false)
             e.Handled = true;
         }
 

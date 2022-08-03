@@ -21,7 +21,7 @@ namespace Tecno_Pc.Formularios
         private extern static void SendMessage(System.IntPtr h_wnd, int w_msg, int w_param, int l_param);
 
         //definicion de objetos de las clases necesarias
-        bool editar = false;
+        bool editar_registro = false;
         Clases.Cl_Marcas mar_form = new Clases.Cl_Marcas();
         Clases.Cl_Categorias cate_form = new Clases.Cl_Categorias();
         Clases.Cl_NotificacionCompra  noti_form = new Clases.Cl_NotificacionCompra();
@@ -48,14 +48,14 @@ namespace Tecno_Pc.Formularios
                 txt_buscar.TextChanged += txt_buscarMarcas_TextChanged;
                 btn_editar.Click += btn_editarMarcas_Click;            
                 this.Text = "Marcas";
-                mar_form.consultarDatos(dgv_datos);                
+                mar_form.Consultar_Datos(dgv_datos);                
             }
             else if (valor_marcas == 3) //este valor es el modo notificacion
             {
                 txt_buscar.TextChanged += txt_buscarNotificacion_TextChanged;
                 btn_nuevo.Click += btn_seleccionar_Click;
                 btn_guardar.Click += btn_hecho_Click;
-                carga();                
+                Carga_Noti();                
             }
         }
         
@@ -79,7 +79,7 @@ namespace Tecno_Pc.Formularios
             vld_form.Msj = new string[1] { @"Solo alfanumericos y especiales como: (¡ * + % & $ # _)" };
         }
 
-        public void definicionarrayCategorias() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
+        public void Definicion_Array_Categorias() //define las propiedades enviadas a la clase de Validaciones mediante Arrays con todos los Textbox y sus correspondientes expresiones regulares
         {
             vld_form.Text = new System.Windows.Forms.TextBox[1] { txt_nombre };
             vld_form.Error = new ErrorProvider[1] { erp_nombre };
@@ -92,7 +92,7 @@ namespace Tecno_Pc.Formularios
 
         private void btn_nuevo_Click(object sender, EventArgs e) //limpia los datos
         {
-            limpiarDatos();
+            Limpiar_Datos();
             btn_guardar.Text = "GUARDAR";
         }
 
@@ -101,13 +101,13 @@ namespace Tecno_Pc.Formularios
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void limpiarDatos()
+        private void Limpiar_Datos()
         {
             txt_nombre.Clear();
             txt_id.Clear();
             txt_buscar.Clear();
             txt_buscar.Focus();
-            editar = false;
+            editar_registro = false;
         }                
                
         #endregion
@@ -115,7 +115,7 @@ namespace Tecno_Pc.Formularios
         #region Categorias Botones
         private void btn_guardarCategorias (object sender, EventArgs e) //se encarga de guardar
         {
-            definicionarrayCategorias();
+            Definicion_Array_Categorias();
 
             if (vld_form.Comprobar_Txt() == false || vld_form.Validar_Letras(txt_nombre, erp_nombre) == false)
             {                
@@ -126,13 +126,13 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                if (editar == true) //verificamos si estamos editando o guardando
+                if (editar_registro == true) //verificamos si estamos editando o guardando
                 {
                     cate_form.Id_Categoria = int.Parse(txt_id.Text);
                     cate_form.Nombre_Categoria = txt_nombre.Text;
                     if (cate_form.Actualizar_Datos()) //verificamos que no devuelva error el comando sql
                     {
-                        limpiarDatos();
+                        Limpiar_Datos();
                         btn_guardar.Text = "Guardar";
                         cate_form.Consultar_Datos(dgv_datos);
                     }
@@ -142,7 +142,7 @@ namespace Tecno_Pc.Formularios
                     cate_form.Nombre_Categoria = txt_nombre.Text;
                     if (cate_form.Guardar_Categoria()) //verificamos que no devuelva error el comando sql
                     {
-                        limpiarDatos();
+                        Limpiar_Datos();
                         btn_guardar.Text = "Guardar";
                         cate_form.Consultar_Datos(dgv_datos);
                     }
@@ -168,7 +168,7 @@ namespace Tecno_Pc.Formularios
             {
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();                
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[1].Value.ToString();
-                editar = true;
+                editar_registro = true;
                 btn_guardar.Text = "Actualizar";
             }
         }
@@ -189,26 +189,26 @@ namespace Tecno_Pc.Formularios
             }
             else
             {
-                if (editar == true) //verificamos si estamos editando o guardando
+                if (editar_registro == true) //verificamos si estamos editando o guardando
                 {
 
                     mar_form.Id_Marca = int.Parse(txt_id.Text);
                     mar_form.Nombre_Marca = txt_nombre.Text;
-                    if (mar_form.actualizarDatos())  //verificamos que no devuelva error el comando sql
+                    if (mar_form.Actualizar_Datos())  //verificamos que no devuelva error el comando sql
                     {
-                        limpiarDatos();
+                        Limpiar_Datos();
                         btn_guardar.Text = "Guardar";
-                        mar_form.consultarDatos(dgv_datos);
+                        mar_form.Consultar_Datos(dgv_datos);
                     }
                 }
                 else
                 {
                     mar_form.Nombre_Marca = txt_nombre.Text;
-                    if (mar_form.guardar())
+                    if (mar_form.Guardar())
                     {
-                        limpiarDatos(); //verificamos que no devuelva error el comando sql
+                        Limpiar_Datos(); //verificamos que no devuelva error el comando sql
                         btn_guardar.Text = "Guardar";
-                        mar_form.consultarDatos(dgv_datos);
+                        mar_form.Consultar_Datos(dgv_datos);
                     }
                 }                
             }
@@ -217,7 +217,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscarMarcas_TextChanged(object sender, EventArgs e) //se encarga de buscar los registros filtrados
         {
             mar_form.Nombre_Marca = txt_buscar.Text;
-            mar_form.buscarDatos(dgv_datos);
+            mar_form.Buscar_Datos(dgv_datos);
         }
 
         private void btn_editarMarcas_Click(object sender, EventArgs e) //manda la informacion del registro seleccionado a los textbox para editarlo
@@ -232,7 +232,7 @@ namespace Tecno_Pc.Formularios
             {
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[1].Value.ToString();
-                editar = true;
+                editar_registro = true;
                 btn_guardar.Text = "Actualizar";
             }
         }
@@ -243,12 +243,12 @@ namespace Tecno_Pc.Formularios
 
         private void btn_hecho_Click(object sender, EventArgs e) //se encarga de limpiar una notificacion ya realizada
         {
-            if (editar == true)
+            if (editar_registro == true)
             {
                 noti_form.Id_Noti = int.Parse(txt_id.Text);
-                noti_form.eliminar();
+                noti_form.Eliminar_Datos();
             }
-            else if (editar == false)
+            else if (editar_registro == false)
             {
                 frm_notificacion noti = new frm_notificacion("Seleccioné algo antes", 3);
                 noti.ShowDialog();
@@ -260,7 +260,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscarNotificacion_TextChanged(object sender, EventArgs e) //se encarga de buscar los registros filtrados
         {
             noti_form.Producto_Compra = txt_buscar.Text;
-            noti_form.buscardatos(dgv_datos);
+            noti_form.Buscar_Datos(dgv_datos);
         }
 
         private void btn_seleccionar_Click(object sender, EventArgs e) //manda la informacion de la notificacion seleccionada a los textbox
@@ -276,11 +276,11 @@ namespace Tecno_Pc.Formularios
                 btn_guardar.Text = "HECHO";
                 txt_id.Text = dgv_datos.CurrentRow.Cells[0].Value.ToString();
                 txt_nombre.Text = dgv_datos.CurrentRow.Cells[2].Value.ToString();
-                editar = true;
+                editar_registro = true;
             }            
         }
 
-        public void carga() //muestra la info relacionada a las notificaciones y prepara el form para esta mecanicas
+        public void Carga_Noti() //muestra la info relacionada a las notificaciones y prepara el form para esta mecanicas
         {
             lbl_titulo.Text = "PRODUCTOS POR COMPRAR";
             btn_nuevo.Text = "Seleccionar";
@@ -290,11 +290,11 @@ namespace Tecno_Pc.Formularios
             btn_editar.Hide();            
 
             txt_nombre.Enabled = false;
-            editar = false;
+            editar_registro = false;
             txt_nombre.Text = "";
             txt_id.Text = "";            
 
-            noti_form.consultarDatos(dgv_datos);
+            noti_form.Consultar_Datos(dgv_datos);
 
             dgv_datos.Columns[0].Visible = false;
             dgv_datos.Columns[2].Visible = false;

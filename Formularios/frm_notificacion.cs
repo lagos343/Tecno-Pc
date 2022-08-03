@@ -61,7 +61,7 @@ namespace Tecno_Pc.Formularios
             btn_confirmar.Focus();
         }
 
-        public void barra() //hace la animacion de la barra de carga
+        public void Barra_Carga() //hace la animacion de la barra de carga
         {
             for (int i = 0; i <= 100; i+= 1)
             {
@@ -109,7 +109,7 @@ namespace Tecno_Pc.Formularios
         private async void frm_notificacion_Load(object sender_notificacion, EventArgs index_e) //load
         {
             //mostramos de manera asincrona la barra de Carga
-            Task task_1 = new Task(barra);
+            Task task_1 = new Task(Barra_Carga);
             task_1.Start();
             await task_1;            
         }

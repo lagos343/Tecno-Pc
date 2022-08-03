@@ -175,7 +175,7 @@ namespace Tecno_Pc.Formularios
             this.dgv_Productos.RowHeadersVisible = false;
             this.dgv_Productos.RowHeadersWidth = 51;
             this.dgv_Productos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
-            this.dgv_Productos.Size = new System.Drawing.Size(857, 331);
+            this.dgv_Productos.Size = new System.Drawing.Size(857, 325);
             this.dgv_Productos.TabIndex = 35;
             this.dgv_Productos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgv_Productos_CellContentClick);
             // 

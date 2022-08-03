@@ -91,7 +91,7 @@ namespace Tecno_Pc
 
         private void lnk_Re_usu_contra_LinkClicked(object sender_contra, LinkLabelLinkClickedEventArgs index_e) //el linklabel que manda el correo de recuperacion
         {
-            recu_login.Enviar_correo();
+            recu_login.Enviar_Correo();
         }
 
         private void btn_ingresar_Click(object sender_ingresar, EventArgs index_e) //se encarga de verificar si se ingresa la sistema o no

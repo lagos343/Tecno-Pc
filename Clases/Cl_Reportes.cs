@@ -47,7 +47,7 @@ namespace Tecno_Pc.Clases
 
         #endregion
 
-        public void Generar_pdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdf
+        public void Generar_Pdf() //procedimiento que se encarga de los reportes de todo el programa en formato pdf
         {
             //indicamos el reporte que se abrira el el formulario de PDFs
             Properties.Settings.Default.ReporteActual = Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\" + titulo_reporte + " " + fecha_reporte.Replace("/", "-") + ".pdf";
@@ -85,7 +85,7 @@ namespace Tecno_Pc.Clases
             }
 
             //Datos de los registros
-            System.Data.DataTable registros_reporte = Consulta_registro(cadena_consulta);
+            System.Data.DataTable registros_reporte = Consulta_Registro(cadena_consulta);
 
             for (int i = 0; i < registros_reporte.Rows.Count; i++)
             {
@@ -137,7 +137,7 @@ namespace Tecno_Pc.Clases
             File.Delete(Properties.Settings.Default.RutaReportes + @"\Reportes Tecno Pc\" + carpeta_reporte + @"\Reporte.pdf");
         }
               
-        public void pdf_facturas() //se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
+        public void Pdf_Facturas() //se encarga de las facturas y de la generacion de estas mismas tanto desde la pantalla de facturas como desde ventas  
         {
             
             //Inializacion de las variables que almacenaran los datos            
@@ -161,13 +161,13 @@ namespace Tecno_Pc.Clases
             long desde_factura, hasta_factura;
             string limite_factura;
 
-            sar_factura = Consulta_registro("select *from Sar where id_sar = "+idsar_factura);
+            sar_factura = Consulta_Registro("select *from Sar where id_sar = "+idsar_factura);
             desde_factura = long.Parse(sar_factura.Rows[0][1].ToString());
             hasta_factura = long.Parse(sar_factura.Rows[0][2].ToString());
             limite_factura = sar_factura.Rows[0][3].ToString().Replace("00", "");
 
             //Extraccion de los detalles de la Factura
-            registros_factura = Consulta_registro("select (p.[nombre_producto] +' '+ p.[modelo_producto]), CAST(df.[precio_historico] AS decimal(9,2)), df.cantidad, CAST((df.[precio_historico]) * descuentos " +
+            registros_factura = Consulta_Registro("select (p.[nombre_producto] +' '+ p.[modelo_producto]), CAST(df.[precio_historico] AS decimal(9,2)), df.cantidad, CAST((df.[precio_historico]) * descuentos " +
                 "AS decimal(9, 2)), CAST(((df.[precio_historico] * df.cantidad) - (df.[precio_historico] * df.cantidad * descuentos)) AS decimal(9, 2)) Total from DetalleFactura df inner join " +
                 "Productos p on p.[id_producto] = df.[id_producto] where df.[id_factura] =" + id_factura);            
 
@@ -244,7 +244,7 @@ namespace Tecno_Pc.Clases
 
             try
             {
-                descuentos_factura = double.Parse(Consulta2_registro("select Sum(CAST(([precio_historico] * cantidad * descuentos) AS decimal(9, 2))) Descuento from " +
+                descuentos_factura = double.Parse(Consulta2_Registro("select Sum(CAST(([precio_historico] * cantidad * descuentos) AS decimal(9, 2))) Descuento from " +
                 "DetalleFactura where [id_factura] = " + id_factura + " and descuentos > 0.00"));
             }
             catch (Exception)
@@ -252,7 +252,7 @@ namespace Tecno_Pc.Clases
 
             try
             {
-                Gravado_factura = double.Parse(Consulta2_registro("select Sum(CAST((([precio_historico] * cantidad)) AS decimal(9, 2))) Excento from " +
+                Gravado_factura = double.Parse(Consulta2_Registro("select Sum(CAST((([precio_historico] * cantidad)) AS decimal(9, 2))) Excento from " +
                 "DetalleFactura where [id_factura] = " + id_factura));
             }
             catch (Exception)

@@ -14,16 +14,16 @@ namespace Tecno_Pc.Formularios
     public partial class frm_pdfs : Form
     {
         //variable que almacena el form anterior que se reabrira al salir de la vista del pdf
-        Form Form_Anterior;
+        Form form_anterior;
         public frm_pdfs(string filepath, Form frm) //contructor que recibe la ruta del reporte y el form desde el cual se llama
         {
             InitializeComponent();
             toolTip1.SetToolTip(this.btn_cerar, "Cerrar Vista");
-            vizulizarPdf(filepath);
-            Form_Anterior = frm;
+            Vizulizar_Pdf(filepath);
+            form_anterior = frm;
         }
 
-        private void vizulizarPdf(string filepath) //se envcarga de mostrar el pdf seleccionado
+        private void Vizulizar_Pdf(string filepath) //se envcarga de mostrar el pdf seleccionado
         {
             byte[] bytes = System.IO.File.ReadAllBytes(filepath);
             var stream = new System.IO.MemoryStream(bytes);
@@ -35,7 +35,7 @@ namespace Tecno_Pc.Formularios
         {
             // Abrimos el Form anterior que mando a vizualizar el pdf
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.AbrirFormulario(Form_Anterior);
+            frm.Abrir_Formulario(form_anterior);
         }       
 
         //apariencia de el boton de cerrado

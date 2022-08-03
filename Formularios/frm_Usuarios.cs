@@ -181,7 +181,7 @@ namespace Tecno_Pc.Formularios
             btn_reporte.Enabled = true;
 
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.abrirPdfs(new frm_Usuarios()); //abrimos el pdf
+            frm.Abrir_Pdfs(new frm_Usuarios()); //abrimos el pdf
         }
 
         public void Reporte_Usuarios() //mandamos la informacion necesaria a la clase de reportes para crear el pdf 
@@ -198,7 +198,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Usuarios";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = true;
-            rep.Generar_pdf();
+            rep.Generar_Pdf();
         }
     }
 }

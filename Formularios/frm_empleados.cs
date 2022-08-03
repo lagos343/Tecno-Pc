@@ -14,7 +14,7 @@ namespace Tecno_Pc.Formularios
     {
         //definicion de objetos de las clases necesarias 
         Clases.Cl_SqlMaestra sql = new Clases.Cl_SqlMaestra();
-        Clases.Cl_Empleados empleados_formularios = new Clases.Cl_Empleados();
+        Clases.Cl_Empleados empleados = new Clases.Cl_Empleados();
         Clases.Cl_Reportes rep = new Clases.Cl_Reportes();
 
         public frm_empleados()
@@ -42,13 +42,13 @@ namespace Tecno_Pc.Formularios
 
         private void frm_empleados_Load(object sender, EventArgs e)
         {
-            Carga_empleado();
+            Carga_Empleado();
         }
 
-        public void Carga_empleado() //se encarga de llenar el datagrid con los registros de la tabla
+        public void Carga_Empleado() //se encarga de llenar el datagrid con los registros de la tabla
         {
-            empleados_formularios.consultar_Datos(dgv_Productos);
-            Operaciones_data_rid();
+            empleados.Consultar_Datos(dgv_Productos);
+            Operaciones_Data_Grid();
             foreach (DataGridViewColumn columna_data in dgv_Productos.Columns)
             {
                 columna_data.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -56,7 +56,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void Operaciones_data_rid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados
+        private void Operaciones_Data_Grid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los empleados
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -77,12 +77,12 @@ namespace Tecno_Pc.Formularios
 
         private void txt_buscar_TextChanged(object sender_buscar, EventArgs e)//se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
-            empleados_formularios.Nombre_Empleado = txt_buscar.Text;
-            empleados_formularios.Buscar_Datos(dgv_Productos);
-            Operaciones_data_rid();
-            empleados_formularios.Nombre_Empleado = txt_buscar.Text;
-            empleados_formularios.Buscar_Datos(dgv_Productos);
-            Operaciones_data_rid();
+            empleados.Nombre_Empleado = txt_buscar.Text;
+            empleados.Buscar_Datos(dgv_Productos);
+            Operaciones_Data_Grid();
+            empleados.Nombre_Empleado = txt_buscar.Text;
+            empleados.Buscar_Datos(dgv_Productos);
+            Operaciones_Data_Grid();
             
         }
 
@@ -105,8 +105,8 @@ namespace Tecno_Pc.Formularios
 
                     if (noti_producto.dialogs_resul == DialogResult.OK)
                     {
-                        empleados_formularios.Id_Empleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        empleados_formularios.Eliminar_Empleado();
+                        empleados.Id_Empleado = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
+                        empleados.Eliminar_Empleado();
                         #region Limpieza
                         lbl_id.Text = lbl_email.Text = "";
                         lbl_depto.Text = lbl_email.Text = "";

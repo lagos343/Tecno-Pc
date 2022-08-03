@@ -38,7 +38,7 @@ namespace Tecno_Pc.Clases
         }
 
        
-        public void Abrir_coneccion() //se encarga de abrrir la coneccion a sql
+        public void Abrir_Coneccion() //se encarga de abrrir la coneccion a sql
         {
             try
             {
@@ -65,14 +65,14 @@ namespace Tecno_Pc.Clases
             }            
         }
 
-        public void Cerrar()
+        public void Cerrar_Coneccion()
         {
             connection_sql.Close();
         }
 
-        public DataTable Consulta_registro(String cadena_consulta) //se encarga dde consultas de muchos registros
+        public DataTable Consulta_Registro(String cadena_consulta) //se encarga dde consultas de muchos registros
         {
-            Abrir_coneccion();
+            Abrir_Coneccion();
             adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
             tabla_resultados = new DataTable();
             try
@@ -80,28 +80,28 @@ namespace Tecno_Pc.Clases
                 adapter_sql.Fill(tabla_resultados);
             }
             catch (Exception){}            
-            Cerrar();
+            Cerrar_Coneccion();
 
             return tabla_resultados;
         }
 
-        public String Consulta2_registro(String cadena_consulta) //se encarga de consultas que retornan un solo dato
+        public String Consulta2_Registro(String cadena_consulta) //se encarga de consultas que retornan un solo dato
         {
             string resultado_consulta = "";
 
-            Abrir_coneccion();
+            Abrir_Coneccion();
             adapter_sql = new SqlDataAdapter(cadena_consulta, cadena_coneccion);
             tabla_resultados = new DataTable();
             adapter_sql.Fill(tabla_resultados);
             resultado_consulta = tabla_resultados.Rows[0][0].ToString();
-            Cerrar();
+            Cerrar_Coneccion();
 
             return resultado_consulta;
         }
 
-        public void Sql_querys(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores
+        public void Sql_Querys(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores
         {
-            Abrir_coneccion();
+            Abrir_Coneccion();
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;
             cmd_sql.CommandText = cadena_sql;
@@ -119,13 +119,14 @@ namespace Tecno_Pc.Clases
                 noti_sql.ShowDialog();
                 noti_sql.Close();
             }
-            Cerrar();
+
+            Cerrar_Coneccion();
         }
 
-        public bool Sql_query(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
+        public bool Sql_Query(string cadena_sql, string mensaje_bueno, string mensaje_malo) //se encarga de comandos transac sql que pueden mostrar errores de tipo sql exception por datos repetidos
         {
             bool retorno_sql;
-            Abrir_coneccion();
+            Abrir_Coneccion();
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;
             cmd_sql.CommandText = cadena_sql;
@@ -145,20 +146,21 @@ namespace Tecno_Pc.Clases
                 noti_sql.Close();
                 retorno_sql = false;
             }
-            Cerrar();
+
+            Cerrar_Coneccion();
             return retorno_sql;
         }
 
-        public void Sql_querys(string cadena_sql) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plan sin notiicar nada al usuario
+        public void Sql_Querys(string cadena_sql) //sobrecarga del prod anterrior para comandos transac sql que deseas hacer en segundo plano sin notiicar nada al usuario
         {
-            Abrir_coneccion();
+            Abrir_Coneccion();
 
             cmd_sql = new SqlCommand();
             cmd_sql.Connection = connection_sql;
             cmd_sql.CommandText = cadena_sql;
             cmd_sql.ExecuteNonQuery();
 
-            Cerrar();
+            Cerrar_Coneccion();
         }        
     }
 }

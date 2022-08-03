@@ -66,8 +66,8 @@ namespace Tecno_Pc.Formularios
 
         public void Carga_Proveedores() //se encarga de llenar el datagrid con los registros de la tabla
         {
-            proveedores.Consultar_datos(dgv_Productos);
-            Operaciones_Datarid();
+            proveedores.Consultar_Datos(dgv_Productos);
+            Operaciones_Datagrid();
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
                 columna.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -75,7 +75,7 @@ namespace Tecno_Pc.Formularios
 
         }
 
-        private void Operaciones_Datarid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los proveedores
+        private void Operaciones_Datagrid() //prod que se encarga de ocultar columnas y dar apariencia a el Datagrid de los proveedores
         {
             dgv_Productos.Columns[2].Visible = false;
             dgv_Productos.Columns[3].Visible = false;
@@ -94,8 +94,8 @@ namespace Tecno_Pc.Formularios
         private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             proveedores.Nombre = txt_buscar.Text;
-            proveedores.Buscar_datos(dgv_Productos);
-            Operaciones_Datarid();
+            proveedores.Buscar_Datos(dgv_Productos);
+            Operaciones_Datagrid();
         }
 
         private void dgv_Productos_CellContentClick(object sender, DataGridViewCellEventArgs e) //prod que verifica si tocamos el boton de editar o de eliminar
@@ -119,7 +119,7 @@ namespace Tecno_Pc.Formularios
                     if (noti.dialogs_resul == DialogResult.OK)
                     {
                         proveedores.IDProveedor = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        proveedores.Eliminar_datos();
+                        proveedores.Eliminar_Datos();
                         #region Limpieza
                         lbl_id.Text = "";
                         lbl_nombre.Text = "";

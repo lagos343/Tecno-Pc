@@ -56,7 +56,7 @@ namespace Tecno_Pc.Formularios
 
         public void Iniciar_Combobox() //llena los combobox desde la DB e indica el valor desplegado y el valor de selecion
         {
-            cbo_depto.DataSource = sql.Consulta_registro("select * from Departamentos order by [nombre_depto] asc");
+            cbo_depto.DataSource = sql.Consulta_Registro("select * from Departamentos order by [nombre_depto] asc");
             cbo_depto.DisplayMember = "nombre_depto";
             cbo_depto.ValueMember = "id_depto";
             cbo_depto.SelectedIndex = -1;
@@ -88,7 +88,7 @@ namespace Tecno_Pc.Formularios
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
                 proveedores.Estado = Convert.ToBoolean(true);
 
-                if (proveedores.Guardar_sql()) //verificamos que no devuelva error el comando sql
+                if (proveedores.Guardar_Sql()) //verificamos que no devuelva error el comando sql
                 {
                     Limpiado_Proveedores();
                 }
@@ -120,7 +120,7 @@ namespace Tecno_Pc.Formularios
                 proveedores.Direccion = txt_direccion.Text;
                 proveedores.IDDepto = int.Parse(cbo_depto.SelectedValue.ToString());
 
-                if (proveedores.Actualizar_datos()) //verifimacmos que no devuelva error el comando sql
+                if (proveedores.Actualizar_Datos()) //verifimacmos que no devuelva error el comando sql
                 {
                     Limpiado_Proveedores();
                     this.Close();

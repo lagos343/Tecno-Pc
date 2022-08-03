@@ -83,7 +83,7 @@ namespace Tecno_Pc.Formularios
             // lbl_Mensaje
             // 
             this.lbl_Mensaje.BackColor = System.Drawing.Color.Transparent;
-            this.lbl_Mensaje.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.lbl_Mensaje.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lbl_Mensaje.ForeColor = System.Drawing.Color.Gray;
             this.lbl_Mensaje.Location = new System.Drawing.Point(12, 133);
             this.lbl_Mensaje.Name = "lbl_Mensaje";
@@ -101,7 +101,7 @@ namespace Tecno_Pc.Formularios
             this.btn_confirmar.BorderColor = System.Drawing.Color.Transparent;
             this.btn_confirmar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_confirmar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_confirmar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_confirmar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_confirmar.ForeColor = System.Drawing.Color.White;
             this.btn_confirmar.Image = null;
             this.btn_confirmar.ImageSize = new System.Drawing.Size(20, 20);
@@ -129,7 +129,7 @@ namespace Tecno_Pc.Formularios
             this.btn_cancelar.BorderColor = System.Drawing.Color.Transparent;
             this.btn_cancelar.DialogResult = System.Windows.Forms.DialogResult.None;
             this.btn_cancelar.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_cancelar.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold);
+            this.btn_cancelar.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btn_cancelar.ForeColor = System.Drawing.Color.White;
             this.btn_cancelar.Image = null;
             this.btn_cancelar.ImageSize = new System.Drawing.Size(20, 20);

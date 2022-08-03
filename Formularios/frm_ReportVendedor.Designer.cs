@@ -32,6 +32,10 @@ namespace Tecno_Pc.Formularios
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frm_ReportVendedor));
             this.panel1 = new System.Windows.Forms.Panel();
+            this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.radio_gen = new System.Windows.Forms.RadioButton();
+            this.radio_ventas = new System.Windows.Forms.RadioButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.salir = new Guna.UI.WinForms.GunaPictureBox();
             this.minimizar = new Guna.UI.WinForms.GunaPictureBox();
@@ -39,20 +43,16 @@ namespace Tecno_Pc.Formularios
             this.lbl_titulo = new Guna.UI.WinForms.GunaLabel();
             this.btn_salir = new Guna.UI.WinForms.GunaPictureBox();
             this.gunaPictureBox1 = new Guna.UI.WinForms.GunaPictureBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.radio_gen = new System.Windows.Forms.RadioButton();
-            this.radio_ventas = new System.Windows.Forms.RadioButton();
-            this.btn_imprimir = new Guna.UI.WinForms.GunaGradientButton();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.gunaElipse1 = new Guna.UI.WinForms.GunaElipse(this.components);
             this.panel1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).BeginInit();
-            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -65,6 +65,78 @@ namespace Tecno_Pc.Formularios
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(351, 358);
             this.panel1.TabIndex = 62;
+            // 
+            // btn_imprimir
+            // 
+            this.btn_imprimir.AnimationHoverSpeed = 0.07F;
+            this.btn_imprimir.AnimationSpeed = 0.03F;
+            this.btn_imprimir.BackColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.btn_imprimir.BaseColor2 = System.Drawing.Color.MediumBlue;
+            this.btn_imprimir.BorderColor = System.Drawing.Color.Black;
+            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btn_imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
+            this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
+            this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.Image = null;
+            this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
+            this.btn_imprimir.Location = new System.Drawing.Point(13, 314);
+            this.btn_imprimir.Name = "btn_imprimir";
+            this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
+            this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
+            this.btn_imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.OnHoverForeColor = System.Drawing.Color.White;
+            this.btn_imprimir.OnHoverImage = null;
+            this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
+            this.btn_imprimir.Radius = 3;
+            this.btn_imprimir.Size = new System.Drawing.Size(324, 31);
+            this.btn_imprimir.TabIndex = 64;
+            this.btn_imprimir.Text = "REPORTES";
+            this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.groupBox1.Controls.Add(this.radio_gen);
+            this.groupBox1.Controls.Add(this.radio_ventas);
+            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
+            this.groupBox1.Location = new System.Drawing.Point(13, 81);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 183);
+            this.groupBox1.TabIndex = 65;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "TIPO DE REPORTE";
+            // 
+            // radio_gen
+            // 
+            this.radio_gen.AutoSize = true;
+            this.radio_gen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_gen.ForeColor = System.Drawing.Color.Gray;
+            this.radio_gen.Location = new System.Drawing.Point(30, 50);
+            this.radio_gen.Margin = new System.Windows.Forms.Padding(2);
+            this.radio_gen.Name = "radio_gen";
+            this.radio_gen.Size = new System.Drawing.Size(75, 19);
+            this.radio_gen.TabIndex = 50;
+            this.radio_gen.TabStop = true;
+            this.radio_gen.Text = "GENERAL";
+            this.radio_gen.UseVisualStyleBackColor = true;
+            // 
+            // radio_ventas
+            // 
+            this.radio_ventas.AutoSize = true;
+            this.radio_ventas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.radio_ventas.ForeColor = System.Drawing.Color.Gray;
+            this.radio_ventas.Location = new System.Drawing.Point(30, 96);
+            this.radio_ventas.Margin = new System.Windows.Forms.Padding(2);
+            this.radio_ventas.Name = "radio_ventas";
+            this.radio_ventas.Size = new System.Drawing.Size(155, 19);
+            this.radio_ventas.TabIndex = 51;
+            this.radio_ventas.TabStop = true;
+            this.radio_ventas.Text = "VENTAS POR VENDEDOR";
+            this.radio_ventas.UseVisualStyleBackColor = true;
             // 
             // panel2
             // 
@@ -155,78 +227,6 @@ namespace Tecno_Pc.Formularios
             this.gunaPictureBox1.TabIndex = 2;
             this.gunaPictureBox1.TabStop = false;
             // 
-            // groupBox1
-            // 
-            this.groupBox1.BackColor = System.Drawing.Color.Transparent;
-            this.groupBox1.Controls.Add(this.radio_gen);
-            this.groupBox1.Controls.Add(this.radio_ventas);
-            this.groupBox1.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.ForeColor = System.Drawing.Color.Gray;
-            this.groupBox1.Location = new System.Drawing.Point(13, 77);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 183);
-            this.groupBox1.TabIndex = 65;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "TIPO DE REPORTE";
-            // 
-            // radio_gen
-            // 
-            this.radio_gen.AutoSize = true;
-            this.radio_gen.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_gen.ForeColor = System.Drawing.Color.Gray;
-            this.radio_gen.Location = new System.Drawing.Point(30, 50);
-            this.radio_gen.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_gen.Name = "radio_gen";
-            this.radio_gen.Size = new System.Drawing.Size(75, 19);
-            this.radio_gen.TabIndex = 50;
-            this.radio_gen.TabStop = true;
-            this.radio_gen.Text = "GENERAL";
-            this.radio_gen.UseVisualStyleBackColor = true;
-            // 
-            // radio_ventas
-            // 
-            this.radio_ventas.AutoSize = true;
-            this.radio_ventas.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.radio_ventas.ForeColor = System.Drawing.Color.Gray;
-            this.radio_ventas.Location = new System.Drawing.Point(30, 96);
-            this.radio_ventas.Margin = new System.Windows.Forms.Padding(2);
-            this.radio_ventas.Name = "radio_ventas";
-            this.radio_ventas.Size = new System.Drawing.Size(155, 19);
-            this.radio_ventas.TabIndex = 51;
-            this.radio_ventas.TabStop = true;
-            this.radio_ventas.Text = "VENTAS POR VENDEDOR";
-            this.radio_ventas.UseVisualStyleBackColor = true;
-            // 
-            // btn_imprimir
-            // 
-            this.btn_imprimir.AnimationHoverSpeed = 0.07F;
-            this.btn_imprimir.AnimationSpeed = 0.03F;
-            this.btn_imprimir.BackColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.BaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.BaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.BorderColor = System.Drawing.Color.Black;
-            this.btn_imprimir.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.btn_imprimir.DialogResult = System.Windows.Forms.DialogResult.None;
-            this.btn_imprimir.FocusedColor = System.Drawing.Color.Empty;
-            this.btn_imprimir.Font = new System.Drawing.Font("Segoe UI", 9F);
-            this.btn_imprimir.ForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.Image = null;
-            this.btn_imprimir.ImageSize = new System.Drawing.Size(20, 20);
-            this.btn_imprimir.Location = new System.Drawing.Point(13, 314);
-            this.btn_imprimir.Name = "btn_imprimir";
-            this.btn_imprimir.OnHoverBaseColor1 = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(99)))), ((int)(((byte)(177)))));
-            this.btn_imprimir.OnHoverBaseColor2 = System.Drawing.Color.MediumBlue;
-            this.btn_imprimir.OnHoverBorderColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.OnHoverForeColor = System.Drawing.Color.White;
-            this.btn_imprimir.OnHoverImage = null;
-            this.btn_imprimir.OnPressedColor = System.Drawing.Color.Transparent;
-            this.btn_imprimir.Radius = 3;
-            this.btn_imprimir.Size = new System.Drawing.Size(324, 31);
-            this.btn_imprimir.TabIndex = 64;
-            this.btn_imprimir.Text = "REPORTES";
-            this.btn_imprimir.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            this.btn_imprimir.Click += new System.EventHandler(this.btn_imprimir_Click);
-            // 
             // gunaElipse1
             // 
             this.gunaElipse1.TargetControl = this;
@@ -245,6 +245,8 @@ namespace Tecno_Pc.Formularios
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Empleados";
             this.panel1.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.salir)).EndInit();
@@ -252,8 +254,6 @@ namespace Tecno_Pc.Formularios
             ((System.ComponentModel.ISupportInitialize)(this.btn_minimizar)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.btn_salir)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.gunaPictureBox1)).EndInit();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -21,12 +21,12 @@ namespace Tecno_Pc.Clases
         private string correo_recuperacion = "pctecno536@gmail.com";
         private string contraseña_correo_recuperacion = "gbpuasibhhsjxcrp";
         private MailMessage mmsg_recuperacion = new MailMessage();
-        SmtpClient cliente_bd = new SmtpClient();
+        SmtpClient cliente_smtp = new SmtpClient();
 
         public string correos_recuperacion { get => correo_recuperacion; set => correo_recuperacion = value; }
         public string contraseñas_correo_recuperacion { get => contraseña_correo_recuperacion; set => contraseña_correo_recuperacion = value; }        
 
-        public void Enviar_correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
+        public void Enviar_Correo() //procedimientoo que se encarga dde lo correos electronicos para recuperar contraseña
         {
             //creacion de el mensaje y su cuerpo 
             mmsg_recuperacion.To.Add(user_log.Correo_Usuario);
@@ -41,14 +41,14 @@ namespace Tecno_Pc.Clases
             mmsg_recuperacion.From = new MailAddress(correos_recuperacion);
             
             //configuramos el cliente stmp dependiendo del dominio de el email (Gmail en este caso)  
-            cliente_bd.Credentials = new NetworkCredential(correos_recuperacion, contraseñas_correo_recuperacion);
-            cliente_bd.Port = 587;
-            cliente_bd.EnableSsl = true;
-            cliente_bd.Host = "smtp.gmail.com";
+            cliente_smtp.Credentials = new NetworkCredential(correos_recuperacion, contraseñas_correo_recuperacion);
+            cliente_smtp.Port = 587;
+            cliente_smtp.EnableSsl = true;
+            cliente_smtp.Host = "smtp.gmail.com";
 
             try  //se intenta enviar el correo 
             {
-                cliente_bd.Send(mmsg_recuperacion);
+                cliente_smtp.Send(mmsg_recuperacion);
                 Formularios.frm_notificacion noti_recuperacion = new Formularios.frm_notificacion("Se ha enviado un Email con los datos de inicio de sesion",1);
                 noti_recuperacion.ShowDialog();
                 noti_recuperacion.Close();

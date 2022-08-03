@@ -32,18 +32,18 @@ namespace Tecno_Pc.Formularios
 
         private void frm_productos_Load(object sender, EventArgs e) //Load para llamar el Dashboard
         {
-            Dashboard();
+            Dashboard_Productos();
             Usuario_Productos();
         }
 
-        public void Dashboard() //manda a llamar la informacion que se muestra en los Widgets
+        public void Dashboard_Productos() //manda a llamar la informacion que se muestra en los Widgets
         {
-            lbl_totalProductos.Text = sql.Consulta_registro("select *from Productos where estado_producto = 1").Rows.Count.ToString();
-            lbl_totalMarcas.Text = sql.Consulta_registro("select *from Marcas").Rows.Count.ToString();
-            lbl_TotalCategorias.Text = sql.Consulta_registro("select *from Categorias").Rows.Count.ToString();
-            lbl_ProductosTotales.Text = sql.Consulta2_registro("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
+            lbl_totalProductos.Text = sql.Consulta_Registro("select *from Productos where estado_producto = 1").Rows.Count.ToString();
+            lbl_totalMarcas.Text = sql.Consulta_Registro("select *from Marcas").Rows.Count.ToString();
+            lbl_TotalCategorias.Text = sql.Consulta_Registro("select *from Categorias").Rows.Count.ToString();
+            lbl_ProductosTotales.Text = sql.Consulta2_Registro("select sum(stock_producto) as Stock from Inventarios i inner join Productos p on p.[id_producto] = i.[id_producto] where p.estado_producto = 1");
 
-            prod.consultarDatos(dgv_Productos); //llamamos la informacion de los registros de la tabla al Datagrid
+            prod.Consultar_Datos(dgv_Productos); //llamamos la informacion de los registros de la tabla al Datagrid
 
             foreach (DataGridViewColumn columna in dgv_Productos.Columns)
             {
@@ -101,7 +101,7 @@ namespace Tecno_Pc.Formularios
         private void txt_buscar_TextChanged(object sender, EventArgs e) //se encarga de relizar as busqueda filtradas que se cargaran el el datagrid
         {
             prod.Nombre_Producto = txt_buscar.Text;
-            prod.buscarDatos(dgv_Productos);
+            prod.Buscar_Datos(dgv_Productos);
             Operaciones_DataGrid();
         }
 
@@ -130,10 +130,10 @@ namespace Tecno_Pc.Formularios
                     if (noti.dialogs_resul == DialogResult.OK)
                     {
                         prod.IDProducto = int.Parse(dgv_Productos.CurrentRow.Cells[2].Value.ToString());
-                        prod.eliminarDatos();
+                        prod.Eliminar_Datos();
                     }
 
-                    Dashboard();
+                    Dashboard_Productos();
                     noti.Close();
                 }
             }
@@ -154,7 +154,7 @@ namespace Tecno_Pc.Formularios
             btn_Imprimir.Enabled = true;
 
             Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-            frm.abrirPdfs(new frm_productos()); //abrimos el pdf
+            frm.Abrir_Pdfs(new frm_productos()); //abrimos el pdf
         }
 
         private void Reporte_Productos() //mandamos a la clase de reporte la info necesaria para geneerar este reporte
@@ -169,7 +169,7 @@ namespace Tecno_Pc.Formularios
             rep.Carpeta = "Productos";
             rep.Fecha = DateTime.Now.ToShortDateString();
             rep.Vertical = false;
-            rep.Generar_pdf(); //generamos el pdf
+            rep.Generar_Pdf(); //generamos el pdf
         }        
 
         private void Usuario_Productos() //dependiendo del usuario se ocultaran algunas opciones

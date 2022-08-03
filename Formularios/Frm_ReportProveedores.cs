@@ -32,7 +32,7 @@ namespace Tecno_Pc.Formularios
             this.toolTip1.SetToolTip(this.btn_imprimir, "Crear Reporte");
 
             //cargado de la informacion del Combobox
-            cbo_proveedor.DataSource = sql.Consulta_registro("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
+            cbo_proveedor.DataSource = sql.Consulta_Registro("select *from Proveedores where estado_proveedor = 1 order by nombre_proveedor asc");
             cbo_proveedor.DisplayMember = "nombre_proveedor";
             cbo_proveedor.ValueMember = "id_proveedor";
             cbo_proveedor.SelectedIndex = -1;
@@ -62,7 +62,7 @@ namespace Tecno_Pc.Formularios
                 if (ReporteGenerado) //en caso de que estemos generando un reporte
                 {
                     Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-                    frm.abrirPdfs(new frm_proveedores()); //abrimos el pdf
+                    frm.Abrir_Pdfs(new frm_proveedores()); //abrimos el pdf
                     frm.BringToFront();
                     ReporteGenerado = false;
                 }                
@@ -82,7 +82,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Proveedores";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = false;
-                rep.Generar_pdf();
+                rep.Generar_Pdf();
                 ReporteGenerado = true;
             }
             else
@@ -99,7 +99,7 @@ namespace Tecno_Pc.Formularios
                     rep.Carpeta = "Productos";
                     rep.Fecha = DateTime.Now.ToShortDateString();
                     rep.Vertical = false;
-                    rep.Generar_pdf();
+                    rep.Generar_Pdf();
                     ReporteGenerado = true;
                 }
                 else

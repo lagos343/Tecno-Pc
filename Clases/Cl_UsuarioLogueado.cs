@@ -22,7 +22,7 @@ namespace Tecno_Pc.Clases
         private static int id_empleado;
         private static string usuario;
         private static string contraseña_usuario;
-        private static string propietario;        
+        private static string propietario_usuario;        
         private static string correo_usuario;
         private static string telefono_usuario;
         private static string rol_usuario;
@@ -39,7 +39,7 @@ namespace Tecno_Pc.Clases
         public int Id_Empleado { get => id_empleado; set => id_empleado = value; }
         public string Usuario { get => usuario; set => usuario = value; }
         public string Contraseña_Usuario { get => contraseña_usuario; set => contraseña_usuario = value; }
-        public string Propietario_Usuario { get => propietario; set => propietario = value; }
+        public string Propietario_Usuario { get => propietario_usuario; set => propietario_usuario = value; }
         public string Correo_Usuario { get => correo_usuario; set => correo_usuario = value; }
         public string Telefono_Usuario { get => telefono_usuario; set => telefono_usuario = value; }
         public string Rol_Usuario { get => rol_usuario; set => rol_usuario = value; }
@@ -55,7 +55,7 @@ namespace Tecno_Pc.Clases
                 "(e.nombre_empleado + ' ' + e.apellido_empleado) Propietario, e.[correo_electronico], e.telefono_empleado, " +
                 "r.[nombre_rol], u.estado_usuario from Usuarios u inner join Roles r on u.[id_rol] = r.id_rol inner join Empleados e on u.[id_empleado] = e.[id_empleado] where " +
                 "[nombre_usuario] = '" + usuario+ "' and u.estado_usuario = 1";
-            datos = Consulta_registro(cadena);
+            datos = Consulta_Registro(cadena);
 
             try//intentamos extraer la informacion si ha devuelto algun registro la consulta sql 
             {
@@ -65,7 +65,7 @@ namespace Tecno_Pc.Clases
                 id_empleado = int.Parse(datos.Rows[0][2].ToString());
                 usuario = datos.Rows[0][3].ToString();
                 contraseña_usuario = datos.Rows[0][4].ToString();
-                propietario = datos.Rows[0][5].ToString();
+                propietario_usuario = datos.Rows[0][5].ToString();
                 correo_usuario = datos.Rows[0][6].ToString();
                 telefono_usuario = datos.Rows[0][7].ToString();
                 rol_usuario = datos.Rows[0][8].ToString();

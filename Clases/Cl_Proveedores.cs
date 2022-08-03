@@ -31,33 +31,33 @@ namespace Tecno_Pc.Clases
         #endregion
 
         //Procedimientos que se heredan de la clase sql para hacer CRUD 
-        public bool Guardar_sql()
+        public bool Guardar_Sql()
         {
-            return Sql_query("insert into Proveedores values ("+id_depto+", '"+nombre_proveedor+"', '"+telefono_proveedor+"', '"+direccion_proveedor+"', '"+correo_electronico+"', " + Convert.ToInt32(estado_pedido) + ")", 
+            return Sql_Query("insert into Proveedores values ("+id_depto+", '"+nombre_proveedor+"', '"+telefono_proveedor+"', '"+direccion_proveedor+"', '"+correo_electronico+"', " + Convert.ToInt32(estado_pedido) + ")", 
                 "Proveedor añadid con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
-        public void Consultar_datos(DataGridView dgv) //llena el datagrid con los registros
+        public void Consultar_Datos(DataGridView dgv) //llena el datagrid con los registros
         {
-            dgv.DataSource = Consulta_registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores where " +
+            dgv.DataSource = Consulta_Registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores where " +
                 "estado_proveedor = 1 order by nombre_proveedor asc");
         }
 
-        public void Buscar_datos(DataGridView dgv) //busquedas filtradas
+        public void Buscar_Datos(DataGridView dgv) //busquedas filtradas
         {
-            dgv.DataSource = Consulta_registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores " +
+            dgv.DataSource = Consulta_Registro("select *, (select [nombre_depto]  from Departamentos where Departamentos .[id_depto] = Proveedores .[id_depto] ) as Departamento from Proveedores " +
                 "where estado_proveedor = 1 and nombre_proveedor Like '%" + nombre_proveedor+ "%' order by nombre_proveedor asc");
         }
 
-        public bool Actualizar_datos()
+        public bool Actualizar_Datos()
         {
-            return Sql_query("update Proveedores set [id_depto] ="+id_depto + ", nombre_proveedor = '" + nombre_proveedor+ "', telefono_proveedor = '" + telefono_proveedor+ "', direccion_proveedor = '" + direccion_proveedor+"', [correo_electronico] = '"+correo_electronico+"' " +
+            return Sql_Query("update Proveedores set [id_depto] ="+id_depto + ", nombre_proveedor = '" + nombre_proveedor+ "', telefono_proveedor = '" + telefono_proveedor+ "', direccion_proveedor = '" + direccion_proveedor+"', [correo_electronico] = '"+correo_electronico+"' " +
                 "where[id_proveedor] = "+id_Proveedor, "Categoria actualizada con exito", "Existen Datos Repetidos, Cambiar Correo o Nombre"); //si devuelve false el proveedor esta repetido o su correo
         }
 
-        public void Eliminar_datos()
+        public void Eliminar_Datos()
         {
-            Sql_querys("update Proveedores set estado_proveedor = 0 where [id_proveedor] =" + id_Proveedor,"Se ha elminado al proveedor", "Error al eliminar");
+            Sql_Querys("update Proveedores set estado_proveedor = 0 where [id_proveedor] =" + id_Proveedor,"Se ha elminado al proveedor", "Error al eliminar");
 
             Formularios.frm_proveedores frm = Application.OpenForms.OfType<Formularios.frm_proveedores>().SingleOrDefault();
             frm.Carga_Proveedores();

@@ -51,7 +51,7 @@ namespace Tecno_Pc.Formularios
                 btn_imprimir.Enabled = true;
 
                 Formularios.frm_principal frm = Application.OpenForms.OfType<Formularios.frm_principal>().SingleOrDefault();
-                frm.abrirPdfs(new frm_empleados()); //abrimos el pdf
+                frm.Abrir_Pdfs(new frm_empleados()); //abrimos el pdf
                 frm.BringToFront();                
             }
         }
@@ -69,7 +69,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Empleados";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = false;
-                rep.Generar_pdf();
+                rep.Generar_Pdf();
             }
             else
             {
@@ -83,7 +83,7 @@ namespace Tecno_Pc.Formularios
                 rep.Carpeta = "Empleados";
                 rep.Fecha = DateTime.Now.ToShortDateString();
                 rep.Vertical = true;
-                rep.Generar_pdf();
+                rep.Generar_Pdf();
             }
         }
 
